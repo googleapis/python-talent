@@ -2800,8 +2800,7 @@ CustomAttribute = _reflection.GeneratedProtocolMessageType(
     dict(
         DESCRIPTOR=_CUSTOMATTRIBUTE,
         __module__="google.cloud.talent_v4beta1.proto.common_pb2",
-        __doc__="""Custom attribute values that are either filterable or
-  non-filterable.
+        __doc__="""Custom attribute values that are either filterable or non-filterable.
   
   
   Attributes:
