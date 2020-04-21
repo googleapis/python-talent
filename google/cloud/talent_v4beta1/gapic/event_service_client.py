@@ -32,17 +32,18 @@ import grpc
 from google.cloud.talent_v4beta1.gapic import enums
 from google.cloud.talent_v4beta1.gapic import event_service_client_config
 from google.cloud.talent_v4beta1.gapic.transports import event_service_grpc_transport
-from google.cloud.talent_v4beta1.proto import application_pb2
-from google.cloud.talent_v4beta1.proto import application_service_pb2
-from google.cloud.talent_v4beta1.proto import application_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import company_pb2
-from google.cloud.talent_v4beta1.proto import company_service_pb2
-from google.cloud.talent_v4beta1.proto import company_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import completion_service_pb2
-from google.cloud.talent_v4beta1.proto import completion_service_pb2_grpc
+from google.cloud.talent_v4beta1.proto import common_pb2
 from google.cloud.talent_v4beta1.proto import event_pb2
 from google.cloud.talent_v4beta1.proto import event_service_pb2
 from google.cloud.talent_v4beta1.proto import event_service_pb2_grpc
+from google.cloud.talent_v4beta1.proto import filters_pb2
+from google.cloud.talent_v4beta1.proto import histogram_pb2
+from google.cloud.talent_v4beta1.proto import profile_pb2
+from google.cloud.talent_v4beta1.proto import profile_service_pb2
+from google.cloud.talent_v4beta1.proto import profile_service_pb2_grpc
+from google.cloud.talent_v4beta1.proto import tenant_pb2
+from google.cloud.talent_v4beta1.proto import tenant_service_pb2
+from google.cloud.talent_v4beta1.proto import tenant_service_pb2_grpc
 from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
 
@@ -229,7 +230,7 @@ class EventServiceClient(object):
             >>>
             >>> client = talent_v4beta1.EventServiceClient()
             >>>
-            >>> parent = client.tenant_path('[PROJECT]', '[TENANT]')
+            >>> parent = client.project_path('[PROJECT]')
             >>>
             >>> # TODO: Initialize `client_event`:
             >>> client_event = {}
