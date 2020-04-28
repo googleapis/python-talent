@@ -39,23 +39,8 @@ if sys.version_info[:2] == (2, 7):
     warnings.warn(message, DeprecationWarning)
 
 
-class TenantServiceClient(tenant_service_client.TenantServiceClient):
-    __doc__ = tenant_service_client.TenantServiceClient.__doc__
-    enums = enums
-
-
-class ProfileServiceClient(profile_service_client.ProfileServiceClient):
-    __doc__ = profile_service_client.ProfileServiceClient.__doc__
-    enums = enums
-
-
-class EventServiceClient(event_service_client.EventServiceClient):
-    __doc__ = event_service_client.EventServiceClient.__doc__
-    enums = enums
-
-
-class ApplicationServiceClient(application_service_client.ApplicationServiceClient):
-    __doc__ = application_service_client.ApplicationServiceClient.__doc__
+class JobServiceClient(job_service_client.JobServiceClient):
+    __doc__ = job_service_client.JobServiceClient.__doc__
     enums = enums
 
 
@@ -64,24 +49,39 @@ class CompanyServiceClient(company_service_client.CompanyServiceClient):
     enums = enums
 
 
-class JobServiceClient(job_service_client.JobServiceClient):
-    __doc__ = job_service_client.JobServiceClient.__doc__
+class CompletionClient(completion_client.CompletionClient):
+    __doc__ = completion_client.CompletionClient.__doc__
     enums = enums
 
 
-class CompletionClient(completion_client.CompletionClient):
-    __doc__ = completion_client.CompletionClient.__doc__
+class ApplicationServiceClient(application_service_client.ApplicationServiceClient):
+    __doc__ = application_service_client.ApplicationServiceClient.__doc__
+    enums = enums
+
+
+class TenantServiceClient(tenant_service_client.TenantServiceClient):
+    __doc__ = tenant_service_client.TenantServiceClient.__doc__
+    enums = enums
+
+
+class EventServiceClient(event_service_client.EventServiceClient):
+    __doc__ = event_service_client.EventServiceClient.__doc__
+    enums = enums
+
+
+class ProfileServiceClient(profile_service_client.ProfileServiceClient):
+    __doc__ = profile_service_client.ProfileServiceClient.__doc__
     enums = enums
 
 
 __all__ = (
     "enums",
     "types",
-    "TenantServiceClient",
-    "ProfileServiceClient",
-    "EventServiceClient",
-    "ApplicationServiceClient",
-    "CompanyServiceClient",
     "JobServiceClient",
+    "CompanyServiceClient",
     "CompletionClient",
+    "ApplicationServiceClient",
+    "TenantServiceClient",
+    "EventServiceClient",
+    "ProfileServiceClient",
 )
