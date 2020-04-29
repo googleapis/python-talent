@@ -39,18 +39,6 @@ from google.cloud.talent_v4beta1.gapic.transports import (
 from google.cloud.talent_v4beta1.proto import application_pb2
 from google.cloud.talent_v4beta1.proto import application_service_pb2
 from google.cloud.talent_v4beta1.proto import application_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import common_pb2
-from google.cloud.talent_v4beta1.proto import company_pb2
-from google.cloud.talent_v4beta1.proto import company_service_pb2
-from google.cloud.talent_v4beta1.proto import company_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import completion_service_pb2
-from google.cloud.talent_v4beta1.proto import completion_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import filters_pb2
-from google.cloud.talent_v4beta1.proto import histogram_pb2
-from google.cloud.talent_v4beta1.proto import job_pb2
-from google.cloud.talent_v4beta1.proto import job_service_pb2
-from google.cloud.talent_v4beta1.proto import job_service_pb2_grpc
-from google.longrunning import operations_pb2
 from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
 
@@ -279,11 +267,11 @@ class ApplicationServiceClient(object):
             >>> client.delete_application(name)
 
         Args:
-            name (str): Required. The resource name of the application to be deleted.
+            name (str): The token that specifies the current offset (that is, starting
+                result).
 
-                The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/profiles/{profile\_id}/applications/{application\_id}".
-                For example, "projects/foo/tenants/bar/profiles/baz/applications/qux".
+                Please set the value to ``ListProfilesResponse.next_page_token`` to
+                continue the list.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -353,12 +341,23 @@ class ApplicationServiceClient(object):
             >>> response = client.create_application(parent, application)
 
         Args:
-            parent (str): Required. Resource name of the profile under which the application is
-                created.
+            parent (str): The filter string specifies the profiles to be enumerated.
 
-                The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/profiles/{profile\_id}".
-                For example, "projects/foo/tenants/bar/profiles/baz".
+                Supported operator: =, AND
+
+                The field(s) eligible for filtering are:
+
+                -  ``externalId``
+                -  ``groupId``
+
+                externalId and groupId cannot be specified at the same time. If both
+                externalId and groupId are provided, the API will return a bad request
+                error.
+
+                Sample Query:
+
+                -  externalId = "externalId-1"
+                -  groupId = "groupId-1"
             application (Union[dict, ~google.cloud.talent_v4beta1.types.Application]): Required. The application to be created.
 
                 If a dict is provided, it must be of the same form as the protobuf
@@ -433,11 +432,17 @@ class ApplicationServiceClient(object):
             >>> response = client.get_application(name)
 
         Args:
-            name (str): Required. The resource name of the application to be retrieved.
+            name (str): Required. The filter string specifies the jobs to be deleted.
 
-                The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/profiles/{profile\_id}/applications/{application\_id}".
-                For example, "projects/foo/tenants/bar/profiles/baz/applications/qux".
+                Supported operator: =, AND
+
+                The fields eligible for filtering are:
+
+                -  ``companyName`` (Required)
+                -  ``requisitionId`` (Required)
+
+                Sample Query: companyName = "projects/foo/companies/bar" AND
+                requisitionId = "req-1"
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -512,13 +517,9 @@ class ApplicationServiceClient(object):
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.talent_v4beta1.types.Application`
-            update_mask (Union[dict, ~google.cloud.talent_v4beta1.types.FieldMask]): Strongly recommended for the best service experience.
+            update_mask (Union[dict, ~google.cloud.talent_v4beta1.types.FieldMask]): Wrapper message for ``uint64``.
 
-                If ``update_mask`` is provided, only the specified fields in
-                ``application`` are updated. Otherwise all the fields are updated.
-
-                A field mask to specify the application fields to be updated. Only top
-                level fields of ``Application`` are supported.
+                The JSON representation for ``UInt64Value`` is JSON string.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.talent_v4beta1.types.FieldMask`
@@ -605,12 +606,25 @@ class ApplicationServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. Resource name of the profile under which the application is
-                created.
+            parent (str): Controls whether to disable exact keyword match on ``Job.title``,
+                ``Job.description``, ``Job.company_display_name``, ``Job.addresses``,
+                ``Job.qualifications``. When disable keyword match is turned off, a
+                keyword match returns jobs that do not match given category filters when
+                there are matching keywords. For example, for the query "program
+                manager," a result is returned even if the job posting has the title
+                "software developer," which doesn't fall into "program manager"
+                ontology, but does have "program manager" appearing in its description.
 
-                The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/profiles/{profile\_id}",
-                for example, "projects/foo/tenants/bar/profiles/baz".
+                For queries like "cloud" that don't contain title or location specific
+                ontology, jobs with "cloud" keyword matches are returned regardless of
+                this flag's value.
+
+                Use ``Company.keyword_searchable_job_custom_attributes`` if
+                company-specific globally matched custom field/attribute string values
+                are needed. Enabling keyword match improves recall of subsequent search
+                requests.
+
+                Defaults to false.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page

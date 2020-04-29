@@ -208,7 +208,11 @@ class JobServiceGrpcTransport(object):
     def batch_delete_jobs(self):
         """Return the gRPC stub for :meth:`JobServiceClient.batch_delete_jobs`.
 
-        Deletes a list of ``Job``\ s by filter.
+        The list of languages of the query. This is the BCP-47 language
+        code, such as "en-US" or "sr-Latn". For more information, see `Tags for
+        Identifying Languages <https://tools.ietf.org/html/bcp47>`__.
+
+        The maximum number of allowed characters is 255.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -234,10 +238,9 @@ class JobServiceGrpcTransport(object):
     def search_jobs(self):
         """Return the gRPC stub for :meth:`JobServiceClient.search_jobs`.
 
-        Searches for jobs using the provided ``SearchJobsRequest``.
-
-        This call constrains the ``visibility`` of jobs present in the database,
-        and only returns jobs that the caller has permission to search against.
+        The token specifying the current offset within search results. See
+        ``SearchJobsResponse.next_page_token`` for an explanation of how to
+        obtain the next set of query results.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -250,15 +253,9 @@ class JobServiceGrpcTransport(object):
     def search_jobs_for_alert(self):
         """Return the gRPC stub for :meth:`JobServiceClient.search_jobs_for_alert`.
 
-        Searches for jobs using the provided ``SearchJobsRequest``.
-
-        This API call is intended for the use case of targeting passive job
-        seekers (for example, job seekers who have signed up to receive email
-        alerts about potential job opportunities), and has different algorithmic
-        adjustments that are targeted to passive job seekers.
-
-        This call constrains the ``visibility`` of jobs present in the database,
-        and only returns jobs the caller has permission to search against.
+        A developer-facing error message, which should be in English. Any
+        user-facing error message should be localized and sent in the
+        ``google.rpc.Status.details`` field, or localized by the client.
 
         Returns:
             Callable: A callable which accepts the appropriate

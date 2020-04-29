@@ -43,11 +43,17 @@ from google.cloud.talent_v4beta1.proto import company_service_pb2
 from google.cloud.talent_v4beta1.proto import company_service_pb2_grpc
 from google.cloud.talent_v4beta1.proto import completion_service_pb2
 from google.cloud.talent_v4beta1.proto import completion_service_pb2_grpc
+from google.cloud.talent_v4beta1.proto import event_pb2
+from google.cloud.talent_v4beta1.proto import event_service_pb2
+from google.cloud.talent_v4beta1.proto import event_service_pb2_grpc
 from google.cloud.talent_v4beta1.proto import filters_pb2
 from google.cloud.talent_v4beta1.proto import histogram_pb2
 from google.cloud.talent_v4beta1.proto import job_pb2
 from google.cloud.talent_v4beta1.proto import job_service_pb2
 from google.cloud.talent_v4beta1.proto import job_service_pb2_grpc
+from google.cloud.talent_v4beta1.proto import profile_pb2
+from google.cloud.talent_v4beta1.proto import profile_service_pb2
+from google.cloud.talent_v4beta1.proto import profile_service_pb2_grpc
 from google.cloud.talent_v4beta1.proto import tenant_pb2
 from google.cloud.talent_v4beta1.proto import tenant_service_pb2
 from google.cloud.talent_v4beta1.proto import tenant_service_pb2_grpc
@@ -238,8 +244,8 @@ class TenantServiceClient(object):
         Args:
             name (str): Required. The resource name of the tenant to be deleted.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}", for
-                example, "projects/foo/tenants/bar".
+                The format is "projects/{project_id}/tenants/{tenant_id}", for example,
+                "projects/foo/tenants/bar".
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -309,10 +315,11 @@ class TenantServiceClient(object):
             >>> response = client.create_tenant(parent, tenant)
 
         Args:
-            parent (str): Required. Resource name of the project under which the tenant is
-                created.
+            parent (str): Required. The resource name of the application to be deleted.
 
-                The format is "projects/{project\_id}", for example, "projects/foo".
+                The format is
+                "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}/applications/{application_id}".
+                For example, "projects/foo/tenants/bar/profiles/baz/applications/qux".
             tenant (Union[dict, ~google.cloud.talent_v4beta1.types.Tenant]): Required. The tenant to be created.
 
                 If a dict is provided, it must be of the same form as the protobuf
@@ -385,10 +392,9 @@ class TenantServiceClient(object):
             >>> response = client.get_tenant(name)
 
         Args:
-            name (str): Required. The resource name of the tenant to be retrieved.
-
-                The format is "projects/{project\_id}/tenants/{tenant\_id}", for
-                example, "projects/foo/tenants/bar".
+            name (str): Output only. Activity name snippet shows how the ``display_name`` is
+                related to a search query. It's empty if the ``display_name`` isn't
+                related to the search query.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -463,13 +469,7 @@ class TenantServiceClient(object):
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.talent_v4beta1.types.Tenant`
-            update_mask (Union[dict, ~google.cloud.talent_v4beta1.types.FieldMask]): Strongly recommended for the best service experience.
-
-                If ``update_mask`` is provided, only the specified fields in ``tenant``
-                are updated. Otherwise all the fields are updated.
-
-                A field mask to specify the tenant fields to be updated. Only top level
-                fields of ``Tenant`` are supported.
+            update_mask (Union[dict, ~google.cloud.talent_v4beta1.types.FieldMask]): The request message for ``Operations.WaitOperation``.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.talent_v4beta1.types.FieldMask`
@@ -556,10 +556,9 @@ class TenantServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. Resource name of the project under which the tenant is
-                created.
-
-                The format is "projects/{project\_id}", for example, "projects/foo".
+            parent (str): If true, The API excludes all candidates with any
+                ``Application.outcome_notes`` matching the outcome reason specified in
+                the filter.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page

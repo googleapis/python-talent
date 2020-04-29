@@ -35,7 +35,6 @@ from google.cloud.talent_v4beta1.gapic.transports import event_service_grpc_tran
 from google.cloud.talent_v4beta1.proto import application_pb2
 from google.cloud.talent_v4beta1.proto import application_service_pb2
 from google.cloud.talent_v4beta1.proto import application_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import common_pb2
 from google.cloud.talent_v4beta1.proto import company_pb2
 from google.cloud.talent_v4beta1.proto import company_service_pb2
 from google.cloud.talent_v4beta1.proto import company_service_pb2_grpc
@@ -44,15 +43,6 @@ from google.cloud.talent_v4beta1.proto import completion_service_pb2_grpc
 from google.cloud.talent_v4beta1.proto import event_pb2
 from google.cloud.talent_v4beta1.proto import event_service_pb2
 from google.cloud.talent_v4beta1.proto import event_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import filters_pb2
-from google.cloud.talent_v4beta1.proto import histogram_pb2
-from google.cloud.talent_v4beta1.proto import job_pb2
-from google.cloud.talent_v4beta1.proto import job_service_pb2
-from google.cloud.talent_v4beta1.proto import job_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import tenant_pb2
-from google.cloud.talent_v4beta1.proto import tenant_service_pb2
-from google.cloud.talent_v4beta1.proto import tenant_service_pb2_grpc
-from google.longrunning import operations_pb2
 from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
 
@@ -226,20 +216,18 @@ class EventServiceClient(object):
         metadata=None,
     ):
         """
-        Report events issued when end user interacts with customer's application
-        that uses Cloud Talent Solution. You may inspect the created events in
-        `self service
-        tools <https://console.cloud.google.com/talent-solution/overview>`__.
-        `Learn
-        more <https://cloud.google.com/talent-solution/docs/management-tools>`__
-        about self service tools.
+        Required. Resource name of the profile to get.
+
+        The format is
+        "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}". For
+        example, "projects/foo/tenants/bar/profiles/baz".
 
         Example:
             >>> from google.cloud import talent_v4beta1
             >>>
             >>> client = talent_v4beta1.EventServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> parent = client.tenant_path('[PROJECT]', '[TENANT]')
             >>>
             >>> # TODO: Initialize `client_event`:
             >>> client_event = {}
@@ -247,11 +235,10 @@ class EventServiceClient(object):
             >>> response = client.create_client_event(parent, client_event)
 
         Args:
-            parent (str): Required. Resource name of the tenant under which the event is created.
-
-                The format is "projects/{project\_id}/tenants/{tenant\_id}", for
-                example, "projects/foo/tenant/bar". If tenant id is unspecified, a
-                default tenant is created, for example, "projects/foo".
+            parent (str): In addition to exact location matching, job is returned when
+                ``LocationFilter`` in search query is in the same country as this job.
+                For example, if a ``NATION_WIDE`` job is posted in "USA", it's returned
+                if ``LocationFilter`` has 'Mountain View'.
             client_event (Union[dict, ~google.cloud.talent_v4beta1.types.ClientEvent]): Required. Events issued when end user interacts with customer's application that
                 uses Cloud Talent Solution.
 

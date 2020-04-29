@@ -114,13 +114,11 @@ class EventServiceGrpcTransport(object):
     def create_client_event(self):
         """Return the gRPC stub for :meth:`EventServiceClient.create_client_event`.
 
-        Report events issued when end user interacts with customer's application
-        that uses Cloud Talent Solution. You may inspect the created events in
-        `self service
-        tools <https://console.cloud.google.com/talent-solution/overview>`__.
-        `Learn
-        more <https://cloud.google.com/talent-solution/docs/management-tools>`__
-        about self service tools.
+        Required. Resource name of the profile to get.
+
+        The format is
+        "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}". For
+        example, "projects/foo/tenants/bar/profiles/baz".
 
         Returns:
             Callable: A callable which accepts the appropriate

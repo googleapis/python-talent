@@ -34,16 +34,12 @@ import grpc
 from google.cloud.talent_v4beta1.gapic import company_service_client_config
 from google.cloud.talent_v4beta1.gapic import enums
 from google.cloud.talent_v4beta1.gapic.transports import company_service_grpc_transport
-from google.cloud.talent_v4beta1.proto import common_pb2
+from google.cloud.talent_v4beta1.proto import application_pb2
+from google.cloud.talent_v4beta1.proto import application_service_pb2
+from google.cloud.talent_v4beta1.proto import application_service_pb2_grpc
 from google.cloud.talent_v4beta1.proto import company_pb2
 from google.cloud.talent_v4beta1.proto import company_service_pb2
 from google.cloud.talent_v4beta1.proto import company_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import filters_pb2
-from google.cloud.talent_v4beta1.proto import histogram_pb2
-from google.cloud.talent_v4beta1.proto import job_pb2
-from google.cloud.talent_v4beta1.proto import job_service_pb2
-from google.cloud.talent_v4beta1.proto import job_service_pb2_grpc
-from google.longrunning import operations_pb2
 from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
 
@@ -246,14 +242,9 @@ class CompanyServiceClient(object):
             >>> client.delete_company(name)
 
         Args:
-            name (str): Required. The resource name of the company to be deleted.
+            name (str): Wrapper message for ``uint32``.
 
-                The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/companies/{company\_id}",
-                for example, "projects/foo/tenants/bar/companies/baz".
-
-                If tenant id is unspecified, the default tenant is used, for example,
-                "projects/foo/companies/bar".
+                The JSON representation for ``UInt32Value`` is JSON number.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -315,7 +306,7 @@ class CompanyServiceClient(object):
             >>>
             >>> client = talent_v4beta1.CompanyServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> parent = client.tenant_path('[PROJECT]', '[TENANT]')
             >>>
             >>> # TODO: Initialize `company`:
             >>> company = {}
@@ -323,12 +314,12 @@ class CompanyServiceClient(object):
             >>> response = client.create_company(parent, company)
 
         Args:
-            parent (str): Required. Resource name of the tenant under which the company is
-                created.
+            parent (str): A field mask to specify the profile fields to be listed in response.
+                All fields are listed if it is unset.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}", for
-                example, "projects/foo/tenant/bar". If tenant id is unspecified, a
-                default tenant is created, for example, "projects/foo".
+                Valid values are:
+
+                -  name
             company (Union[dict, ~google.cloud.talent_v4beta1.types.Company]): Required. The company to be created.
 
                 If a dict is provided, it must be of the same form as the protobuf
@@ -403,14 +394,17 @@ class CompanyServiceClient(object):
             >>> response = client.get_company(name)
 
         Args:
-            name (str): Required. The resource name of the company to be retrieved.
+            name (str): This filter specifies the locale of jobs to search against, for
+                example, "en-US".
 
-                The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/companies/{company\_id}",
-                for example, "projects/api-test-project/tenants/foo/companies/bar".
+                If a value isn't specified, the search results can contain jobs in any
+                locale.
 
-                If tenant id is unspecified, the default tenant is used, for example,
-                "projects/api-test-project/companies/bar".
+                Language codes should be in BCP-47 format, such as "en-US" or "sr-Latn".
+                For more information, see `Tags for Identifying
+                Languages <https://tools.ietf.org/html/bcp47>`__.
+
+                At most 10 language code filters are allowed.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -487,11 +481,21 @@ class CompanyServiceClient(object):
                 message :class:`~google.cloud.talent_v4beta1.types.Company`
             update_mask (Union[dict, ~google.cloud.talent_v4beta1.types.FieldMask]): Strongly recommended for the best service experience.
 
-                If ``update_mask`` is provided, only the specified fields in ``company``
-                are updated. Otherwise all the fields are updated.
+                Location(s) where the employer is looking to hire for this job posting.
 
-                A field mask to specify the company fields to be updated. Only top level
-                fields of ``Company`` are supported.
+                Specifying the full street address(es) of the hiring location enables
+                better API results, especially job searches by commute time.
+
+                At most 50 locations are allowed for best search performance. If a job
+                has more locations, it is suggested to split it into multiple jobs with
+                unique ``requisition_id``\ s (e.g. 'ReqA' becomes 'ReqA-1', 'ReqA-2',
+                and so on.) as multiple jobs with the same ``company``,
+                ``language_code`` and ``requisition_id`` are not allowed. If the
+                original ``requisition_id`` must be preserved, a custom field should be
+                used for storage. It is also suggested to group the locations that close
+                to each other in the same job for better search experience.
+
+                The maximum number of allowed characters is 500.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.talent_v4beta1.types.FieldMask`
@@ -562,7 +566,7 @@ class CompanyServiceClient(object):
             >>>
             >>> client = talent_v4beta1.CompanyServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> parent = client.tenant_path('[PROJECT]', '[TENANT]')
             >>>
             >>> # Iterate over all results
             >>> for element in client.list_companies(parent):
@@ -579,25 +583,38 @@ class CompanyServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. Resource name of the tenant under which the company is
-                created.
+            parent (str): Users can create a profile with only this field field, if
+                ``resume_type`` is ``HRXML``. For example, the API parses this field and
+                creates a profile with all structured fields populated.
+                ``EmploymentRecord``, ``EducationRecord``, and so on. An error is thrown
+                if this field cannot be parsed.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}", for
-                example, "projects/foo/tenant/bar".
-
-                If tenant id is unspecified, the default tenant will be used, for
-                example, "projects/foo".
+                Note that the use of the functionality offered by this field to extract
+                data from resumes is an Alpha feature and as such is not covered by any
+                SLA.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
                 streaming is performed per-page, this determines the maximum number
                 of resources in a page.
-            require_open_jobs (bool): Set to true if the companies requested must have open jobs.
+            require_open_jobs (bool): Required. The filter string specifies the jobs to be enumerated.
 
-                Defaults to false.
+                Supported operator: =, AND
 
-                If true, at most ``page_size`` of companies are fetched, among which
-                only those with open jobs are returned.
+                The fields eligible for filtering are:
+
+                -  ``companyName`` (Required)
+                -  ``requisitionId``
+                -  ``status`` Available values: OPEN, EXPIRED, ALL. Defaults to OPEN if
+                   no value is specified.
+
+                Sample Query:
+
+                -  companyName = "projects/foo/tenants/bar/companies/baz"
+                -  companyName = "projects/foo/tenants/bar/companies/baz" AND
+                   requisitionId = "req-1"
+                -  companyName = "projects/foo/tenants/bar/companies/baz" AND status =
+                   "EXPIRED"
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.

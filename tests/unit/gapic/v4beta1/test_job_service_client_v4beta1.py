@@ -135,7 +135,7 @@ class TestJobServiceClient(object):
             client = talent_v4beta1.JobServiceClient()
 
         # Setup Request
-        parent = client.project_path("[PROJECT]")
+        parent = client.tenant_path("[PROJECT]", "[TENANT]")
         job = {}
 
         response = client.create_job(parent, job)
@@ -155,7 +155,7 @@ class TestJobServiceClient(object):
             client = talent_v4beta1.JobServiceClient()
 
         # Setup request
-        parent = client.project_path("[PROJECT]")
+        parent = client.tenant_path("[PROJECT]", "[TENANT]")
         job = {}
 
         with pytest.raises(CustomException):
@@ -178,7 +178,7 @@ class TestJobServiceClient(object):
             client = talent_v4beta1.JobServiceClient()
 
         # Setup Request
-        parent = client.project_path("[PROJECT]")
+        parent = client.tenant_path("[PROJECT]", "[TENANT]")
         jobs = []
 
         response = client.batch_create_jobs(parent, jobs)
@@ -208,7 +208,7 @@ class TestJobServiceClient(object):
             client = talent_v4beta1.JobServiceClient()
 
         # Setup Request
-        parent = client.project_path("[PROJECT]")
+        parent = client.tenant_path("[PROJECT]", "[TENANT]")
         jobs = []
 
         response = client.batch_create_jobs(parent, jobs)
@@ -356,7 +356,7 @@ class TestJobServiceClient(object):
             client = talent_v4beta1.JobServiceClient()
 
         # Setup Request
-        parent = client.project_path("[PROJECT]")
+        parent = client.tenant_path("[PROJECT]", "[TENANT]")
         jobs = []
 
         response = client.batch_update_jobs(parent, jobs)
@@ -386,7 +386,7 @@ class TestJobServiceClient(object):
             client = talent_v4beta1.JobServiceClient()
 
         # Setup Request
-        parent = client.project_path("[PROJECT]")
+        parent = client.tenant_path("[PROJECT]", "[TENANT]")
         jobs = []
 
         response = client.batch_update_jobs(parent, jobs)
@@ -401,7 +401,7 @@ class TestJobServiceClient(object):
             client = talent_v4beta1.JobServiceClient()
 
         # Setup Request
-        parent = client.project_path("[PROJECT]")
+        parent = client.tenant_path("[PROJECT]", "[TENANT]")
         filter_ = "filter-1274492040"
 
         client.batch_delete_jobs(parent, filter_)
@@ -422,7 +422,7 @@ class TestJobServiceClient(object):
             client = talent_v4beta1.JobServiceClient()
 
         # Setup request
-        parent = client.project_path("[PROJECT]")
+        parent = client.tenant_path("[PROJECT]", "[TENANT]")
         filter_ = "filter-1274492040"
 
         with pytest.raises(CustomException):
@@ -444,7 +444,7 @@ class TestJobServiceClient(object):
             client = talent_v4beta1.JobServiceClient()
 
         # Setup Request
-        parent = client.project_path("[PROJECT]")
+        parent = client.tenant_path("[PROJECT]", "[TENANT]")
         filter_ = "filter-1274492040"
 
         paged_list_response = client.list_jobs(parent, filter_)
@@ -468,7 +468,7 @@ class TestJobServiceClient(object):
             client = talent_v4beta1.JobServiceClient()
 
         # Setup request
-        parent = client.project_path("[PROJECT]")
+        parent = client.tenant_path("[PROJECT]", "[TENANT]")
         filter_ = "filter-1274492040"
 
         paged_list_response = client.list_jobs(parent, filter_)
@@ -500,7 +500,7 @@ class TestJobServiceClient(object):
             client = talent_v4beta1.JobServiceClient()
 
         # Setup Request
-        parent = client.project_path("[PROJECT]")
+        parent = client.tenant_path("[PROJECT]", "[TENANT]")
         request_metadata = {}
 
         paged_list_response = client.search_jobs(parent, request_metadata)
@@ -524,7 +524,7 @@ class TestJobServiceClient(object):
             client = talent_v4beta1.JobServiceClient()
 
         # Setup request
-        parent = client.project_path("[PROJECT]")
+        parent = client.tenant_path("[PROJECT]", "[TENANT]")
         request_metadata = {}
 
         paged_list_response = client.search_jobs(parent, request_metadata)
@@ -556,7 +556,7 @@ class TestJobServiceClient(object):
             client = talent_v4beta1.JobServiceClient()
 
         # Setup Request
-        parent = client.project_path("[PROJECT]")
+        parent = client.tenant_path("[PROJECT]", "[TENANT]")
         request_metadata = {}
 
         paged_list_response = client.search_jobs_for_alert(parent, request_metadata)
@@ -580,7 +580,7 @@ class TestJobServiceClient(object):
             client = talent_v4beta1.JobServiceClient()
 
         # Setup request
-        parent = client.project_path("[PROJECT]")
+        parent = client.tenant_path("[PROJECT]", "[TENANT]")
         request_metadata = {}
 
         paged_list_response = client.search_jobs_for_alert(parent, request_metadata)

@@ -54,9 +54,6 @@ from google.cloud.talent_v4beta1.proto import job_service_pb2_grpc
 from google.cloud.talent_v4beta1.proto import profile_pb2
 from google.cloud.talent_v4beta1.proto import profile_service_pb2
 from google.cloud.talent_v4beta1.proto import profile_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import tenant_pb2
-from google.cloud.talent_v4beta1.proto import tenant_service_pb2
-from google.cloud.talent_v4beta1.proto import tenant_service_pb2_grpc
 from google.longrunning import operations_pb2
 from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
@@ -250,11 +247,11 @@ class ProfileServiceClient(object):
             >>> client.delete_profile(name)
 
         Args:
-            name (str): Required. Resource name of the profile to be deleted.
+            name (str): Required. The resource name of the application to be retrieved.
 
                 The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/profiles/{profile\_id}".
-                For example, "projects/foo/tenants/bar/profiles/baz".
+                "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}/applications/{application_id}".
+                For example, "projects/foo/tenants/bar/profiles/baz/applications/qux".
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -318,13 +315,11 @@ class ProfileServiceClient(object):
         metadata=None,
     ):
         """
-        Searches for profiles within a tenant.
+        Job compensation information.
 
-        For example, search by raw queries "software engineer in Mountain View"
-        or search by structured filters (location filter, education filter,
-        etc.).
-
-        See ``SearchProfilesRequest`` for more information.
+        At most one entry can be of type
+        ``CompensationInfo.CompensationType.BASE``, which is referred as **base
+        compensation entry** for the job.
 
         Example:
             >>> from google.cloud import talent_v4beta1
@@ -351,17 +346,21 @@ class ProfileServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. The resource name of the tenant to search within.
+            parent (str): Output only. Annualized total compensation range. Computed as all
+                compensation entries' ``CompensationEntry.amount`` times
+                ``CompensationEntry.expected_units_per_year``.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}". For
-                example, "projects/foo/tenants/bar".
+                See ``CompensationEntry`` for explanation on compensation annualization.
             request_metadata (Union[dict, ~google.cloud.talent_v4beta1.types.RequestMetadata]): Required. The meta information collected about the profile search user. This is used
                 to improve the search quality of the service. These values are provided by
                 users, and must be precise and consistent.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.talent_v4beta1.types.RequestMetadata`
-            profile_query (Union[dict, ~google.cloud.talent_v4beta1.types.ProfileQuery]): Search query to execute. See ``ProfileQuery`` for more details.
+            profile_query (Union[dict, ~google.cloud.talent_v4beta1.types.ProfileQuery]): Required. The resource name of the tenant to be retrieved.
+
+                The format is "projects/{project_id}/tenants/{tenant_id}", for example,
+                "projects/foo/tenants/bar".
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.talent_v4beta1.types.ProfileQuery`
@@ -370,139 +369,28 @@ class ProfileServiceClient(object):
                 resource, this parameter does not affect the return value. If page
                 streaming is performed per-page, this determines the maximum number
                 of resources in a page.
-            offset (int): An integer that specifies the current offset (that is, starting result)
-                in search results. This field is only considered if ``page_token`` is
-                unset.
+            offset (int): Wrapper message for ``double``.
 
-                The maximum allowed value is 5000. Otherwise an error is thrown.
+                The JSON representation for ``DoubleValue`` is JSON number.
+            disable_spell_check (bool): If set, all the classes from the .proto file are wrapped in a single
+                outer class with the given name. This applies to both Proto1 (equivalent
+                to the old "--one_java_file" option) and Proto2 (where a .proto always
+                translates to a single class, but you may want to explicitly choose the
+                class name).
+            order_by (str): Application Date Range Filter.
 
-                For example, 0 means to search from the first profile, and 10 means to
-                search from the 11th profile. This can be used for pagination, for
-                example pageSize = 10 and offset = 10 means to search from the second
-                page.
-            disable_spell_check (bool): This flag controls the spell-check feature. If ``false``, the service
-                attempts to correct a misspelled query.
-
-                For example, "enginee" is corrected to "engineer".
-            order_by (str): The criteria that determines how search results are sorted. Defaults is
-                "relevance desc" if no value is specified.
-
-                Supported options are:
-
-                -  "relevance desc": By descending relevance, as determined by the API
-                   algorithms.
-                -  "update\_date desc": Sort by ``Profile.update_time`` in descending
-                   order (recently updated profiles first).
-                -  "create\_date desc": Sort by ``Profile.create_time`` in descending
-                   order (recently created profiles first).
-                -  "first\_name": Sort by ``PersonName.PersonStructuredName.given_name``
-                   in ascending order.
-                -  "first\_name desc": Sort by
-                   ``PersonName.PersonStructuredName.given_name`` in descending order.
-                -  "last\_name": Sort by ``PersonName.PersonStructuredName.family_name``
-                   in ascending order.
-                -  "last\_name desc": Sort by
-                   ``PersonName.PersonStructuredName.family_name`` in ascending order.
+                The API matches profiles with ``Application.application_date`` between
+                start date and end date (both boundaries are inclusive). The filter is
+                ignored if both ``start_date`` and ``end_date`` are missing.
             case_sensitive_sort (bool): When sort by field is based on alphabetical order, sort values case
                 sensitively (based on ASCII) when the value is set to true. Default value
                 is case in-sensitive sort (false).
-            histogram_queries (list[Union[dict, ~google.cloud.talent_v4beta1.types.HistogramQuery]]): A list of expressions specifies histogram requests against matching
-                profiles for ``SearchProfilesRequest``.
-
-                The expression syntax looks like a function definition with parameters.
-
-                Function syntax: function\_name(histogram\_facet[, list of buckets])
-
-                Data types:
-
-                -  Histogram facet: facet names with format [a-zA-Z][a-zA-Z0-9\_]+.
-                -  String: string like "any string with backslash escape for quote(")."
-                -  Number: whole number and floating point number like 10, -1 and -0.01.
-                -  List: list of elements with comma(,) separator surrounded by square
-                   brackets. For example, [1, 2, 3] and ["one", "two", "three"].
-
-                Built-in constants:
-
-                -  MIN (minimum number similar to java Double.MIN\_VALUE)
-                -  MAX (maximum number similar to java Double.MAX\_VALUE)
-
-                Built-in functions:
-
-                -  bucket(start, end[, label]) Bucket build-in function creates a bucket
-                   with range of \`start, end). Note that the end is exclusive. For
-                   example, bucket(1, MAX, "positive number") or bucket(1, 10).
-
-                Histogram Facets:
-
-                -  admin1: Admin1 is a global placeholder for referring to state,
-                   province, or the particular term a country uses to define the
-                   geographic structure below the country level. Examples include states
-                   codes such as "CA", "IL", "NY", and provinces, such as "BC".
-                -  locality: Locality is a global placeholder for referring to city,
-                   town, or the particular term a country uses to define the geographic
-                   structure below the admin1 level. Examples include city names such as
-                   "Mountain View" and "New York".
-                -  extended\_locality: Extended locality is concatenated version of
-                   admin1 and locality with comma separator. For example, "Mountain
-                   View, CA" and "New York, NY".
-                -  postal\_code: Postal code of profile which follows locale code.
-                -  country: Country code (ISO-3166-1 alpha-2 code) of profile, such as
-                   US, JP, GB.
-                -  job\_title: Normalized job titles specified in EmploymentHistory.
-                -  company\_name: Normalized company name of profiles to match on.
-                -  institution: The school name. For example, "MIT", "University of
-                   California, Berkeley"
-                -  degree: Highest education degree in ISCED code. Each value in degree
-                   covers a specific level of education, without any expansion to upper
-                   nor lower levels of education degree.
-                -  experience\_in\_months: experience in months. 0 means 0 month to 1
-                   month (exclusive).
-                -  application\_date: The application date specifies application start
-                   dates. See [ApplicationDateFilter\` for more details.
-                -  application\_outcome\_notes: The application outcome reason specifies
-                   the reasons behind the outcome of the job application. See
-                   ``ApplicationOutcomeNotesFilter`` for more details.
-                -  application\_job\_title: The application job title specifies the job
-                   applied for in the application. See ``ApplicationJobFilter`` for more
-                   details.
-                -  hirable\_status: Hirable status specifies the profile's hirable
-                   status.
-                -  string\_custom\_attribute: String custom attributes. Values can be
-                   accessed via square bracket notation like
-                   string\_custom\_attribute["key1"].
-                -  numeric\_custom\_attribute: Numeric custom attributes. Values can be
-                   accessed via square bracket notation like
-                   numeric\_custom\_attribute["key1"].
-
-                Example expressions:
-
-                -  count(admin1)
-                -  count(experience\_in\_months, [bucket(0, 12, "1 year"), bucket(12,
-                   36, "1-3 years"), bucket(36, MAX, "3+ years")])
-                -  count(string\_custom\_attribute["assigned\_recruiter"])
-                -  count(numeric\_custom\_attribute["favorite\_number"], [bucket(MIN, 0,
-                   "negative"), bucket(0, MAX, "non-negative")])
+            histogram_queries (list[Union[dict, ~google.cloud.talent_v4beta1.types.HistogramQuery]]): The status of the job processed. This field is populated if the
+                processing of the ``job`` fails.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.talent_v4beta1.types.HistogramQuery`
-            result_set_id (str): An id that uniquely identifies the result set of a ``SearchProfiles``
-                call. The id should be retrieved from the ``SearchProfilesResponse``
-                message returned from a previous invocation of ``SearchProfiles``.
-
-                A result set is an ordered list of search results.
-
-                If this field is not set, a new result set is computed based on the
-                ``profile_query``. A new ``result_set_id`` is returned as a handle to
-                access this result set.
-
-                If this field is set, the service will ignore the resource and
-                ``profile_query`` values, and simply retrieve a page of results from the
-                corresponding result set. In this case, one and only one of
-                ``page_token`` or ``offset`` must be set.
-
-                A typical use case is to invoke ``SearchProfilesRequest`` without this
-                field, then use the resulting ``result_set_id`` in
-                ``SearchProfilesResponse`` to page through the results.
+            result_set_id (str): The request message for ``Operations.CancelOperation``.
             strict_keywords_search (bool): This flag is used to indicate whether the service will attempt to
                 understand synonyms and terms related to the search query or treat the
                 query "as is" when it generates a set of results. By default this flag is
@@ -625,39 +513,56 @@ class ProfileServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. The resource name of the tenant under which the profile is
-                created.
+            parent (str): Controls if the search job request requires the return of a precise
+                count of the first 300 results. Setting this to ``true`` ensures
+                consistency in the number of results per page. Best practice is to set
+                this value to true if a client allows users to jump directly to a
+                non-sequential search results page.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}". For
-                example, "projects/foo/tenants/bar".
-            filter_ (str): The filter string specifies the profiles to be enumerated.
+                Enabling this flag may adversely impact performance.
 
-                Supported operator: =, AND
+                Defaults to false.
+            filter_ (str): Output only. Resource name of the candidate of this application.
 
-                The field(s) eligible for filtering are:
-
-                -  ``externalId``
-                -  ``groupId``
-
-                externalId and groupId cannot be specified at the same time. If both
-                externalId and groupId are provided, the API will return a bad request
-                error.
-
-                Sample Query:
-
-                -  externalId = "externalId-1"
-                -  groupId = "groupId-1"
+                The format is
+                "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}". For
+                example, "projects/foo/tenants/bar/profiles/baz".
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
                 streaming is performed per-page, this determines the maximum number
                 of resources in a page.
-            read_mask (Union[dict, ~google.cloud.talent_v4beta1.types.FieldMask]): A field mask to specify the profile fields to be listed in response. All
-                fields are listed if it is unset.
+            read_mask (Union[dict, ~google.cloud.talent_v4beta1.types.FieldMask]): Protocol Buffers - Google's data interchange format Copyright 2008
+                Google Inc. All rights reserved.
+                https://developers.google.com/protocol-buffers/
 
-                Valid values are:
+                Redistribution and use in source and binary forms, with or without
+                modification, are permitted provided that the following conditions are
+                met:
 
-                -  name
+                ::
+
+                    * Redistributions of source code must retain the above copyright
+
+                notice, this list of conditions and the following disclaimer. \*
+                Redistributions in binary form must reproduce the above copyright
+                notice, this list of conditions and the following disclaimer in the
+                documentation and/or other materials provided with the distribution. \*
+                Neither the name of Google Inc. nor the names of its contributors may be
+                used to endorse or promote products derived from this software without
+                specific prior written permission.
+
+                THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+                IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+                TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+                PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+                OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+                EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+                PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+                PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+                LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+                NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+                SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.talent_v4beta1.types.FieldMask`
@@ -749,10 +654,11 @@ class ProfileServiceClient(object):
             >>> response = client.create_profile(parent, profile)
 
         Args:
-            parent (str): Required. The name of the tenant this profile belongs to.
-
-                The format is "projects/{project\_id}/tenants/{tenant\_id}". For
-                example, "projects/foo/tenants/bar".
+            parent (str): Radius in miles of the job location. This value is derived from the
+                location bounding box in which a circle with the specified radius
+                centered from ``google.type.LatLng`` covers the area associated with the
+                job location. For example, currently, "Mountain View, CA, USA" has a
+                radius of 6.17 miles.
             profile (Union[dict, ~google.cloud.talent_v4beta1.types.Profile]): Required. The profile to be created.
 
                 If a dict is provided, it must be of the same form as the protobuf
@@ -827,11 +733,13 @@ class ProfileServiceClient(object):
             >>> response = client.get_profile(name)
 
         Args:
-            name (str): Required. Resource name of the profile to get.
-
-                The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/profiles/{profile\_id}".
-                For example, "projects/foo/tenants/bar/profiles/baz".
+            name (str): The job seeker, or other entity interacting with the service,
+                performs an action with a single click from the search results page to
+                apply to a job (without viewing the details of the job posting), and is
+                redirected to a different website to complete the application. If a
+                candidate performs this action, send only this event to the service. Do
+                not also send ``JobEventType.APPLICATION_START``,
+                ``JobEventType.APPLICATION_FINISH`` or ``JobEventType.VIEW`` events.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.

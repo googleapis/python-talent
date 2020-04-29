@@ -129,13 +129,11 @@ class ProfileServiceGrpcTransport(object):
     def search_profiles(self):
         """Return the gRPC stub for :meth:`ProfileServiceClient.search_profiles`.
 
-        Searches for profiles within a tenant.
+        Job compensation information.
 
-        For example, search by raw queries "software engineer in Mountain View"
-        or search by structured filters (location filter, education filter,
-        etc.).
-
-        See ``SearchProfilesRequest`` for more information.
+        At most one entry can be of type
+        ``CompensationInfo.CompensationType.BASE``, which is referred as **base
+        compensation entry** for the job.
 
         Returns:
             Callable: A callable which accepts the appropriate
