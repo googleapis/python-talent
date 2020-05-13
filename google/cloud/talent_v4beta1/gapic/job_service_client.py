@@ -36,7 +36,18 @@ import grpc
 from google.cloud.talent_v4beta1.gapic import enums
 from google.cloud.talent_v4beta1.gapic import job_service_client_config
 from google.cloud.talent_v4beta1.gapic.transports import job_service_grpc_transport
+from google.cloud.talent_v4beta1.proto import application_pb2
+from google.cloud.talent_v4beta1.proto import application_service_pb2
+from google.cloud.talent_v4beta1.proto import application_service_pb2_grpc
 from google.cloud.talent_v4beta1.proto import common_pb2
+from google.cloud.talent_v4beta1.proto import company_pb2
+from google.cloud.talent_v4beta1.proto import company_service_pb2
+from google.cloud.talent_v4beta1.proto import company_service_pb2_grpc
+from google.cloud.talent_v4beta1.proto import completion_service_pb2
+from google.cloud.talent_v4beta1.proto import completion_service_pb2_grpc
+from google.cloud.talent_v4beta1.proto import event_pb2
+from google.cloud.talent_v4beta1.proto import event_service_pb2
+from google.cloud.talent_v4beta1.proto import event_service_pb2_grpc
 from google.cloud.talent_v4beta1.proto import filters_pb2
 from google.cloud.talent_v4beta1.proto import histogram_pb2
 from google.cloud.talent_v4beta1.proto import job_pb2
@@ -266,9 +277,8 @@ class JobServiceClient(object):
         Args:
             name (str): Required. The resource name of the job to be deleted.
 
-                The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/jobs/{job\_id}". For
-                example, "projects/foo/tenants/bar/jobs/baz".
+                The format is "projects/{project_id}/tenants/{tenant_id}/jobs/{job_id}".
+                For example, "projects/foo/tenants/bar/jobs/baz".
 
                 If tenant id is unspecified, the default tenant is used. For example,
                 "projects/foo/jobs/bar".
@@ -336,7 +346,7 @@ class JobServiceClient(object):
             >>>
             >>> client = talent_v4beta1.JobServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> parent = client.tenant_path('[PROJECT]', '[TENANT]')
             >>>
             >>> # TODO: Initialize `job`:
             >>> job = {}
@@ -347,9 +357,9 @@ class JobServiceClient(object):
             parent (str): Required. The resource name of the tenant under which the job is
                 created.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}". For
-                example, "projects/foo/tenant/bar". If tenant id is unspecified a
-                default tenant is created. For example, "projects/foo".
+                The format is "projects/{project_id}/tenants/{tenant_id}". For example,
+                "projects/foo/tenant/bar". If tenant id is unspecified a default tenant
+                is created. For example, "projects/foo".
             job (Union[dict, ~google.cloud.talent_v4beta1.types.Job]): Required. The Job to be created.
 
                 If a dict is provided, it must be of the same form as the protobuf
@@ -418,7 +428,7 @@ class JobServiceClient(object):
             >>>
             >>> client = talent_v4beta1.JobServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> parent = client.tenant_path('[PROJECT]', '[TENANT]')
             >>>
             >>> # TODO: Initialize `jobs`:
             >>> jobs = []
@@ -438,9 +448,9 @@ class JobServiceClient(object):
             parent (str): Required. The resource name of the tenant under which the job is
                 created.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}". For
-                example, "projects/foo/tenant/bar". If tenant id is unspecified, a
-                default tenant is created. For example, "projects/foo".
+                The format is "projects/{project_id}/tenants/{tenant_id}". For example,
+                "projects/foo/tenant/bar". If tenant id is unspecified, a default tenant
+                is created. For example, "projects/foo".
             jobs (list[Union[dict, ~google.cloud.talent_v4beta1.types.Job]]): Required. The jobs to be created.
 
                 If a dict is provided, it must be of the same form as the protobuf
@@ -522,9 +532,8 @@ class JobServiceClient(object):
         Args:
             name (str): Required. The resource name of the job to retrieve.
 
-                The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/jobs/{job\_id}". For
-                example, "projects/foo/tenants/bar/jobs/baz".
+                The format is "projects/{project_id}/tenants/{tenant_id}/jobs/{job_id}".
+                For example, "projects/foo/tenants/bar/jobs/baz".
 
                 If tenant id is unspecified, the default tenant is used. For example,
                 "projects/foo/jobs/bar".
@@ -680,7 +689,7 @@ class JobServiceClient(object):
             >>>
             >>> client = talent_v4beta1.JobServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> parent = client.tenant_path('[PROJECT]', '[TENANT]')
             >>>
             >>> # TODO: Initialize `jobs`:
             >>> jobs = []
@@ -700,15 +709,15 @@ class JobServiceClient(object):
             parent (str): Required. The resource name of the tenant under which the job is
                 created.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}". For
-                example, "projects/foo/tenant/bar". If tenant id is unspecified, a
-                default tenant is created. For example, "projects/foo".
+                The format is "projects/{project_id}/tenants/{tenant_id}". For example,
+                "projects/foo/tenant/bar". If tenant id is unspecified, a default tenant
+                is created. For example, "projects/foo".
             jobs (list[Union[dict, ~google.cloud.talent_v4beta1.types.Job]]): Required. The jobs to be updated.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.talent_v4beta1.types.Job`
-            update_mask (Union[dict, ~google.cloud.talent_v4beta1.types.FieldMask]): Strongly recommended for the best service experience. Be aware that it
-                will also increase latency when checking the status of a batch
+            update_mask (Union[dict, ~google.cloud.talent_v4beta1.types.FieldMask]): Strongly recommended for the best service experience. Be aware that
+                it will also increase latency when checking the status of a batch
                 operation.
 
                 If ``update_mask`` is provided, only the specified fields in ``Job`` are
@@ -795,7 +804,7 @@ class JobServiceClient(object):
             >>>
             >>> client = talent_v4beta1.JobServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> parent = client.tenant_path('[PROJECT]', '[TENANT]')
             >>>
             >>> # TODO: Initialize `filter_`:
             >>> filter_ = ''
@@ -806,9 +815,9 @@ class JobServiceClient(object):
             parent (str): Required. The resource name of the tenant under which the job is
                 created.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}". For
-                example, "projects/foo/tenant/bar". If tenant id is unspecified, a
-                default tenant is created. For example, "projects/foo".
+                The format is "projects/{project_id}/tenants/{tenant_id}". For example,
+                "projects/foo/tenant/bar". If tenant id is unspecified, a default tenant
+                is created. For example, "projects/foo".
             filter_ (str): Required. The filter string specifies the jobs to be deleted.
 
                 Supported operator: =, AND
@@ -883,7 +892,7 @@ class JobServiceClient(object):
             >>>
             >>> client = talent_v4beta1.JobServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> parent = client.tenant_path('[PROJECT]', '[TENANT]')
             >>>
             >>> # TODO: Initialize `filter_`:
             >>> filter_ = ''
@@ -906,9 +915,9 @@ class JobServiceClient(object):
             parent (str): Required. The resource name of the tenant under which the job is
                 created.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}". For
-                example, "projects/foo/tenant/bar". If tenant id is unspecified, a
-                default tenant is created. For example, "projects/foo".
+                The format is "projects/{project_id}/tenants/{tenant_id}". For example,
+                "projects/foo/tenant/bar". If tenant id is unspecified, a default tenant
+                is created. For example, "projects/foo".
             filter_ (str): Required. The filter string specifies the jobs to be enumerated.
 
                 Supported operator: =, AND
@@ -1029,7 +1038,7 @@ class JobServiceClient(object):
             >>>
             >>> client = talent_v4beta1.JobServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> parent = client.tenant_path('[PROJECT]', '[TENANT]')
             >>>
             >>> # TODO: Initialize `request_metadata`:
             >>> request_metadata = {}
@@ -1051,12 +1060,13 @@ class JobServiceClient(object):
         Args:
             parent (str): Required. The resource name of the tenant to search within.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}". For
-                example, "projects/foo/tenant/bar". If tenant id is unspecified, a
-                default tenant is created. For example, "projects/foo".
-            request_metadata (Union[dict, ~google.cloud.talent_v4beta1.types.RequestMetadata]): Required. The meta information collected about the job searcher, used to
-                improve the search quality of the service. The identifiers (such as
-                ``user_id``) are provided by users, and must be unique and consistent.
+                The format is "projects/{project_id}/tenants/{tenant_id}". For example,
+                "projects/foo/tenant/bar". If tenant id is unspecified, a default tenant
+                is created. For example, "projects/foo".
+            request_metadata (Union[dict, ~google.cloud.talent_v4beta1.types.RequestMetadata]): Required. The meta information collected about the job searcher,
+                used to improve the search quality of the service. The identifiers (such
+                as ``user_id``) are provided by users, and must be unique and
+                consistent.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.talent_v4beta1.types.RequestMetadata`
@@ -1095,7 +1105,7 @@ class JobServiceClient(object):
 
                 Data types:
 
-                -  Histogram facet: facet names with format [a-zA-Z][a-zA-Z0-9\_]+.
+                -  Histogram facet: facet names with format [a-zA-Z][a-zA-Z0-9_]+.
                 -  String: string like "any string with backslash escape for quote(")."
                 -  Number: whole number and floating point number like 10, -1 and -0.01.
                 -  List: list of elements with comma(,) separator surrounded by square
@@ -1103,8 +1113,8 @@ class JobServiceClient(object):
 
                 Built-in constants:
 
-                -  MIN (minimum number similar to java Double.MIN\_VALUE)
-                -  MAX (maximum number similar to java Double.MAX\_VALUE)
+                -  MIN (minimum number similar to java Double.MIN_VALUE)
+                -  MAX (maximum number similar to java Double.MAX_VALUE)
 
                 Built-in functions:
 
@@ -1114,20 +1124,18 @@ class JobServiceClient(object):
 
                 Job histogram facets:
 
-                -  company\_display\_name: histogram by [Job.company\_display\_name\`.
-                -  employment\_type: histogram by ``Job.employment_types``, for example,
-                   "FULL\_TIME", "PART\_TIME".
-                -  company\_size: histogram by ``CompanySize``, for example, "SMALL",
+                -  company_display_name: histogram by [Job.company_display_name`.
+                -  employment_type: histogram by ``Job.employment_types``, for example,
+                   "FULL_TIME", "PART_TIME".
+                -  company_size: histogram by ``CompanySize``, for example, "SMALL",
                    "MEDIUM", "BIG".
-                -  publish\_time\_in\_month: histogram by the
-                   ``Job.posting_publish_time`` in months. Must specify list of numeric
-                   buckets in spec.
-                -  publish\_time\_in\_year: histogram by the
-                   ``Job.posting_publish_time`` in years. Must specify list of numeric
-                   buckets in spec.
-                -  degree\_types: histogram by the ``Job.degree_types``, for example,
+                -  publish_time_in_month: histogram by the ``Job.posting_publish_time``
+                   in months. Must specify list of numeric buckets in spec.
+                -  publish_time_in_year: histogram by the ``Job.posting_publish_time``
+                   in years. Must specify list of numeric buckets in spec.
+                -  degree_types: histogram by the ``Job.degree_types``, for example,
                    "Bachelors", "Masters".
-                -  job\_level: histogram by the ``Job.job_level``, for example, "Entry
+                -  job_level: histogram by the ``Job.job_level``, for example, "Entry
                    Level".
                 -  country: histogram by the country code of jobs, for example, "US",
                    "FR".
@@ -1137,9 +1145,9 @@ class JobServiceClient(object):
                    level, for example, "CA", "IL".
                 -  city: histogram by a combination of the "city name, admin1 code". For
                    example, "Mountain View, CA", "New York, NY".
-                -  admin1\_country: histogram by a combination of the "admin1 code,
+                -  admin1_country: histogram by a combination of the "admin1 code,
                    country", for example, "CA, US", "IL, US".
-                -  city\_coordinate: histogram by the city center's GPS coordinates
+                -  city_coordinate: histogram by the city center's GPS coordinates
                    (latitude and longitude), for example, 37.4038522,-122.0987765. Since
                    the coordinates of a city center can change, customers may need to
                    refresh them periodically.
@@ -1148,23 +1156,23 @@ class JobServiceClient(object):
                 -  language: histogram by the language subtag of the
                    ``Job.language_code``, for example, "en", "fr".
                 -  category: histogram by the ``JobCategory``, for example,
-                   "COMPUTER\_AND\_IT", "HEALTHCARE".
-                -  base\_compensation\_unit: histogram by the
+                   "COMPUTER_AND_IT", "HEALTHCARE".
+                -  base_compensation_unit: histogram by the
                    ``CompensationInfo.CompensationUnit`` of base salary, for example,
                    "WEEKLY", "MONTHLY".
-                -  base\_compensation: histogram by the base salary. Must specify list
-                   of numeric buckets to group results by.
-                -  annualized\_base\_compensation: histogram by the base annualized
+                -  base_compensation: histogram by the base salary. Must specify list of
+                   numeric buckets to group results by.
+                -  annualized_base_compensation: histogram by the base annualized
                    salary. Must specify list of numeric buckets to group results by.
-                -  annualized\_total\_compensation: histogram by the total annualized
+                -  annualized_total_compensation: histogram by the total annualized
                    salary. Must specify list of numeric buckets to group results by.
-                -  string\_custom\_attribute: histogram by string
+                -  string_custom_attribute: histogram by string
                    ``Job.custom_attributes``. Values can be accessed via square bracket
-                   notations like string\_custom\_attribute["key1"].
-                -  numeric\_custom\_attribute: histogram by numeric
+                   notations like string_custom_attribute["key1"].
+                -  numeric_custom_attribute: histogram by numeric
                    ``Job.custom_attributes``. Values can be accessed via square bracket
-                   notations like numeric\_custom\_attribute["key1"]. Must specify list
-                   of numeric buckets to group results by.
+                   notations like numeric_custom_attribute["key1"]. Must specify list of
+                   numeric buckets to group results by.
 
                 Example expressions:
 
@@ -1177,9 +1185,10 @@ class JobServiceClient(object):
                 message :class:`~google.cloud.talent_v4beta1.types.HistogramQuery`
             job_view (~google.cloud.talent_v4beta1.types.JobView): The desired job attributes returned for jobs in the search response.
                 Defaults to ``JobView.JOB_VIEW_SMALL`` if no value is specified.
-            offset (int): An integer that specifies the current offset (that is, starting result
-                location, amongst the jobs deemed by the API as relevant) in search
-                results. This field is only considered if ``page_token`` is unset.
+            offset (int): An integer that specifies the current offset (that is, starting
+                result location, amongst the jobs deemed by the API as relevant) in
+                search results. This field is only considered if ``page_token`` is
+                unset.
 
                 The maximum allowed value is 5000. Otherwise an error is thrown.
 
@@ -1242,9 +1251,9 @@ class JobServiceClient(object):
                    will be ranked at the bottom. Distance is calculated with a precision
                    of 11.3 meters (37.4 feet). Diversification strategy is still applied
                    unless explicitly disabled in ``diversification_level``.
-            diversification_level (~google.cloud.talent_v4beta1.types.DiversificationLevel): Controls whether highly similar jobs are returned next to each other in
-                the search results. Jobs are identified as highly similar based on their
-                titles, job categories, and locations. Highly similar results are
+            diversification_level (~google.cloud.talent_v4beta1.types.DiversificationLevel): Controls whether highly similar jobs are returned next to each other
+                in the search results. Jobs are identified as highly similar based on
+                their titles, job categories, and locations. Highly similar results are
                 clustered so that only one representative job of the cluster is
                 displayed to the job seeker higher up in the results, with the other
                 jobs being displayed lower down in the results.
@@ -1387,7 +1396,7 @@ class JobServiceClient(object):
             >>>
             >>> client = talent_v4beta1.JobServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> parent = client.tenant_path('[PROJECT]', '[TENANT]')
             >>>
             >>> # TODO: Initialize `request_metadata`:
             >>> request_metadata = {}
@@ -1409,12 +1418,13 @@ class JobServiceClient(object):
         Args:
             parent (str): Required. The resource name of the tenant to search within.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}". For
-                example, "projects/foo/tenant/bar". If tenant id is unspecified, a
-                default tenant is created. For example, "projects/foo".
-            request_metadata (Union[dict, ~google.cloud.talent_v4beta1.types.RequestMetadata]): Required. The meta information collected about the job searcher, used to
-                improve the search quality of the service. The identifiers (such as
-                ``user_id``) are provided by users, and must be unique and consistent.
+                The format is "projects/{project_id}/tenants/{tenant_id}". For example,
+                "projects/foo/tenant/bar". If tenant id is unspecified, a default tenant
+                is created. For example, "projects/foo".
+            request_metadata (Union[dict, ~google.cloud.talent_v4beta1.types.RequestMetadata]): Required. The meta information collected about the job searcher,
+                used to improve the search quality of the service. The identifiers (such
+                as ``user_id``) are provided by users, and must be unique and
+                consistent.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.talent_v4beta1.types.RequestMetadata`
@@ -1453,7 +1463,7 @@ class JobServiceClient(object):
 
                 Data types:
 
-                -  Histogram facet: facet names with format [a-zA-Z][a-zA-Z0-9\_]+.
+                -  Histogram facet: facet names with format [a-zA-Z][a-zA-Z0-9_]+.
                 -  String: string like "any string with backslash escape for quote(")."
                 -  Number: whole number and floating point number like 10, -1 and -0.01.
                 -  List: list of elements with comma(,) separator surrounded by square
@@ -1461,8 +1471,8 @@ class JobServiceClient(object):
 
                 Built-in constants:
 
-                -  MIN (minimum number similar to java Double.MIN\_VALUE)
-                -  MAX (maximum number similar to java Double.MAX\_VALUE)
+                -  MIN (minimum number similar to java Double.MIN_VALUE)
+                -  MAX (maximum number similar to java Double.MAX_VALUE)
 
                 Built-in functions:
 
@@ -1472,20 +1482,18 @@ class JobServiceClient(object):
 
                 Job histogram facets:
 
-                -  company\_display\_name: histogram by [Job.company\_display\_name\`.
-                -  employment\_type: histogram by ``Job.employment_types``, for example,
-                   "FULL\_TIME", "PART\_TIME".
-                -  company\_size: histogram by ``CompanySize``, for example, "SMALL",
+                -  company_display_name: histogram by [Job.company_display_name`.
+                -  employment_type: histogram by ``Job.employment_types``, for example,
+                   "FULL_TIME", "PART_TIME".
+                -  company_size: histogram by ``CompanySize``, for example, "SMALL",
                    "MEDIUM", "BIG".
-                -  publish\_time\_in\_month: histogram by the
-                   ``Job.posting_publish_time`` in months. Must specify list of numeric
-                   buckets in spec.
-                -  publish\_time\_in\_year: histogram by the
-                   ``Job.posting_publish_time`` in years. Must specify list of numeric
-                   buckets in spec.
-                -  degree\_types: histogram by the ``Job.degree_types``, for example,
+                -  publish_time_in_month: histogram by the ``Job.posting_publish_time``
+                   in months. Must specify list of numeric buckets in spec.
+                -  publish_time_in_year: histogram by the ``Job.posting_publish_time``
+                   in years. Must specify list of numeric buckets in spec.
+                -  degree_types: histogram by the ``Job.degree_types``, for example,
                    "Bachelors", "Masters".
-                -  job\_level: histogram by the ``Job.job_level``, for example, "Entry
+                -  job_level: histogram by the ``Job.job_level``, for example, "Entry
                    Level".
                 -  country: histogram by the country code of jobs, for example, "US",
                    "FR".
@@ -1495,9 +1503,9 @@ class JobServiceClient(object):
                    level, for example, "CA", "IL".
                 -  city: histogram by a combination of the "city name, admin1 code". For
                    example, "Mountain View, CA", "New York, NY".
-                -  admin1\_country: histogram by a combination of the "admin1 code,
+                -  admin1_country: histogram by a combination of the "admin1 code,
                    country", for example, "CA, US", "IL, US".
-                -  city\_coordinate: histogram by the city center's GPS coordinates
+                -  city_coordinate: histogram by the city center's GPS coordinates
                    (latitude and longitude), for example, 37.4038522,-122.0987765. Since
                    the coordinates of a city center can change, customers may need to
                    refresh them periodically.
@@ -1506,23 +1514,23 @@ class JobServiceClient(object):
                 -  language: histogram by the language subtag of the
                    ``Job.language_code``, for example, "en", "fr".
                 -  category: histogram by the ``JobCategory``, for example,
-                   "COMPUTER\_AND\_IT", "HEALTHCARE".
-                -  base\_compensation\_unit: histogram by the
+                   "COMPUTER_AND_IT", "HEALTHCARE".
+                -  base_compensation_unit: histogram by the
                    ``CompensationInfo.CompensationUnit`` of base salary, for example,
                    "WEEKLY", "MONTHLY".
-                -  base\_compensation: histogram by the base salary. Must specify list
-                   of numeric buckets to group results by.
-                -  annualized\_base\_compensation: histogram by the base annualized
+                -  base_compensation: histogram by the base salary. Must specify list of
+                   numeric buckets to group results by.
+                -  annualized_base_compensation: histogram by the base annualized
                    salary. Must specify list of numeric buckets to group results by.
-                -  annualized\_total\_compensation: histogram by the total annualized
+                -  annualized_total_compensation: histogram by the total annualized
                    salary. Must specify list of numeric buckets to group results by.
-                -  string\_custom\_attribute: histogram by string
+                -  string_custom_attribute: histogram by string
                    ``Job.custom_attributes``. Values can be accessed via square bracket
-                   notations like string\_custom\_attribute["key1"].
-                -  numeric\_custom\_attribute: histogram by numeric
+                   notations like string_custom_attribute["key1"].
+                -  numeric_custom_attribute: histogram by numeric
                    ``Job.custom_attributes``. Values can be accessed via square bracket
-                   notations like numeric\_custom\_attribute["key1"]. Must specify list
-                   of numeric buckets to group results by.
+                   notations like numeric_custom_attribute["key1"]. Must specify list of
+                   numeric buckets to group results by.
 
                 Example expressions:
 
@@ -1535,9 +1543,10 @@ class JobServiceClient(object):
                 message :class:`~google.cloud.talent_v4beta1.types.HistogramQuery`
             job_view (~google.cloud.talent_v4beta1.types.JobView): The desired job attributes returned for jobs in the search response.
                 Defaults to ``JobView.JOB_VIEW_SMALL`` if no value is specified.
-            offset (int): An integer that specifies the current offset (that is, starting result
-                location, amongst the jobs deemed by the API as relevant) in search
-                results. This field is only considered if ``page_token`` is unset.
+            offset (int): An integer that specifies the current offset (that is, starting
+                result location, amongst the jobs deemed by the API as relevant) in
+                search results. This field is only considered if ``page_token`` is
+                unset.
 
                 The maximum allowed value is 5000. Otherwise an error is thrown.
 
@@ -1600,9 +1609,9 @@ class JobServiceClient(object):
                    will be ranked at the bottom. Distance is calculated with a precision
                    of 11.3 meters (37.4 feet). Diversification strategy is still applied
                    unless explicitly disabled in ``diversification_level``.
-            diversification_level (~google.cloud.talent_v4beta1.types.DiversificationLevel): Controls whether highly similar jobs are returned next to each other in
-                the search results. Jobs are identified as highly similar based on their
-                titles, job categories, and locations. Highly similar results are
+            diversification_level (~google.cloud.talent_v4beta1.types.DiversificationLevel): Controls whether highly similar jobs are returned next to each other
+                in the search results. Jobs are identified as highly similar based on
+                their titles, job categories, and locations. Highly similar results are
                 clustered so that only one representative job of the cluster is
                 displayed to the job seeker higher up in the results, with the other
                 jobs being displayed lower down in the results.

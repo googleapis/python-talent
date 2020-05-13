@@ -34,16 +34,12 @@ import grpc
 from google.cloud.talent_v4beta1.gapic import company_service_client_config
 from google.cloud.talent_v4beta1.gapic import enums
 from google.cloud.talent_v4beta1.gapic.transports import company_service_grpc_transport
-from google.cloud.talent_v4beta1.proto import common_pb2
+from google.cloud.talent_v4beta1.proto import application_pb2
+from google.cloud.talent_v4beta1.proto import application_service_pb2
+from google.cloud.talent_v4beta1.proto import application_service_pb2_grpc
 from google.cloud.talent_v4beta1.proto import company_pb2
 from google.cloud.talent_v4beta1.proto import company_service_pb2
 from google.cloud.talent_v4beta1.proto import company_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import filters_pb2
-from google.cloud.talent_v4beta1.proto import histogram_pb2
-from google.cloud.talent_v4beta1.proto import job_pb2
-from google.cloud.talent_v4beta1.proto import job_service_pb2
-from google.cloud.talent_v4beta1.proto import job_service_pb2_grpc
-from google.longrunning import operations_pb2
 from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
 
@@ -249,8 +245,8 @@ class CompanyServiceClient(object):
             name (str): Required. The resource name of the company to be deleted.
 
                 The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/companies/{company\_id}",
-                for example, "projects/foo/tenants/bar/companies/baz".
+                "projects/{project_id}/tenants/{tenant_id}/companies/{company_id}", for
+                example, "projects/foo/tenants/bar/companies/baz".
 
                 If tenant id is unspecified, the default tenant is used, for example,
                 "projects/foo/companies/bar".
@@ -315,7 +311,7 @@ class CompanyServiceClient(object):
             >>>
             >>> client = talent_v4beta1.CompanyServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> parent = client.tenant_path('[PROJECT]', '[TENANT]')
             >>>
             >>> # TODO: Initialize `company`:
             >>> company = {}
@@ -326,9 +322,9 @@ class CompanyServiceClient(object):
             parent (str): Required. Resource name of the tenant under which the company is
                 created.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}", for
-                example, "projects/foo/tenant/bar". If tenant id is unspecified, a
-                default tenant is created, for example, "projects/foo".
+                The format is "projects/{project_id}/tenants/{tenant_id}", for example,
+                "projects/foo/tenant/bar". If tenant id is unspecified, a default tenant
+                is created, for example, "projects/foo".
             company (Union[dict, ~google.cloud.talent_v4beta1.types.Company]): Required. The company to be created.
 
                 If a dict is provided, it must be of the same form as the protobuf
@@ -406,8 +402,8 @@ class CompanyServiceClient(object):
             name (str): Required. The resource name of the company to be retrieved.
 
                 The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/companies/{company\_id}",
-                for example, "projects/api-test-project/tenants/foo/companies/bar".
+                "projects/{project_id}/tenants/{tenant_id}/companies/{company_id}", for
+                example, "projects/api-test-project/tenants/foo/companies/bar".
 
                 If tenant id is unspecified, the default tenant is used, for example,
                 "projects/api-test-project/companies/bar".
@@ -562,7 +558,7 @@ class CompanyServiceClient(object):
             >>>
             >>> client = talent_v4beta1.CompanyServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
+            >>> parent = client.tenant_path('[PROJECT]', '[TENANT]')
             >>>
             >>> # Iterate over all results
             >>> for element in client.list_companies(parent):
@@ -582,8 +578,8 @@ class CompanyServiceClient(object):
             parent (str): Required. Resource name of the tenant under which the company is
                 created.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}", for
-                example, "projects/foo/tenant/bar".
+                The format is "projects/{project_id}/tenants/{tenant_id}", for example,
+                "projects/foo/tenant/bar".
 
                 If tenant id is unspecified, the default tenant will be used, for
                 example, "projects/foo".
