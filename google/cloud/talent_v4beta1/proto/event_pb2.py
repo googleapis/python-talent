@@ -22,6 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.cloud.talent.v4beta1",
     syntax="proto3",
     serialized_options=b"\n\037com.google.cloud.talent.v4beta1B\nEventProtoP\001ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\242\002\003CTS",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n-google/cloud/talent_v4beta1/proto/event.proto\x12\x1bgoogle.cloud.talent.v4beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto"\x8c\x02\n\x0b\x43lientEvent\x12\x12\n\nrequest_id\x18\x01 \x01(\t\x12\x15\n\x08\x65vent_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02\x12:\n\tjob_event\x18\x05 \x01(\x0b\x32%.google.cloud.talent.v4beta1.JobEventH\x00\x12\x42\n\rprofile_event\x18\x06 \x01(\x0b\x32).google.cloud.talent.v4beta1.ProfileEventH\x00\x12\x13\n\x0b\x65vent_notes\x18\t \x01(\tB\x07\n\x05\x65vent"\xf6\x03\n\x08JobEvent\x12\x45\n\x04type\x18\x01 \x01(\x0e\x32\x32.google.cloud.talent.v4beta1.JobEvent.JobEventTypeB\x03\xe0\x41\x02\x12\x11\n\x04jobs\x18\x02 \x03(\tB\x03\xe0\x41\x02\x12\x0f\n\x07profile\x18\x03 \x01(\t"\xfe\x02\n\x0cJobEventType\x12\x1e\n\x1aJOB_EVENT_TYPE_UNSPECIFIED\x10\x00\x12\x0e\n\nIMPRESSION\x10\x01\x12\x08\n\x04VIEW\x10\x02\x12\x11\n\rVIEW_REDIRECT\x10\x03\x12\x15\n\x11\x41PPLICATION_START\x10\x04\x12\x16\n\x12\x41PPLICATION_FINISH\x10\x05\x12 \n\x1c\x41PPLICATION_QUICK_SUBMISSION\x10\x06\x12\x18\n\x14\x41PPLICATION_REDIRECT\x10\x07\x12!\n\x1d\x41PPLICATION_START_FROM_SEARCH\x10\x08\x12$\n APPLICATION_REDIRECT_FROM_SEARCH\x10\t\x12\x1e\n\x1a\x41PPLICATION_COMPANY_SUBMIT\x10\n\x12\x0c\n\x08\x42OOKMARK\x10\x0b\x12\x10\n\x0cNOTIFICATION\x10\x0c\x12\t\n\x05HIRED\x10\r\x12\x0b\n\x07SENT_CV\x10\x0e\x12\x15\n\x11INTERVIEW_GRANTED\x10\x0f"\xe2\x01\n\x0cProfileEvent\x12M\n\x04type\x18\x01 \x01(\x0e\x32:.google.cloud.talent.v4beta1.ProfileEvent.ProfileEventTypeB\x03\xe0\x41\x02\x12\x15\n\x08profiles\x18\x02 \x03(\tB\x03\xe0\x41\x02\x12\x0c\n\x04jobs\x18\x06 \x03(\t"^\n\x10ProfileEventType\x12"\n\x1ePROFILE_EVENT_TYPE_UNSPECIFIED\x10\x00\x12\x0e\n\nIMPRESSION\x10\x01\x12\x08\n\x04VIEW\x10\x02\x12\x0c\n\x08\x42OOKMARK\x10\x03\x42x\n\x1f\x63om.google.cloud.talent.v4beta1B\nEventProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\xa2\x02\x03\x43TSb\x06proto3',
     dependencies=[
         google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,
@@ -36,6 +37,7 @@ _JOBEVENT_JOBEVENTTYPE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.JobEvent.JobEventType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="JOB_EVENT_TYPE_UNSPECIFIED",
@@ -43,15 +45,31 @@ _JOBEVENT_JOBEVENTTYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="IMPRESSION", index=1, number=1, serialized_options=None, type=None
+            name="IMPRESSION",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="VIEW", index=2, number=2, serialized_options=None, type=None
+            name="VIEW",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="VIEW_REDIRECT", index=3, number=3, serialized_options=None, type=None
+            name="VIEW_REDIRECT",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="APPLICATION_START",
@@ -59,6 +77,7 @@ _JOBEVENT_JOBEVENTTYPE = _descriptor.EnumDescriptor(
             number=4,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="APPLICATION_FINISH",
@@ -66,6 +85,7 @@ _JOBEVENT_JOBEVENTTYPE = _descriptor.EnumDescriptor(
             number=5,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="APPLICATION_QUICK_SUBMISSION",
@@ -73,6 +93,7 @@ _JOBEVENT_JOBEVENTTYPE = _descriptor.EnumDescriptor(
             number=6,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="APPLICATION_REDIRECT",
@@ -80,6 +101,7 @@ _JOBEVENT_JOBEVENTTYPE = _descriptor.EnumDescriptor(
             number=7,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="APPLICATION_START_FROM_SEARCH",
@@ -87,6 +109,7 @@ _JOBEVENT_JOBEVENTTYPE = _descriptor.EnumDescriptor(
             number=8,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="APPLICATION_REDIRECT_FROM_SEARCH",
@@ -94,6 +117,7 @@ _JOBEVENT_JOBEVENTTYPE = _descriptor.EnumDescriptor(
             number=9,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="APPLICATION_COMPANY_SUBMIT",
@@ -101,18 +125,39 @@ _JOBEVENT_JOBEVENTTYPE = _descriptor.EnumDescriptor(
             number=10,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="BOOKMARK", index=11, number=11, serialized_options=None, type=None
+            name="BOOKMARK",
+            index=11,
+            number=11,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="NOTIFICATION", index=12, number=12, serialized_options=None, type=None
+            name="NOTIFICATION",
+            index=12,
+            number=12,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="HIRED", index=13, number=13, serialized_options=None, type=None
+            name="HIRED",
+            index=13,
+            number=13,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="SENT_CV", index=14, number=14, serialized_options=None, type=None
+            name="SENT_CV",
+            index=14,
+            number=14,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="INTERVIEW_GRANTED",
@@ -120,6 +165,7 @@ _JOBEVENT_JOBEVENTTYPE = _descriptor.EnumDescriptor(
             number=15,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -134,6 +180,7 @@ _PROFILEEVENT_PROFILEEVENTTYPE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.ProfileEvent.ProfileEventType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="PROFILE_EVENT_TYPE_UNSPECIFIED",
@@ -141,15 +188,31 @@ _PROFILEEVENT_PROFILEEVENTTYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="IMPRESSION", index=1, number=1, serialized_options=None, type=None
+            name="IMPRESSION",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="VIEW", index=2, number=2, serialized_options=None, type=None
+            name="VIEW",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="BOOKMARK", index=3, number=3, serialized_options=None, type=None
+            name="BOOKMARK",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -166,6 +229,7 @@ _CLIENTEVENT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="request_id",
@@ -184,6 +248,7 @@ _CLIENTEVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="event_id",
@@ -202,6 +267,7 @@ _CLIENTEVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="create_time",
@@ -220,6 +286,7 @@ _CLIENTEVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job_event",
@@ -238,6 +305,7 @@ _CLIENTEVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="profile_event",
@@ -256,6 +324,7 @@ _CLIENTEVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="event_notes",
@@ -274,6 +343,7 @@ _CLIENTEVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -289,6 +359,7 @@ _CLIENTEVENT = _descriptor.Descriptor(
             full_name="google.cloud.talent.v4beta1.ClientEvent.event",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -303,6 +374,7 @@ _JOBEVENT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="type",
@@ -321,6 +393,7 @@ _JOBEVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="jobs",
@@ -339,6 +412,7 @@ _JOBEVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="profile",
@@ -357,6 +431,7 @@ _JOBEVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -378,6 +453,7 @@ _PROFILEEVENT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="type",
@@ -396,6 +472,7 @@ _PROFILEEVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="profiles",
@@ -414,6 +491,7 @@ _PROFILEEVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="jobs",
@@ -432,6 +510,7 @@ _PROFILEEVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],

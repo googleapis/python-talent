@@ -31,6 +31,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.cloud.talent.v4beta1",
     syntax="proto3",
     serialized_options=b"\n\037com.google.cloud.talent.v4beta1B\022TenantServiceProtoP\001ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\242\002\003CTS",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n6google/cloud/talent_v4beta1/proto/tenant_service.proto\x12\x1bgoogle.cloud.talent.v4beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.google/cloud/talent_v4beta1/proto/common.proto\x1a.google/cloud/talent_v4beta1/proto/tenant.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto"\x94\x01\n\x13\x43reateTenantRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x38\n\x06tenant\x18\x02 \x01(\x0b\x32#.google.cloud.talent.v4beta1.TenantB\x03\xe0\x41\x02"D\n\x10GetTenantRequest\x12\x30\n\x04name\x18\x01 \x01(\tB"\xe0\x41\x02\xfa\x41\x1c\n\x1ajobs.googleapis.com/Tenant"\x80\x01\n\x13UpdateTenantRequest\x12\x38\n\x06tenant\x18\x01 \x01(\x0b\x32#.google.cloud.talent.v4beta1.TenantB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask"G\n\x13\x44\x65leteTenantRequest\x12\x30\n\x04name\x18\x01 \x01(\tB"\xe0\x41\x02\xfa\x41\x1c\n\x1ajobs.googleapis.com/Tenant"\x80\x01\n\x12ListTenantsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05"\xa5\x01\n\x13ListTenantsResponse\x12\x34\n\x07tenants\x18\x01 \x03(\x0b\x32#.google.cloud.talent.v4beta1.Tenant\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12?\n\x08metadata\x18\x03 \x01(\x0b\x32-.google.cloud.talent.v4beta1.ResponseMetadata2\xa0\x07\n\rTenantService\x12\xa6\x01\n\x0c\x43reateTenant\x12\x30.google.cloud.talent.v4beta1.CreateTenantRequest\x1a#.google.cloud.talent.v4beta1.Tenant"?\x82\xd3\xe4\x93\x02)"$/v4beta1/{parent=projects/*}/tenants:\x01*\xda\x41\rparent,tenant\x12\x94\x01\n\tGetTenant\x12-.google.cloud.talent.v4beta1.GetTenantRequest\x1a#.google.cloud.talent.v4beta1.Tenant"3\x82\xd3\xe4\x93\x02&\x12$/v4beta1/{name=projects/*/tenants/*}\xda\x41\x04name\x12\xa6\x01\n\x0cUpdateTenant\x12\x30.google.cloud.talent.v4beta1.UpdateTenantRequest\x1a#.google.cloud.talent.v4beta1.Tenant"?\x82\xd3\xe4\x93\x02\x30\x32+/v4beta1/{tenant.name=projects/*/tenants/*}:\x01*\xda\x41\x06tenant\x12\x8d\x01\n\x0c\x44\x65leteTenant\x12\x30.google.cloud.talent.v4beta1.DeleteTenantRequest\x1a\x16.google.protobuf.Empty"3\x82\xd3\xe4\x93\x02&*$/v4beta1/{name=projects/*/tenants/*}\xda\x41\x04name\x12\xa7\x01\n\x0bListTenants\x12/.google.cloud.talent.v4beta1.ListTenantsRequest\x1a\x30.google.cloud.talent.v4beta1.ListTenantsResponse"5\x82\xd3\xe4\x93\x02&\x12$/v4beta1/{parent=projects/*}/tenants\xda\x41\x06parent\x1al\xca\x41\x13jobs.googleapis.com\xd2\x41Shttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/jobsB\x80\x01\n\x1f\x63om.google.cloud.talent.v4beta1B\x12TenantServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\xa2\x02\x03\x43TSb\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -51,6 +52,7 @@ _CREATETENANTREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -69,6 +71,7 @@ _CREATETENANTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="tenant",
@@ -87,6 +90,7 @@ _CREATETENANTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -108,6 +112,7 @@ _GETTENANTREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -126,6 +131,7 @@ _GETTENANTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\034\n\032jobs.googleapis.com/Tenant",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -147,6 +153,7 @@ _UPDATETENANTREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="tenant",
@@ -165,6 +172,7 @@ _UPDATETENANTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_mask",
@@ -183,6 +191,7 @@ _UPDATETENANTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -204,6 +213,7 @@ _DELETETENANTREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -222,6 +232,7 @@ _DELETETENANTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\034\n\032jobs.googleapis.com/Tenant",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -243,6 +254,7 @@ _LISTTENANTSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -261,6 +273,7 @@ _LISTTENANTSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -279,6 +292,7 @@ _LISTTENANTSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -297,6 +311,7 @@ _LISTTENANTSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -318,6 +333,7 @@ _LISTTENANTSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="tenants",
@@ -336,6 +352,7 @@ _LISTTENANTSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -354,6 +371,7 @@ _LISTTENANTSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="metadata",
@@ -372,6 +390,7 @@ _LISTTENANTSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -552,6 +571,7 @@ _TENANTSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=b"\312A\023jobs.googleapis.com\322AShttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/jobs",
+    create_key=_descriptor._internal_create_key,
     serialized_start=1086,
     serialized_end=2014,
     methods=[
@@ -563,6 +583,7 @@ _TENANTSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATETENANTREQUEST,
             output_type=google_dot_cloud_dot_talent__v4beta1_dot_proto_dot_tenant__pb2._TENANT,
             serialized_options=b'\202\323\344\223\002)"$/v4beta1/{parent=projects/*}/tenants:\001*\332A\rparent,tenant',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetTenant",
@@ -572,6 +593,7 @@ _TENANTSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETTENANTREQUEST,
             output_type=google_dot_cloud_dot_talent__v4beta1_dot_proto_dot_tenant__pb2._TENANT,
             serialized_options=b"\202\323\344\223\002&\022$/v4beta1/{name=projects/*/tenants/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateTenant",
@@ -581,6 +603,7 @@ _TENANTSERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATETENANTREQUEST,
             output_type=google_dot_cloud_dot_talent__v4beta1_dot_proto_dot_tenant__pb2._TENANT,
             serialized_options=b"\202\323\344\223\00202+/v4beta1/{tenant.name=projects/*/tenants/*}:\001*\332A\006tenant",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteTenant",
@@ -590,6 +613,7 @@ _TENANTSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETETENANTREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002&*$/v4beta1/{name=projects/*/tenants/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListTenants",
@@ -599,6 +623,7 @@ _TENANTSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTTENANTSREQUEST,
             output_type=_LISTTENANTSRESPONSE,
             serialized_options=b"\202\323\344\223\002&\022$/v4beta1/{parent=projects/*}/tenants\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
     ],
 )

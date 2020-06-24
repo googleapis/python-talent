@@ -31,6 +31,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.cloud.talent.v4beta1",
     syntax="proto3",
     serialized_options=b"\n\037com.google.cloud.talent.v4beta1B\027ApplicationServiceProtoP\001ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\242\002\003CTS",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n;google/cloud/talent_v4beta1/proto/application_service.proto\x12\x1bgoogle.cloud.talent.v4beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x33google/cloud/talent_v4beta1/proto/application.proto\x1a.google/cloud/talent_v4beta1/proto/common.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto"\x93\x01\n\x18\x43reateApplicationRequest\x12\x33\n\x06parent\x18\x01 \x01(\tB#\xe0\x41\x02\xfa\x41\x1d\n\x1bjobs.googleapis.com/Profile\x12\x42\n\x0b\x61pplication\x18\x02 \x01(\x0b\x32(.google.cloud.talent.v4beta1.ApplicationB\x03\xe0\x41\x02"N\n\x15GetApplicationRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fjobs.googleapis.com/Application"\x8f\x01\n\x18UpdateApplicationRequest\x12\x42\n\x0b\x61pplication\x18\x01 \x01(\x0b\x32(.google.cloud.talent.v4beta1.ApplicationB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask"Q\n\x18\x44\x65leteApplicationRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fjobs.googleapis.com/Application"u\n\x17ListApplicationsRequest\x12\x33\n\x06parent\x18\x01 \x01(\tB#\xe0\x41\x02\xfa\x41\x1d\n\x1bjobs.googleapis.com/Profile\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05"\xb4\x01\n\x18ListApplicationsResponse\x12>\n\x0c\x61pplications\x18\x01 \x03(\x0b\x32(.google.cloud.talent.v4beta1.Application\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12?\n\x08metadata\x18\x03 \x01(\x0b\x32-.google.cloud.talent.v4beta1.ResponseMetadata2\xfc\x08\n\x12\x41pplicationService\x12\xd4\x01\n\x11\x43reateApplication\x12\x35.google.cloud.talent.v4beta1.CreateApplicationRequest\x1a(.google.cloud.talent.v4beta1.Application"^\x82\xd3\xe4\x93\x02\x43">/v4beta1/{parent=projects/*/tenants/*/profiles/*}/applications:\x01*\xda\x41\x12parent,application\x12\xbd\x01\n\x0eGetApplication\x12\x32.google.cloud.talent.v4beta1.GetApplicationRequest\x1a(.google.cloud.talent.v4beta1.Application"M\x82\xd3\xe4\x93\x02@\x12>/v4beta1/{name=projects/*/tenants/*/profiles/*/applications/*}\xda\x41\x04name\x12\xd9\x01\n\x11UpdateApplication\x12\x35.google.cloud.talent.v4beta1.UpdateApplicationRequest\x1a(.google.cloud.talent.v4beta1.Application"c\x82\xd3\xe4\x93\x02O2J/v4beta1/{application.name=projects/*/tenants/*/profiles/*/applications/*}:\x01*\xda\x41\x0b\x61pplication\x12\xb1\x01\n\x11\x44\x65leteApplication\x12\x35.google.cloud.talent.v4beta1.DeleteApplicationRequest\x1a\x16.google.protobuf.Empty"M\x82\xd3\xe4\x93\x02@*>/v4beta1/{name=projects/*/tenants/*/profiles/*/applications/*}\xda\x41\x04name\x12\xd0\x01\n\x10ListApplications\x12\x34.google.cloud.talent.v4beta1.ListApplicationsRequest\x1a\x35.google.cloud.talent.v4beta1.ListApplicationsResponse"O\x82\xd3\xe4\x93\x02@\x12>/v4beta1/{parent=projects/*/tenants/*/profiles/*}/applications\xda\x41\x06parent\x1al\xca\x41\x13jobs.googleapis.com\xd2\x41Shttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/jobsB\x85\x01\n\x1f\x63om.google.cloud.talent.v4beta1B\x17\x41pplicationServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\xa2\x02\x03\x43TSb\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -51,6 +52,7 @@ _CREATEAPPLICATIONREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -69,6 +71,7 @@ _CREATEAPPLICATIONREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\035\n\033jobs.googleapis.com/Profile",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="application",
@@ -87,6 +90,7 @@ _CREATEAPPLICATIONREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -108,6 +112,7 @@ _GETAPPLICATIONREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -126,6 +131,7 @@ _GETAPPLICATIONREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A!\n\037jobs.googleapis.com/Application",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -147,6 +153,7 @@ _UPDATEAPPLICATIONREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="application",
@@ -165,6 +172,7 @@ _UPDATEAPPLICATIONREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_mask",
@@ -183,6 +191,7 @@ _UPDATEAPPLICATIONREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -204,6 +213,7 @@ _DELETEAPPLICATIONREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -222,6 +232,7 @@ _DELETEAPPLICATIONREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A!\n\037jobs.googleapis.com/Application",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -243,6 +254,7 @@ _LISTAPPLICATIONSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -261,6 +273,7 @@ _LISTAPPLICATIONSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\035\n\033jobs.googleapis.com/Profile",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -279,6 +292,7 @@ _LISTAPPLICATIONSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -297,6 +311,7 @@ _LISTAPPLICATIONSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -318,6 +333,7 @@ _LISTAPPLICATIONSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="applications",
@@ -336,6 +352,7 @@ _LISTAPPLICATIONSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -354,6 +371,7 @@ _LISTAPPLICATIONSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="metadata",
@@ -372,6 +390,7 @@ _LISTAPPLICATIONSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -564,6 +583,7 @@ _APPLICATIONSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=b"\312A\023jobs.googleapis.com\322AShttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/jobs",
+    create_key=_descriptor._internal_create_key,
     serialized_start=1133,
     serialized_end=2281,
     methods=[
@@ -575,6 +595,7 @@ _APPLICATIONSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATEAPPLICATIONREQUEST,
             output_type=google_dot_cloud_dot_talent__v4beta1_dot_proto_dot_application__pb2._APPLICATION,
             serialized_options=b'\202\323\344\223\002C">/v4beta1/{parent=projects/*/tenants/*/profiles/*}/applications:\001*\332A\022parent,application',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetApplication",
@@ -584,6 +605,7 @@ _APPLICATIONSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETAPPLICATIONREQUEST,
             output_type=google_dot_cloud_dot_talent__v4beta1_dot_proto_dot_application__pb2._APPLICATION,
             serialized_options=b"\202\323\344\223\002@\022>/v4beta1/{name=projects/*/tenants/*/profiles/*/applications/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateApplication",
@@ -593,6 +615,7 @@ _APPLICATIONSERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATEAPPLICATIONREQUEST,
             output_type=google_dot_cloud_dot_talent__v4beta1_dot_proto_dot_application__pb2._APPLICATION,
             serialized_options=b"\202\323\344\223\002O2J/v4beta1/{application.name=projects/*/tenants/*/profiles/*/applications/*}:\001*\332A\013application",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteApplication",
@@ -602,6 +625,7 @@ _APPLICATIONSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETEAPPLICATIONREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002@*>/v4beta1/{name=projects/*/tenants/*/profiles/*/applications/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListApplications",
@@ -611,6 +635,7 @@ _APPLICATIONSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTAPPLICATIONSREQUEST,
             output_type=_LISTAPPLICATIONSRESPONSE,
             serialized_options=b"\202\323\344\223\002@\022>/v4beta1/{parent=projects/*/tenants/*/profiles/*}/applications\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
     ],
 )

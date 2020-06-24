@@ -29,6 +29,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.cloud.talent.v4beta1",
     syntax="proto3",
     serialized_options=b"\n\037com.google.cloud.talent.v4beta1B\013CommonProtoP\001ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\242\002\003CTS",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n.google/cloud/talent_v4beta1/proto/common.proto\x12\x1bgoogle.cloud.talent.v4beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x16google/type/date.proto\x1a\x18google/type/latlng.proto\x1a\x17google/type/money.proto\x1a google/type/postal_address.proto\x1a\x1bgoogle/type/timeofday.proto\x1a\x1cgoogle/api/annotations.proto"n\n\x0eTimestampRange\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp"\xb7\x03\n\x08Location\x12I\n\rlocation_type\x18\x01 \x01(\x0e\x32\x32.google.cloud.talent.v4beta1.Location.LocationType\x12\x32\n\x0epostal_address\x18\x02 \x01(\x0b\x32\x1a.google.type.PostalAddress\x12$\n\x07lat_lng\x18\x03 \x01(\x0b\x32\x13.google.type.LatLng\x12\x14\n\x0cradius_miles\x18\x04 \x01(\x01"\xef\x01\n\x0cLocationType\x12\x1d\n\x19LOCATION_TYPE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x43OUNTRY\x10\x01\x12\x17\n\x13\x41\x44MINISTRATIVE_AREA\x10\x02\x12\x1b\n\x17SUB_ADMINISTRATIVE_AREA\x10\x03\x12\x0c\n\x08LOCALITY\x10\x04\x12\x0f\n\x0bPOSTAL_CODE\x10\x05\x12\x10\n\x0cSUB_LOCALITY\x10\x06\x12\x12\n\x0eSUB_LOCALITY_1\x10\x07\x12\x12\n\x0eSUB_LOCALITY_2\x10\x08\x12\x10\n\x0cNEIGHBORHOOD\x10\t\x12\x12\n\x0eSTREET_ADDRESS\x10\n"\x9f\x01\n\x0fRequestMetadata\x12\x0e\n\x06\x64omain\x18\x01 \x01(\t\x12\x12\n\nsession_id\x18\x02 \x01(\t\x12\x0f\n\x07user_id\x18\x03 \x01(\t\x12\x19\n\x11\x61llow_missing_ids\x18\x04 \x01(\x08\x12<\n\x0b\x64\x65vice_info\x18\x05 \x01(\x0b\x32\'.google.cloud.talent.v4beta1.DeviceInfo"&\n\x10ResponseMetadata\x12\x12\n\nrequest_id\x18\x01 \x01(\t"\xcf\x01\n\nDeviceInfo\x12G\n\x0b\x64\x65vice_type\x18\x01 \x01(\x0e\x32\x32.google.cloud.talent.v4beta1.DeviceInfo.DeviceType\x12\n\n\x02id\x18\x02 \x01(\t"l\n\nDeviceType\x12\x1b\n\x17\x44\x45VICE_TYPE_UNSPECIFIED\x10\x00\x12\x07\n\x03WEB\x10\x01\x12\x0e\n\nMOBILE_WEB\x10\x02\x12\x0b\n\x07\x41NDROID\x10\x03\x12\x07\n\x03IOS\x10\x04\x12\x07\n\x03\x42OT\x10\x05\x12\t\n\x05OTHER\x10\x06"Q\n\x0f\x43ustomAttribute\x12\x15\n\rstring_values\x18\x01 \x03(\t\x12\x13\n\x0blong_values\x18\x02 \x03(\x03\x12\x12\n\nfilterable\x18\x03 \x01(\x08"W\n\x12SpellingCorrection\x12\x11\n\tcorrected\x18\x01 \x01(\x08\x12\x16\n\x0e\x63orrected_text\x18\x02 \x01(\t\x12\x16\n\x0e\x63orrected_html\x18\x03 \x01(\t"\xa6\t\n\x10\x43ompensationInfo\x12P\n\x07\x65ntries\x18\x01 \x03(\x0b\x32?.google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry\x12p\n"annualized_base_compensation_range\x18\x02 \x01(\x0b\x32?.google.cloud.talent.v4beta1.CompensationInfo.CompensationRangeB\x03\xe0\x41\x03\x12q\n#annualized_total_compensation_range\x18\x03 \x01(\x0b\x32?.google.cloud.talent.v4beta1.CompensationInfo.CompensationRangeB\x03\xe0\x41\x03\x1a\x92\x03\n\x11\x43ompensationEntry\x12L\n\x04type\x18\x01 \x01(\x0e\x32>.google.cloud.talent.v4beta1.CompensationInfo.CompensationType\x12L\n\x04unit\x18\x02 \x01(\x0e\x32>.google.cloud.talent.v4beta1.CompensationInfo.CompensationUnit\x12$\n\x06\x61mount\x18\x03 \x01(\x0b\x32\x12.google.type.MoneyH\x00\x12P\n\x05range\x18\x04 \x01(\x0b\x32?.google.cloud.talent.v4beta1.CompensationInfo.CompensationRangeH\x00\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12=\n\x17\x65xpected_units_per_year\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.DoubleValueB\x15\n\x13\x63ompensation_amount\x1ao\n\x11\x43ompensationRange\x12,\n\x10max_compensation\x18\x02 \x01(\x0b\x32\x12.google.type.Money\x12,\n\x10min_compensation\x18\x01 \x01(\x0b\x32\x12.google.type.Money"\xb5\x01\n\x10\x43ompensationType\x12!\n\x1d\x43OMPENSATION_TYPE_UNSPECIFIED\x10\x00\x12\x08\n\x04\x42\x41SE\x10\x01\x12\t\n\x05\x42ONUS\x10\x02\x12\x11\n\rSIGNING_BONUS\x10\x03\x12\n\n\x06\x45QUITY\x10\x04\x12\x12\n\x0ePROFIT_SHARING\x10\x05\x12\x0f\n\x0b\x43OMMISSIONS\x10\x06\x12\x08\n\x04TIPS\x10\x07\x12\x1b\n\x17OTHER_COMPENSATION_TYPE\x10\x08"\x9c\x01\n\x10\x43ompensationUnit\x12!\n\x1d\x43OMPENSATION_UNIT_UNSPECIFIED\x10\x00\x12\n\n\x06HOURLY\x10\x01\x12\t\n\x05\x44\x41ILY\x10\x02\x12\n\n\x06WEEKLY\x10\x03\x12\x0b\n\x07MONTHLY\x10\x04\x12\n\n\x06YEARLY\x10\x05\x12\x0c\n\x08ONE_TIME\x10\x06\x12\x1b\n\x17OTHER_COMPENSATION_UNIT\x10\x07"\x9e\x01\n\rCertification\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12\'\n\x0c\x61\x63quire_date\x18\x02 \x01(\x0b\x32\x11.google.type.Date\x12&\n\x0b\x65xpire_date\x18\x03 \x01(\x0b\x32\x11.google.type.Date\x12\x11\n\tauthority\x18\x04 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t"\xbd\x01\n\x05Skill\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12)\n\x0elast_used_date\x18\x02 \x01(\x0b\x32\x11.google.type.Date\x12\x41\n\x05level\x18\x03 \x01(\x0e\x32\x32.google.cloud.talent.v4beta1.SkillProficiencyLevel\x12\x0f\n\x07\x63ontext\x18\x04 \x01(\t\x12\x1f\n\x12skill_name_snippet\x18\x05 \x01(\tB\x03\xe0\x41\x03"|\n\tInterview\x12\x33\n\x06rating\x18\x06 \x01(\x0b\x32#.google.cloud.talent.v4beta1.Rating\x12:\n\x07outcome\x18\x07 \x01(\x0e\x32$.google.cloud.talent.v4beta1.OutcomeB\x03\xe0\x41\x02"E\n\x06Rating\x12\x0f\n\x07overall\x18\x01 \x01(\x01\x12\x0b\n\x03min\x18\x02 \x01(\x01\x12\x0b\n\x03max\x18\x03 \x01(\x01\x12\x10\n\x08interval\x18\x04 \x01(\x01"\xcc\x03\n\x16\x42\x61tchOperationMetadata\x12H\n\x05state\x18\x01 \x01(\x0e\x32\x39.google.cloud.talent.v4beta1.BatchOperationMetadata.State\x12\x19\n\x11state_description\x18\x02 \x01(\t\x12\x15\n\rsuccess_count\x18\x03 \x01(\x05\x12\x15\n\rfailure_count\x18\x04 \x01(\x05\x12\x13\n\x0btotal_count\x18\x05 \x01(\x05\x12/\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp"z\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x10\n\x0cINITIALIZING\x10\x01\x12\x0e\n\nPROCESSING\x10\x02\x12\r\n\tSUCCEEDED\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04\x12\x0e\n\nCANCELLING\x10\x05\x12\r\n\tCANCELLED\x10\x06*y\n\x0b\x43ompanySize\x12\x1c\n\x18\x43OMPANY_SIZE_UNSPECIFIED\x10\x00\x12\x08\n\x04MINI\x10\x01\x12\t\n\x05SMALL\x10\x02\x12\x0b\n\x07SMEDIUM\x10\x03\x12\n\n\x06MEDIUM\x10\x04\x12\x07\n\x03\x42IG\x10\x05\x12\n\n\x06\x42IGGER\x10\x06\x12\t\n\x05GIANT\x10\x07*\xe2\x01\n\nJobBenefit\x12\x1b\n\x17JOB_BENEFIT_UNSPECIFIED\x10\x00\x12\x0e\n\nCHILD_CARE\x10\x01\x12\n\n\x06\x44\x45NTAL\x10\x02\x12\x14\n\x10\x44OMESTIC_PARTNER\x10\x03\x12\x12\n\x0e\x46LEXIBLE_HOURS\x10\x04\x12\x0b\n\x07MEDICAL\x10\x05\x12\x12\n\x0eLIFE_INSURANCE\x10\x06\x12\x12\n\x0ePARENTAL_LEAVE\x10\x07\x12\x13\n\x0fRETIREMENT_PLAN\x10\x08\x12\r\n\tSICK_DAYS\x10\t\x12\x0c\n\x08VACATION\x10\n\x12\n\n\x06VISION\x10\x0b*\x8e\x02\n\nDegreeType\x12\x1b\n\x17\x44\x45GREE_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11PRIMARY_EDUCATION\x10\x01\x12\x1d\n\x19LOWER_SECONDARY_EDUCATION\x10\x02\x12\x1d\n\x19UPPER_SECONDARY_EDUCATION\x10\x03\x12\x1c\n\x18\x41\x44ULT_REMEDIAL_EDUCATION\x10\x04\x12\x1c\n\x18\x41SSOCIATES_OR_EQUIVALENT\x10\x05\x12\x1b\n\x17\x42\x41\x43HELORS_OR_EQUIVALENT\x10\x06\x12\x19\n\x15MASTERS_OR_EQUIVALENT\x10\x07\x12\x1a\n\x16\x44OCTORAL_OR_EQUIVALENT\x10\x08*\xdc\x01\n\x0e\x45mploymentType\x12\x1f\n\x1b\x45MPLOYMENT_TYPE_UNSPECIFIED\x10\x00\x12\r\n\tFULL_TIME\x10\x01\x12\r\n\tPART_TIME\x10\x02\x12\x0e\n\nCONTRACTOR\x10\x03\x12\x14\n\x10\x43ONTRACT_TO_HIRE\x10\x04\x12\r\n\tTEMPORARY\x10\x05\x12\n\n\x06INTERN\x10\x06\x12\r\n\tVOLUNTEER\x10\x07\x12\x0c\n\x08PER_DIEM\x10\x08\x12\x12\n\x0e\x46LY_IN_FLY_OUT\x10\t\x12\x19\n\x15OTHER_EMPLOYMENT_TYPE\x10\n*q\n\x08JobLevel\x12\x19\n\x15JOB_LEVEL_UNSPECIFIED\x10\x00\x12\x0f\n\x0b\x45NTRY_LEVEL\x10\x01\x12\x0f\n\x0b\x45XPERIENCED\x10\x02\x12\x0b\n\x07MANAGER\x10\x03\x12\x0c\n\x08\x44IRECTOR\x10\x04\x12\r\n\tEXECUTIVE\x10\x05*\xba\x06\n\x0bJobCategory\x12\x1c\n\x18JOB_CATEGORY_UNSPECIFIED\x10\x00\x12\x1a\n\x16\x41\x43\x43OUNTING_AND_FINANCE\x10\x01\x12\x1d\n\x19\x41\x44MINISTRATIVE_AND_OFFICE\x10\x02\x12\x1d\n\x19\x41\x44VERTISING_AND_MARKETING\x10\x03\x12\x0f\n\x0b\x41NIMAL_CARE\x10\x04\x12\x1a\n\x16\x41RT_FASHION_AND_DESIGN\x10\x05\x12\x17\n\x13\x42USINESS_OPERATIONS\x10\x06\x12\x1b\n\x17\x43LEANING_AND_FACILITIES\x10\x07\x12\x13\n\x0f\x43OMPUTER_AND_IT\x10\x08\x12\x10\n\x0c\x43ONSTRUCTION\x10\t\x12\x14\n\x10\x43USTOMER_SERVICE\x10\n\x12\r\n\tEDUCATION\x10\x0b\x12\x1c\n\x18\x45NTERTAINMENT_AND_TRAVEL\x10\x0c\x12\x18\n\x14\x46\x41RMING_AND_OUTDOORS\x10\r\x12\x0e\n\nHEALTHCARE\x10\x0e\x12\x13\n\x0fHUMAN_RESOURCES\x10\x0f\x12\'\n#INSTALLATION_MAINTENANCE_AND_REPAIR\x10\x10\x12\t\n\x05LEGAL\x10\x11\x12\x0e\n\nMANAGEMENT\x10\x12\x12\x1f\n\x1bMANUFACTURING_AND_WAREHOUSE\x10\x13\x12$\n MEDIA_COMMUNICATIONS_AND_WRITING\x10\x14\x12\x16\n\x12OIL_GAS_AND_MINING\x10\x15\x12\x1e\n\x1aPERSONAL_CARE_AND_SERVICES\x10\x16\x12\x17\n\x13PROTECTIVE_SERVICES\x10\x17\x12\x0f\n\x0bREAL_ESTATE\x10\x18\x12\x1e\n\x1aRESTAURANT_AND_HOSPITALITY\x10\x19\x12\x14\n\x10SALES_AND_RETAIL\x10\x1a\x12\x1b\n\x17SCIENCE_AND_ENGINEERING\x10\x1b\x12"\n\x1eSOCIAL_SERVICES_AND_NON_PROFIT\x10\x1c\x12!\n\x1dSPORTS_FITNESS_AND_RECREATION\x10\x1d\x12 \n\x1cTRANSPORTATION_AND_LOGISTICS\x10\x1e*e\n\rPostingRegion\x12\x1e\n\x1aPOSTING_REGION_UNSPECIFIED\x10\x00\x12\x17\n\x13\x41\x44MINISTRATIVE_AREA\x10\x01\x12\n\n\x06NATION\x10\x02\x12\x0f\n\x0bTELECOMMUTE\x10\x03*n\n\nVisibility\x12\x1a\n\x16VISIBILITY_UNSPECIFIED\x10\x00\x12\x10\n\x0c\x41\x43\x43OUNT_ONLY\x10\x01\x12\x16\n\x12SHARED_WITH_GOOGLE\x10\x02\x12\x16\n\x12SHARED_WITH_PUBLIC\x10\x03\x1a\x02\x18\x01*Z\n\x10\x43ontactInfoUsage\x12"\n\x1e\x43ONTACT_INFO_USAGE_UNSPECIFIED\x10\x00\x12\x0c\n\x08PERSONAL\x10\x01\x12\x08\n\x04WORK\x10\x02\x12\n\n\x06SCHOOL\x10\x03*q\n\x10HtmlSanitization\x12!\n\x1dHTML_SANITIZATION_UNSPECIFIED\x10\x00\x12\x1e\n\x1aHTML_SANITIZATION_DISABLED\x10\x01\x12\x1a\n\x16SIMPLE_FORMATTING_ONLY\x10\x02*c\n\rCommuteMethod\x12\x1e\n\x1a\x43OMMUTE_METHOD_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x44RIVING\x10\x01\x12\x0b\n\x07TRANSIT\x10\x02\x12\x0b\n\x07WALKING\x10\x03\x12\x0b\n\x07\x43YCLING\x10\x04*\xa2\x01\n\x15SkillProficiencyLevel\x12\'\n#SKILL_PROFICIENCY_LEVEL_UNSPECIFIED\x10\x00\x12\r\n\tUNSKILLED\x10\x06\x12\x19\n\x15\x46UNDAMENTAL_AWARENESS\x10\x01\x12\n\n\x06NOVICE\x10\x02\x12\x10\n\x0cINTERMEDIATE\x10\x03\x12\x0c\n\x08\x41\x44VANCED\x10\x04\x12\n\n\x06\x45XPERT\x10\x05*f\n\x07Outcome\x12\x17\n\x13OUTCOME_UNSPECIFIED\x10\x00\x12\x0c\n\x08POSITIVE\x10\x01\x12\x0b\n\x07NEUTRAL\x10\x02\x12\x0c\n\x08NEGATIVE\x10\x03\x12\x19\n\x15OUTCOME_NOT_AVAILABLE\x10\x04*\x97\x01\n\x16\x41vailabilitySignalType\x12(\n$AVAILABILITY_SIGNAL_TYPE_UNSPECIFIED\x10\x00\x12\x13\n\x0fJOB_APPLICATION\x10\x01\x12\x11\n\rRESUME_UPDATE\x10\x02\x12\x14\n\x10\x43\x41NDIDATE_UPDATE\x10\x03\x12\x15\n\x11\x43LIENT_SUBMISSION\x10\x04\x42y\n\x1f\x63om.google.cloud.talent.v4beta1B\x0b\x43ommonProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\xa2\x02\x03\x43TSb\x06proto3',
     dependencies=[
         google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,
@@ -48,6 +49,7 @@ _COMPANYSIZE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.CompanySize",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="COMPANY_SIZE_UNSPECIFIED",
@@ -55,27 +57,63 @@ _COMPANYSIZE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="MINI", index=1, number=1, serialized_options=None, type=None
+            name="MINI",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="SMALL", index=2, number=2, serialized_options=None, type=None
+            name="SMALL",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="SMEDIUM", index=3, number=3, serialized_options=None, type=None
+            name="SMEDIUM",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="MEDIUM", index=4, number=4, serialized_options=None, type=None
+            name="MEDIUM",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="BIG", index=5, number=5, serialized_options=None, type=None
+            name="BIG",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="BIGGER", index=6, number=6, serialized_options=None, type=None
+            name="BIGGER",
+            index=6,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="GIANT", index=7, number=7, serialized_options=None, type=None
+            name="GIANT",
+            index=7,
+            number=7,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -91,6 +129,7 @@ _JOBBENEFIT = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.JobBenefit",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="JOB_BENEFIT_UNSPECIFIED",
@@ -98,12 +137,23 @@ _JOBBENEFIT = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="CHILD_CARE", index=1, number=1, serialized_options=None, type=None
+            name="CHILD_CARE",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="DENTAL", index=2, number=2, serialized_options=None, type=None
+            name="DENTAL",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="DOMESTIC_PARTNER",
@@ -111,18 +161,39 @@ _JOBBENEFIT = _descriptor.EnumDescriptor(
             number=3,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="FLEXIBLE_HOURS", index=4, number=4, serialized_options=None, type=None
+            name="FLEXIBLE_HOURS",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="MEDICAL", index=5, number=5, serialized_options=None, type=None
+            name="MEDICAL",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="LIFE_INSURANCE", index=6, number=6, serialized_options=None, type=None
+            name="LIFE_INSURANCE",
+            index=6,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PARENTAL_LEAVE", index=7, number=7, serialized_options=None, type=None
+            name="PARENTAL_LEAVE",
+            index=7,
+            number=7,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="RETIREMENT_PLAN",
@@ -130,15 +201,31 @@ _JOBBENEFIT = _descriptor.EnumDescriptor(
             number=8,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="SICK_DAYS", index=9, number=9, serialized_options=None, type=None
+            name="SICK_DAYS",
+            index=9,
+            number=9,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="VACATION", index=10, number=10, serialized_options=None, type=None
+            name="VACATION",
+            index=10,
+            number=10,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="VISION", index=11, number=11, serialized_options=None, type=None
+            name="VISION",
+            index=11,
+            number=11,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -154,6 +241,7 @@ _DEGREETYPE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.DegreeType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="DEGREE_TYPE_UNSPECIFIED",
@@ -161,6 +249,7 @@ _DEGREETYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="PRIMARY_EDUCATION",
@@ -168,6 +257,7 @@ _DEGREETYPE = _descriptor.EnumDescriptor(
             number=1,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="LOWER_SECONDARY_EDUCATION",
@@ -175,6 +265,7 @@ _DEGREETYPE = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="UPPER_SECONDARY_EDUCATION",
@@ -182,6 +273,7 @@ _DEGREETYPE = _descriptor.EnumDescriptor(
             number=3,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="ADULT_REMEDIAL_EDUCATION",
@@ -189,6 +281,7 @@ _DEGREETYPE = _descriptor.EnumDescriptor(
             number=4,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="ASSOCIATES_OR_EQUIVALENT",
@@ -196,6 +289,7 @@ _DEGREETYPE = _descriptor.EnumDescriptor(
             number=5,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="BACHELORS_OR_EQUIVALENT",
@@ -203,6 +297,7 @@ _DEGREETYPE = _descriptor.EnumDescriptor(
             number=6,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="MASTERS_OR_EQUIVALENT",
@@ -210,6 +305,7 @@ _DEGREETYPE = _descriptor.EnumDescriptor(
             number=7,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="DOCTORAL_OR_EQUIVALENT",
@@ -217,6 +313,7 @@ _DEGREETYPE = _descriptor.EnumDescriptor(
             number=8,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -232,6 +329,7 @@ _EMPLOYMENTTYPE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.EmploymentType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="EMPLOYMENT_TYPE_UNSPECIFIED",
@@ -239,15 +337,31 @@ _EMPLOYMENTTYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="FULL_TIME", index=1, number=1, serialized_options=None, type=None
+            name="FULL_TIME",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PART_TIME", index=2, number=2, serialized_options=None, type=None
+            name="PART_TIME",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="CONTRACTOR", index=3, number=3, serialized_options=None, type=None
+            name="CONTRACTOR",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="CONTRACT_TO_HIRE",
@@ -255,21 +369,47 @@ _EMPLOYMENTTYPE = _descriptor.EnumDescriptor(
             number=4,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="TEMPORARY", index=5, number=5, serialized_options=None, type=None
+            name="TEMPORARY",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="INTERN", index=6, number=6, serialized_options=None, type=None
+            name="INTERN",
+            index=6,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="VOLUNTEER", index=7, number=7, serialized_options=None, type=None
+            name="VOLUNTEER",
+            index=7,
+            number=7,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PER_DIEM", index=8, number=8, serialized_options=None, type=None
+            name="PER_DIEM",
+            index=8,
+            number=8,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="FLY_IN_FLY_OUT", index=9, number=9, serialized_options=None, type=None
+            name="FLY_IN_FLY_OUT",
+            index=9,
+            number=9,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="OTHER_EMPLOYMENT_TYPE",
@@ -277,6 +417,7 @@ _EMPLOYMENTTYPE = _descriptor.EnumDescriptor(
             number=10,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -292,6 +433,7 @@ _JOBLEVEL = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.JobLevel",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="JOB_LEVEL_UNSPECIFIED",
@@ -299,21 +441,47 @@ _JOBLEVEL = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="ENTRY_LEVEL", index=1, number=1, serialized_options=None, type=None
+            name="ENTRY_LEVEL",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="EXPERIENCED", index=2, number=2, serialized_options=None, type=None
+            name="EXPERIENCED",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="MANAGER", index=3, number=3, serialized_options=None, type=None
+            name="MANAGER",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="DIRECTOR", index=4, number=4, serialized_options=None, type=None
+            name="DIRECTOR",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="EXECUTIVE", index=5, number=5, serialized_options=None, type=None
+            name="EXECUTIVE",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -329,6 +497,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.JobCategory",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="JOB_CATEGORY_UNSPECIFIED",
@@ -336,6 +505,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="ACCOUNTING_AND_FINANCE",
@@ -343,6 +513,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=1,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="ADMINISTRATIVE_AND_OFFICE",
@@ -350,6 +521,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="ADVERTISING_AND_MARKETING",
@@ -357,9 +529,15 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=3,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="ANIMAL_CARE", index=4, number=4, serialized_options=None, type=None
+            name="ANIMAL_CARE",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="ART_FASHION_AND_DESIGN",
@@ -367,6 +545,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=5,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="BUSINESS_OPERATIONS",
@@ -374,6 +553,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=6,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="CLEANING_AND_FACILITIES",
@@ -381,6 +561,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=7,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="COMPUTER_AND_IT",
@@ -388,9 +569,15 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=8,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="CONSTRUCTION", index=9, number=9, serialized_options=None, type=None
+            name="CONSTRUCTION",
+            index=9,
+            number=9,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="CUSTOMER_SERVICE",
@@ -398,9 +585,15 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=10,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="EDUCATION", index=11, number=11, serialized_options=None, type=None
+            name="EDUCATION",
+            index=11,
+            number=11,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="ENTERTAINMENT_AND_TRAVEL",
@@ -408,6 +601,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=12,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="FARMING_AND_OUTDOORS",
@@ -415,9 +609,15 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=13,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="HEALTHCARE", index=14, number=14, serialized_options=None, type=None
+            name="HEALTHCARE",
+            index=14,
+            number=14,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="HUMAN_RESOURCES",
@@ -425,6 +625,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=15,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="INSTALLATION_MAINTENANCE_AND_REPAIR",
@@ -432,12 +633,23 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=16,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="LEGAL", index=17, number=17, serialized_options=None, type=None
+            name="LEGAL",
+            index=17,
+            number=17,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="MANAGEMENT", index=18, number=18, serialized_options=None, type=None
+            name="MANAGEMENT",
+            index=18,
+            number=18,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="MANUFACTURING_AND_WAREHOUSE",
@@ -445,6 +657,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=19,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="MEDIA_COMMUNICATIONS_AND_WRITING",
@@ -452,6 +665,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=20,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="OIL_GAS_AND_MINING",
@@ -459,6 +673,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=21,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="PERSONAL_CARE_AND_SERVICES",
@@ -466,6 +681,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=22,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="PROTECTIVE_SERVICES",
@@ -473,9 +689,15 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=23,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="REAL_ESTATE", index=24, number=24, serialized_options=None, type=None
+            name="REAL_ESTATE",
+            index=24,
+            number=24,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="RESTAURANT_AND_HOSPITALITY",
@@ -483,6 +705,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=25,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="SALES_AND_RETAIL",
@@ -490,6 +713,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=26,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="SCIENCE_AND_ENGINEERING",
@@ -497,6 +721,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=27,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="SOCIAL_SERVICES_AND_NON_PROFIT",
@@ -504,6 +729,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=28,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="SPORTS_FITNESS_AND_RECREATION",
@@ -511,6 +737,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=29,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="TRANSPORTATION_AND_LOGISTICS",
@@ -518,6 +745,7 @@ _JOBCATEGORY = _descriptor.EnumDescriptor(
             number=30,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -533,6 +761,7 @@ _POSTINGREGION = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.PostingRegion",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="POSTING_REGION_UNSPECIFIED",
@@ -540,6 +769,7 @@ _POSTINGREGION = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="ADMINISTRATIVE_AREA",
@@ -547,12 +777,23 @@ _POSTINGREGION = _descriptor.EnumDescriptor(
             number=1,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="NATION", index=2, number=2, serialized_options=None, type=None
+            name="NATION",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="TELECOMMUTE", index=3, number=3, serialized_options=None, type=None
+            name="TELECOMMUTE",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -568,6 +809,7 @@ _VISIBILITY = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.Visibility",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="VISIBILITY_UNSPECIFIED",
@@ -575,9 +817,15 @@ _VISIBILITY = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="ACCOUNT_ONLY", index=1, number=1, serialized_options=None, type=None
+            name="ACCOUNT_ONLY",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="SHARED_WITH_GOOGLE",
@@ -585,6 +833,7 @@ _VISIBILITY = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="SHARED_WITH_PUBLIC",
@@ -592,6 +841,7 @@ _VISIBILITY = _descriptor.EnumDescriptor(
             number=3,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -607,6 +857,7 @@ _CONTACTINFOUSAGE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.ContactInfoUsage",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="CONTACT_INFO_USAGE_UNSPECIFIED",
@@ -614,15 +865,31 @@ _CONTACTINFOUSAGE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PERSONAL", index=1, number=1, serialized_options=None, type=None
+            name="PERSONAL",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="WORK", index=2, number=2, serialized_options=None, type=None
+            name="WORK",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="SCHOOL", index=3, number=3, serialized_options=None, type=None
+            name="SCHOOL",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -638,6 +905,7 @@ _HTMLSANITIZATION = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.HtmlSanitization",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="HTML_SANITIZATION_UNSPECIFIED",
@@ -645,6 +913,7 @@ _HTMLSANITIZATION = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="HTML_SANITIZATION_DISABLED",
@@ -652,6 +921,7 @@ _HTMLSANITIZATION = _descriptor.EnumDescriptor(
             number=1,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="SIMPLE_FORMATTING_ONLY",
@@ -659,6 +929,7 @@ _HTMLSANITIZATION = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -674,6 +945,7 @@ _COMMUTEMETHOD = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.CommuteMethod",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="COMMUTE_METHOD_UNSPECIFIED",
@@ -681,18 +953,39 @@ _COMMUTEMETHOD = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="DRIVING", index=1, number=1, serialized_options=None, type=None
+            name="DRIVING",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="TRANSIT", index=2, number=2, serialized_options=None, type=None
+            name="TRANSIT",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="WALKING", index=3, number=3, serialized_options=None, type=None
+            name="WALKING",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="CYCLING", index=4, number=4, serialized_options=None, type=None
+            name="CYCLING",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -708,6 +1001,7 @@ _SKILLPROFICIENCYLEVEL = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.SkillProficiencyLevel",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="SKILL_PROFICIENCY_LEVEL_UNSPECIFIED",
@@ -715,9 +1009,15 @@ _SKILLPROFICIENCYLEVEL = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="UNSKILLED", index=1, number=6, serialized_options=None, type=None
+            name="UNSKILLED",
+            index=1,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="FUNDAMENTAL_AWARENESS",
@@ -725,18 +1025,39 @@ _SKILLPROFICIENCYLEVEL = _descriptor.EnumDescriptor(
             number=1,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="NOVICE", index=3, number=2, serialized_options=None, type=None
+            name="NOVICE",
+            index=3,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="INTERMEDIATE", index=4, number=3, serialized_options=None, type=None
+            name="INTERMEDIATE",
+            index=4,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="ADVANCED", index=5, number=4, serialized_options=None, type=None
+            name="ADVANCED",
+            index=5,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="EXPERT", index=6, number=5, serialized_options=None, type=None
+            name="EXPERT",
+            index=6,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -752,6 +1073,7 @@ _OUTCOME = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.Outcome",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="OUTCOME_UNSPECIFIED",
@@ -759,15 +1081,31 @@ _OUTCOME = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="POSITIVE", index=1, number=1, serialized_options=None, type=None
+            name="POSITIVE",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="NEUTRAL", index=2, number=2, serialized_options=None, type=None
+            name="NEUTRAL",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="NEGATIVE", index=3, number=3, serialized_options=None, type=None
+            name="NEGATIVE",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="OUTCOME_NOT_AVAILABLE",
@@ -775,6 +1113,7 @@ _OUTCOME = _descriptor.EnumDescriptor(
             number=4,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -790,6 +1129,7 @@ _AVAILABILITYSIGNALTYPE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.AvailabilitySignalType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="AVAILABILITY_SIGNAL_TYPE_UNSPECIFIED",
@@ -797,6 +1137,7 @@ _AVAILABILITYSIGNALTYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="JOB_APPLICATION",
@@ -804,9 +1145,15 @@ _AVAILABILITYSIGNALTYPE = _descriptor.EnumDescriptor(
             number=1,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="RESUME_UPDATE", index=2, number=2, serialized_options=None, type=None
+            name="RESUME_UPDATE",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="CANDIDATE_UPDATE",
@@ -814,6 +1161,7 @@ _AVAILABILITYSIGNALTYPE = _descriptor.EnumDescriptor(
             number=3,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="CLIENT_SUBMISSION",
@@ -821,6 +1169,7 @@ _AVAILABILITYSIGNALTYPE = _descriptor.EnumDescriptor(
             number=4,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -952,6 +1301,7 @@ _LOCATION_LOCATIONTYPE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.Location.LocationType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="LOCATION_TYPE_UNSPECIFIED",
@@ -959,9 +1309,15 @@ _LOCATION_LOCATIONTYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="COUNTRY", index=1, number=1, serialized_options=None, type=None
+            name="COUNTRY",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="ADMINISTRATIVE_AREA",
@@ -969,6 +1325,7 @@ _LOCATION_LOCATIONTYPE = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="SUB_ADMINISTRATIVE_AREA",
@@ -976,24 +1333,55 @@ _LOCATION_LOCATIONTYPE = _descriptor.EnumDescriptor(
             number=3,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="LOCALITY", index=4, number=4, serialized_options=None, type=None
+            name="LOCALITY",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="POSTAL_CODE", index=5, number=5, serialized_options=None, type=None
+            name="POSTAL_CODE",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="SUB_LOCALITY", index=6, number=6, serialized_options=None, type=None
+            name="SUB_LOCALITY",
+            index=6,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="SUB_LOCALITY_1", index=7, number=7, serialized_options=None, type=None
+            name="SUB_LOCALITY_1",
+            index=7,
+            number=7,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="SUB_LOCALITY_2", index=8, number=8, serialized_options=None, type=None
+            name="SUB_LOCALITY_2",
+            index=8,
+            number=8,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="NEIGHBORHOOD", index=9, number=9, serialized_options=None, type=None
+            name="NEIGHBORHOOD",
+            index=9,
+            number=9,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="STREET_ADDRESS",
@@ -1001,6 +1389,7 @@ _LOCATION_LOCATIONTYPE = _descriptor.EnumDescriptor(
             number=10,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -1015,6 +1404,7 @@ _DEVICEINFO_DEVICETYPE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.DeviceInfo.DeviceType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="DEVICE_TYPE_UNSPECIFIED",
@@ -1022,24 +1412,55 @@ _DEVICEINFO_DEVICETYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="WEB", index=1, number=1, serialized_options=None, type=None
+            name="WEB",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="MOBILE_WEB", index=2, number=2, serialized_options=None, type=None
+            name="MOBILE_WEB",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="ANDROID", index=3, number=3, serialized_options=None, type=None
+            name="ANDROID",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="IOS", index=4, number=4, serialized_options=None, type=None
+            name="IOS",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="BOT", index=5, number=5, serialized_options=None, type=None
+            name="BOT",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="OTHER", index=6, number=6, serialized_options=None, type=None
+            name="OTHER",
+            index=6,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -1054,6 +1475,7 @@ _COMPENSATIONINFO_COMPENSATIONTYPE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.CompensationInfo.CompensationType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="COMPENSATION_TYPE_UNSPECIFIED",
@@ -1061,27 +1483,63 @@ _COMPENSATIONINFO_COMPENSATIONTYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="BASE", index=1, number=1, serialized_options=None, type=None
+            name="BASE",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="BONUS", index=2, number=2, serialized_options=None, type=None
+            name="BONUS",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="SIGNING_BONUS", index=3, number=3, serialized_options=None, type=None
+            name="SIGNING_BONUS",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="EQUITY", index=4, number=4, serialized_options=None, type=None
+            name="EQUITY",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PROFIT_SHARING", index=5, number=5, serialized_options=None, type=None
+            name="PROFIT_SHARING",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="COMMISSIONS", index=6, number=6, serialized_options=None, type=None
+            name="COMMISSIONS",
+            index=6,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="TIPS", index=7, number=7, serialized_options=None, type=None
+            name="TIPS",
+            index=7,
+            number=7,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="OTHER_COMPENSATION_TYPE",
@@ -1089,6 +1547,7 @@ _COMPENSATIONINFO_COMPENSATIONTYPE = _descriptor.EnumDescriptor(
             number=8,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -1103,6 +1562,7 @@ _COMPENSATIONINFO_COMPENSATIONUNIT = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.CompensationInfo.CompensationUnit",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="COMPENSATION_UNIT_UNSPECIFIED",
@@ -1110,24 +1570,55 @@ _COMPENSATIONINFO_COMPENSATIONUNIT = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="HOURLY", index=1, number=1, serialized_options=None, type=None
+            name="HOURLY",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="DAILY", index=2, number=2, serialized_options=None, type=None
+            name="DAILY",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="WEEKLY", index=3, number=3, serialized_options=None, type=None
+            name="WEEKLY",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="MONTHLY", index=4, number=4, serialized_options=None, type=None
+            name="MONTHLY",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="YEARLY", index=5, number=5, serialized_options=None, type=None
+            name="YEARLY",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="ONE_TIME", index=6, number=6, serialized_options=None, type=None
+            name="ONE_TIME",
+            index=6,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="OTHER_COMPENSATION_UNIT",
@@ -1135,6 +1626,7 @@ _COMPENSATIONINFO_COMPENSATIONUNIT = _descriptor.EnumDescriptor(
             number=7,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -1149,6 +1641,7 @@ _BATCHOPERATIONMETADATA_STATE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.BatchOperationMetadata.State",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="STATE_UNSPECIFIED",
@@ -1156,24 +1649,55 @@ _BATCHOPERATIONMETADATA_STATE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="INITIALIZING", index=1, number=1, serialized_options=None, type=None
+            name="INITIALIZING",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PROCESSING", index=2, number=2, serialized_options=None, type=None
+            name="PROCESSING",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="SUCCEEDED", index=3, number=3, serialized_options=None, type=None
+            name="SUCCEEDED",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="FAILED", index=4, number=4, serialized_options=None, type=None
+            name="FAILED",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="CANCELLING", index=5, number=5, serialized_options=None, type=None
+            name="CANCELLING",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="CANCELLED", index=6, number=6, serialized_options=None, type=None
+            name="CANCELLED",
+            index=6,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -1190,6 +1714,7 @@ _TIMESTAMPRANGE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="start_time",
@@ -1208,6 +1733,7 @@ _TIMESTAMPRANGE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="end_time",
@@ -1226,6 +1752,7 @@ _TIMESTAMPRANGE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1247,6 +1774,7 @@ _LOCATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="location_type",
@@ -1265,6 +1793,7 @@ _LOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="postal_address",
@@ -1283,6 +1812,7 @@ _LOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="lat_lng",
@@ -1301,6 +1831,7 @@ _LOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="radius_miles",
@@ -1319,6 +1850,7 @@ _LOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1340,6 +1872,7 @@ _REQUESTMETADATA = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="domain",
@@ -1358,6 +1891,7 @@ _REQUESTMETADATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="session_id",
@@ -1376,6 +1910,7 @@ _REQUESTMETADATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="user_id",
@@ -1394,6 +1929,7 @@ _REQUESTMETADATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="allow_missing_ids",
@@ -1412,6 +1948,7 @@ _REQUESTMETADATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="device_info",
@@ -1430,6 +1967,7 @@ _REQUESTMETADATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1451,6 +1989,7 @@ _RESPONSEMETADATA = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="request_id",
@@ -1469,6 +2008,7 @@ _RESPONSEMETADATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -1490,6 +2030,7 @@ _DEVICEINFO = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="device_type",
@@ -1508,6 +2049,7 @@ _DEVICEINFO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="id",
@@ -1526,6 +2068,7 @@ _DEVICEINFO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1547,6 +2090,7 @@ _CUSTOMATTRIBUTE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="string_values",
@@ -1565,6 +2109,7 @@ _CUSTOMATTRIBUTE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="long_values",
@@ -1583,6 +2128,7 @@ _CUSTOMATTRIBUTE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="filterable",
@@ -1601,6 +2147,7 @@ _CUSTOMATTRIBUTE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1622,6 +2169,7 @@ _SPELLINGCORRECTION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="corrected",
@@ -1640,6 +2188,7 @@ _SPELLINGCORRECTION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="corrected_text",
@@ -1658,6 +2207,7 @@ _SPELLINGCORRECTION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="corrected_html",
@@ -1676,6 +2226,7 @@ _SPELLINGCORRECTION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1697,6 +2248,7 @@ _COMPENSATIONINFO_COMPENSATIONENTRY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="type",
@@ -1715,6 +2267,7 @@ _COMPENSATIONINFO_COMPENSATIONENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="unit",
@@ -1733,6 +2286,7 @@ _COMPENSATIONINFO_COMPENSATIONENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="amount",
@@ -1751,6 +2305,7 @@ _COMPENSATIONINFO_COMPENSATIONENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="range",
@@ -1769,6 +2324,7 @@ _COMPENSATIONINFO_COMPENSATIONENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="description",
@@ -1787,6 +2343,7 @@ _COMPENSATIONINFO_COMPENSATIONENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="expected_units_per_year",
@@ -1805,6 +2362,7 @@ _COMPENSATIONINFO_COMPENSATIONENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1820,6 +2378,7 @@ _COMPENSATIONINFO_COMPENSATIONENTRY = _descriptor.Descriptor(
             full_name="google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry.compensation_amount",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -1833,6 +2392,7 @@ _COMPENSATIONINFO_COMPENSATIONRANGE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="max_compensation",
@@ -1851,6 +2411,7 @@ _COMPENSATIONINFO_COMPENSATIONRANGE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="min_compensation",
@@ -1869,6 +2430,7 @@ _COMPENSATIONINFO_COMPENSATIONRANGE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1889,6 +2451,7 @@ _COMPENSATIONINFO = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="entries",
@@ -1907,6 +2470,7 @@ _COMPENSATIONINFO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="annualized_base_compensation_range",
@@ -1925,6 +2489,7 @@ _COMPENSATIONINFO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="annualized_total_compensation_range",
@@ -1943,6 +2508,7 @@ _COMPENSATIONINFO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1967,6 +2533,7 @@ _CERTIFICATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -1985,6 +2552,7 @@ _CERTIFICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="acquire_date",
@@ -2003,6 +2571,7 @@ _CERTIFICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="expire_date",
@@ -2021,6 +2590,7 @@ _CERTIFICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="authority",
@@ -2039,6 +2609,7 @@ _CERTIFICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="description",
@@ -2057,6 +2628,7 @@ _CERTIFICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2078,6 +2650,7 @@ _SKILL = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -2096,6 +2669,7 @@ _SKILL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="last_used_date",
@@ -2114,6 +2688,7 @@ _SKILL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="level",
@@ -2132,6 +2707,7 @@ _SKILL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="context",
@@ -2150,6 +2726,7 @@ _SKILL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="skill_name_snippet",
@@ -2168,6 +2745,7 @@ _SKILL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2189,6 +2767,7 @@ _INTERVIEW = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="rating",
@@ -2207,6 +2786,7 @@ _INTERVIEW = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="outcome",
@@ -2225,6 +2805,7 @@ _INTERVIEW = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2246,6 +2827,7 @@ _RATING = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="overall",
@@ -2264,6 +2846,7 @@ _RATING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="min",
@@ -2282,6 +2865,7 @@ _RATING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="max",
@@ -2300,6 +2884,7 @@ _RATING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="interval",
@@ -2318,6 +2903,7 @@ _RATING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2339,6 +2925,7 @@ _BATCHOPERATIONMETADATA = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="state",
@@ -2357,6 +2944,7 @@ _BATCHOPERATIONMETADATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="state_description",
@@ -2375,6 +2963,7 @@ _BATCHOPERATIONMETADATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="success_count",
@@ -2393,6 +2982,7 @@ _BATCHOPERATIONMETADATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="failure_count",
@@ -2411,6 +3001,7 @@ _BATCHOPERATIONMETADATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="total_count",
@@ -2429,6 +3020,7 @@ _BATCHOPERATIONMETADATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="create_time",
@@ -2447,6 +3039,7 @@ _BATCHOPERATIONMETADATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_time",
@@ -2465,6 +3058,7 @@ _BATCHOPERATIONMETADATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="end_time",
@@ -2483,6 +3077,7 @@ _BATCHOPERATIONMETADATA = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],

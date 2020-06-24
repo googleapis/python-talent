@@ -42,6 +42,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.cloud.talent.v4beta1",
     syntax="proto3",
     serialized_options=b"\n\037com.google.cloud.talent.v4beta1B\023ProfileServiceProtoP\001ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\242\002\003CTS",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n7google/cloud/talent_v4beta1/proto/profile_service.proto\x12\x1bgoogle.cloud.talent.v4beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.google/cloud/talent_v4beta1/proto/common.proto\x1a/google/cloud/talent_v4beta1/proto/filters.proto\x1a\x31google/cloud/talent_v4beta1/proto/histogram.proto\x1a/google/cloud/talent_v4beta1/proto/profile.proto\x1a#google/longrunning/operations.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x17google/rpc/status.proto"\xb0\x01\n\x13ListProfilesRequest\x12\x33\n\x06parent\x18\x01 \x01(\tB#\xe0\x41\x02\xfa\x41\x1d\x12\x1bjobs.googleapis.com/Profile\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12-\n\tread_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMask"g\n\x14ListProfilesResponse\x12\x36\n\x08profiles\x18\x01 \x03(\x0b\x32$.google.cloud.talent.v4beta1.Profile\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t"\x86\x01\n\x14\x43reateProfileRequest\x12\x32\n\x06parent\x18\x01 \x01(\tB"\xe0\x41\x02\xfa\x41\x1c\n\x1ajobs.googleapis.com/Tenant\x12:\n\x07profile\x18\x02 \x01(\x0b\x32$.google.cloud.talent.v4beta1.ProfileB\x03\xe0\x41\x02"F\n\x11GetProfileRequest\x12\x31\n\x04name\x18\x01 \x01(\tB#\xe0\x41\x02\xfa\x41\x1d\n\x1bjobs.googleapis.com/Profile"\x83\x01\n\x14UpdateProfileRequest\x12:\n\x07profile\x18\x01 \x01(\x0b\x32$.google.cloud.talent.v4beta1.ProfileB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask"I\n\x14\x44\x65leteProfileRequest\x12\x31\n\x04name\x18\x01 \x01(\tB#\xe0\x41\x02\xfa\x41\x1d\n\x1bjobs.googleapis.com/Profile"\xdc\x03\n\x15SearchProfilesRequest\x12\x32\n\x06parent\x18\x01 \x01(\tB"\xe0\x41\x02\xfa\x41\x1c\n\x1ajobs.googleapis.com/Tenant\x12K\n\x10request_metadata\x18\x02 \x01(\x0b\x32,.google.cloud.talent.v4beta1.RequestMetadataB\x03\xe0\x41\x02\x12@\n\rprofile_query\x18\x03 \x01(\x0b\x32).google.cloud.talent.v4beta1.ProfileQuery\x12\x11\n\tpage_size\x18\x04 \x01(\x05\x12\x12\n\npage_token\x18\x05 \x01(\t\x12\x0e\n\x06offset\x18\x06 \x01(\x05\x12\x1b\n\x13\x64isable_spell_check\x18\x07 \x01(\x08\x12\x10\n\x08order_by\x18\x08 \x01(\t\x12\x1b\n\x13\x63\x61se_sensitive_sort\x18\t \x01(\x08\x12\x46\n\x11histogram_queries\x18\n \x03(\x0b\x32+.google.cloud.talent.v4beta1.HistogramQuery\x12\x15\n\rresult_set_id\x18\x0c \x01(\t\x12\x1e\n\x16strict_keywords_search\x18\r \x01(\x08"\x93\x03\n\x16SearchProfilesResponse\x12\x1c\n\x14\x65stimated_total_size\x18\x01 \x01(\x03\x12I\n\x10spell_correction\x18\x02 \x01(\x0b\x32/.google.cloud.talent.v4beta1.SpellingCorrection\x12?\n\x08metadata\x18\x03 \x01(\x0b\x32-.google.cloud.talent.v4beta1.ResponseMetadata\x12\x17\n\x0fnext_page_token\x18\x04 \x01(\t\x12R\n\x17histogram_query_results\x18\x05 \x03(\x0b\x32\x31.google.cloud.talent.v4beta1.HistogramQueryResult\x12K\n\x13summarized_profiles\x18\x06 \x03(\x0b\x32..google.cloud.talent.v4beta1.SummarizedProfile\x12\x15\n\rresult_set_id\x18\x07 \x01(\t"\x82\x01\n\x11SummarizedProfile\x12\x36\n\x08profiles\x18\x01 \x03(\x0b\x32$.google.cloud.talent.v4beta1.Profile\x12\x35\n\x07summary\x18\x02 \x01(\x0b\x32$.google.cloud.talent.v4beta1.Profile2\x9f\t\n\x0eProfileService\x12\xb5\x01\n\x0cListProfiles\x12\x30.google.cloud.talent.v4beta1.ListProfilesRequest\x1a\x31.google.cloud.talent.v4beta1.ListProfilesResponse"@\x82\xd3\xe4\x93\x02\x31\x12//v4beta1/{parent=projects/*/tenants/*}/profiles\xda\x41\x06parent\x12\xb5\x01\n\rCreateProfile\x12\x31.google.cloud.talent.v4beta1.CreateProfileRequest\x1a$.google.cloud.talent.v4beta1.Profile"K\x82\xd3\xe4\x93\x02\x34"//v4beta1/{parent=projects/*/tenants/*}/profiles:\x01*\xda\x41\x0eparent,profile\x12\xa2\x01\n\nGetProfile\x12..google.cloud.talent.v4beta1.GetProfileRequest\x1a$.google.cloud.talent.v4beta1.Profile">\x82\xd3\xe4\x93\x02\x31\x12//v4beta1/{name=projects/*/tenants/*/profiles/*}\xda\x41\x04name\x12\xb6\x01\n\rUpdateProfile\x12\x31.google.cloud.talent.v4beta1.UpdateProfileRequest\x1a$.google.cloud.talent.v4beta1.Profile"L\x82\xd3\xe4\x93\x02<27/v4beta1/{profile.name=projects/*/tenants/*/profiles/*}:\x01*\xda\x41\x07profile\x12\x9a\x01\n\rDeleteProfile\x12\x31.google.cloud.talent.v4beta1.DeleteProfileRequest\x1a\x16.google.protobuf.Empty">\x82\xd3\xe4\x93\x02\x31*//v4beta1/{name=projects/*/tenants/*/profiles/*}\xda\x41\x04name\x12\xb3\x01\n\x0eSearchProfiles\x12\x32.google.cloud.talent.v4beta1.SearchProfilesRequest\x1a\x33.google.cloud.talent.v4beta1.SearchProfilesResponse"8\x82\xd3\xe4\x93\x02\x32"-/v4beta1/{parent=projects/*/tenants/*}:search:\x01*\x1al\xca\x41\x13jobs.googleapis.com\xd2\x41Shttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/jobsB\x81\x01\n\x1f\x63om.google.cloud.talent.v4beta1B\x13ProfileServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\xa2\x02\x03\x43TSb\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -67,6 +68,7 @@ _LISTPROFILESREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -85,6 +87,7 @@ _LISTPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\035\022\033jobs.googleapis.com/Profile",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="filter",
@@ -103,6 +106,7 @@ _LISTPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -121,6 +125,7 @@ _LISTPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -139,6 +144,7 @@ _LISTPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="read_mask",
@@ -157,6 +163,7 @@ _LISTPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -178,6 +185,7 @@ _LISTPROFILESRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="profiles",
@@ -196,6 +204,7 @@ _LISTPROFILESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -214,6 +223,7 @@ _LISTPROFILESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -235,6 +245,7 @@ _CREATEPROFILEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -253,6 +264,7 @@ _CREATEPROFILEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\034\n\032jobs.googleapis.com/Tenant",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="profile",
@@ -271,6 +283,7 @@ _CREATEPROFILEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -292,6 +305,7 @@ _GETPROFILEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -310,6 +324,7 @@ _GETPROFILEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\035\n\033jobs.googleapis.com/Profile",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -331,6 +346,7 @@ _UPDATEPROFILEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="profile",
@@ -349,6 +365,7 @@ _UPDATEPROFILEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_mask",
@@ -367,6 +384,7 @@ _UPDATEPROFILEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -388,6 +406,7 @@ _DELETEPROFILEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -406,6 +425,7 @@ _DELETEPROFILEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\035\n\033jobs.googleapis.com/Profile",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -427,6 +447,7 @@ _SEARCHPROFILESREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -445,6 +466,7 @@ _SEARCHPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\034\n\032jobs.googleapis.com/Tenant",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="request_metadata",
@@ -463,6 +485,7 @@ _SEARCHPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="profile_query",
@@ -481,6 +504,7 @@ _SEARCHPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -499,6 +523,7 @@ _SEARCHPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -517,6 +542,7 @@ _SEARCHPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="offset",
@@ -535,6 +561,7 @@ _SEARCHPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="disable_spell_check",
@@ -553,6 +580,7 @@ _SEARCHPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="order_by",
@@ -571,6 +599,7 @@ _SEARCHPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="case_sensitive_sort",
@@ -589,6 +618,7 @@ _SEARCHPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="histogram_queries",
@@ -607,6 +637,7 @@ _SEARCHPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="result_set_id",
@@ -625,6 +656,7 @@ _SEARCHPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="strict_keywords_search",
@@ -643,6 +675,7 @@ _SEARCHPROFILESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -664,6 +697,7 @@ _SEARCHPROFILESRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="estimated_total_size",
@@ -682,6 +716,7 @@ _SEARCHPROFILESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="spell_correction",
@@ -700,6 +735,7 @@ _SEARCHPROFILESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="metadata",
@@ -718,6 +754,7 @@ _SEARCHPROFILESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -736,6 +773,7 @@ _SEARCHPROFILESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="histogram_query_results",
@@ -754,6 +792,7 @@ _SEARCHPROFILESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="summarized_profiles",
@@ -772,6 +811,7 @@ _SEARCHPROFILESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="result_set_id",
@@ -790,6 +830,7 @@ _SEARCHPROFILESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -811,6 +852,7 @@ _SUMMARIZEDPROFILE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="profiles",
@@ -829,6 +871,7 @@ _SUMMARIZEDPROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="summary",
@@ -847,6 +890,7 @@ _SUMMARIZEDPROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1343,6 +1387,7 @@ _PROFILESERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=b"\312A\023jobs.googleapis.com\322AShttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/jobs",
+    create_key=_descriptor._internal_create_key,
     serialized_start=2273,
     serialized_end=3456,
     methods=[
@@ -1354,6 +1399,7 @@ _PROFILESERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTPROFILESREQUEST,
             output_type=_LISTPROFILESRESPONSE,
             serialized_options=b"\202\323\344\223\0021\022//v4beta1/{parent=projects/*/tenants/*}/profiles\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CreateProfile",
@@ -1363,6 +1409,7 @@ _PROFILESERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATEPROFILEREQUEST,
             output_type=google_dot_cloud_dot_talent__v4beta1_dot_proto_dot_profile__pb2._PROFILE,
             serialized_options=b'\202\323\344\223\0024"//v4beta1/{parent=projects/*/tenants/*}/profiles:\001*\332A\016parent,profile',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetProfile",
@@ -1372,6 +1419,7 @@ _PROFILESERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETPROFILEREQUEST,
             output_type=google_dot_cloud_dot_talent__v4beta1_dot_proto_dot_profile__pb2._PROFILE,
             serialized_options=b"\202\323\344\223\0021\022//v4beta1/{name=projects/*/tenants/*/profiles/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateProfile",
@@ -1381,6 +1429,7 @@ _PROFILESERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATEPROFILEREQUEST,
             output_type=google_dot_cloud_dot_talent__v4beta1_dot_proto_dot_profile__pb2._PROFILE,
             serialized_options=b"\202\323\344\223\002<27/v4beta1/{profile.name=projects/*/tenants/*/profiles/*}:\001*\332A\007profile",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteProfile",
@@ -1390,6 +1439,7 @@ _PROFILESERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETEPROFILEREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\0021*//v4beta1/{name=projects/*/tenants/*/profiles/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="SearchProfiles",
@@ -1399,6 +1449,7 @@ _PROFILESERVICE = _descriptor.ServiceDescriptor(
             input_type=_SEARCHPROFILESREQUEST,
             output_type=_SEARCHPROFILESRESPONSE,
             serialized_options=b'\202\323\344\223\0022"-/v4beta1/{parent=projects/*/tenants/*}:search:\001*',
+            create_key=_descriptor._internal_create_key,
         ),
     ],
 )

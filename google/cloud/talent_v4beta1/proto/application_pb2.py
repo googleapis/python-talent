@@ -28,6 +28,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.cloud.talent.v4beta1",
     syntax="proto3",
     serialized_options=b"\n\037com.google.cloud.talent.v4beta1B\030ApplicationResourceProtoP\001ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\242\002\003CTS",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n3google/cloud/talent_v4beta1/proto/application.proto\x12\x1bgoogle.cloud.talent.v4beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.google/cloud/talent_v4beta1/proto/common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x16google/type/date.proto"\x9c\t\n\x0b\x41pplication\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x18\n\x0b\x65xternal_id\x18\x1f \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07profile\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12,\n\x03job\x18\x04 \x01(\tB\x1f\xfa\x41\x19\n\x17jobs.googleapis.com/Job\xe0\x41\x02\x12\x31\n\x07\x63ompany\x18\x05 \x01(\tB \xfa\x41\x1d\n\x1bjobs.googleapis.com/Company\x12+\n\x10\x61pplication_date\x18\x07 \x01(\x0b\x32\x11.google.type.Date\x12M\n\x05stage\x18\x0b \x01(\x0e\x32\x39.google.cloud.talent.v4beta1.Application.ApplicationStageB\x03\xe0\x41\x02\x12H\n\x05state\x18\r \x01(\x0e\x32\x39.google.cloud.talent.v4beta1.Application.ApplicationState\x12:\n\ninterviews\x18\x10 \x03(\x0b\x32&.google.cloud.talent.v4beta1.Interview\x12,\n\x08referral\x18\x12 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\x0b\x63reate_time\x18\x13 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02\x12/\n\x0bupdate_time\x18\x14 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x15\n\routcome_notes\x18\x15 \x01(\t\x12\x35\n\x07outcome\x18\x16 \x01(\x0e\x32$.google.cloud.talent.v4beta1.Outcome\x12\x31\n\x08is_match\x18\x1c \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x03\xe0\x41\x03\x12\x1e\n\x11job_title_snippet\x18\x1d \x01(\tB\x03\xe0\x41\x03"\x90\x01\n\x10\x41pplicationState\x12!\n\x1d\x41PPLICATION_STATE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bIN_PROGRESS\x10\x01\x12\x16\n\x12\x43\x41NDIDATE_WITHDREW\x10\x02\x12\x15\n\x11\x45MPLOYER_WITHDREW\x10\x03\x12\r\n\tCOMPLETED\x10\x04\x12\n\n\x06\x43LOSED\x10\x05"\xa9\x01\n\x10\x41pplicationStage\x12!\n\x1d\x41PPLICATION_STAGE_UNSPECIFIED\x10\x00\x12\x07\n\x03NEW\x10\x01\x12\n\n\x06SCREEN\x10\x02\x12\x19\n\x15HIRING_MANAGER_REVIEW\x10\x03\x12\r\n\tINTERVIEW\x10\x04\x12\x12\n\x0eOFFER_EXTENDED\x10\x05\x12\x12\n\x0eOFFER_ACCEPTED\x10\x06\x12\x0b\n\x07STARTED\x10\x07:w\xea\x41t\n\x1fjobs.googleapis.com/Application\x12Qprojects/{project}/tenants/{tenant}/profiles/{profile}/applications/{application}B\x86\x01\n\x1f\x63om.google.cloud.talent.v4beta1B\x18\x41pplicationResourceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\xa2\x02\x03\x43TSb\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -46,6 +47,7 @@ _APPLICATION_APPLICATIONSTATE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.Application.ApplicationState",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="APPLICATION_STATE_UNSPECIFIED",
@@ -53,9 +55,15 @@ _APPLICATION_APPLICATIONSTATE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="IN_PROGRESS", index=1, number=1, serialized_options=None, type=None
+            name="IN_PROGRESS",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="CANDIDATE_WITHDREW",
@@ -63,6 +71,7 @@ _APPLICATION_APPLICATIONSTATE = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="EMPLOYER_WITHDREW",
@@ -70,12 +79,23 @@ _APPLICATION_APPLICATIONSTATE = _descriptor.EnumDescriptor(
             number=3,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="COMPLETED", index=4, number=4, serialized_options=None, type=None
+            name="COMPLETED",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="CLOSED", index=5, number=5, serialized_options=None, type=None
+            name="CLOSED",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -90,6 +110,7 @@ _APPLICATION_APPLICATIONSTAGE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.Application.ApplicationStage",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="APPLICATION_STAGE_UNSPECIFIED",
@@ -97,12 +118,23 @@ _APPLICATION_APPLICATIONSTAGE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="NEW", index=1, number=1, serialized_options=None, type=None
+            name="NEW",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="SCREEN", index=2, number=2, serialized_options=None, type=None
+            name="SCREEN",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="HIRING_MANAGER_REVIEW",
@@ -110,18 +142,39 @@ _APPLICATION_APPLICATIONSTAGE = _descriptor.EnumDescriptor(
             number=3,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="INTERVIEW", index=4, number=4, serialized_options=None, type=None
+            name="INTERVIEW",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="OFFER_EXTENDED", index=5, number=5, serialized_options=None, type=None
+            name="OFFER_EXTENDED",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="OFFER_ACCEPTED", index=6, number=6, serialized_options=None, type=None
+            name="OFFER_ACCEPTED",
+            index=6,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="STARTED", index=7, number=7, serialized_options=None, type=None
+            name="STARTED",
+            index=7,
+            number=7,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -138,6 +191,7 @@ _APPLICATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -156,6 +210,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="external_id",
@@ -174,6 +229,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="profile",
@@ -192,6 +248,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job",
@@ -210,6 +267,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\372A\031\n\027jobs.googleapis.com/Job\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="company",
@@ -228,6 +286,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\372A\035\n\033jobs.googleapis.com/Company",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="application_date",
@@ -246,6 +305,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="stage",
@@ -264,6 +324,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="state",
@@ -282,6 +343,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="interviews",
@@ -300,6 +362,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="referral",
@@ -318,6 +381,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="create_time",
@@ -336,6 +400,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_time",
@@ -354,6 +419,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="outcome_notes",
@@ -372,6 +438,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="outcome",
@@ -390,6 +457,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="is_match",
@@ -408,6 +476,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job_title_snippet",
@@ -426,6 +495,7 @@ _APPLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],

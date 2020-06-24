@@ -23,6 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.cloud.talent.v4beta1",
     syntax="proto3",
     serialized_options=b"\n\037com.google.cloud.talent.v4beta1B\023TenantResourceProtoP\001ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\242\002\003CTS",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n.google/cloud/talent_v4beta1/proto/tenant.proto\x12\x1bgoogle.cloud.talent.v4beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto"\xc3\x02\n\x06Tenant\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x18\n\x0b\x65xternal_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x45\n\nusage_type\x18\x03 \x01(\x0e\x32\x31.google.cloud.talent.v4beta1.Tenant.DataUsageType\x12\x34\n,keyword_searchable_profile_custom_attributes\x18\x04 \x03(\t"N\n\rDataUsageType\x12\x1f\n\x1b\x44\x41TA_USAGE_TYPE_UNSPECIFIED\x10\x00\x12\x0e\n\nAGGREGATED\x10\x01\x12\x0c\n\x08ISOLATED\x10\x02:D\xea\x41\x41\n\x1ajobs.googleapis.com/Tenant\x12#projects/{project}/tenants/{tenant}B\x81\x01\n\x1f\x63om.google.cloud.talent.v4beta1B\x13TenantResourceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\xa2\x02\x03\x43TSb\x06proto3',
     dependencies=[
         google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,
@@ -38,6 +39,7 @@ _TENANT_DATAUSAGETYPE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.Tenant.DataUsageType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="DATA_USAGE_TYPE_UNSPECIFIED",
@@ -45,12 +47,23 @@ _TENANT_DATAUSAGETYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="AGGREGATED", index=1, number=1, serialized_options=None, type=None
+            name="AGGREGATED",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="ISOLATED", index=2, number=2, serialized_options=None, type=None
+            name="ISOLATED",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -67,6 +80,7 @@ _TENANT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -85,6 +99,7 @@ _TENANT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="external_id",
@@ -103,6 +118,7 @@ _TENANT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="usage_type",
@@ -121,6 +137,7 @@ _TENANT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="keyword_searchable_profile_custom_attributes",
@@ -139,6 +156,7 @@ _TENANT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],

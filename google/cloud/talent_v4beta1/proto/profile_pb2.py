@@ -30,6 +30,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.cloud.talent.v4beta1",
     syntax="proto3",
     serialized_options=b"\n\037com.google.cloud.talent.v4beta1B\024ProfileResourceProtoP\001ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\242\002\003CTS",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n/google/cloud/talent_v4beta1/proto/profile.proto\x12\x1bgoogle.cloud.talent.v4beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.google/cloud/talent_v4beta1/proto/common.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x16google/type/date.proto\x1a google/type/postal_address.proto\x1a\x1cgoogle/api/annotations.proto"\xf6\r\n\x07Profile\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x65xternal_id\x18\x02 \x01(\t\x12\x0e\n\x06source\x18\x03 \x01(\t\x12\x0b\n\x03uri\x18\x04 \x01(\t\x12\x10\n\x08group_id\x18\x05 \x01(\t\x12.\n\nis_hirable\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12/\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x39\n\x15\x63\x61ndidate_update_time\x18\x43 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x12resume_update_time\x18\x44 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x33\n\x06resume\x18\x35 \x01(\x0b\x32#.google.cloud.talent.v4beta1.Resume\x12=\n\x0cperson_names\x18\x0b \x03(\x0b\x32\'.google.cloud.talent.v4beta1.PersonName\x12\x37\n\taddresses\x18\x0c \x03(\x0b\x32$.google.cloud.talent.v4beta1.Address\x12;\n\x0f\x65mail_addresses\x18\r \x03(\x0b\x32".google.cloud.talent.v4beta1.Email\x12\x39\n\rphone_numbers\x18\x0e \x03(\x0b\x32".google.cloud.talent.v4beta1.Phone\x12?\n\rpersonal_uris\x18\x0f \x03(\x0b\x32(.google.cloud.talent.v4beta1.PersonalUri\x12S\n\x17\x61\x64\x64itional_contact_info\x18\x10 \x03(\x0b\x32\x32.google.cloud.talent.v4beta1.AdditionalContactInfo\x12I\n\x12\x65mployment_records\x18\x11 \x03(\x0b\x32-.google.cloud.talent.v4beta1.EmploymentRecord\x12G\n\x11\x65\x64ucation_records\x18\x12 \x03(\x0b\x32,.google.cloud.talent.v4beta1.EducationRecord\x12\x32\n\x06skills\x18\x13 \x03(\x0b\x32".google.cloud.talent.v4beta1.Skill\x12\x39\n\nactivities\x18\x14 \x03(\x0b\x32%.google.cloud.talent.v4beta1.Activity\x12>\n\x0cpublications\x18\x15 \x03(\x0b\x32(.google.cloud.talent.v4beta1.Publication\x12\x34\n\x07patents\x18\x16 \x03(\x0b\x32#.google.cloud.talent.v4beta1.Patent\x12\x42\n\x0e\x63\x65rtifications\x18\x17 \x03(\x0b\x32*.google.cloud.talent.v4beta1.Certification\x12\x19\n\x0c\x61pplications\x18/ \x03(\tB\x03\xe0\x41\x03\x12\x18\n\x0b\x61ssignments\x18\x30 \x03(\tB\x03\xe0\x41\x03\x12U\n\x11\x63ustom_attributes\x18\x1a \x03(\x0b\x32:.google.cloud.talent.v4beta1.Profile.CustomAttributesEntry\x12\x16\n\tprocessed\x18\x1b \x01(\x08\x42\x03\xe0\x41\x03\x12\x1c\n\x0fkeyword_snippet\x18\x1c \x01(\tB\x03\xe0\x41\x03\x12R\n\x14\x61vailability_signals\x18\x46 \x03(\x0b\x32/.google.cloud.talent.v4beta1.AvailabilitySignalB\x03\xe0\x41\x03\x12\x45\n\x11\x64\x65rived_addresses\x18@ \x03(\x0b\x32%.google.cloud.talent.v4beta1.LocationB\x03\xe0\x41\x03\x1a\x65\n\x15\x43ustomAttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12;\n\x05value\x18\x02 \x01(\x0b\x32,.google.cloud.talent.v4beta1.CustomAttribute:\x02\x38\x01:X\xea\x41U\n\x1bjobs.googleapis.com/Profile\x12\x36projects/{project}/tenants/{tenant}/profiles/{profile}"\xc3\x01\n\x12\x41vailabilitySignal\x12\x41\n\x04type\x18\x01 \x01(\x0e\x32\x33.google.cloud.talent.v4beta1.AvailabilitySignalType\x12\x34\n\x10last_update_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x34\n\x10\x66ilter_satisfied\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue"\xb5\x01\n\x06Resume\x12\x19\n\x11structured_resume\x18\x01 \x01(\t\x12\x43\n\x0bresume_type\x18\x02 \x01(\x0e\x32..google.cloud.talent.v4beta1.Resume.ResumeType"K\n\nResumeType\x12\x1b\n\x17RESUME_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05HRXML\x10\x01\x12\x15\n\x11OTHER_RESUME_TYPE\x10\x02"\xbc\x02\n\nPersonName\x12\x18\n\x0e\x66ormatted_name\x18\x01 \x01(\tH\x00\x12W\n\x0fstructured_name\x18\x02 \x01(\x0b\x32<.google.cloud.talent.v4beta1.PersonName.PersonStructuredNameH\x00\x12\x16\n\x0epreferred_name\x18\x03 \x01(\t\x1a\x93\x01\n\x14PersonStructuredName\x12\x12\n\ngiven_name\x18\x01 \x01(\t\x12\x16\n\x0epreferred_name\x18\x06 \x01(\t\x12\x16\n\x0emiddle_initial\x18\x02 \x01(\t\x12\x13\n\x0b\x66\x61mily_name\x18\x03 \x01(\t\x12\x10\n\x08suffixes\x18\x04 \x03(\t\x12\x10\n\x08prefixes\x18\x05 \x03(\tB\r\n\x0bperson_name"\xd9\x01\n\x07\x41\x64\x64ress\x12<\n\x05usage\x18\x01 \x01(\x0e\x32-.google.cloud.talent.v4beta1.ContactInfoUsage\x12\x1e\n\x14unstructured_address\x18\x02 \x01(\tH\x00\x12\x38\n\x12structured_address\x18\x03 \x01(\x0b\x32\x1a.google.type.PostalAddressH\x00\x12+\n\x07\x63urrent\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\t\n\x07\x61\x64\x64ress"\\\n\x05\x45mail\x12<\n\x05usage\x18\x01 \x01(\x0e\x32-.google.cloud.talent.v4beta1.ContactInfoUsage\x12\x15\n\remail_address\x18\x02 \x01(\t"\xcf\x02\n\x05Phone\x12<\n\x05usage\x18\x01 \x01(\x0e\x32-.google.cloud.talent.v4beta1.ContactInfoUsage\x12:\n\x04type\x18\x02 \x01(\x0e\x32,.google.cloud.talent.v4beta1.Phone.PhoneType\x12\x0e\n\x06number\x18\x03 \x01(\t\x12\x16\n\x0ewhen_available\x18\x04 \x01(\t"\xa3\x01\n\tPhoneType\x12\x1a\n\x16PHONE_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08LANDLINE\x10\x01\x12\n\n\x06MOBILE\x10\x02\x12\x07\n\x03\x46\x41X\x10\x03\x12\t\n\x05PAGER\x10\x04\x12\x0e\n\nTTY_OR_TDD\x10\x05\x12\r\n\tVOICEMAIL\x10\x06\x12\x0b\n\x07VIRTUAL\x10\x07\x12\x08\n\x04VOIP\x10\x08\x12\x16\n\x12MOBILE_OR_LANDLINE\x10\t"\x1a\n\x0bPersonalUri\x12\x0b\n\x03uri\x18\x01 \x01(\t"w\n\x15\x41\x64\x64itionalContactInfo\x12<\n\x05usage\x18\x01 \x01(\x0e\x32-.google.cloud.talent.v4beta1.ContactInfoUsage\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x12\n\ncontact_id\x18\x03 \x01(\t"\xf2\x03\n\x10\x45mploymentRecord\x12%\n\nstart_date\x18\x01 \x01(\x0b\x32\x11.google.type.Date\x12#\n\x08\x65nd_date\x18\x02 \x01(\x0b\x32\x11.google.type.Date\x12\x15\n\remployer_name\x18\x03 \x01(\t\x12\x15\n\rdivision_name\x18\x04 \x01(\t\x12\x35\n\x07\x61\x64\x64ress\x18\x05 \x01(\x0b\x32$.google.cloud.talent.v4beta1.Address\x12\x11\n\tjob_title\x18\x06 \x01(\t\x12\x17\n\x0fjob_description\x18\x07 \x01(\t\x12\x31\n\ris_supervisor\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x34\n\x10is_self_employed\x18\t \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12.\n\nis_current\x18\n \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x1e\n\x11job_title_snippet\x18\x0b \x01(\tB\x03\xe0\x41\x03\x12$\n\x17job_description_snippet\x18\x0c \x01(\tB\x03\xe0\x41\x03\x12"\n\x15\x65mployer_name_snippet\x18\r \x01(\tB\x03\xe0\x41\x03"\xcc\x03\n\x0f\x45\x64ucationRecord\x12%\n\nstart_date\x18\x01 \x01(\x0b\x32\x11.google.type.Date\x12#\n\x08\x65nd_date\x18\x02 \x01(\x0b\x32\x11.google.type.Date\x12\x33\n\x18\x65xpected_graduation_date\x18\x03 \x01(\x0b\x32\x11.google.type.Date\x12\x13\n\x0bschool_name\x18\x04 \x01(\t\x12\x35\n\x07\x61\x64\x64ress\x18\x05 \x01(\x0b\x32$.google.cloud.talent.v4beta1.Address\x12\x1c\n\x12\x64\x65gree_description\x18\x06 \x01(\tH\x00\x12@\n\x11structured_degree\x18\x07 \x01(\x0b\x32#.google.cloud.talent.v4beta1.DegreeH\x00\x12\x13\n\x0b\x64\x65scription\x18\x08 \x01(\t\x12.\n\nis_current\x18\t \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12 \n\x13school_name_snippet\x18\n \x01(\tB\x03\xe0\x41\x03\x12\x1b\n\x0e\x64\x65gree_snippet\x18\x0b \x01(\tB\x03\xe0\x41\x03\x42\x08\n\x06\x64\x65gree"t\n\x06\x44\x65gree\x12<\n\x0b\x64\x65gree_type\x18\x01 \x01(\x0e\x32\'.google.cloud.talent.v4beta1.DegreeType\x12\x13\n\x0b\x64\x65gree_name\x18\x02 \x01(\t\x12\x17\n\x0f\x66ields_of_study\x18\x03 \x03(\t"\xd2\x02\n\x08\x41\x63tivity\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0b\n\x03uri\x18\x03 \x01(\t\x12&\n\x0b\x63reate_date\x18\x04 \x01(\x0b\x32\x11.google.type.Date\x12&\n\x0bupdate_date\x18\x05 \x01(\x0b\x32\x11.google.type.Date\x12\x14\n\x0cteam_members\x18\x06 \x03(\t\x12\x37\n\x0bskills_used\x18\x07 \x03(\x0b\x32".google.cloud.talent.v4beta1.Skill\x12"\n\x15\x61\x63tivity_name_snippet\x18\x08 \x01(\tB\x03\xe0\x41\x03\x12)\n\x1c\x61\x63tivity_description_snippet\x18\t \x01(\tB\x03\xe0\x41\x03\x12 \n\x13skills_used_snippet\x18\n \x03(\tB\x03\xe0\x41\x03"\xcb\x01\n\x0bPublication\x12\x0f\n\x07\x61uthors\x18\x01 \x03(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0f\n\x07journal\x18\x04 \x01(\t\x12\x0e\n\x06volume\x18\x05 \x01(\t\x12\x11\n\tpublisher\x18\x06 \x01(\t\x12+\n\x10publication_date\x18\x07 \x01(\x0b\x32\x11.google.type.Date\x12\x18\n\x10publication_type\x18\x08 \x01(\t\x12\x0c\n\x04isbn\x18\t \x01(\t"\xa9\x02\n\x06Patent\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12\x11\n\tinventors\x18\x02 \x03(\t\x12\x15\n\rpatent_status\x18\x03 \x01(\t\x12-\n\x12patent_status_date\x18\x04 \x01(\x0b\x32\x11.google.type.Date\x12-\n\x12patent_filing_date\x18\x05 \x01(\x0b\x32\x11.google.type.Date\x12\x15\n\rpatent_office\x18\x06 \x01(\t\x12\x15\n\rpatent_number\x18\x07 \x01(\t\x12\x1a\n\x12patent_description\x18\x08 \x01(\t\x12\x37\n\x0bskills_used\x18\t \x03(\x0b\x32".google.cloud.talent.v4beta1.SkillB\x82\x01\n\x1f\x63om.google.cloud.talent.v4beta1B\x14ProfileResourceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\xa2\x02\x03\x43TSb\x06proto3',
     dependencies=[
         google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,
@@ -50,6 +51,7 @@ _RESUME_RESUMETYPE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.Resume.ResumeType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="RESUME_TYPE_UNSPECIFIED",
@@ -57,9 +59,15 @@ _RESUME_RESUMETYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="HRXML", index=1, number=1, serialized_options=None, type=None
+            name="HRXML",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="OTHER_RESUME_TYPE",
@@ -67,6 +75,7 @@ _RESUME_RESUMETYPE = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -81,6 +90,7 @@ _PHONE_PHONETYPE = _descriptor.EnumDescriptor(
     full_name="google.cloud.talent.v4beta1.Phone.PhoneType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="PHONE_TYPE_UNSPECIFIED",
@@ -88,30 +98,71 @@ _PHONE_PHONETYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="LANDLINE", index=1, number=1, serialized_options=None, type=None
+            name="LANDLINE",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="MOBILE", index=2, number=2, serialized_options=None, type=None
+            name="MOBILE",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="FAX", index=3, number=3, serialized_options=None, type=None
+            name="FAX",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PAGER", index=4, number=4, serialized_options=None, type=None
+            name="PAGER",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="TTY_OR_TDD", index=5, number=5, serialized_options=None, type=None
+            name="TTY_OR_TDD",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="VOICEMAIL", index=6, number=6, serialized_options=None, type=None
+            name="VOICEMAIL",
+            index=6,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="VIRTUAL", index=7, number=7, serialized_options=None, type=None
+            name="VIRTUAL",
+            index=7,
+            number=7,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="VOIP", index=8, number=8, serialized_options=None, type=None
+            name="VOIP",
+            index=8,
+            number=8,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="MOBILE_OR_LANDLINE",
@@ -119,6 +170,7 @@ _PHONE_PHONETYPE = _descriptor.EnumDescriptor(
             number=9,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -135,6 +187,7 @@ _PROFILE_CUSTOMATTRIBUTESENTRY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="key",
@@ -153,6 +206,7 @@ _PROFILE_CUSTOMATTRIBUTESENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="value",
@@ -171,6 +225,7 @@ _PROFILE_CUSTOMATTRIBUTESENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -191,6 +246,7 @@ _PROFILE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -209,6 +265,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="external_id",
@@ -227,6 +284,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="source",
@@ -245,6 +303,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="uri",
@@ -263,6 +322,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="group_id",
@@ -281,6 +341,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="is_hirable",
@@ -299,6 +360,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="create_time",
@@ -317,6 +379,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_time",
@@ -335,6 +398,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="candidate_update_time",
@@ -353,6 +417,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="resume_update_time",
@@ -371,6 +436,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="resume",
@@ -389,6 +455,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="person_names",
@@ -407,6 +474,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="addresses",
@@ -425,6 +493,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="email_addresses",
@@ -443,6 +512,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="phone_numbers",
@@ -461,6 +531,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="personal_uris",
@@ -479,6 +550,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="additional_contact_info",
@@ -497,6 +569,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="employment_records",
@@ -515,6 +588,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="education_records",
@@ -533,6 +607,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="skills",
@@ -551,6 +626,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="activities",
@@ -569,6 +645,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="publications",
@@ -587,6 +664,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="patents",
@@ -605,6 +683,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="certifications",
@@ -623,6 +702,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="applications",
@@ -641,6 +721,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="assignments",
@@ -659,6 +740,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="custom_attributes",
@@ -677,6 +759,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="processed",
@@ -695,6 +778,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="keyword_snippet",
@@ -713,6 +797,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="availability_signals",
@@ -731,6 +816,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="derived_addresses",
@@ -749,6 +835,7 @@ _PROFILE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -770,6 +857,7 @@ _AVAILABILITYSIGNAL = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="type",
@@ -788,6 +876,7 @@ _AVAILABILITYSIGNAL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="last_update_time",
@@ -806,6 +895,7 @@ _AVAILABILITYSIGNAL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="filter_satisfied",
@@ -824,6 +914,7 @@ _AVAILABILITYSIGNAL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -845,6 +936,7 @@ _RESUME = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="structured_resume",
@@ -863,6 +955,7 @@ _RESUME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="resume_type",
@@ -881,6 +974,7 @@ _RESUME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -902,6 +996,7 @@ _PERSONNAME_PERSONSTRUCTUREDNAME = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="given_name",
@@ -920,6 +1015,7 @@ _PERSONNAME_PERSONSTRUCTUREDNAME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="preferred_name",
@@ -938,6 +1034,7 @@ _PERSONNAME_PERSONSTRUCTUREDNAME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="middle_initial",
@@ -956,6 +1053,7 @@ _PERSONNAME_PERSONSTRUCTUREDNAME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="family_name",
@@ -974,6 +1072,7 @@ _PERSONNAME_PERSONSTRUCTUREDNAME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="suffixes",
@@ -992,6 +1091,7 @@ _PERSONNAME_PERSONSTRUCTUREDNAME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="prefixes",
@@ -1010,6 +1110,7 @@ _PERSONNAME_PERSONSTRUCTUREDNAME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1030,6 +1131,7 @@ _PERSONNAME = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="formatted_name",
@@ -1048,6 +1150,7 @@ _PERSONNAME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="structured_name",
@@ -1066,6 +1169,7 @@ _PERSONNAME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="preferred_name",
@@ -1084,6 +1188,7 @@ _PERSONNAME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1099,6 +1204,7 @@ _PERSONNAME = _descriptor.Descriptor(
             full_name="google.cloud.talent.v4beta1.PersonName.person_name",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -1113,6 +1219,7 @@ _ADDRESS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="usage",
@@ -1131,6 +1238,7 @@ _ADDRESS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="unstructured_address",
@@ -1149,6 +1257,7 @@ _ADDRESS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="structured_address",
@@ -1167,6 +1276,7 @@ _ADDRESS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="current",
@@ -1185,6 +1295,7 @@ _ADDRESS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1200,6 +1311,7 @@ _ADDRESS = _descriptor.Descriptor(
             full_name="google.cloud.talent.v4beta1.Address.address",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -1214,6 +1326,7 @@ _EMAIL = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="usage",
@@ -1232,6 +1345,7 @@ _EMAIL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="email_address",
@@ -1250,6 +1364,7 @@ _EMAIL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1271,6 +1386,7 @@ _PHONE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="usage",
@@ -1289,6 +1405,7 @@ _PHONE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="type",
@@ -1307,6 +1424,7 @@ _PHONE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="number",
@@ -1325,6 +1443,7 @@ _PHONE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="when_available",
@@ -1343,6 +1462,7 @@ _PHONE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1364,6 +1484,7 @@ _PERSONALURI = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="uri",
@@ -1382,6 +1503,7 @@ _PERSONALURI = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -1403,6 +1525,7 @@ _ADDITIONALCONTACTINFO = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="usage",
@@ -1421,6 +1544,7 @@ _ADDITIONALCONTACTINFO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="name",
@@ -1439,6 +1563,7 @@ _ADDITIONALCONTACTINFO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="contact_id",
@@ -1457,6 +1582,7 @@ _ADDITIONALCONTACTINFO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1478,6 +1604,7 @@ _EMPLOYMENTRECORD = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="start_date",
@@ -1496,6 +1623,7 @@ _EMPLOYMENTRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="end_date",
@@ -1514,6 +1642,7 @@ _EMPLOYMENTRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="employer_name",
@@ -1532,6 +1661,7 @@ _EMPLOYMENTRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="division_name",
@@ -1550,6 +1680,7 @@ _EMPLOYMENTRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="address",
@@ -1568,6 +1699,7 @@ _EMPLOYMENTRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job_title",
@@ -1586,6 +1718,7 @@ _EMPLOYMENTRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job_description",
@@ -1604,6 +1737,7 @@ _EMPLOYMENTRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="is_supervisor",
@@ -1622,6 +1756,7 @@ _EMPLOYMENTRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="is_self_employed",
@@ -1640,6 +1775,7 @@ _EMPLOYMENTRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="is_current",
@@ -1658,6 +1794,7 @@ _EMPLOYMENTRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job_title_snippet",
@@ -1676,6 +1813,7 @@ _EMPLOYMENTRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job_description_snippet",
@@ -1694,6 +1832,7 @@ _EMPLOYMENTRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="employer_name_snippet",
@@ -1712,6 +1851,7 @@ _EMPLOYMENTRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1733,6 +1873,7 @@ _EDUCATIONRECORD = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="start_date",
@@ -1751,6 +1892,7 @@ _EDUCATIONRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="end_date",
@@ -1769,6 +1911,7 @@ _EDUCATIONRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="expected_graduation_date",
@@ -1787,6 +1930,7 @@ _EDUCATIONRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="school_name",
@@ -1805,6 +1949,7 @@ _EDUCATIONRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="address",
@@ -1823,6 +1968,7 @@ _EDUCATIONRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="degree_description",
@@ -1841,6 +1987,7 @@ _EDUCATIONRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="structured_degree",
@@ -1859,6 +2006,7 @@ _EDUCATIONRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="description",
@@ -1877,6 +2025,7 @@ _EDUCATIONRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="is_current",
@@ -1895,6 +2044,7 @@ _EDUCATIONRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="school_name_snippet",
@@ -1913,6 +2063,7 @@ _EDUCATIONRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="degree_snippet",
@@ -1931,6 +2082,7 @@ _EDUCATIONRECORD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1946,6 +2098,7 @@ _EDUCATIONRECORD = _descriptor.Descriptor(
             full_name="google.cloud.talent.v4beta1.EducationRecord.degree",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -1960,6 +2113,7 @@ _DEGREE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="degree_type",
@@ -1978,6 +2132,7 @@ _DEGREE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="degree_name",
@@ -1996,6 +2151,7 @@ _DEGREE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="fields_of_study",
@@ -2014,6 +2170,7 @@ _DEGREE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2035,6 +2192,7 @@ _ACTIVITY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -2053,6 +2211,7 @@ _ACTIVITY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="description",
@@ -2071,6 +2230,7 @@ _ACTIVITY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="uri",
@@ -2089,6 +2249,7 @@ _ACTIVITY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="create_date",
@@ -2107,6 +2268,7 @@ _ACTIVITY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_date",
@@ -2125,6 +2287,7 @@ _ACTIVITY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="team_members",
@@ -2143,6 +2306,7 @@ _ACTIVITY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="skills_used",
@@ -2161,6 +2325,7 @@ _ACTIVITY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="activity_name_snippet",
@@ -2179,6 +2344,7 @@ _ACTIVITY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="activity_description_snippet",
@@ -2197,6 +2363,7 @@ _ACTIVITY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="skills_used_snippet",
@@ -2215,6 +2382,7 @@ _ACTIVITY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2236,6 +2404,7 @@ _PUBLICATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="authors",
@@ -2254,6 +2423,7 @@ _PUBLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="title",
@@ -2272,6 +2442,7 @@ _PUBLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="description",
@@ -2290,6 +2461,7 @@ _PUBLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="journal",
@@ -2308,6 +2480,7 @@ _PUBLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="volume",
@@ -2326,6 +2499,7 @@ _PUBLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="publisher",
@@ -2344,6 +2518,7 @@ _PUBLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="publication_date",
@@ -2362,6 +2537,7 @@ _PUBLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="publication_type",
@@ -2380,6 +2556,7 @@ _PUBLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="isbn",
@@ -2398,6 +2575,7 @@ _PUBLICATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2419,6 +2597,7 @@ _PATENT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -2437,6 +2616,7 @@ _PATENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inventors",
@@ -2455,6 +2635,7 @@ _PATENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="patent_status",
@@ -2473,6 +2654,7 @@ _PATENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="patent_status_date",
@@ -2491,6 +2673,7 @@ _PATENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="patent_filing_date",
@@ -2509,6 +2692,7 @@ _PATENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="patent_office",
@@ -2527,6 +2711,7 @@ _PATENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="patent_number",
@@ -2545,6 +2730,7 @@ _PATENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="patent_description",
@@ -2563,6 +2749,7 @@ _PATENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="skills_used",
@@ -2581,6 +2768,7 @@ _PATENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
