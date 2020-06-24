@@ -2571,10 +2571,10 @@ LocationFilter = _reflection.GeneratedProtocolMessageType(
           “Liverpool, UK”.  Set this field to bias location resolution
           toward a specific country or territory. If this field is not
           set, application behavior is biased toward the United States
-          by default.  See https://cldr.unicode.org/ and https://www.uni
-          code.org/cldr/charts/30/supplemental/territory_information.htm
-          l for details. Example: “CH” for Switzerland. Note that this
-          filter is not applicable for Profile Search related queries.
+          by default.  See https://www.unicode.org/cldr/charts/30/supple
+          mental/territory_information.html for details. Example: “CH”
+          for Switzerland. Note that this filter is not applicable for
+          Profile Search related queries.
       lat_lng:
           The latitude and longitude of the geographic center to search
           from. This field is ignored if ``address`` is provided.
