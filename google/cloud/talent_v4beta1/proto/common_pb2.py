@@ -2645,7 +2645,8 @@ Location = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _LOCATION,
         "__module__": "google.cloud.talent_v4beta1.proto.common_pb2",
-        "__doc__": """A resource that represents a location with full geographic information.
+        "__doc__": """A resource that represents a location with full geographic
+  information.
   
   
   Attributes:
