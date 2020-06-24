@@ -54,9 +54,6 @@ from google.cloud.talent_v4beta1.proto import job_service_pb2_grpc
 from google.cloud.talent_v4beta1.proto import profile_pb2
 from google.cloud.talent_v4beta1.proto import profile_service_pb2
 from google.cloud.talent_v4beta1.proto import profile_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import tenant_pb2
-from google.cloud.talent_v4beta1.proto import tenant_service_pb2
-from google.cloud.talent_v4beta1.proto import tenant_service_pb2_grpc
 from google.longrunning import operations_pb2
 from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
@@ -253,8 +250,8 @@ class ProfileServiceClient(object):
             name (str): Required. Resource name of the profile to be deleted.
 
                 The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/profiles/{profile\_id}".
-                For example, "projects/foo/tenants/bar/profiles/baz".
+                "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}". For
+                example, "projects/foo/tenants/bar/profiles/baz".
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -353,8 +350,8 @@ class ProfileServiceClient(object):
         Args:
             parent (str): Required. The resource name of the tenant to search within.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}". For
-                example, "projects/foo/tenants/bar".
+                The format is "projects/{project_id}/tenants/{tenant_id}". For example,
+                "projects/foo/tenants/bar".
             request_metadata (Union[dict, ~google.cloud.talent_v4beta1.types.RequestMetadata]): Required. The meta information collected about the profile search user. This is used
                 to improve the search quality of the service. These values are provided by
                 users, and must be precise and consistent.
@@ -370,9 +367,9 @@ class ProfileServiceClient(object):
                 resource, this parameter does not affect the return value. If page
                 streaming is performed per-page, this determines the maximum number
                 of resources in a page.
-            offset (int): An integer that specifies the current offset (that is, starting result)
-                in search results. This field is only considered if ``page_token`` is
-                unset.
+            offset (int): An integer that specifies the current offset (that is, starting
+                result) in search results. This field is only considered if
+                ``page_token`` is unset.
 
                 The maximum allowed value is 5000. Otherwise an error is thrown.
 
@@ -380,28 +377,28 @@ class ProfileServiceClient(object):
                 search from the 11th profile. This can be used for pagination, for
                 example pageSize = 10 and offset = 10 means to search from the second
                 page.
-            disable_spell_check (bool): This flag controls the spell-check feature. If ``false``, the service
-                attempts to correct a misspelled query.
+            disable_spell_check (bool): This flag controls the spell-check feature. If ``false``, the
+                service attempts to correct a misspelled query.
 
                 For example, "enginee" is corrected to "engineer".
-            order_by (str): The criteria that determines how search results are sorted. Defaults is
-                "relevance desc" if no value is specified.
+            order_by (str): The criteria that determines how search results are sorted. Defaults
+                is "relevance desc" if no value is specified.
 
                 Supported options are:
 
                 -  "relevance desc": By descending relevance, as determined by the API
                    algorithms.
-                -  "update\_date desc": Sort by ``Profile.update_time`` in descending
+                -  "update_date desc": Sort by ``Profile.update_time`` in descending
                    order (recently updated profiles first).
-                -  "create\_date desc": Sort by ``Profile.create_time`` in descending
+                -  "create_date desc": Sort by ``Profile.create_time`` in descending
                    order (recently created profiles first).
-                -  "first\_name": Sort by ``PersonName.PersonStructuredName.given_name``
+                -  "first_name": Sort by ``PersonName.PersonStructuredName.given_name``
                    in ascending order.
-                -  "first\_name desc": Sort by
+                -  "first_name desc": Sort by
                    ``PersonName.PersonStructuredName.given_name`` in descending order.
-                -  "last\_name": Sort by ``PersonName.PersonStructuredName.family_name``
+                -  "last_name": Sort by ``PersonName.PersonStructuredName.family_name``
                    in ascending order.
-                -  "last\_name desc": Sort by
+                -  "last_name desc": Sort by
                    ``PersonName.PersonStructuredName.family_name`` in ascending order.
             case_sensitive_sort (bool): When sort by field is based on alphabetical order, sort values case
                 sensitively (based on ASCII) when the value is set to true. Default value
@@ -411,11 +408,11 @@ class ProfileServiceClient(object):
 
                 The expression syntax looks like a function definition with parameters.
 
-                Function syntax: function\_name(histogram\_facet[, list of buckets])
+                Function syntax: function_name(histogram_facet[, list of buckets])
 
                 Data types:
 
-                -  Histogram facet: facet names with format [a-zA-Z][a-zA-Z0-9\_]+.
+                -  Histogram facet: facet names with format [a-zA-Z][a-zA-Z0-9_]+.
                 -  String: string like "any string with backslash escape for quote(")."
                 -  Number: whole number and floating point number like 10, -1 and -0.01.
                 -  List: list of elements with comma(,) separator surrounded by square
@@ -423,8 +420,8 @@ class ProfileServiceClient(object):
 
                 Built-in constants:
 
-                -  MIN (minimum number similar to java Double.MIN\_VALUE)
-                -  MAX (maximum number similar to java Double.MAX\_VALUE)
+                -  MIN (minimum number similar to java Double.MIN_VALUE)
+                -  MAX (maximum number similar to java Double.MAX_VALUE)
 
                 Built-in functions:
 
@@ -442,52 +439,53 @@ class ProfileServiceClient(object):
                    town, or the particular term a country uses to define the geographic
                    structure below the admin1 level. Examples include city names such as
                    "Mountain View" and "New York".
-                -  extended\_locality: Extended locality is concatenated version of
+                -  extended_locality: Extended locality is concatenated version of
                    admin1 and locality with comma separator. For example, "Mountain
                    View, CA" and "New York, NY".
-                -  postal\_code: Postal code of profile which follows locale code.
+                -  postal_code: Postal code of profile which follows locale code.
                 -  country: Country code (ISO-3166-1 alpha-2 code) of profile, such as
                    US, JP, GB.
-                -  job\_title: Normalized job titles specified in EmploymentHistory.
-                -  company\_name: Normalized company name of profiles to match on.
+                -  job_title: Normalized job titles specified in EmploymentHistory.
+                -  company_name: Normalized company name of profiles to match on.
                 -  institution: The school name. For example, "MIT", "University of
                    California, Berkeley"
                 -  degree: Highest education degree in ISCED code. Each value in degree
                    covers a specific level of education, without any expansion to upper
                    nor lower levels of education degree.
-                -  experience\_in\_months: experience in months. 0 means 0 month to 1
+                -  experience_in_months: experience in months. 0 means 0 month to 1
                    month (exclusive).
-                -  application\_date: The application date specifies application start
+                -  application_date: The application date specifies application start
                    dates. See [ApplicationDateFilter\` for more details.
-                -  application\_outcome\_notes: The application outcome reason specifies
+                -  application_outcome_notes: The application outcome reason specifies
                    the reasons behind the outcome of the job application. See
                    ``ApplicationOutcomeNotesFilter`` for more details.
-                -  application\_job\_title: The application job title specifies the job
+                -  application_job_title: The application job title specifies the job
                    applied for in the application. See ``ApplicationJobFilter`` for more
                    details.
-                -  hirable\_status: Hirable status specifies the profile's hirable
+                -  hirable_status: Hirable status specifies the profile's hirable
                    status.
-                -  string\_custom\_attribute: String custom attributes. Values can be
+                -  string_custom_attribute: String custom attributes. Values can be
                    accessed via square bracket notation like
-                   string\_custom\_attribute["key1"].
-                -  numeric\_custom\_attribute: Numeric custom attributes. Values can be
+                   string_custom_attribute["key1"].
+                -  numeric_custom_attribute: Numeric custom attributes. Values can be
                    accessed via square bracket notation like
-                   numeric\_custom\_attribute["key1"].
+                   numeric_custom_attribute["key1"].
 
                 Example expressions:
 
                 -  count(admin1)
-                -  count(experience\_in\_months, [bucket(0, 12, "1 year"), bucket(12,
-                   36, "1-3 years"), bucket(36, MAX, "3+ years")])
-                -  count(string\_custom\_attribute["assigned\_recruiter"])
-                -  count(numeric\_custom\_attribute["favorite\_number"], [bucket(MIN, 0,
+                -  count(experience_in_months, [bucket(0, 12, "1 year"), bucket(12, 36,
+                   "1-3 years"), bucket(36, MAX, "3+ years")])
+                -  count(string_custom_attribute["assigned_recruiter"])
+                -  count(numeric_custom_attribute["favorite_number"], [bucket(MIN, 0,
                    "negative"), bucket(0, MAX, "non-negative")])
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.talent_v4beta1.types.HistogramQuery`
-            result_set_id (str): An id that uniquely identifies the result set of a ``SearchProfiles``
-                call. The id should be retrieved from the ``SearchProfilesResponse``
-                message returned from a previous invocation of ``SearchProfiles``.
+            result_set_id (str): An id that uniquely identifies the result set of a
+                ``SearchProfiles`` call. The id should be retrieved from the
+                ``SearchProfilesResponse`` message returned from a previous invocation
+                of ``SearchProfiles``.
 
                 A result set is an ordered list of search results.
 
@@ -628,8 +626,8 @@ class ProfileServiceClient(object):
             parent (str): Required. The resource name of the tenant under which the profile is
                 created.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}". For
-                example, "projects/foo/tenants/bar".
+                The format is "projects/{project_id}/tenants/{tenant_id}". For example,
+                "projects/foo/tenants/bar".
             filter_ (str): The filter string specifies the profiles to be enumerated.
 
                 Supported operator: =, AND
@@ -652,8 +650,8 @@ class ProfileServiceClient(object):
                 resource, this parameter does not affect the return value. If page
                 streaming is performed per-page, this determines the maximum number
                 of resources in a page.
-            read_mask (Union[dict, ~google.cloud.talent_v4beta1.types.FieldMask]): A field mask to specify the profile fields to be listed in response. All
-                fields are listed if it is unset.
+            read_mask (Union[dict, ~google.cloud.talent_v4beta1.types.FieldMask]): A field mask to specify the profile fields to be listed in response.
+                All fields are listed if it is unset.
 
                 Valid values are:
 
@@ -751,8 +749,8 @@ class ProfileServiceClient(object):
         Args:
             parent (str): Required. The name of the tenant this profile belongs to.
 
-                The format is "projects/{project\_id}/tenants/{tenant\_id}". For
-                example, "projects/foo/tenants/bar".
+                The format is "projects/{project_id}/tenants/{tenant_id}". For example,
+                "projects/foo/tenants/bar".
             profile (Union[dict, ~google.cloud.talent_v4beta1.types.Profile]): Required. The profile to be created.
 
                 If a dict is provided, it must be of the same form as the protobuf
@@ -830,8 +828,8 @@ class ProfileServiceClient(object):
             name (str): Required. Resource name of the profile to get.
 
                 The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/profiles/{profile\_id}".
-                For example, "projects/foo/tenants/bar/profiles/baz".
+                "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}". For
+                example, "projects/foo/tenants/bar/profiles/baz".
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.

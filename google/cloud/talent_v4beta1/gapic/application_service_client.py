@@ -39,18 +39,6 @@ from google.cloud.talent_v4beta1.gapic.transports import (
 from google.cloud.talent_v4beta1.proto import application_pb2
 from google.cloud.talent_v4beta1.proto import application_service_pb2
 from google.cloud.talent_v4beta1.proto import application_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import common_pb2
-from google.cloud.talent_v4beta1.proto import company_pb2
-from google.cloud.talent_v4beta1.proto import company_service_pb2
-from google.cloud.talent_v4beta1.proto import company_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import completion_service_pb2
-from google.cloud.talent_v4beta1.proto import completion_service_pb2_grpc
-from google.cloud.talent_v4beta1.proto import filters_pb2
-from google.cloud.talent_v4beta1.proto import histogram_pb2
-from google.cloud.talent_v4beta1.proto import job_pb2
-from google.cloud.talent_v4beta1.proto import job_service_pb2
-from google.cloud.talent_v4beta1.proto import job_service_pb2_grpc
-from google.longrunning import operations_pb2
 from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
 
@@ -282,7 +270,7 @@ class ApplicationServiceClient(object):
             name (str): Required. The resource name of the application to be deleted.
 
                 The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/profiles/{profile\_id}/applications/{application\_id}".
+                "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}/applications/{application_id}".
                 For example, "projects/foo/tenants/bar/profiles/baz/applications/qux".
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
@@ -353,12 +341,12 @@ class ApplicationServiceClient(object):
             >>> response = client.create_application(parent, application)
 
         Args:
-            parent (str): Required. Resource name of the profile under which the application is
-                created.
+            parent (str): Required. Resource name of the profile under which the application
+                is created.
 
                 The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/profiles/{profile\_id}".
-                For example, "projects/foo/tenants/bar/profiles/baz".
+                "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}". For
+                example, "projects/foo/tenants/bar/profiles/baz".
             application (Union[dict, ~google.cloud.talent_v4beta1.types.Application]): Required. The application to be created.
 
                 If a dict is provided, it must be of the same form as the protobuf
@@ -436,7 +424,7 @@ class ApplicationServiceClient(object):
             name (str): Required. The resource name of the application to be retrieved.
 
                 The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/profiles/{profile\_id}/applications/{application\_id}".
+                "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}/applications/{application_id}".
                 For example, "projects/foo/tenants/bar/profiles/baz/applications/qux".
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
@@ -605,12 +593,12 @@ class ApplicationServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. Resource name of the profile under which the application is
-                created.
+            parent (str): Required. Resource name of the profile under which the application
+                is created.
 
                 The format is
-                "projects/{project\_id}/tenants/{tenant\_id}/profiles/{profile\_id}",
-                for example, "projects/foo/tenants/bar/profiles/baz".
+                "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}", for
+                example, "projects/foo/tenants/bar/profiles/baz".
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
