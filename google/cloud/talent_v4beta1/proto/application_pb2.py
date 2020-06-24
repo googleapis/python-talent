@@ -547,6 +547,7 @@ Application = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _APPLICATION,
         "__module__": "google.cloud.talent_v4beta1.proto.application_pb2",
         "__doc__": """Resource that represents a job application record of a candidate.
+  
   Attributes:
       name:
           Required during application update.  Resource name assigned to

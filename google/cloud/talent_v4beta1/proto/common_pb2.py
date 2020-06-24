@@ -3220,6 +3220,7 @@ TimestampRange = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _TIMESTAMPRANGE,
         "__module__": "google.cloud.talent_v4beta1.proto.common_pb2",
         "__doc__": """Message representing a period of time between two timestamps.
+  
   Attributes:
       start_time:
           Begin of the period (inclusive).
@@ -3239,6 +3240,7 @@ Location = _reflection.GeneratedProtocolMessageType(
         "__module__": "google.cloud.talent_v4beta1.proto.common_pb2",
         "__doc__": """A resource that represents a location with full geographic
   information.
+  
   Attributes:
       location_type:
           The type of a location, which corresponds to the address lines
@@ -3278,6 +3280,7 @@ RequestMetadata = _reflection.GeneratedProtocolMessageType(
         "__doc__": """Meta information related to the job searcher or entity conducting the
   job search. This information is used to improve the performance of the
   service.
+  
   Attributes:
       domain:
           Required if [allow_missing_ids][google.cloud.talent.v4beta1.Re
@@ -3342,6 +3345,7 @@ ResponseMetadata = _reflection.GeneratedProtocolMessageType(
         "__module__": "google.cloud.talent_v4beta1.proto.common_pb2",
         "__doc__": """Additional information returned to client, such as debugging
   information.
+  
   Attributes:
       request_id:
           A unique id associated with this call. This id is logged for
@@ -3361,6 +3365,7 @@ DeviceInfo = _reflection.GeneratedProtocolMessageType(
         "__doc__": """Device information collected from the job seeker, candidate, or other
   entity conducting the job search. Providing this information improves
   the quality of the search results across devices.
+  
   Attributes:
       device_type:
           Type of the device.
@@ -3380,6 +3385,7 @@ CustomAttribute = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CUSTOMATTRIBUTE,
         "__module__": "google.cloud.talent_v4beta1.proto.common_pb2",
         "__doc__": """Custom attribute values that are either filterable or non-filterable.
+  
   Attributes:
       string_values:
           Exactly one of [string_values][google.cloud.talent.v4beta1.Cus
@@ -3417,6 +3423,7 @@ SpellingCorrection = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _SPELLINGCORRECTION,
         "__module__": "google.cloud.talent_v4beta1.proto.common_pb2",
         "__doc__": """Spell check result.
+  
   Attributes:
       corrected:
           Indicates if the query was corrected by the spell checker.
@@ -3457,6 +3464,7 @@ CompensationInfo = _reflection.GeneratedProtocolMessageType(
     unt] or [range][google.cloud.talent.v4beta1.CompensationInfo.Compensat
     ionEntry.range]) times [expected_units_per_year][google.cloud.talent.v
     4beta1.CompensationInfo.CompensationEntry.expected_units_per_year].
+    
     Attributes:
         type:
             Compensation type.  Default is [CompensationType.COMPENSATION_
@@ -3495,6 +3503,7 @@ CompensationInfo = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _COMPENSATIONINFO_COMPENSATIONRANGE,
                 "__module__": "google.cloud.talent_v4beta1.proto.common_pb2",
                 "__doc__": """Compensation range.
+    
     Attributes:
         max_compensation:
             The maximum amount of compensation. If left empty, the value
@@ -3513,6 +3522,7 @@ CompensationInfo = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _COMPENSATIONINFO,
         "__module__": "google.cloud.talent_v4beta1.proto.common_pb2",
         "__doc__": """Job compensation details.
+  
   Attributes:
       entries:
           Job compensation information.  At most one entry can be of
@@ -3552,6 +3562,7 @@ Certification = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CERTIFICATION,
         "__module__": "google.cloud.talent_v4beta1.proto.common_pb2",
         "__doc__": """Resource that represents a license or certification.
+  
   Attributes:
       display_name:
           Name of license or certification.  Number of characters
@@ -3580,6 +3591,7 @@ Skill = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _SKILL,
         "__module__": "google.cloud.talent_v4beta1.proto.common_pb2",
         "__doc__": """Resource that represents a skill of a candidate.
+  
   Attributes:
       display_name:
           Skill display name.  For example, “Java”, “Python”.  Number of
@@ -3611,6 +3623,7 @@ Interview = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _INTERVIEW,
         "__module__": "google.cloud.talent_v4beta1.proto.common_pb2",
         "__doc__": """Details of an interview.
+  
   Attributes:
       rating:
           The rating on this interview.
@@ -3630,6 +3643,7 @@ Rating = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _RATING,
         "__module__": "google.cloud.talent_v4beta1.proto.common_pb2",
         "__doc__": """The details of the score received for an assessment or interview.
+  
   Attributes:
       overall:
           Overall score.
@@ -3655,6 +3669,7 @@ BatchOperationMetadata = _reflection.GeneratedProtocolMessageType(
         "__doc__": """Metadata used for long running operations returned by CTS batch APIs.
   It’s used to replace [google.longrunning.Operation.metadata][google.lo
   ngrunning.Operation.metadata].
+  
   Attributes:
       state:
           The state of a long running operation.

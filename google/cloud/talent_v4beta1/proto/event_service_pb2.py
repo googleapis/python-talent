@@ -112,6 +112,7 @@ CreateClientEventRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CREATECLIENTEVENTREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.event_service_pb2",
         "__doc__": """The report event request.
+  
   Attributes:
       parent:
           Required. Resource name of the tenant under which the event is

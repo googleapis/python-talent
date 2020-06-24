@@ -462,6 +462,7 @@ CreateCompanyRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CREATECOMPANYREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.company_service_pb2",
         "__doc__": """The Request of the CreateCompany method.
+  
   Attributes:
       parent:
           Required. Resource name of the tenant under which the company
@@ -484,6 +485,7 @@ GetCompanyRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _GETCOMPANYREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.company_service_pb2",
         "__doc__": """Request for getting a company by name.
+  
   Attributes:
       name:
           Required. The resource name of the company to be retrieved.
@@ -505,6 +507,7 @@ UpdateCompanyRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _UPDATECOMPANYREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.company_service_pb2",
         "__doc__": """Request for updating a specified company.
+  
   Attributes:
       company:
           Required. The company resource to replace the current resource
@@ -531,6 +534,7 @@ DeleteCompanyRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _DELETECOMPANYREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.company_service_pb2",
         "__doc__": """Request to delete a company.
+  
   Attributes:
       name:
           Required. The resource name of the company to be deleted.  The
@@ -552,6 +556,7 @@ ListCompaniesRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTCOMPANIESREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.company_service_pb2",
         "__doc__": """List companies for which the client has ACL visibility.
+  
   Attributes:
       parent:
           Required. Resource name of the tenant under which the company
@@ -583,6 +588,7 @@ ListCompaniesResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTCOMPANIESRESPONSE,
         "__module__": "google.cloud.talent_v4beta1.proto.company_service_pb2",
         "__doc__": """The List companies response object.
+  
   Attributes:
       companies:
           Companies for the current client.

@@ -370,6 +370,7 @@ Company = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _COMPANY_DERIVEDINFO,
                 "__module__": "google.cloud.talent_v4beta1.proto.company_pb2",
                 "__doc__": """Derived details about the company.
+    
     Attributes:
         headquarters_location:
             A structured headquarters location of the company, resolved
@@ -384,6 +385,7 @@ Company = _reflection.GeneratedProtocolMessageType(
         "__doc__": """A Company resource represents a company in the service. A company is
   the entity that owns job postings, that is, the hiring entity
   responsible for employing applicants for the job position.
+  
   Attributes:
       name:
           Required during company update.  The resource name for a

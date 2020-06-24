@@ -186,6 +186,7 @@ Tenant = _reflection.GeneratedProtocolMessageType(
   group or entity that shares common access with specific privileges for
   resources like profiles. Customer may create multiple tenants to
   provide data isolation for different groups.
+  
   Attributes:
       name:
           Required during tenant update.  The resource name for a

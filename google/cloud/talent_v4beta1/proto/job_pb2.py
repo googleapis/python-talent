@@ -978,6 +978,7 @@ Job = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _JOB_APPLICATIONINFO,
                 "__module__": "google.cloud.talent_v4beta1.proto.job_pb2",
                 "__doc__": """Application related details of a job posting.
+    
     Attributes:
         emails:
             Use this field to specify email address(es) to which resumes
@@ -1005,6 +1006,7 @@ Job = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _JOB_DERIVEDINFO,
                 "__module__": "google.cloud.talent_v4beta1.proto.job_pb2",
                 "__doc__": """Derived details about the job posting.
+    
     Attributes:
         locations:
             Structured locations of the job, resolved from
@@ -1028,6 +1030,7 @@ Job = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _JOB_PROCESSINGOPTIONS,
                 "__module__": "google.cloud.talent_v4beta1.proto.job_pb2",
                 "__doc__": """Options for job processing.
+    
     Attributes:
         disable_street_address_resolution:
             If set to ``true``, the service does not attempt to resolve a
@@ -1058,6 +1061,7 @@ Job = _reflection.GeneratedProtocolMessageType(
   listing” or “job requisition”). A job belongs to a
   [Company][google.cloud.talent.v4beta1.Company], which is the hiring
   entity responsible for the job.
+  
   Attributes:
       name:
           Required during job update.  The resource name for the job.
