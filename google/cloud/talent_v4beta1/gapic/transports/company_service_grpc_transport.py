@@ -111,20 +111,6 @@ class CompanyServiceGrpcTransport(object):
         return self._channel
 
     @property
-    def delete_company(self):
-        """Return the gRPC stub for :meth:`CompanyServiceClient.delete_company`.
-
-        Deletes specified company.
-        Prerequisite: The company has no jobs associated with it.
-
-        Returns:
-            Callable: A callable which accepts the appropriate
-                deserialized request object and returns a
-                deserialized response object.
-        """
-        return self._stubs["company_service_stub"].DeleteCompany
-
-    @property
     def create_company(self):
         """Return the gRPC stub for :meth:`CompanyServiceClient.create_company`.
 
@@ -162,6 +148,20 @@ class CompanyServiceGrpcTransport(object):
                 deserialized response object.
         """
         return self._stubs["company_service_stub"].UpdateCompany
+
+    @property
+    def delete_company(self):
+        """Return the gRPC stub for :meth:`CompanyServiceClient.delete_company`.
+
+        Deletes specified company.
+        Prerequisite: The company has no jobs associated with it.
+
+        Returns:
+            Callable: A callable which accepts the appropriate
+                deserialized request object and returns a
+                deserialized response object.
+        """
+        return self._stubs["company_service_stub"].DeleteCompany
 
     @property
     def list_companies(self):

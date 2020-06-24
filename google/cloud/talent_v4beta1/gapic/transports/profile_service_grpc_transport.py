@@ -111,21 +111,6 @@ class ProfileServiceGrpcTransport(object):
         return self._channel
 
     @property
-    def delete_profile(self):
-        """Return the gRPC stub for :meth:`ProfileServiceClient.delete_profile`.
-
-        Deletes the specified profile.
-        Prerequisite: The profile has no associated applications or assignments
-        associated.
-
-        Returns:
-            Callable: A callable which accepts the appropriate
-                deserialized request object and returns a
-                deserialized response object.
-        """
-        return self._stubs["profile_service_stub"].DeleteProfile
-
-    @property
     def search_profiles(self):
         """Return the gRPC stub for :meth:`ProfileServiceClient.search_profiles`.
 
@@ -195,3 +180,18 @@ class ProfileServiceGrpcTransport(object):
                 deserialized response object.
         """
         return self._stubs["profile_service_stub"].UpdateProfile
+
+    @property
+    def delete_profile(self):
+        """Return the gRPC stub for :meth:`ProfileServiceClient.delete_profile`.
+
+        Deletes the specified profile.
+        Prerequisite: The profile has no associated applications or assignments
+        associated.
+
+        Returns:
+            Callable: A callable which accepts the appropriate
+                deserialized request object and returns a
+                deserialized response object.
+        """
+        return self._stubs["profile_service_stub"].DeleteProfile

@@ -117,22 +117,6 @@ class JobServiceGrpcTransport(object):
         return self._channel
 
     @property
-    def delete_job(self):
-        """Return the gRPC stub for :meth:`JobServiceClient.delete_job`.
-
-        Deletes the specified job.
-
-        Typically, the job becomes unsearchable within 10 seconds, but it may take
-        up to 5 minutes.
-
-        Returns:
-            Callable: A callable which accepts the appropriate
-                deserialized request object and returns a
-                deserialized response object.
-        """
-        return self._stubs["job_service_stub"].DeleteJob
-
-    @property
     def create_job(self):
         """Return the gRPC stub for :meth:`JobServiceClient.create_job`.
 
@@ -203,6 +187,22 @@ class JobServiceGrpcTransport(object):
                 deserialized response object.
         """
         return self._stubs["job_service_stub"].BatchUpdateJobs
+
+    @property
+    def delete_job(self):
+        """Return the gRPC stub for :meth:`JobServiceClient.delete_job`.
+
+        Deletes the specified job.
+
+        Typically, the job becomes unsearchable within 10 seconds, but it may take
+        up to 5 minutes.
+
+        Returns:
+            Callable: A callable which accepts the appropriate
+                deserialized request object and returns a
+                deserialized response object.
+        """
+        return self._stubs["job_service_stub"].DeleteJob
 
     @property
     def batch_delete_jobs(self):

@@ -62,37 +62,6 @@ class CustomException(Exception):
 
 
 class TestCompanyServiceClient(object):
-    def test_delete_company(self):
-        channel = ChannelStub()
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = talent_v4beta1.CompanyServiceClient()
-
-        # Setup Request
-        name = client.company_path("[PROJECT]", "[TENANT]", "[COMPANY]")
-
-        client.delete_company(name)
-
-        assert len(channel.requests) == 1
-        expected_request = company_service_pb2.DeleteCompanyRequest(name=name)
-        actual_request = channel.requests[0][1]
-        assert expected_request == actual_request
-
-    def test_delete_company_exception(self):
-        # Mock the API response
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = talent_v4beta1.CompanyServiceClient()
-
-        # Setup request
-        name = client.company_path("[PROJECT]", "[TENANT]", "[COMPANY]")
-
-        with pytest.raises(CustomException):
-            client.delete_company(name)
-
     def test_create_company(self):
         # Setup Expected Response
         name = "name3373707"
@@ -270,6 +239,37 @@ class TestCompanyServiceClient(object):
 
         with pytest.raises(CustomException):
             client.update_company(company)
+
+    def test_delete_company(self):
+        channel = ChannelStub()
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = talent_v4beta1.CompanyServiceClient()
+
+        # Setup Request
+        name = client.company_path("[PROJECT]", "[TENANT]", "[COMPANY]")
+
+        client.delete_company(name)
+
+        assert len(channel.requests) == 1
+        expected_request = company_service_pb2.DeleteCompanyRequest(name=name)
+        actual_request = channel.requests[0][1]
+        assert expected_request == actual_request
+
+    def test_delete_company_exception(self):
+        # Mock the API response
+        channel = ChannelStub(responses=[CustomException()])
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = talent_v4beta1.CompanyServiceClient()
+
+        # Setup request
+        name = client.company_path("[PROJECT]", "[TENANT]", "[COMPANY]")
+
+        with pytest.raises(CustomException):
+            client.delete_company(name)
 
     def test_list_companies(self):
         # Setup Expected Response

@@ -225,78 +225,6 @@ class ProfileServiceClient(object):
         self._inner_api_calls = {}
 
     # Service calls
-    def delete_profile(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Deletes the specified profile.
-        Prerequisite: The profile has no associated applications or assignments
-        associated.
-
-        Example:
-            >>> from google.cloud import talent_v4beta1
-            >>>
-            >>> client = talent_v4beta1.ProfileServiceClient()
-            >>>
-            >>> name = client.profile_path('[PROJECT]', '[TENANT]', '[PROFILE]')
-            >>>
-            >>> client.delete_profile(name)
-
-        Args:
-            name (str): Required. Resource name of the profile to be deleted.
-
-                The format is
-                "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}". For
-                example, "projects/foo/tenants/bar/profiles/baz".
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "delete_profile" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "delete_profile"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.delete_profile,
-                default_retry=self._method_configs["DeleteProfile"].retry,
-                default_timeout=self._method_configs["DeleteProfile"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = profile_service_pb2.DeleteProfileRequest(name=name)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        self._inner_api_calls["delete_profile"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
     def search_profiles(
         self,
         parent,
@@ -957,5 +885,77 @@ class ProfileServiceClient(object):
             metadata.append(routing_metadata)
 
         return self._inner_api_calls["update_profile"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
+    def delete_profile(
+        self,
+        name,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Deletes the specified profile.
+        Prerequisite: The profile has no associated applications or assignments
+        associated.
+
+        Example:
+            >>> from google.cloud import talent_v4beta1
+            >>>
+            >>> client = talent_v4beta1.ProfileServiceClient()
+            >>>
+            >>> name = client.profile_path('[PROJECT]', '[TENANT]', '[PROFILE]')
+            >>>
+            >>> client.delete_profile(name)
+
+        Args:
+            name (str): Required. Resource name of the profile to be deleted.
+
+                The format is
+                "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}". For
+                example, "projects/foo/tenants/bar/profiles/baz".
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "delete_profile" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "delete_profile"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.delete_profile,
+                default_retry=self._method_configs["DeleteProfile"].retry,
+                default_timeout=self._method_configs["DeleteProfile"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = profile_service_pb2.DeleteProfileRequest(name=name)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        self._inner_api_calls["delete_profile"](
             request, retry=retry, timeout=timeout, metadata=metadata
         )

@@ -66,37 +66,6 @@ class CustomException(Exception):
 
 
 class TestJobServiceClient(object):
-    def test_delete_job(self):
-        channel = ChannelStub()
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = talent_v4beta1.JobServiceClient()
-
-        # Setup Request
-        name = client.job_path("[PROJECT]", "[TENANT]", "[JOB]")
-
-        client.delete_job(name)
-
-        assert len(channel.requests) == 1
-        expected_request = job_service_pb2.DeleteJobRequest(name=name)
-        actual_request = channel.requests[0][1]
-        assert expected_request == actual_request
-
-    def test_delete_job_exception(self):
-        # Mock the API response
-        channel = ChannelStub(responses=[CustomException()])
-        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
-        with patch as create_channel:
-            create_channel.return_value = channel
-            client = talent_v4beta1.JobServiceClient()
-
-        # Setup request
-        name = client.job_path("[PROJECT]", "[TENANT]", "[JOB]")
-
-        with pytest.raises(CustomException):
-            client.delete_job(name)
-
     def test_create_job(self):
         # Setup Expected Response
         name = "name3373707"
@@ -392,6 +361,37 @@ class TestJobServiceClient(object):
         response = client.batch_update_jobs(parent, jobs)
         exception = response.exception()
         assert exception.errors[0] == error
+
+    def test_delete_job(self):
+        channel = ChannelStub()
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = talent_v4beta1.JobServiceClient()
+
+        # Setup Request
+        name = client.job_path("[PROJECT]", "[TENANT]", "[JOB]")
+
+        client.delete_job(name)
+
+        assert len(channel.requests) == 1
+        expected_request = job_service_pb2.DeleteJobRequest(name=name)
+        actual_request = channel.requests[0][1]
+        assert expected_request == actual_request
+
+    def test_delete_job_exception(self):
+        # Mock the API response
+        channel = ChannelStub(responses=[CustomException()])
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
+        with patch as create_channel:
+            create_channel.return_value = channel
+            client = talent_v4beta1.JobServiceClient()
+
+        # Setup request
+        name = client.job_path("[PROJECT]", "[TENANT]", "[JOB]")
+
+        with pytest.raises(CustomException):
+            client.delete_job(name)
 
     def test_batch_delete_jobs(self):
         channel = ChannelStub()

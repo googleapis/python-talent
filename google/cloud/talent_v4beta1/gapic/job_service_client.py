@@ -252,81 +252,6 @@ class JobServiceClient(object):
         self._inner_api_calls = {}
 
     # Service calls
-    def delete_job(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Deletes the specified job.
-
-        Typically, the job becomes unsearchable within 10 seconds, but it may take
-        up to 5 minutes.
-
-        Example:
-            >>> from google.cloud import talent_v4beta1
-            >>>
-            >>> client = talent_v4beta1.JobServiceClient()
-            >>>
-            >>> name = client.job_path('[PROJECT]', '[TENANT]', '[JOB]')
-            >>>
-            >>> client.delete_job(name)
-
-        Args:
-            name (str): Required. The resource name of the job to be deleted.
-
-                The format is "projects/{project_id}/tenants/{tenant_id}/jobs/{job_id}".
-                For example, "projects/foo/tenants/bar/jobs/baz".
-
-                If tenant id is unspecified, the default tenant is used. For example,
-                "projects/foo/jobs/bar".
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "delete_job" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "delete_job"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.delete_job,
-                default_retry=self._method_configs["DeleteJob"].retry,
-                default_timeout=self._method_configs["DeleteJob"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = job_service_pb2.DeleteJobRequest(name=name)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        self._inner_api_calls["delete_job"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
     def create_job(
         self,
         parent,
@@ -786,6 +711,81 @@ class JobServiceClient(object):
             self.transport._operations_client,
             job_service_pb2.JobOperationResult,
             metadata_type=common_pb2.BatchOperationMetadata,
+        )
+
+    def delete_job(
+        self,
+        name,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Deletes the specified job.
+
+        Typically, the job becomes unsearchable within 10 seconds, but it may take
+        up to 5 minutes.
+
+        Example:
+            >>> from google.cloud import talent_v4beta1
+            >>>
+            >>> client = talent_v4beta1.JobServiceClient()
+            >>>
+            >>> name = client.job_path('[PROJECT]', '[TENANT]', '[JOB]')
+            >>>
+            >>> client.delete_job(name)
+
+        Args:
+            name (str): Required. The resource name of the job to be deleted.
+
+                The format is "projects/{project_id}/tenants/{tenant_id}/jobs/{job_id}".
+                For example, "projects/foo/tenants/bar/jobs/baz".
+
+                If tenant id is unspecified, the default tenant is used. For example,
+                "projects/foo/jobs/bar".
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "delete_job" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "delete_job"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.delete_job,
+                default_retry=self._method_configs["DeleteJob"].retry,
+                default_timeout=self._method_configs["DeleteJob"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = job_service_pb2.DeleteJobRequest(name=name)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        self._inner_api_calls["delete_job"](
+            request, retry=retry, timeout=timeout, metadata=metadata
         )
 
     def batch_delete_jobs(

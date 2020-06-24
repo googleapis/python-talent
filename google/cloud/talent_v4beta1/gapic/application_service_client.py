@@ -247,76 +247,6 @@ class ApplicationServiceClient(object):
         self._inner_api_calls = {}
 
     # Service calls
-    def delete_application(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Deletes specified application.
-
-        Example:
-            >>> from google.cloud import talent_v4beta1
-            >>>
-            >>> client = talent_v4beta1.ApplicationServiceClient()
-            >>>
-            >>> name = client.application_path('[PROJECT]', '[TENANT]', '[PROFILE]', '[APPLICATION]')
-            >>>
-            >>> client.delete_application(name)
-
-        Args:
-            name (str): Required. The resource name of the application to be deleted.
-
-                The format is
-                "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}/applications/{application_id}".
-                For example, "projects/foo/tenants/bar/profiles/baz/applications/qux".
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "delete_application" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "delete_application"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.delete_application,
-                default_retry=self._method_configs["DeleteApplication"].retry,
-                default_timeout=self._method_configs["DeleteApplication"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = application_service_pb2.DeleteApplicationRequest(name=name)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        self._inner_api_calls["delete_application"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
     def create_application(
         self,
         parent,
@@ -557,6 +487,76 @@ class ApplicationServiceClient(object):
             metadata.append(routing_metadata)
 
         return self._inner_api_calls["update_application"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
+    def delete_application(
+        self,
+        name,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Deletes specified application.
+
+        Example:
+            >>> from google.cloud import talent_v4beta1
+            >>>
+            >>> client = talent_v4beta1.ApplicationServiceClient()
+            >>>
+            >>> name = client.application_path('[PROJECT]', '[TENANT]', '[PROFILE]', '[APPLICATION]')
+            >>>
+            >>> client.delete_application(name)
+
+        Args:
+            name (str): Required. The resource name of the application to be deleted.
+
+                The format is
+                "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}/applications/{application_id}".
+                For example, "projects/foo/tenants/bar/profiles/baz/applications/qux".
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "delete_application" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "delete_application"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.delete_application,
+                default_retry=self._method_configs["DeleteApplication"].retry,
+                default_timeout=self._method_configs["DeleteApplication"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = application_service_pb2.DeleteApplicationRequest(name=name)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        self._inner_api_calls["delete_application"](
             request, retry=retry, timeout=timeout, metadata=metadata
         )
 
