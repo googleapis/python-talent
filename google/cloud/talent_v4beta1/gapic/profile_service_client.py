@@ -59,7 +59,7 @@ from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
 
 
-_GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution("google-cloud-talent").version
+_GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution("google-cloud-talent",).version
 
 
 class ProfileServiceClient(object):
@@ -109,7 +109,7 @@ class ProfileServiceClient(object):
     def tenant_path(cls, project, tenant):
         """Return a fully-qualified tenant string."""
         return google.api_core.path_template.expand(
-            "projects/{project}/tenants/{tenant}", project=project, tenant=tenant
+            "projects/{project}/tenants/{tenant}", project=project, tenant=tenant,
         )
 
     def __init__(
@@ -199,12 +199,12 @@ class ProfileServiceClient(object):
                 self.transport = transport
         else:
             self.transport = profile_service_grpc_transport.ProfileServiceGrpcTransport(
-                address=api_endpoint, channel=channel, credentials=credentials
+                address=api_endpoint, channel=channel, credentials=credentials,
             )
 
         if client_info is None:
             client_info = google.api_core.gapic_v1.client_info.ClientInfo(
-                gapic_version=_GAPIC_LIBRARY_VERSION
+                gapic_version=_GAPIC_LIBRARY_VERSION,
             )
         else:
             client_info.gapic_version = _GAPIC_LIBRARY_VERSION
@@ -215,7 +215,7 @@ class ProfileServiceClient(object):
         # (Ordinarily, these are the defaults specified in the `*_config.py`
         # file next to this one.)
         self._method_configs = google.api_core.gapic_v1.config.parse_method_configs(
-            client_config["interfaces"][self._INTERFACE_NAME]
+            client_config["interfaces"][self._INTERFACE_NAME],
         )
 
         # Save a dictionary of cached API call functions.
@@ -621,7 +621,7 @@ class ProfileServiceClient(object):
             )
 
         request = profile_service_pb2.ListProfilesRequest(
-            parent=parent, filter=filter_, page_size=page_size, read_mask=read_mask
+            parent=parent, filter=filter_, page_size=page_size, read_mask=read_mask,
         )
         if metadata is None:
             metadata = []
@@ -714,7 +714,7 @@ class ProfileServiceClient(object):
             )
 
         request = profile_service_pb2.CreateProfileRequest(
-            parent=parent, profile=profile
+            parent=parent, profile=profile,
         )
         if metadata is None:
             metadata = []
@@ -788,7 +788,7 @@ class ProfileServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = profile_service_pb2.GetProfileRequest(name=name)
+        request = profile_service_pb2.GetProfileRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -869,7 +869,7 @@ class ProfileServiceClient(object):
             )
 
         request = profile_service_pb2.UpdateProfileRequest(
-            profile=profile, update_mask=update_mask
+            profile=profile, update_mask=update_mask,
         )
         if metadata is None:
             metadata = []
@@ -942,7 +942,7 @@ class ProfileServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = profile_service_pb2.DeleteProfileRequest(name=name)
+        request = profile_service_pb2.DeleteProfileRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)

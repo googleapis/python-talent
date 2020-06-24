@@ -58,7 +58,7 @@ from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
 
 
-_GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution("google-cloud-talent").version
+_GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution("google-cloud-talent",).version
 
 
 class JobServiceClient(object):
@@ -105,7 +105,7 @@ class JobServiceClient(object):
     def company_without_tenant_path(cls, project, company):
         """Return a fully-qualified company_without_tenant string."""
         return google.api_core.path_template.expand(
-            "projects/{project}/companies/{company}", project=project, company=company
+            "projects/{project}/companies/{company}", project=project, company=company,
         )
 
     @classmethod
@@ -122,21 +122,21 @@ class JobServiceClient(object):
     def job_without_tenant_path(cls, project, job):
         """Return a fully-qualified job_without_tenant string."""
         return google.api_core.path_template.expand(
-            "projects/{project}/jobs/{job}", project=project, job=job
+            "projects/{project}/jobs/{job}", project=project, job=job,
         )
 
     @classmethod
     def project_path(cls, project):
         """Return a fully-qualified project string."""
         return google.api_core.path_template.expand(
-            "projects/{project}", project=project
+            "projects/{project}", project=project,
         )
 
     @classmethod
     def tenant_path(cls, project, tenant):
         """Return a fully-qualified tenant string."""
         return google.api_core.path_template.expand(
-            "projects/{project}/tenants/{tenant}", project=project, tenant=tenant
+            "projects/{project}/tenants/{tenant}", project=project, tenant=tenant,
         )
 
     def __init__(
@@ -226,12 +226,12 @@ class JobServiceClient(object):
                 self.transport = transport
         else:
             self.transport = job_service_grpc_transport.JobServiceGrpcTransport(
-                address=api_endpoint, channel=channel, credentials=credentials
+                address=api_endpoint, channel=channel, credentials=credentials,
             )
 
         if client_info is None:
             client_info = google.api_core.gapic_v1.client_info.ClientInfo(
-                gapic_version=_GAPIC_LIBRARY_VERSION
+                gapic_version=_GAPIC_LIBRARY_VERSION,
             )
         else:
             client_info.gapic_version = _GAPIC_LIBRARY_VERSION
@@ -242,7 +242,7 @@ class JobServiceClient(object):
         # (Ordinarily, these are the defaults specified in the `*_config.py`
         # file next to this one.)
         self._method_configs = google.api_core.gapic_v1.config.parse_method_configs(
-            client_config["interfaces"][self._INTERFACE_NAME]
+            client_config["interfaces"][self._INTERFACE_NAME],
         )
 
         # Save a dictionary of cached API call functions.
@@ -319,7 +319,7 @@ class JobServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = job_service_pb2.CreateJobRequest(parent=parent, job=job)
+        request = job_service_pb2.CreateJobRequest(parent=parent, job=job,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -410,7 +410,7 @@ class JobServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = job_service_pb2.BatchCreateJobsRequest(parent=parent, jobs=jobs)
+        request = job_service_pb2.BatchCreateJobsRequest(parent=parent, jobs=jobs,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -492,7 +492,7 @@ class JobServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = job_service_pb2.GetJobRequest(name=name)
+        request = job_service_pb2.GetJobRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -579,7 +579,7 @@ class JobServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = job_service_pb2.UpdateJobRequest(job=job, update_mask=update_mask)
+        request = job_service_pb2.UpdateJobRequest(job=job, update_mask=update_mask,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -688,7 +688,7 @@ class JobServiceClient(object):
             )
 
         request = job_service_pb2.BatchUpdateJobsRequest(
-            parent=parent, jobs=jobs, update_mask=update_mask
+            parent=parent, jobs=jobs, update_mask=update_mask,
         )
         if metadata is None:
             metadata = []
@@ -770,7 +770,7 @@ class JobServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = job_service_pb2.DeleteJobRequest(name=name)
+        request = job_service_pb2.DeleteJobRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -856,7 +856,7 @@ class JobServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = job_service_pb2.BatchDeleteJobsRequest(parent=parent, filter=filter_)
+        request = job_service_pb2.BatchDeleteJobsRequest(parent=parent, filter=filter_,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -977,7 +977,7 @@ class JobServiceClient(object):
             )
 
         request = job_service_pb2.ListJobsRequest(
-            parent=parent, filter=filter_, page_size=page_size, job_view=job_view
+            parent=parent, filter=filter_, page_size=page_size, job_view=job_view,
         )
         if metadata is None:
             metadata = []

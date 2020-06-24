@@ -161,7 +161,7 @@ _TENANT = _descriptor.Descriptor(
     ],
     extensions=[],
     nested_types=[],
-    enum_types=[_TENANT_DATAUSAGETYPE],
+    enum_types=[_TENANT_DATAUSAGETYPE,],
     serialized_options=b"\352AA\n\032jobs.googleapis.com/Tenant\022#projects/{project}/tenants/{tenant}",
     is_extendable=False,
     syntax="proto3",

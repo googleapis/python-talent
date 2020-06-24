@@ -42,7 +42,7 @@ def add_CompletionServicer_to_server(servicer, server):
             servicer.CompleteQuery,
             request_deserializer=google_dot_cloud_dot_talent__v4beta1_dot_proto_dot_completion__service__pb2.CompleteQueryRequest.FromString,
             response_serializer=google_dot_cloud_dot_talent__v4beta1_dot_proto_dot_completion__service__pb2.CompleteQueryResponse.SerializeToString,
-        )
+        ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
         "google.cloud.talent.v4beta1.Completion", rpc_method_handlers

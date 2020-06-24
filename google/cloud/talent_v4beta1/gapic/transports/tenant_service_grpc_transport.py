@@ -56,7 +56,7 @@ class TenantServiceGrpcTransport(object):
         # exception (channels come with credentials baked in already).
         if channel is not None and credentials is not None:
             raise ValueError(
-                "The `channel` and `credentials` arguments are mutually " "exclusive."
+                "The `channel` and `credentials` arguments are mutually " "exclusive.",
             )
 
         # Create the channel.
@@ -75,7 +75,7 @@ class TenantServiceGrpcTransport(object):
         # gRPC uses objects called "stubs" that are bound to the
         # channel and provide a basic method for each RPC.
         self._stubs = {
-            "tenant_service_stub": tenant_service_pb2_grpc.TenantServiceStub(channel)
+            "tenant_service_stub": tenant_service_pb2_grpc.TenantServiceStub(channel),
         }
 
     @classmethod

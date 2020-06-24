@@ -325,7 +325,7 @@ _GETPROFILEREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A\035\n\033jobs.googleapis.com/Profile",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -426,7 +426,7 @@ _DELETEPROFILEREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A\035\n\033jobs.googleapis.com/Profile",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],

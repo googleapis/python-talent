@@ -132,7 +132,7 @@ _GETAPPLICATIONREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A!\n\037jobs.googleapis.com/Application",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -233,7 +233,7 @@ _DELETEAPPLICATIONREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A!\n\037jobs.googleapis.com/Application",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],

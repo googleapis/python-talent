@@ -43,7 +43,7 @@ from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
 
 
-_GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution("google-cloud-talent").version
+_GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution("google-cloud-talent",).version
 
 
 class ApplicationServiceClient(object):
@@ -104,7 +104,7 @@ class ApplicationServiceClient(object):
     def company_without_tenant_path(cls, project, company):
         """Return a fully-qualified company_without_tenant string."""
         return google.api_core.path_template.expand(
-            "projects/{project}/companies/{company}", project=project, company=company
+            "projects/{project}/companies/{company}", project=project, company=company,
         )
 
     @classmethod
@@ -121,7 +121,7 @@ class ApplicationServiceClient(object):
     def job_without_tenant_path(cls, project, job):
         """Return a fully-qualified job_without_tenant string."""
         return google.api_core.path_template.expand(
-            "projects/{project}/jobs/{job}", project=project, job=job
+            "projects/{project}/jobs/{job}", project=project, job=job,
         )
 
     @classmethod
@@ -221,12 +221,12 @@ class ApplicationServiceClient(object):
                 self.transport = transport
         else:
             self.transport = application_service_grpc_transport.ApplicationServiceGrpcTransport(
-                address=api_endpoint, channel=channel, credentials=credentials
+                address=api_endpoint, channel=channel, credentials=credentials,
             )
 
         if client_info is None:
             client_info = google.api_core.gapic_v1.client_info.ClientInfo(
-                gapic_version=_GAPIC_LIBRARY_VERSION
+                gapic_version=_GAPIC_LIBRARY_VERSION,
             )
         else:
             client_info.gapic_version = _GAPIC_LIBRARY_VERSION
@@ -237,7 +237,7 @@ class ApplicationServiceClient(object):
         # (Ordinarily, these are the defaults specified in the `*_config.py`
         # file next to this one.)
         self._method_configs = google.api_core.gapic_v1.config.parse_method_configs(
-            client_config["interfaces"][self._INTERFACE_NAME]
+            client_config["interfaces"][self._INTERFACE_NAME],
         )
 
         # Save a dictionary of cached API call functions.
@@ -312,7 +312,7 @@ class ApplicationServiceClient(object):
             )
 
         request = application_service_pb2.CreateApplicationRequest(
-            parent=parent, application=application
+            parent=parent, application=application,
         )
         if metadata is None:
             metadata = []
@@ -386,7 +386,7 @@ class ApplicationServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = application_service_pb2.GetApplicationRequest(name=name)
+        request = application_service_pb2.GetApplicationRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -471,7 +471,7 @@ class ApplicationServiceClient(object):
             )
 
         request = application_service_pb2.UpdateApplicationRequest(
-            application=application, update_mask=update_mask
+            application=application, update_mask=update_mask,
         )
         if metadata is None:
             metadata = []
@@ -542,7 +542,7 @@ class ApplicationServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = application_service_pb2.DeleteApplicationRequest(name=name)
+        request = application_service_pb2.DeleteApplicationRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -638,7 +638,7 @@ class ApplicationServiceClient(object):
             )
 
         request = application_service_pb2.ListApplicationsRequest(
-            parent=parent, page_size=page_size
+            parent=parent, page_size=page_size,
         )
         if metadata is None:
             metadata = []

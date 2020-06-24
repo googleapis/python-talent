@@ -132,7 +132,7 @@ _GETCOMPANYREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A\035\n\033jobs.googleapis.com/Company",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -233,7 +233,7 @@ _DELETECOMPANYREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A\035\n\033jobs.googleapis.com/Company",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],

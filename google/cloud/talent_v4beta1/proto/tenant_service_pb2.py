@@ -132,7 +132,7 @@ _GETTENANTREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A\034\n\032jobs.googleapis.com/Tenant",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -233,7 +233,7 @@ _DELETETENANTREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A\034\n\032jobs.googleapis.com/Tenant",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],

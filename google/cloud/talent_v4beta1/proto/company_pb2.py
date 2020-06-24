@@ -62,7 +62,7 @@ _COMPANY_DERIVEDINFO = _descriptor.Descriptor(
             serialized_options=None,
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -333,7 +333,7 @@ _COMPANY = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_COMPANY_DERIVEDINFO],
+    nested_types=[_COMPANY_DERIVEDINFO,],
     enum_types=[],
     serialized_options=b"\352A~\n\033jobs.googleapis.com/Company\0227projects/{project}/tenants/{tenant}/companies/{company}\022&projects/{project}/companies/{company}",
     is_extendable=False,

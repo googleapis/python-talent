@@ -409,7 +409,7 @@ _COMPLETEQUERYRESPONSE = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_COMPLETEQUERYRESPONSE_COMPLETIONRESULT],
+    nested_types=[_COMPLETEQUERYRESPONSE_COMPLETIONRESULT,],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,
@@ -560,7 +560,7 @@ _COMPLETION = _descriptor.ServiceDescriptor(
             output_type=_COMPLETEQUERYRESPONSE,
             serialized_options=b"\202\323\344\223\002Z\022//v4beta1/{parent=projects/*/tenants/*}:completeZ'\022%/v4beta1/{parent=projects/*}:complete",
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
 )
 _sym_db.RegisterServiceDescriptor(_COMPLETION)

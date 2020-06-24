@@ -153,7 +153,7 @@ _EVENTSERVICE = _descriptor.ServiceDescriptor(
             output_type=google_dot_cloud_dot_talent__v4beta1_dot_proto_dot_event__pb2._CLIENTEVENT,
             serialized_options=b'\202\323\344\223\002h"3/v4beta1/{parent=projects/*/tenants/*}/clientEvents:\001*Z.")/v4beta1/{parent=projects/*}/clientEvents:\001*\332A\023parent,client_event',
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
 )
 _sym_db.RegisterServiceDescriptor(_EVENTSERVICE)

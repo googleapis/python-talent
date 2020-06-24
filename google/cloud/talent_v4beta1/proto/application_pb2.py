@@ -500,7 +500,7 @@ _APPLICATION = _descriptor.Descriptor(
     ],
     extensions=[],
     nested_types=[],
-    enum_types=[_APPLICATION_APPLICATIONSTATE, _APPLICATION_APPLICATIONSTAGE],
+    enum_types=[_APPLICATION_APPLICATIONSTATE, _APPLICATION_APPLICATIONSTAGE,],
     serialized_options=b"\352At\n\037jobs.googleapis.com/Application\022Qprojects/{project}/tenants/{tenant}/profiles/{profile}/applications/{application}",
     is_extendable=False,
     syntax="proto3",
