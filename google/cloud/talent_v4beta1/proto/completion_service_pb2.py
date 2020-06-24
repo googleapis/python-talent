@@ -406,8 +406,6 @@ CompleteQueryRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _COMPLETEQUERYREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.completion_service_pb2",
         "__doc__": """Auto-complete parameters.
-  
-  
   Attributes:
       parent:
           Required. Resource name of tenant the completion is performed
@@ -459,8 +457,6 @@ CompleteQueryResponse = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _COMPLETEQUERYRESPONSE_COMPLETIONRESULT,
                 "__module__": "google.cloud.talent_v4beta1.proto.completion_service_pb2",
                 "__doc__": """Resource that represents completion results.
-    
-    
     Attributes:
         suggestion:
             The suggestion for the query.
@@ -477,8 +473,6 @@ CompleteQueryResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _COMPLETEQUERYRESPONSE,
         "__module__": "google.cloud.talent_v4beta1.proto.completion_service_pb2",
         "__doc__": """Response of auto-complete query.
-  
-  
   Attributes:
       completion_results:
           Results of the matching job/company candidates.

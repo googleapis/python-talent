@@ -943,8 +943,6 @@ ListProfilesRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTPROFILESREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.profile_service_pb2",
         "__doc__": """List profiles request.
-  
-  
   Attributes:
       parent:
           Required. The resource name of the tenant under which the
@@ -985,8 +983,6 @@ ListProfilesResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTPROFILESRESPONSE,
         "__module__": "google.cloud.talent_v4beta1.proto.profile_service_pb2",
         "__doc__": """The List profiles response object.
-  
-  
   Attributes:
       profiles:
           Profiles for the specific tenant.
@@ -1006,8 +1002,6 @@ CreateProfileRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CREATEPROFILEREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.profile_service_pb2",
         "__doc__": """Create profile request.
-  
-  
   Attributes:
       parent:
           Required. The name of the tenant this profile belongs to.  The
@@ -1028,8 +1022,6 @@ GetProfileRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _GETPROFILEREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.profile_service_pb2",
         "__doc__": """Get profile request.
-  
-  
   Attributes:
       name:
           Required. Resource name of the profile to get.  The format is 
@@ -1048,8 +1040,6 @@ UpdateProfileRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _UPDATEPROFILEREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.profile_service_pb2",
         "__doc__": """Update profile request
-  
-  
   Attributes:
       profile:
           Required. Profile to be updated.
@@ -1069,8 +1059,6 @@ DeleteProfileRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _DELETEPROFILEREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.profile_service_pb2",
         "__doc__": """Delete profile request.
-  
-  
   Attributes:
       name:
           Required. Resource name of the profile to be deleted.  The
@@ -1090,8 +1078,6 @@ SearchProfilesRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _SEARCHPROFILESREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.profile_service_pb2",
         "__doc__": """The request body of the ``SearchProfiles`` call.
-  
-  
   Attributes:
       parent:
           Required. The resource name of the tenant to search within.
@@ -1279,8 +1265,6 @@ SearchProfilesResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _SEARCHPROFILESRESPONSE,
         "__module__": "google.cloud.talent_v4beta1.proto.profile_service_pb2",
         "__doc__": """Response of SearchProfiles method.
-  
-  
   Attributes:
       estimated_total_size:
           An estimation of the number of profiles that match the
@@ -1316,10 +1300,8 @@ SummarizedProfile = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _SUMMARIZEDPROFILE,
         "__module__": "google.cloud.talent_v4beta1.proto.profile_service_pb2",
-        "__doc__": """Profile entry with metadata inside
-  [SearchProfilesResponse][google.cloud.talent.v4beta1.SearchProfilesResponse].
-  
-  
+        "__doc__": """Profile entry with metadata inside [SearchProfilesResponse][google.clo
+  ud.talent.v4beta1.SearchProfilesResponse].
   Attributes:
       profiles:
           A list of profiles that are linked by [Profile.group_id][googl

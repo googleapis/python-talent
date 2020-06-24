@@ -424,8 +424,6 @@ CreateApplicationRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CREATEAPPLICATIONREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.application_service_pb2",
         "__doc__": """The Request of the CreateApplication method.
-  
-  
   Attributes:
       parent:
           Required. Resource name of the profile under which the
@@ -447,8 +445,6 @@ GetApplicationRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _GETAPPLICATIONREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.application_service_pb2",
         "__doc__": """Request for getting a application by name.
-  
-  
   Attributes:
       name:
           Required. The resource name of the application to be
@@ -469,8 +465,6 @@ UpdateApplicationRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _UPDATEAPPLICATIONREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.application_service_pb2",
         "__doc__": """Request for updating a specified application.
-  
-  
   Attributes:
       application:
           Required. The application resource to replace the current
@@ -498,8 +492,6 @@ DeleteApplicationRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _DELETEAPPLICATIONREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.application_service_pb2",
         "__doc__": """Request to delete a application.
-  
-  
   Attributes:
       name:
           Required. The resource name of the application to be deleted.
@@ -519,8 +511,6 @@ ListApplicationsRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTAPPLICATIONSREQUEST,
         "__module__": "google.cloud.talent_v4beta1.proto.application_service_pb2",
         "__doc__": """List applications for which the client has ACL visibility.
-  
-  
   Attributes:
       parent:
           Required. Resource name of the profile under which the
@@ -545,8 +535,6 @@ ListApplicationsResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTAPPLICATIONSRESPONSE,
         "__module__": "google.cloud.talent_v4beta1.proto.application_service_pb2",
         "__doc__": """The List applications response object.
-  
-  
   Attributes:
       applications:
           Applications for the current client.

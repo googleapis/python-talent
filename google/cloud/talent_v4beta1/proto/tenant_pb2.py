@@ -164,12 +164,10 @@ Tenant = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _TENANT,
         "__module__": "google.cloud.talent_v4beta1.proto.tenant_pb2",
-        "__doc__": """A Tenant resource represents a tenant in the service. A
-  tenant is a group or entity that shares common access with specific
-  privileges for resources like profiles. Customer may create multiple
-  tenants to provide data isolation for different groups.
-  
-  
+        "__doc__": """A Tenant resource represents a tenant in the service. A tenant is a
+  group or entity that shares common access with specific privileges for
+  resources like profiles. Customer may create multiple tenants to
+  provide data isolation for different groups.
   Attributes:
       name:
           Required during tenant update.  The resource name for a

@@ -2076,8 +2076,6 @@ JobQuery = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _JOBQUERY,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
         "__doc__": """The query required to perform a search query.
-  
-  
   Attributes:
       query:
           The query string that matches against the job title,
@@ -2203,8 +2201,6 @@ ProfileQuery = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _PROFILEQUERY,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
         "__doc__": """Filters to apply when performing the search query.
-  
-  
   Attributes:
       query:
           Keywords to match any text fields of profiles.  For example,
@@ -2429,8 +2425,6 @@ LocationFilter = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LOCATIONFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
         "__doc__": """Geographic region of the search.
-  
-  
   Attributes:
       address:
           The address name, such as “Mountain View” or “Bay Area”.
@@ -2493,8 +2487,6 @@ CompensationFilter = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _COMPENSATIONFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
         "__doc__": """Filter on job compensation type and amount.
-  
-  
   Attributes:
       type:
           Required. Type of filter.
@@ -2520,8 +2512,6 @@ CommuteFilter = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _COMMUTEFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
         "__doc__": """Parameters needed for commute search.
-  
-  
   Attributes:
       commute_method:
           Required. The method of transportation to calculate the
@@ -2563,8 +2553,6 @@ JobTitleFilter = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _JOBTITLEFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
         "__doc__": """Job title of the search.
-  
-  
   Attributes:
       job_title:
           Required. The job title. For example, “Software engineer”, or
@@ -2585,8 +2573,6 @@ SkillFilter = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _SKILLFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
         "__doc__": """Skill filter of the search.
-  
-  
   Attributes:
       skill:
           Required. The skill name. For example, “java”, “j2ee”, and so
@@ -2607,8 +2593,6 @@ EmployerFilter = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _EMPLOYERFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
         "__doc__": """Employer filter of the search.
-  
-  
   Attributes:
       employer:
           Required. The name of the employer, for example “Google”,
@@ -2634,8 +2618,6 @@ EducationFilter = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _EDUCATIONFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
         "__doc__": """Education filter of the search.
-  
-  
   Attributes:
       school:
           The school name. For example “MIT”, “University of California,
@@ -2664,15 +2646,10 @@ WorkExperienceFilter = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _WORKEXPERIENCEFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
-        "__doc__": """Work experience filter.
-  
-  This filter is used to search for profiles with working experience
-  length between
-  [min_experience][google.cloud.talent.v4beta1.WorkExperienceFilter.min_experience]
-  and
-  [max_experience][google.cloud.talent.v4beta1.WorkExperienceFilter.max_experience].
-  
-  
+        "__doc__": """Work experience filter.  This filter is used to search for profiles
+  with working experience length between [min_experience][google.cloud.t
+  alent.v4beta1.WorkExperienceFilter.min_experience] and [max_experience
+  ][google.cloud.talent.v4beta1.WorkExperienceFilter.max_experience].
   Attributes:
       min_experience:
           The minimum duration of the work experience (inclusive).
@@ -2690,18 +2667,13 @@ ApplicationDateFilter = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _APPLICATIONDATEFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
-        "__doc__": """Application Date Range Filter.
-  
-  The API matches profiles with
-  [Application.application_date][google.cloud.talent.v4beta1.Application.application_date]
-  between start date and end date (both boundaries are inclusive). The
-  filter is ignored if both
-  [start_date][google.cloud.talent.v4beta1.ApplicationDateFilter.start_date]
-  and
+        "__doc__": """Application Date Range Filter.  The API matches profiles with [Applica
+  tion.application_date][google.cloud.talent.v4beta1.Application.applica
+  tion_date] between start date and end date (both boundaries are
+  inclusive). The filter is ignored if both [start_date][google.cloud.ta
+  lent.v4beta1.ApplicationDateFilter.start_date] and
   [end_date][google.cloud.talent.v4beta1.ApplicationDateFilter.end_date]
   are missing.
-  
-  
   Attributes:
       start_date:
           Start date. If it’s missing, The API matches profiles with
@@ -2722,8 +2694,6 @@ ApplicationOutcomeNotesFilter = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _APPLICATIONOUTCOMENOTESFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
         "__doc__": """Outcome Notes Filter.
-  
-  
   Attributes:
       outcome_notes:
           Required. User entered or selected outcome reason. The API
@@ -2746,8 +2716,6 @@ ApplicationJobFilter = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _APPLICATIONJOBFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
         "__doc__": """Filter on the job information of Application.
-  
-  
   Attributes:
       job_requisition_id:
           The job requisition id in the application. The API does an
@@ -2776,10 +2744,7 @@ TimeFilter = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _TIMEFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
-        "__doc__": """Filter on create timestamp or update timestamp of
-  profiles.
-  
-  
+        "__doc__": """Filter on create timestamp or update timestamp of profiles.
   Attributes:
       start_time:
           Start timestamp, matching profiles with the start time. If
@@ -2805,11 +2770,8 @@ CandidateAvailabilityFilter = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _CANDIDATEAVAILABILITYFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
-        "__doc__": """Deprecated. Use AvailabilityFilter instead.
-  
-  Filter on availability signals.
-  
-  
+        "__doc__": """Deprecated. Use AvailabilityFilter instead.  Filter on availability
+  signals.
   Attributes:
       negated:
           It is false by default. If true, API excludes all the
@@ -2827,8 +2789,6 @@ AvailabilityFilter = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _AVAILABILITYFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
         "__doc__": """Filter on availability signals.
-  
-  
   Attributes:
       signal_type:
           Required. Type of signal to apply filter on.
@@ -2854,8 +2814,6 @@ PersonNameFilter = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _PERSONNAMEFILTER,
         "__module__": "google.cloud.talent_v4beta1.proto.filters_pb2",
         "__doc__": """Filter on person name.
-  
-  
   Attributes:
       person_name:
           Required. The person name. For example, “John Smith”.  Can be
