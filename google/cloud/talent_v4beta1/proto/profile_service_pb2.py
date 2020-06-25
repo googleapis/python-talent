@@ -1189,7 +1189,7 @@ SearchProfilesRequest = _reflection.GeneratedProtocolMessageType(
           .given_name][google.cloud.talent.v4beta1.PersonName.PersonStru
           cturedName.given_name]    in descending order. -  “last_name”:
           Sort by    [PersonName.PersonStructuredName.family_name][googl
-          e.cloud.talent.v4beta1.PersonName.PersonStructuredName.family_
+          e.cloud.talent.v4beta1.PersonName.PersonStructuredName.family\_
           name]    in ascending order. -  “last_name desc”: Sort by    [
           PersonName.PersonStructuredName.family_name][google.cloud.tale
           nt.v4beta1.PersonName.PersonStructuredName.family_name]    in
@@ -1205,7 +1205,7 @@ SearchProfilesRequest = _reflection.GeneratedProtocolMessageType(
           looks like a function definition with parameters.  Function
           syntax: function_name(histogram_facet[, list of buckets])
           Data types:  -  Histogram facet: facet names with format
-          [a-zA-Z][a-zA-Z0-9_]+. -  String: string like “any string with
+          [a-zA-Z][a-zA-Z0-9\_]+. -  String: string like “any string with
           backslash escape for quote(").” -  Number: whole number and
           floating point number like 10, -1 and -0.01. -  List: list of
           elements with comma(,) separator surrounded by square

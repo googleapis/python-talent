@@ -2394,15 +2394,15 @@ ProfileQuery = _reflection.GeneratedProtocolMessageType(
           geocoded, the filter falls back to keyword search.  If the
           detected [LocationType][google.cloud.talent.v4beta1.Location.L
           ocationType] is [LocationType.SUB_ADMINISTRATIVE_AREA][google.
-          cloud.talent.v4beta1.Location.LocationType.SUB_ADMINISTRATIVE_
-          AREA], [LocationType.ADMINISTRATIVE_AREA][google.cloud.talent.
+          cloud.talent.v4beta1.Location.LocationType.SUB_ADMINISTRATIVE_AREA],
+          [LocationType.ADMINISTRATIVE_AREA][google.cloud.talent.
           v4beta1.Location.LocationType.ADMINISTRATIVE_AREA], or [Locati
           onType.COUNTRY][google.cloud.talent.v4beta1.Location.LocationT
           ype.COUNTRY], the filter is performed against the detected
           location name (using exact text matching). Otherwise, the
           filter is performed against the detected center point and a
-          radius of detected location radius + [LocationFilter.distance_
-          in_miles][google.cloud.talent.v4beta1.LocationFilter.distance_
+          radius of detected location radius + [LocationFilter.distance\_
+          in_miles][google.cloud.talent.v4beta1.LocationFilter.distance\_
           in_miles].  If [LocationFilter.address][google.cloud.talent.v4
           beta1.LocationFilter.address] is provided, [LocationFilter.dis
           tance_in_miles][google.cloud.talent.v4beta1.LocationFilter.dis
@@ -2421,8 +2421,8 @@ ProfileQuery = _reflection.GeneratedProtocolMessageType(
           talent.v4beta1.LocationFilter.distance_in_miles] that is
           explicitly set to 0 and [LocationFilter.distance_in_miles][goo
           gle.cloud.talent.v4beta1.LocationFilter.distance_in_miles]
-          that is not set. Which means that if [LocationFilter.distance_
-          in_miles][google.cloud.talent.v4beta1.LocationFilter.distance_
+          that is not set. Which means that if [LocationFilter.distance\_
+          in_miles][google.cloud.talent.v4beta1.LocationFilter.distance\_
           in_miles] is explicitly set to 0, the server will use the
           default value of [LocationFilter.distance_in_miles][google.clo
           ud.talent.v4beta1.LocationFilter.distance_in_miles] which is

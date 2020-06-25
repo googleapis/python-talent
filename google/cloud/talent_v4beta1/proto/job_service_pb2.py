@@ -1893,7 +1893,7 @@ UpdateJobRequest = _reflection.GeneratedProtocolMessageType(
           Required. The Job to be updated.
       update_mask:
           Strongly recommended for the best service experience.  If [upd
-          ate_mask][google.cloud.talent.v4beta1.UpdateJobRequest.update_
+          ate_mask][google.cloud.talent.v4beta1.UpdateJobRequest.update\_
           mask] is provided, only the specified fields in
           [job][google.cloud.talent.v4beta1.UpdateJobRequest.job] are
           updated. Otherwise all the fields are updated.  A field mask
@@ -1985,8 +1985,7 @@ ListJobsRequest = _reflection.GeneratedProtocolMessageType(
           The starting point of a query result.
       page_size:
           The maximum number of jobs to be returned per page of results.
-          If [job_view][google.cloud.talent.v4beta1.ListJobsRequest.job_
-          view] is set to [JobView.JOB_VIEW_ID_ONLY][google.cloud.talent
+          If [job_view][google.cloud.talent.v4beta1.ListJobsRequest.job_view] is set to [JobView.JOB_VIEW_ID_ONLY][google.cloud.talent
           .v4beta1.JobView.JOB_VIEW_ID_ONLY], the maximum allowed page
           size is 1000. Otherwise, the maximum allowed page size is 100.
           Default is 100 if empty or a number < 1 is specified.
@@ -2108,7 +2107,7 @@ SearchJobsRequest = _reflection.GeneratedProtocolMessageType(
           attribute value. \* ``count(numeric_histogram_facet, list of
           buckets)``: Count the number of matching entities within each
           bucket.  Data types:  -  Histogram facet: facet names with
-          format [a-zA-Z][a-zA-Z0-9_]+. -  String: string like “any
+          format [a-zA-Z][a-zA-Z0-9\_]+. -  String: string like “any
           string with backslash escape for quote(").” -  Number: whole
           number and floating point number like 10, -1 and -0.01. -
           List: list of elements with comma(,) separator surrounded by
@@ -2172,7 +2171,7 @@ SearchJobsRequest = _reflection.GeneratedProtocolMessageType(
           string    [Job.custom_attributes][google.cloud.talent.v4beta1.
           Job.custom_attributes].    Values can be accessed via square
           bracket notations like    string_custom_attribute[“key1”]. -
-          numeric_custom_attribute: histogram by numeric    [Job.custom_
+          numeric_custom_attribute: histogram by numeric    [Job.custom\_
           attributes][google.cloud.talent.v4beta1.Job.custom_attributes]
           .    Values can be accessed via square bracket notations like
           numeric_custom_attribute[“key1”]. Must specify list of numeric
@@ -2396,7 +2395,7 @@ SearchJobsResponse = _reflection.GeneratedProtocolMessageType(
           An estimation of the number of jobs that match the specified
           query.  This number isn’t guaranteed to be accurate. For
           accurate results, see [SearchJobsRequest.require_precise_resul
-          t_size][google.cloud.talent.v4beta1.SearchJobsRequest.require_
+          t_size][google.cloud.talent.v4beta1.SearchJobsRequest.require\_
           precise_result_size].
       total_size:
           The precise result count, which is available only if the
