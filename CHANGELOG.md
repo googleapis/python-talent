@@ -4,6 +4,13 @@
 
 [1]: https://pypi.org/project/google-cloud-talent/#history
 
+### [0.6.2](https://www.github.com/googleapis/python-talent/compare/v0.6.1...v0.6.2) (2020-07-01)
+
+
+### Bug Fixes
+
+* update default retry configs ([#17](https://www.github.com/googleapis/python-talent/issues/17)) ([a0e8ddc](https://www.github.com/googleapis/python-talent/commit/a0e8ddcb5706da9b470f4f5962a7a9cf3bd09f0a))
+
 ### [0.6.1](https://www.github.com/googleapis/python-talent/compare/v0.6.0...v0.6.1) (2020-04-28)
 
 
