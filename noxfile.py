@@ -76,19 +76,19 @@ def default(session):
     session.install("-e", ".")
 
     # Run py.test against the unit tests.
-    # session.run(
-    #     "py.test",
-    #     "--quiet",
-    #     "--cov=google.cloud.talent",
-    #     "--cov=google.cloud",
-    #     "--cov=tests.unit",
-    #     "--cov-append",
-    #     "--cov-config=.coveragerc",
-    #     "--cov-report=",
-    #     "--cov-fail-under=0",
-    #     os.path.join("tests", "unit"),
-    #     *session.posargs,
-    # )
+    session.run(
+        "py.test",
+        "--quiet",
+        "--cov=google.cloud.talent",
+        "--cov=google.cloud",
+        "--cov=tests.unit",
+        "--cov-append",
+        "--cov-config=.coveragerc",
+        "--cov-report=",
+        "--cov-fail-under=0",
+        os.path.join("tests", "unit"),
+        *session.posargs,
+    )
 
 
 @nox.session(python=UNIT_TEST_PYTHON_VERSIONS)
