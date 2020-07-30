@@ -292,21 +292,27 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent, company]):
+        has_flattened_params = any([parent, company])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = company_service.CreateCompanyRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a company_service.CreateCompanyRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, company_service.CreateCompanyRequest):
+            request = company_service.CreateCompanyRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
-        if company is not None:
-            request.company = company
+            if parent is not None:
+                request.parent = parent
+            if company is not None:
+                request.company = company
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -373,19 +379,25 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([name]):
+        has_flattened_params = any([name])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = company_service.GetCompanyRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a company_service.GetCompanyRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, company_service.GetCompanyRequest):
+            request = company_service.GetCompanyRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if name is not None:
-            request.name = name
+            if name is not None:
+                request.name = name
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -445,19 +457,25 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([company]):
+        has_flattened_params = any([company])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = company_service.UpdateCompanyRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a company_service.UpdateCompanyRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, company_service.UpdateCompanyRequest):
+            request = company_service.UpdateCompanyRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if company is not None:
-            request.company = company
+            if company is not None:
+                request.company = company
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -516,19 +534,25 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([name]):
+        has_flattened_params = any([name])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = company_service.DeleteCompanyRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a company_service.DeleteCompanyRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, company_service.DeleteCompanyRequest):
+            request = company_service.DeleteCompanyRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if name is not None:
-            request.name = name
+            if name is not None:
+                request.name = name
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -591,19 +615,25 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent]):
+        has_flattened_params = any([parent])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = company_service.ListCompaniesRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a company_service.ListCompaniesRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, company_service.ListCompaniesRequest):
+            request = company_service.ListCompaniesRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
+            if parent is not None:
+                request.parent = parent
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.

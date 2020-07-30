@@ -281,21 +281,27 @@ class EventServiceClient(metaclass=EventServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent, client_event]):
+        has_flattened_params = any([parent, client_event])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = event_service.CreateClientEventRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a event_service.CreateClientEventRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, event_service.CreateClientEventRequest):
+            request = event_service.CreateClientEventRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
-        if client_event is not None:
-            request.client_event = client_event
+            if parent is not None:
+                request.parent = parent
+            if client_event is not None:
+                request.client_event = client_event
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.

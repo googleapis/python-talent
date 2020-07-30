@@ -294,21 +294,27 @@ class ApplicationServiceClient(metaclass=ApplicationServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent, application]):
+        has_flattened_params = any([parent, application])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = application_service.CreateApplicationRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a application_service.CreateApplicationRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, application_service.CreateApplicationRequest):
+            request = application_service.CreateApplicationRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
-        if application is not None:
-            request.application = application
+            if parent is not None:
+                request.parent = parent
+            if application is not None:
+                request.application = application
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -368,19 +374,25 @@ class ApplicationServiceClient(metaclass=ApplicationServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([name]):
+        has_flattened_params = any([name])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = application_service.GetApplicationRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a application_service.GetApplicationRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, application_service.GetApplicationRequest):
+            request = application_service.GetApplicationRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if name is not None:
-            request.name = name
+            if name is not None:
+                request.name = name
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -436,19 +448,25 @@ class ApplicationServiceClient(metaclass=ApplicationServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([application]):
+        has_flattened_params = any([application])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = application_service.UpdateApplicationRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a application_service.UpdateApplicationRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, application_service.UpdateApplicationRequest):
+            request = application_service.UpdateApplicationRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if application is not None:
-            request.application = application
+            if application is not None:
+                request.application = application
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -503,19 +521,25 @@ class ApplicationServiceClient(metaclass=ApplicationServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([name]):
+        has_flattened_params = any([name])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = application_service.DeleteApplicationRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a application_service.DeleteApplicationRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, application_service.DeleteApplicationRequest):
+            request = application_service.DeleteApplicationRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if name is not None:
-            request.name = name
+            if name is not None:
+                request.name = name
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -576,19 +600,25 @@ class ApplicationServiceClient(metaclass=ApplicationServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent]):
+        has_flattened_params = any([parent])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = application_service.ListApplicationsRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a application_service.ListApplicationsRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, application_service.ListApplicationsRequest):
+            request = application_service.ListApplicationsRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
+            if parent is not None:
+                request.parent = parent
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.

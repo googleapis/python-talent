@@ -284,19 +284,25 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent]):
+        has_flattened_params = any([parent])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = profile_service.ListProfilesRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a profile_service.ListProfilesRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, profile_service.ListProfilesRequest):
+            request = profile_service.ListProfilesRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
+            if parent is not None:
+                request.parent = parent
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -368,21 +374,27 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent, profile]):
+        has_flattened_params = any([parent, profile])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = profile_service.CreateProfileRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a profile_service.CreateProfileRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, profile_service.CreateProfileRequest):
+            request = profile_service.CreateProfileRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
-        if profile is not None:
-            request.profile = profile
+            if parent is not None:
+                request.parent = parent
+            if profile is not None:
+                request.profile = profile
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -441,19 +453,25 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([name]):
+        has_flattened_params = any([name])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = profile_service.GetProfileRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a profile_service.GetProfileRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, profile_service.GetProfileRequest):
+            request = profile_service.GetProfileRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if name is not None:
-            request.name = name
+            if name is not None:
+                request.name = name
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -509,19 +527,25 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([profile]):
+        has_flattened_params = any([profile])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = profile_service.UpdateProfileRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a profile_service.UpdateProfileRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, profile_service.UpdateProfileRequest):
+            request = profile_service.UpdateProfileRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if profile is not None:
-            request.profile = profile
+            if profile is not None:
+                request.profile = profile
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -576,19 +600,25 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([name]):
+        has_flattened_params = any([name])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = profile_service.DeleteProfileRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a profile_service.DeleteProfileRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, profile_service.DeleteProfileRequest):
+            request = profile_service.DeleteProfileRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if name is not None:
-            request.name = name
+            if name is not None:
+                request.name = name
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -644,7 +674,12 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
         """
         # Create or coerce a protobuf request object.
 
-        request = profile_service.SearchProfilesRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a profile_service.SearchProfilesRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, profile_service.SearchProfilesRequest):
+            request = profile_service.SearchProfilesRequest(request)
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.

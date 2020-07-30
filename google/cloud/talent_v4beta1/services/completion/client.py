@@ -244,7 +244,12 @@ class CompletionClient(metaclass=CompletionClientMeta):
         """
         # Create or coerce a protobuf request object.
 
-        request = completion_service.CompleteQueryRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a completion_service.CompleteQueryRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, completion_service.CompleteQueryRequest):
+            request = completion_service.CompleteQueryRequest(request)
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.

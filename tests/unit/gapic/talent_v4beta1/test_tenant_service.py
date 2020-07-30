@@ -355,14 +355,16 @@ def test_tenant_service_client_client_options_from_dict():
         )
 
 
-def test_create_tenant(transport: str = "grpc"):
+def test_create_tenant(
+    transport: str = "grpc", request_type=tenant_service.CreateTenantRequest
+):
     client = TenantServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = tenant_service.CreateTenantRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.create_tenant), "__call__") as call:
@@ -382,7 +384,7 @@ def test_create_tenant(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == tenant_service.CreateTenantRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, gct_tenant.Tenant)
@@ -396,6 +398,10 @@ def test_create_tenant(transport: str = "grpc"):
     assert response.keyword_searchable_profile_custom_attributes == [
         "keyword_searchable_profile_custom_attributes_value"
     ]
+
+
+def test_create_tenant_from_dict():
+    test_create_tenant(request_type=dict)
 
 
 @pytest.mark.asyncio
@@ -576,14 +582,16 @@ async def test_create_tenant_flattened_error_async():
         )
 
 
-def test_get_tenant(transport: str = "grpc"):
+def test_get_tenant(
+    transport: str = "grpc", request_type=tenant_service.GetTenantRequest
+):
     client = TenantServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = tenant_service.GetTenantRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.get_tenant), "__call__") as call:
@@ -603,7 +611,7 @@ def test_get_tenant(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == tenant_service.GetTenantRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, tenant.Tenant)
@@ -617,6 +625,10 @@ def test_get_tenant(transport: str = "grpc"):
     assert response.keyword_searchable_profile_custom_attributes == [
         "keyword_searchable_profile_custom_attributes_value"
     ]
+
+
+def test_get_tenant_from_dict():
+    test_get_tenant(request_type=dict)
 
 
 @pytest.mark.asyncio
@@ -785,14 +797,16 @@ async def test_get_tenant_flattened_error_async():
         )
 
 
-def test_update_tenant(transport: str = "grpc"):
+def test_update_tenant(
+    transport: str = "grpc", request_type=tenant_service.UpdateTenantRequest
+):
     client = TenantServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = tenant_service.UpdateTenantRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.update_tenant), "__call__") as call:
@@ -812,7 +826,7 @@ def test_update_tenant(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == tenant_service.UpdateTenantRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, gct_tenant.Tenant)
@@ -826,6 +840,10 @@ def test_update_tenant(transport: str = "grpc"):
     assert response.keyword_searchable_profile_custom_attributes == [
         "keyword_searchable_profile_custom_attributes_value"
     ]
+
+
+def test_update_tenant_from_dict():
+    test_update_tenant(request_type=dict)
 
 
 @pytest.mark.asyncio
@@ -998,14 +1016,16 @@ async def test_update_tenant_flattened_error_async():
         )
 
 
-def test_delete_tenant(transport: str = "grpc"):
+def test_delete_tenant(
+    transport: str = "grpc", request_type=tenant_service.DeleteTenantRequest
+):
     client = TenantServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = tenant_service.DeleteTenantRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.delete_tenant), "__call__") as call:
@@ -1018,10 +1038,14 @@ def test_delete_tenant(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == tenant_service.DeleteTenantRequest()
 
     # Establish that the response is the type that we expect.
     assert response is None
+
+
+def test_delete_tenant_from_dict():
+    test_delete_tenant(request_type=dict)
 
 
 @pytest.mark.asyncio
@@ -1171,14 +1195,16 @@ async def test_delete_tenant_flattened_error_async():
         )
 
 
-def test_list_tenants(transport: str = "grpc"):
+def test_list_tenants(
+    transport: str = "grpc", request_type=tenant_service.ListTenantsRequest
+):
     client = TenantServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = tenant_service.ListTenantsRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.list_tenants), "__call__") as call:
@@ -1193,12 +1219,16 @@ def test_list_tenants(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == tenant_service.ListTenantsRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListTenantsPager)
 
     assert response.next_page_token == "next_page_token_value"
+
+
+def test_list_tenants_from_dict():
+    test_list_tenants(request_type=dict)
 
 
 @pytest.mark.asyncio

@@ -364,14 +364,16 @@ def test_application_service_client_client_options_from_dict():
         )
 
 
-def test_create_application(transport: str = "grpc"):
+def test_create_application(
+    transport: str = "grpc", request_type=application_service.CreateApplicationRequest
+):
     client = ApplicationServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = application_service.CreateApplicationRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -397,7 +399,7 @@ def test_create_application(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == application_service.CreateApplicationRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, gct_application.Application)
@@ -421,6 +423,10 @@ def test_create_application(transport: str = "grpc"):
     assert response.outcome == common.Outcome.POSITIVE
 
     assert response.job_title_snippet == "job_title_snippet_value"
+
+
+def test_create_application_from_dict():
+    test_create_application(request_type=dict)
 
 
 @pytest.mark.asyncio
@@ -631,14 +637,16 @@ async def test_create_application_flattened_error_async():
         )
 
 
-def test_get_application(transport: str = "grpc"):
+def test_get_application(
+    transport: str = "grpc", request_type=application_service.GetApplicationRequest
+):
     client = ApplicationServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = application_service.GetApplicationRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.get_application), "__call__") as call:
@@ -662,7 +670,7 @@ def test_get_application(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == application_service.GetApplicationRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, application.Application)
@@ -686,6 +694,10 @@ def test_get_application(transport: str = "grpc"):
     assert response.outcome == common.Outcome.POSITIVE
 
     assert response.job_title_snippet == "job_title_snippet_value"
+
+
+def test_get_application_from_dict():
+    test_get_application(request_type=dict)
 
 
 @pytest.mark.asyncio
@@ -878,14 +890,16 @@ async def test_get_application_flattened_error_async():
         )
 
 
-def test_update_application(transport: str = "grpc"):
+def test_update_application(
+    transport: str = "grpc", request_type=application_service.UpdateApplicationRequest
+):
     client = ApplicationServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = application_service.UpdateApplicationRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -911,7 +925,7 @@ def test_update_application(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == application_service.UpdateApplicationRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, gct_application.Application)
@@ -935,6 +949,10 @@ def test_update_application(transport: str = "grpc"):
     assert response.outcome == common.Outcome.POSITIVE
 
     assert response.job_title_snippet == "job_title_snippet_value"
+
+
+def test_update_application_from_dict():
+    test_update_application(request_type=dict)
 
 
 @pytest.mark.asyncio
@@ -1141,14 +1159,16 @@ async def test_update_application_flattened_error_async():
         )
 
 
-def test_delete_application(transport: str = "grpc"):
+def test_delete_application(
+    transport: str = "grpc", request_type=application_service.DeleteApplicationRequest
+):
     client = ApplicationServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = application_service.DeleteApplicationRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1163,10 +1183,14 @@ def test_delete_application(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == application_service.DeleteApplicationRequest()
 
     # Establish that the response is the type that we expect.
     assert response is None
+
+
+def test_delete_application_from_dict():
+    test_delete_application(request_type=dict)
 
 
 @pytest.mark.asyncio
@@ -1326,14 +1350,16 @@ async def test_delete_application_flattened_error_async():
         )
 
 
-def test_list_applications(transport: str = "grpc"):
+def test_list_applications(
+    transport: str = "grpc", request_type=application_service.ListApplicationsRequest
+):
     client = ApplicationServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = application_service.ListApplicationsRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1350,12 +1376,16 @@ def test_list_applications(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == application_service.ListApplicationsRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListApplicationsPager)
 
     assert response.next_page_token == "next_page_token_value"
+
+
+def test_list_applications_from_dict():
+    test_list_applications(request_type=dict)
 
 
 @pytest.mark.asyncio

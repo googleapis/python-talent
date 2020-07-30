@@ -293,21 +293,27 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent, job]):
+        has_flattened_params = any([parent, job])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = job_service.CreateJobRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a job_service.CreateJobRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, job_service.CreateJobRequest):
+            request = job_service.CreateJobRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
-        if job is not None:
-            request.job = job
+            if parent is not None:
+                request.parent = parent
+            if job is not None:
+                request.job = job
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -382,21 +388,27 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent, jobs]):
+        has_flattened_params = any([parent, jobs])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = job_service.BatchCreateJobsRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a job_service.BatchCreateJobsRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, job_service.BatchCreateJobsRequest):
+            request = job_service.BatchCreateJobsRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
-        if jobs is not None:
-            request.jobs = jobs
+            if parent is not None:
+                request.parent = parent
+            if jobs is not None:
+                request.jobs = jobs
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -468,19 +480,25 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([name]):
+        has_flattened_params = any([name])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = job_service.GetJobRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a job_service.GetJobRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, job_service.GetJobRequest):
+            request = job_service.GetJobRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if name is not None:
-            request.name = name
+            if name is not None:
+                request.name = name
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -539,19 +557,25 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([job]):
+        has_flattened_params = any([job])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = job_service.UpdateJobRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a job_service.UpdateJobRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, job_service.UpdateJobRequest):
+            request = job_service.UpdateJobRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if job is not None:
-            request.job = job
+            if job is not None:
+                request.job = job
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -626,21 +650,27 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent, jobs]):
+        has_flattened_params = any([parent, jobs])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = job_service.BatchUpdateJobsRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a job_service.BatchUpdateJobsRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, job_service.BatchUpdateJobsRequest):
+            request = job_service.BatchUpdateJobsRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
-        if jobs is not None:
-            request.jobs = jobs
+            if parent is not None:
+                request.parent = parent
+            if jobs is not None:
+                request.jobs = jobs
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -704,19 +734,25 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([name]):
+        has_flattened_params = any([name])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = job_service.DeleteJobRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a job_service.DeleteJobRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, job_service.DeleteJobRequest):
+            request = job_service.DeleteJobRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if name is not None:
-            request.name = name
+            if name is not None:
+                request.name = name
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -787,21 +823,27 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent, filter]):
+        has_flattened_params = any([parent, filter])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = job_service.BatchDeleteJobsRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a job_service.BatchDeleteJobsRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, job_service.BatchDeleteJobsRequest):
+            request = job_service.BatchDeleteJobsRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
-        if filter is not None:
-            request.filter = filter
+            if parent is not None:
+                request.parent = parent
+            if filter is not None:
+                request.filter = filter
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -889,21 +931,27 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent, filter]):
+        has_flattened_params = any([parent, filter])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = job_service.ListJobsRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a job_service.ListJobsRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, job_service.ListJobsRequest):
+            request = job_service.ListJobsRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
-        if filter is not None:
-            request.filter = filter
+            if parent is not None:
+                request.parent = parent
+            if filter is not None:
+                request.filter = filter
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -964,7 +1012,12 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
         """
         # Create or coerce a protobuf request object.
 
-        request = job_service.SearchJobsRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a job_service.SearchJobsRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, job_service.SearchJobsRequest):
+            request = job_service.SearchJobsRequest(request)
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -1031,7 +1084,12 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
         """
         # Create or coerce a protobuf request object.
 
-        request = job_service.SearchJobsRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a job_service.SearchJobsRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, job_service.SearchJobsRequest):
+            request = job_service.SearchJobsRequest(request)
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.

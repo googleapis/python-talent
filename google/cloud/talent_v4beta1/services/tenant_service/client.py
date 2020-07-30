@@ -284,21 +284,27 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent, tenant]):
+        has_flattened_params = any([parent, tenant])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = tenant_service.CreateTenantRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a tenant_service.CreateTenantRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, tenant_service.CreateTenantRequest):
+            request = tenant_service.CreateTenantRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
-        if tenant is not None:
-            request.tenant = tenant
+            if parent is not None:
+                request.parent = parent
+            if tenant is not None:
+                request.tenant = tenant
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -362,19 +368,25 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([name]):
+        has_flattened_params = any([name])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = tenant_service.GetTenantRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a tenant_service.GetTenantRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, tenant_service.GetTenantRequest):
+            request = tenant_service.GetTenantRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if name is not None:
-            request.name = name
+            if name is not None:
+                request.name = name
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -435,19 +447,25 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([tenant]):
+        has_flattened_params = any([tenant])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = tenant_service.UpdateTenantRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a tenant_service.UpdateTenantRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, tenant_service.UpdateTenantRequest):
+            request = tenant_service.UpdateTenantRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if tenant is not None:
-            request.tenant = tenant
+            if tenant is not None:
+                request.tenant = tenant
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -500,19 +518,25 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([name]):
+        has_flattened_params = any([name])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = tenant_service.DeleteTenantRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a tenant_service.DeleteTenantRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, tenant_service.DeleteTenantRequest):
+            request = tenant_service.DeleteTenantRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if name is not None:
-            request.name = name
+            if name is not None:
+                request.name = name
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -571,19 +595,25 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent]):
+        has_flattened_params = any([parent])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = tenant_service.ListTenantsRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a tenant_service.ListTenantsRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, tenant_service.ListTenantsRequest):
+            request = tenant_service.ListTenantsRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
+            if parent is not None:
+                request.parent = parent
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.

@@ -342,14 +342,16 @@ def test_completion_client_client_options_from_dict():
         )
 
 
-def test_complete_query(transport: str = "grpc"):
+def test_complete_query(
+    transport: str = "grpc", request_type=completion_service.CompleteQueryRequest
+):
     client = CompletionClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = completion_service.CompleteQueryRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.complete_query), "__call__") as call:
@@ -362,10 +364,14 @@ def test_complete_query(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == completion_service.CompleteQueryRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, completion_service.CompleteQueryResponse)
+
+
+def test_complete_query_from_dict():
+    test_complete_query(request_type=dict)
 
 
 @pytest.mark.asyncio

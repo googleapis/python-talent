@@ -22,6 +22,7 @@ import pkg_resources
 from google import auth
 from google.api_core import exceptions  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
+from google.api_core import retry as retries  # type: ignore
 from google.auth import credentials  # type: ignore
 
 from google.cloud.talent_v4beta1.types import completion_service
@@ -107,7 +108,7 @@ class CompletionTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.ServiceUnavailable, exceptions.DeadlineExceeded,
                     ),
                 ),
                 default_timeout=30.0,

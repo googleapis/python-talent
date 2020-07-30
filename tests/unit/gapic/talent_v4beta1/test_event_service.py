@@ -343,14 +343,16 @@ def test_event_service_client_client_options_from_dict():
         )
 
 
-def test_create_client_event(transport: str = "grpc"):
+def test_create_client_event(
+    transport: str = "grpc", request_type=event_service.CreateClientEventRequest
+):
     client = EventServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = event_service.CreateClientEventRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -370,7 +372,7 @@ def test_create_client_event(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == event_service.CreateClientEventRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, event.ClientEvent)
@@ -380,6 +382,10 @@ def test_create_client_event(transport: str = "grpc"):
     assert response.event_id == "event_id_value"
 
     assert response.event_notes == "event_notes_value"
+
+
+def test_create_client_event_from_dict():
+    test_create_client_event(request_type=dict)
 
 
 @pytest.mark.asyncio

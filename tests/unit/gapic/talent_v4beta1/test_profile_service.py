@@ -366,14 +366,16 @@ def test_profile_service_client_client_options_from_dict():
         )
 
 
-def test_list_profiles(transport: str = "grpc"):
+def test_list_profiles(
+    transport: str = "grpc", request_type=profile_service.ListProfilesRequest
+):
     client = ProfileServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = profile_service.ListProfilesRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.list_profiles), "__call__") as call:
@@ -388,12 +390,16 @@ def test_list_profiles(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == profile_service.ListProfilesRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListProfilesPager)
 
     assert response.next_page_token == "next_page_token_value"
+
+
+def test_list_profiles_from_dict():
+    test_list_profiles(request_type=dict)
 
 
 @pytest.mark.asyncio
@@ -679,14 +685,16 @@ async def test_list_profiles_async_pages():
             assert page.raw_page.next_page_token == token
 
 
-def test_create_profile(transport: str = "grpc"):
+def test_create_profile(
+    transport: str = "grpc", request_type=profile_service.CreateProfileRequest
+):
     client = ProfileServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = profile_service.CreateProfileRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.create_profile), "__call__") as call:
@@ -709,7 +717,7 @@ def test_create_profile(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == profile_service.CreateProfileRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, gct_profile.Profile)
@@ -731,6 +739,10 @@ def test_create_profile(transport: str = "grpc"):
     assert response.processed is True
 
     assert response.keyword_snippet == "keyword_snippet_value"
+
+
+def test_create_profile_from_dict():
+    test_create_profile(request_type=dict)
 
 
 @pytest.mark.asyncio
@@ -922,14 +934,16 @@ async def test_create_profile_flattened_error_async():
         )
 
 
-def test_get_profile(transport: str = "grpc"):
+def test_get_profile(
+    transport: str = "grpc", request_type=profile_service.GetProfileRequest
+):
     client = ProfileServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = profile_service.GetProfileRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.get_profile), "__call__") as call:
@@ -952,7 +966,7 @@ def test_get_profile(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == profile_service.GetProfileRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, profile.Profile)
@@ -974,6 +988,10 @@ def test_get_profile(transport: str = "grpc"):
     assert response.processed is True
 
     assert response.keyword_snippet == "keyword_snippet_value"
+
+
+def test_get_profile_from_dict():
+    test_get_profile(request_type=dict)
 
 
 @pytest.mark.asyncio
@@ -1153,14 +1171,16 @@ async def test_get_profile_flattened_error_async():
         )
 
 
-def test_update_profile(transport: str = "grpc"):
+def test_update_profile(
+    transport: str = "grpc", request_type=profile_service.UpdateProfileRequest
+):
     client = ProfileServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = profile_service.UpdateProfileRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.update_profile), "__call__") as call:
@@ -1183,7 +1203,7 @@ def test_update_profile(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == profile_service.UpdateProfileRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, gct_profile.Profile)
@@ -1205,6 +1225,10 @@ def test_update_profile(transport: str = "grpc"):
     assert response.processed is True
 
     assert response.keyword_snippet == "keyword_snippet_value"
+
+
+def test_update_profile_from_dict():
+    test_update_profile(request_type=dict)
 
 
 @pytest.mark.asyncio
@@ -1392,14 +1416,16 @@ async def test_update_profile_flattened_error_async():
         )
 
 
-def test_delete_profile(transport: str = "grpc"):
+def test_delete_profile(
+    transport: str = "grpc", request_type=profile_service.DeleteProfileRequest
+):
     client = ProfileServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = profile_service.DeleteProfileRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.delete_profile), "__call__") as call:
@@ -1412,10 +1438,14 @@ def test_delete_profile(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == profile_service.DeleteProfileRequest()
 
     # Establish that the response is the type that we expect.
     assert response is None
+
+
+def test_delete_profile_from_dict():
+    test_delete_profile(request_type=dict)
 
 
 @pytest.mark.asyncio
@@ -1565,14 +1595,16 @@ async def test_delete_profile_flattened_error_async():
         )
 
 
-def test_search_profiles(transport: str = "grpc"):
+def test_search_profiles(
+    transport: str = "grpc", request_type=profile_service.SearchProfilesRequest
+):
     client = ProfileServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = profile_service.SearchProfilesRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.search_profiles), "__call__") as call:
@@ -1589,7 +1621,7 @@ def test_search_profiles(transport: str = "grpc"):
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == profile_service.SearchProfilesRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.SearchProfilesPager)
@@ -1599,6 +1631,10 @@ def test_search_profiles(transport: str = "grpc"):
     assert response.next_page_token == "next_page_token_value"
 
     assert response.result_set_id == "result_set_id_value"
+
+
+def test_search_profiles_from_dict():
+    test_search_profiles(request_type=dict)
 
 
 @pytest.mark.asyncio
