@@ -7,8 +7,8 @@ Api Reference
 .. toctree::
     :maxdepth: 2
 
-    gapic/v4beta1/api
-    gapic/v4beta1/types
+    talent_v4beta1/services
+    talent_v4beta1/types
     changelog
 
 Changelog
