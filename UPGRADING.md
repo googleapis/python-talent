@@ -22,7 +22,7 @@ python3 -m pip install google-cloud-talent
 an input directory (with the code to convert) and an empty destination directory.
 
 ```sh
-$ fixup_dashboard_v1_keywords.py --input-directory .samples/ --output-directory samples/
+$ fixup_talent_v1_keywords.py --input-directory .samples/ --output-directory samples/
 ```
 
 **Before:**
@@ -97,7 +97,7 @@ response = client.batch_create_jobs(
 This call is invalid because it mixes `request` with a keyword argument `jobs`. Executing this code will result in an error.
 
 ```py
-response = client.create_dashboard(
+response = client.batch_create_jobs(
     request={
         "parent": parent,
     },
