@@ -1,13 +1,13 @@
 # 1.0.0 Migration Guide
 
-The 0.6.1 release of the `google-cloud-talent` client is a significant upgrade based on a [next-gen code generator](https://github.com/googleapis/gapic-generator-python), and includes substantial interface changes. Existing code written for earlier versions of this library will likely require updates to use this version. This document describes the changes that have been made, and what you need to do to update your usage.
+The 1.0.0 release of the `google-cloud-talent` client is a significant upgrade based on a [next-gen code generator](https://github.com/googleapis/gapic-generator-python), and includes substantial interface changes. Existing code written for earlier versions of this library will likely require updates to use this version. This document describes the changes that have been made, and what you need to do to update your usage.
 
 If you experience issues or have questions, please file an [issue](https://github.com/googleapis/python-talent/issues).
 
 ## Supported Python Versions
 
 > **WARNING**: Breaking change
-The 2.0.0 release requires Python 3.6+.
+The 1.0.0 release requires Python 3.6+.
 
 ## Method Calls
 
