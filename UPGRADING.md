@@ -37,7 +37,7 @@ response = client.batch_create_jobs(parent, jobs)
 
 **After:**
 ```py
-response = client.batch_create_jobs(request={"parent": "''", "jobs": "[]"})
+response = client.batch_create_jobs(request={"parent": "parent", "jobs": []})
 ```
 
 ### More Details
