@@ -9,7 +9,7 @@
 
 ### ⚠ BREAKING CHANGES
 
-* move API to python microgenerator (#22)
+* Move API to python microgenerator (#22). See [Migration Guide](https://github.com/googleapis/python-talent/blob/master/UPGRADING.md).
 
 ### Features
 
