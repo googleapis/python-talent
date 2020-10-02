@@ -157,6 +157,7 @@ __all__ = (
     "CommuteFilter",
     "CommuteMethod",
     "Company",
+    "CompanyServiceClient",
     "CompanySize",
     "CompensationFilter",
     "CompensationInfo",
@@ -243,7 +244,6 @@ __all__ = (
     "SpellingCorrection",
     "SummarizedProfile",
     "Tenant",
-    "TenantServiceClient",
     "TimeFilter",
     "TimestampRange",
     "UpdateApplicationRequest",
@@ -253,5 +253,5 @@ __all__ = (
     "UpdateTenantRequest",
     "Visibility",
     "WorkExperienceFilter",
-    "CompanyServiceClient",
+    "TenantServiceClient",
 )
