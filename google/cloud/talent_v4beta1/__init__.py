@@ -186,6 +186,7 @@ __all__ = (
     "EmployerFilter",
     "EmploymentRecord",
     "EmploymentType",
+    "EventServiceClient",
     "GetApplicationRequest",
     "GetCompanyRequest",
     "GetJobRequest",
@@ -202,7 +203,6 @@ __all__ = (
     "JobLevel",
     "JobOperationResult",
     "JobQuery",
-    "JobServiceClient",
     "JobTitleFilter",
     "JobView",
     "ListApplicationsRequest",
@@ -253,5 +253,5 @@ __all__ = (
     "UpdateTenantRequest",
     "Visibility",
     "WorkExperienceFilter",
-    "EventServiceClient",
+    "JobServiceClient",
 )

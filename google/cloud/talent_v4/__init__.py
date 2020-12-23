@@ -95,6 +95,7 @@ __all__ = (
     "CommuteFilter",
     "CommuteMethod",
     "Company",
+    "CompanyServiceClient",
     "CompanySize",
     "CompensationFilter",
     "CompensationInfo",
@@ -126,7 +127,6 @@ __all__ = (
     "JobLevel",
     "JobQuery",
     "JobResult",
-    "JobServiceClient",
     "JobView",
     "ListCompaniesRequest",
     "ListCompaniesResponse",
@@ -149,5 +149,5 @@ __all__ = (
     "UpdateJobRequest",
     "UpdateTenantRequest",
     "Visibility",
-    "CompanyServiceClient",
+    "JobServiceClient",
 )
