@@ -203,6 +203,7 @@ __all__ = (
     "JobLevel",
     "JobOperationResult",
     "JobQuery",
+    "JobServiceClient",
     "JobTitleFilter",
     "JobView",
     "ListApplicationsRequest",
@@ -243,7 +244,6 @@ __all__ = (
     "SpellingCorrection",
     "SummarizedProfile",
     "Tenant",
-    "TenantServiceClient",
     "TimeFilter",
     "TimestampRange",
     "UpdateApplicationRequest",
@@ -253,5 +253,5 @@ __all__ = (
     "UpdateTenantRequest",
     "Visibility",
     "WorkExperienceFilter",
-    "JobServiceClient",
+    "TenantServiceClient",
 )
