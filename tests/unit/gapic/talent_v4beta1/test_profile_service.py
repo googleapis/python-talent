@@ -51,7 +51,7 @@ from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 from google.protobuf import wrappers_pb2 as wrappers  # type: ignore
 from google.type import date_pb2 as date  # type: ignore
 from google.type import latlng_pb2 as latlng  # type: ignore
-from google.type import postal_address_pb2 as postal_address  # type: ignore
+from google.type import postal_address_pb2 as gt_postal_address  # type: ignore
 
 
 def client_cert_source_callback():
@@ -108,12 +108,12 @@ def test_profile_service_client_from_service_account_file(client_class):
     ) as factory:
         factory.return_value = creds
         client = client_class.from_service_account_file("dummy/file/path.json")
-        assert client.transport._credentials == creds
+        assert client._transport._credentials == creds
 
         client = client_class.from_service_account_json("dummy/file/path.json")
-        assert client.transport._credentials == creds
+        assert client._transport._credentials == creds
 
-        assert client.transport._host == "jobs.googleapis.com:443"
+        assert client._transport._host == "jobs.googleapis.com:443"
 
 
 def test_profile_service_client_get_transport_class():
@@ -463,7 +463,7 @@ def test_list_profiles(
     request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.list_profiles), "__call__") as call:
+    with mock.patch.object(type(client._transport.list_profiles), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = profile_service.ListProfilesResponse(
             next_page_token="next_page_token_value",
@@ -478,7 +478,6 @@ def test_list_profiles(
         assert args[0] == profile_service.ListProfilesRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, pagers.ListProfilesPager)
 
     assert response.next_page_token == "next_page_token_value"
@@ -489,19 +488,19 @@ def test_list_profiles_from_dict():
 
 
 @pytest.mark.asyncio
-async def test_list_profiles_async(
-    transport: str = "grpc_asyncio", request_type=profile_service.ListProfilesRequest
-):
+async def test_list_profiles_async(transport: str = "grpc_asyncio"):
     client = ProfileServiceAsyncClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = request_type()
+    request = profile_service.ListProfilesRequest()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.list_profiles), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.list_profiles), "__call__"
+    ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             profile_service.ListProfilesResponse(
@@ -515,17 +514,12 @@ async def test_list_profiles_async(
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == profile_service.ListProfilesRequest()
+        assert args[0] == request
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListProfilesAsyncPager)
 
     assert response.next_page_token == "next_page_token_value"
-
-
-@pytest.mark.asyncio
-async def test_list_profiles_async_from_dict():
-    await test_list_profiles_async(request_type=dict)
 
 
 def test_list_profiles_field_headers():
@@ -537,7 +531,7 @@ def test_list_profiles_field_headers():
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.list_profiles), "__call__") as call:
+    with mock.patch.object(type(client._transport.list_profiles), "__call__") as call:
         call.return_value = profile_service.ListProfilesResponse()
 
         client.list_profiles(request)
@@ -562,7 +556,9 @@ async def test_list_profiles_field_headers_async():
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.list_profiles), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.list_profiles), "__call__"
+    ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             profile_service.ListProfilesResponse()
         )
@@ -583,7 +579,7 @@ def test_list_profiles_flattened():
     client = ProfileServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.list_profiles), "__call__") as call:
+    with mock.patch.object(type(client._transport.list_profiles), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = profile_service.ListProfilesResponse()
 
@@ -615,7 +611,9 @@ async def test_list_profiles_flattened_async():
     client = ProfileServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.list_profiles), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.list_profiles), "__call__"
+    ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = profile_service.ListProfilesResponse()
 
@@ -650,7 +648,7 @@ def test_list_profiles_pager():
     client = ProfileServiceClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.list_profiles), "__call__") as call:
+    with mock.patch.object(type(client._transport.list_profiles), "__call__") as call:
         # Set the response to a series of pages.
         call.side_effect = (
             profile_service.ListProfilesResponse(
@@ -684,7 +682,7 @@ def test_list_profiles_pages():
     client = ProfileServiceClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.list_profiles), "__call__") as call:
+    with mock.patch.object(type(client._transport.list_profiles), "__call__") as call:
         # Set the response to a series of pages.
         call.side_effect = (
             profile_service.ListProfilesResponse(
@@ -711,7 +709,9 @@ async def test_list_profiles_async_pager():
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
-        type(client.transport.list_profiles), "__call__", new_callable=mock.AsyncMock
+        type(client._client._transport.list_profiles),
+        "__call__",
+        new_callable=mock.AsyncMock,
     ) as call:
         # Set the response to a series of pages.
         call.side_effect = (
@@ -744,7 +744,9 @@ async def test_list_profiles_async_pages():
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
-        type(client.transport.list_profiles), "__call__", new_callable=mock.AsyncMock
+        type(client._client._transport.list_profiles),
+        "__call__",
+        new_callable=mock.AsyncMock,
     ) as call:
         # Set the response to a series of pages.
         call.side_effect = (
@@ -780,7 +782,7 @@ def test_create_profile(
     request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.create_profile), "__call__") as call:
+    with mock.patch.object(type(client._transport.create_profile), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = gct_profile.Profile(
             name="name_value",
@@ -803,7 +805,6 @@ def test_create_profile(
         assert args[0] == profile_service.CreateProfileRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, gct_profile.Profile)
 
     assert response.name == "name_value"
@@ -830,19 +831,19 @@ def test_create_profile_from_dict():
 
 
 @pytest.mark.asyncio
-async def test_create_profile_async(
-    transport: str = "grpc_asyncio", request_type=profile_service.CreateProfileRequest
-):
+async def test_create_profile_async(transport: str = "grpc_asyncio"):
     client = ProfileServiceAsyncClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = request_type()
+    request = profile_service.CreateProfileRequest()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.create_profile), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.create_profile), "__call__"
+    ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             gct_profile.Profile(
@@ -864,7 +865,7 @@ async def test_create_profile_async(
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == profile_service.CreateProfileRequest()
+        assert args[0] == request
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, gct_profile.Profile)
@@ -888,11 +889,6 @@ async def test_create_profile_async(
     assert response.keyword_snippet == "keyword_snippet_value"
 
 
-@pytest.mark.asyncio
-async def test_create_profile_async_from_dict():
-    await test_create_profile_async(request_type=dict)
-
-
 def test_create_profile_field_headers():
     client = ProfileServiceClient(credentials=credentials.AnonymousCredentials(),)
 
@@ -902,7 +898,7 @@ def test_create_profile_field_headers():
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.create_profile), "__call__") as call:
+    with mock.patch.object(type(client._transport.create_profile), "__call__") as call:
         call.return_value = gct_profile.Profile()
 
         client.create_profile(request)
@@ -927,7 +923,9 @@ async def test_create_profile_field_headers_async():
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.create_profile), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.create_profile), "__call__"
+    ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(gct_profile.Profile())
 
         await client.create_profile(request)
@@ -946,7 +944,7 @@ def test_create_profile_flattened():
     client = ProfileServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.create_profile), "__call__") as call:
+    with mock.patch.object(type(client._transport.create_profile), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = gct_profile.Profile()
 
@@ -984,7 +982,9 @@ async def test_create_profile_flattened_async():
     client = ProfileServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.create_profile), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.create_profile), "__call__"
+    ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = gct_profile.Profile()
 
@@ -1031,7 +1031,7 @@ def test_get_profile(
     request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.get_profile), "__call__") as call:
+    with mock.patch.object(type(client._transport.get_profile), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = profile.Profile(
             name="name_value",
@@ -1054,7 +1054,6 @@ def test_get_profile(
         assert args[0] == profile_service.GetProfileRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, profile.Profile)
 
     assert response.name == "name_value"
@@ -1081,19 +1080,19 @@ def test_get_profile_from_dict():
 
 
 @pytest.mark.asyncio
-async def test_get_profile_async(
-    transport: str = "grpc_asyncio", request_type=profile_service.GetProfileRequest
-):
+async def test_get_profile_async(transport: str = "grpc_asyncio"):
     client = ProfileServiceAsyncClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = request_type()
+    request = profile_service.GetProfileRequest()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.get_profile), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.get_profile), "__call__"
+    ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             profile.Profile(
@@ -1115,7 +1114,7 @@ async def test_get_profile_async(
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == profile_service.GetProfileRequest()
+        assert args[0] == request
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, profile.Profile)
@@ -1139,11 +1138,6 @@ async def test_get_profile_async(
     assert response.keyword_snippet == "keyword_snippet_value"
 
 
-@pytest.mark.asyncio
-async def test_get_profile_async_from_dict():
-    await test_get_profile_async(request_type=dict)
-
-
 def test_get_profile_field_headers():
     client = ProfileServiceClient(credentials=credentials.AnonymousCredentials(),)
 
@@ -1153,7 +1147,7 @@ def test_get_profile_field_headers():
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.get_profile), "__call__") as call:
+    with mock.patch.object(type(client._transport.get_profile), "__call__") as call:
         call.return_value = profile.Profile()
 
         client.get_profile(request)
@@ -1178,7 +1172,9 @@ async def test_get_profile_field_headers_async():
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.get_profile), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.get_profile), "__call__"
+    ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(profile.Profile())
 
         await client.get_profile(request)
@@ -1197,7 +1193,7 @@ def test_get_profile_flattened():
     client = ProfileServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.get_profile), "__call__") as call:
+    with mock.patch.object(type(client._transport.get_profile), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = profile.Profile()
 
@@ -1229,7 +1225,9 @@ async def test_get_profile_flattened_async():
     client = ProfileServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.get_profile), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.get_profile), "__call__"
+    ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = profile.Profile()
 
@@ -1270,7 +1268,7 @@ def test_update_profile(
     request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.update_profile), "__call__") as call:
+    with mock.patch.object(type(client._transport.update_profile), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = gct_profile.Profile(
             name="name_value",
@@ -1293,7 +1291,6 @@ def test_update_profile(
         assert args[0] == profile_service.UpdateProfileRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, gct_profile.Profile)
 
     assert response.name == "name_value"
@@ -1320,19 +1317,19 @@ def test_update_profile_from_dict():
 
 
 @pytest.mark.asyncio
-async def test_update_profile_async(
-    transport: str = "grpc_asyncio", request_type=profile_service.UpdateProfileRequest
-):
+async def test_update_profile_async(transport: str = "grpc_asyncio"):
     client = ProfileServiceAsyncClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = request_type()
+    request = profile_service.UpdateProfileRequest()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.update_profile), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.update_profile), "__call__"
+    ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             gct_profile.Profile(
@@ -1354,7 +1351,7 @@ async def test_update_profile_async(
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == profile_service.UpdateProfileRequest()
+        assert args[0] == request
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, gct_profile.Profile)
@@ -1378,11 +1375,6 @@ async def test_update_profile_async(
     assert response.keyword_snippet == "keyword_snippet_value"
 
 
-@pytest.mark.asyncio
-async def test_update_profile_async_from_dict():
-    await test_update_profile_async(request_type=dict)
-
-
 def test_update_profile_field_headers():
     client = ProfileServiceClient(credentials=credentials.AnonymousCredentials(),)
 
@@ -1392,7 +1384,7 @@ def test_update_profile_field_headers():
     request.profile.name = "profile.name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.update_profile), "__call__") as call:
+    with mock.patch.object(type(client._transport.update_profile), "__call__") as call:
         call.return_value = gct_profile.Profile()
 
         client.update_profile(request)
@@ -1419,7 +1411,9 @@ async def test_update_profile_field_headers_async():
     request.profile.name = "profile.name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.update_profile), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.update_profile), "__call__"
+    ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(gct_profile.Profile())
 
         await client.update_profile(request)
@@ -1440,7 +1434,7 @@ def test_update_profile_flattened():
     client = ProfileServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.update_profile), "__call__") as call:
+    with mock.patch.object(type(client._transport.update_profile), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = gct_profile.Profile()
 
@@ -1473,7 +1467,9 @@ async def test_update_profile_flattened_async():
     client = ProfileServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.update_profile), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.update_profile), "__call__"
+    ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = gct_profile.Profile()
 
@@ -1517,7 +1513,7 @@ def test_delete_profile(
     request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.delete_profile), "__call__") as call:
+    with mock.patch.object(type(client._transport.delete_profile), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
 
@@ -1538,19 +1534,19 @@ def test_delete_profile_from_dict():
 
 
 @pytest.mark.asyncio
-async def test_delete_profile_async(
-    transport: str = "grpc_asyncio", request_type=profile_service.DeleteProfileRequest
-):
+async def test_delete_profile_async(transport: str = "grpc_asyncio"):
     client = ProfileServiceAsyncClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = request_type()
+    request = profile_service.DeleteProfileRequest()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.delete_profile), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.delete_profile), "__call__"
+    ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
 
@@ -1560,15 +1556,10 @@ async def test_delete_profile_async(
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == profile_service.DeleteProfileRequest()
+        assert args[0] == request
 
     # Establish that the response is the type that we expect.
     assert response is None
-
-
-@pytest.mark.asyncio
-async def test_delete_profile_async_from_dict():
-    await test_delete_profile_async(request_type=dict)
 
 
 def test_delete_profile_field_headers():
@@ -1580,7 +1571,7 @@ def test_delete_profile_field_headers():
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.delete_profile), "__call__") as call:
+    with mock.patch.object(type(client._transport.delete_profile), "__call__") as call:
         call.return_value = None
 
         client.delete_profile(request)
@@ -1605,7 +1596,9 @@ async def test_delete_profile_field_headers_async():
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.delete_profile), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.delete_profile), "__call__"
+    ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
 
         await client.delete_profile(request)
@@ -1624,7 +1617,7 @@ def test_delete_profile_flattened():
     client = ProfileServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.delete_profile), "__call__") as call:
+    with mock.patch.object(type(client._transport.delete_profile), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
 
@@ -1656,7 +1649,9 @@ async def test_delete_profile_flattened_async():
     client = ProfileServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.delete_profile), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.delete_profile), "__call__"
+    ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
 
@@ -1697,7 +1692,7 @@ def test_search_profiles(
     request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.search_profiles), "__call__") as call:
+    with mock.patch.object(type(client._transport.search_profiles), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = profile_service.SearchProfilesResponse(
             estimated_total_size=2141,
@@ -1714,7 +1709,6 @@ def test_search_profiles(
         assert args[0] == profile_service.SearchProfilesRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, pagers.SearchProfilesPager)
 
     assert response.estimated_total_size == 2141
@@ -1729,19 +1723,19 @@ def test_search_profiles_from_dict():
 
 
 @pytest.mark.asyncio
-async def test_search_profiles_async(
-    transport: str = "grpc_asyncio", request_type=profile_service.SearchProfilesRequest
-):
+async def test_search_profiles_async(transport: str = "grpc_asyncio"):
     client = ProfileServiceAsyncClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = request_type()
+    request = profile_service.SearchProfilesRequest()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.search_profiles), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.search_profiles), "__call__"
+    ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             profile_service.SearchProfilesResponse(
@@ -1757,7 +1751,7 @@ async def test_search_profiles_async(
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == profile_service.SearchProfilesRequest()
+        assert args[0] == request
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.SearchProfilesAsyncPager)
@@ -1769,11 +1763,6 @@ async def test_search_profiles_async(
     assert response.result_set_id == "result_set_id_value"
 
 
-@pytest.mark.asyncio
-async def test_search_profiles_async_from_dict():
-    await test_search_profiles_async(request_type=dict)
-
-
 def test_search_profiles_field_headers():
     client = ProfileServiceClient(credentials=credentials.AnonymousCredentials(),)
 
@@ -1783,7 +1772,7 @@ def test_search_profiles_field_headers():
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.search_profiles), "__call__") as call:
+    with mock.patch.object(type(client._transport.search_profiles), "__call__") as call:
         call.return_value = profile_service.SearchProfilesResponse()
 
         client.search_profiles(request)
@@ -1808,7 +1797,9 @@ async def test_search_profiles_field_headers_async():
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.search_profiles), "__call__") as call:
+    with mock.patch.object(
+        type(client._client._transport.search_profiles), "__call__"
+    ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             profile_service.SearchProfilesResponse()
         )
@@ -1829,7 +1820,7 @@ def test_search_profiles_pager():
     client = ProfileServiceClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.search_profiles), "__call__") as call:
+    with mock.patch.object(type(client._transport.search_profiles), "__call__") as call:
         # Set the response to a series of pages.
         call.side_effect = (
             profile_service.SearchProfilesResponse(
@@ -1873,7 +1864,7 @@ def test_search_profiles_pages():
     client = ProfileServiceClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client.transport.search_profiles), "__call__") as call:
+    with mock.patch.object(type(client._transport.search_profiles), "__call__") as call:
         # Set the response to a series of pages.
         call.side_effect = (
             profile_service.SearchProfilesResponse(
@@ -1910,7 +1901,9 @@ async def test_search_profiles_async_pager():
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
-        type(client.transport.search_profiles), "__call__", new_callable=mock.AsyncMock
+        type(client._client._transport.search_profiles),
+        "__call__",
+        new_callable=mock.AsyncMock,
     ) as call:
         # Set the response to a series of pages.
         call.side_effect = (
@@ -1953,7 +1946,9 @@ async def test_search_profiles_async_pages():
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
-        type(client.transport.search_profiles), "__call__", new_callable=mock.AsyncMock
+        type(client._client._transport.search_profiles),
+        "__call__",
+        new_callable=mock.AsyncMock,
     ) as call:
         # Set the response to a series of pages.
         call.side_effect = (
@@ -2023,7 +2018,7 @@ def test_transport_instance():
         credentials=credentials.AnonymousCredentials(),
     )
     client = ProfileServiceClient(transport=transport)
-    assert client.transport is transport
+    assert client._transport is transport
 
 
 def test_transport_get_channel():
@@ -2059,7 +2054,7 @@ def test_transport_adc(transport_class):
 def test_transport_grpc_default():
     # A client should use the gRPC transport by default.
     client = ProfileServiceClient(credentials=credentials.AnonymousCredentials(),)
-    assert isinstance(client.transport, transports.ProfileServiceGrpcTransport,)
+    assert isinstance(client._transport, transports.ProfileServiceGrpcTransport,)
 
 
 def test_profile_service_base_transport_error():
@@ -2165,7 +2160,7 @@ def test_profile_service_host_no_port():
         credentials=credentials.AnonymousCredentials(),
         client_options=client_options.ClientOptions(api_endpoint="jobs.googleapis.com"),
     )
-    assert client.transport._host == "jobs.googleapis.com:443"
+    assert client._transport._host == "jobs.googleapis.com:443"
 
 
 def test_profile_service_host_with_port():
@@ -2175,7 +2170,7 @@ def test_profile_service_host_with_port():
             api_endpoint="jobs.googleapis.com:8000"
         ),
     )
-    assert client.transport._host == "jobs.googleapis.com:8000"
+    assert client._transport._host == "jobs.googleapis.com:8000"
 
 
 def test_profile_service_grpc_transport_channel():
@@ -2315,130 +2310,6 @@ def test_parse_profile_path():
 
     # Check that the path construction is reversible.
     actual = ProfileServiceClient.parse_profile_path(path)
-    assert expected == actual
-
-
-def test_tenant_path():
-    project = "cuttlefish"
-    tenant = "mussel"
-
-    expected = "projects/{project}/tenants/{tenant}".format(
-        project=project, tenant=tenant,
-    )
-    actual = ProfileServiceClient.tenant_path(project, tenant)
-    assert expected == actual
-
-
-def test_parse_tenant_path():
-    expected = {
-        "project": "winkle",
-        "tenant": "nautilus",
-    }
-    path = ProfileServiceClient.tenant_path(**expected)
-
-    # Check that the path construction is reversible.
-    actual = ProfileServiceClient.parse_tenant_path(path)
-    assert expected == actual
-
-
-def test_common_billing_account_path():
-    billing_account = "scallop"
-
-    expected = "billingAccounts/{billing_account}".format(
-        billing_account=billing_account,
-    )
-    actual = ProfileServiceClient.common_billing_account_path(billing_account)
-    assert expected == actual
-
-
-def test_parse_common_billing_account_path():
-    expected = {
-        "billing_account": "abalone",
-    }
-    path = ProfileServiceClient.common_billing_account_path(**expected)
-
-    # Check that the path construction is reversible.
-    actual = ProfileServiceClient.parse_common_billing_account_path(path)
-    assert expected == actual
-
-
-def test_common_folder_path():
-    folder = "squid"
-
-    expected = "folders/{folder}".format(folder=folder,)
-    actual = ProfileServiceClient.common_folder_path(folder)
-    assert expected == actual
-
-
-def test_parse_common_folder_path():
-    expected = {
-        "folder": "clam",
-    }
-    path = ProfileServiceClient.common_folder_path(**expected)
-
-    # Check that the path construction is reversible.
-    actual = ProfileServiceClient.parse_common_folder_path(path)
-    assert expected == actual
-
-
-def test_common_organization_path():
-    organization = "whelk"
-
-    expected = "organizations/{organization}".format(organization=organization,)
-    actual = ProfileServiceClient.common_organization_path(organization)
-    assert expected == actual
-
-
-def test_parse_common_organization_path():
-    expected = {
-        "organization": "octopus",
-    }
-    path = ProfileServiceClient.common_organization_path(**expected)
-
-    # Check that the path construction is reversible.
-    actual = ProfileServiceClient.parse_common_organization_path(path)
-    assert expected == actual
-
-
-def test_common_project_path():
-    project = "oyster"
-
-    expected = "projects/{project}".format(project=project,)
-    actual = ProfileServiceClient.common_project_path(project)
-    assert expected == actual
-
-
-def test_parse_common_project_path():
-    expected = {
-        "project": "nudibranch",
-    }
-    path = ProfileServiceClient.common_project_path(**expected)
-
-    # Check that the path construction is reversible.
-    actual = ProfileServiceClient.parse_common_project_path(path)
-    assert expected == actual
-
-
-def test_common_location_path():
-    project = "cuttlefish"
-    location = "mussel"
-
-    expected = "projects/{project}/locations/{location}".format(
-        project=project, location=location,
-    )
-    actual = ProfileServiceClient.common_location_path(project, location)
-    assert expected == actual
-
-
-def test_parse_common_location_path():
-    expected = {
-        "project": "winkle",
-        "location": "nautilus",
-    }
-    path = ProfileServiceClient.common_location_path(**expected)
-
-    # Check that the path construction is reversible.
-    actual = ProfileServiceClient.parse_common_location_path(path)
     assert expected == actual
 
 

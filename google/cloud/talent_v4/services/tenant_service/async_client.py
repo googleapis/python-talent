@@ -52,46 +52,8 @@ class TenantServiceAsyncClient:
     tenant_path = staticmethod(TenantServiceClient.tenant_path)
     parse_tenant_path = staticmethod(TenantServiceClient.parse_tenant_path)
 
-    common_billing_account_path = staticmethod(
-        TenantServiceClient.common_billing_account_path
-    )
-    parse_common_billing_account_path = staticmethod(
-        TenantServiceClient.parse_common_billing_account_path
-    )
-
-    common_folder_path = staticmethod(TenantServiceClient.common_folder_path)
-    parse_common_folder_path = staticmethod(
-        TenantServiceClient.parse_common_folder_path
-    )
-
-    common_organization_path = staticmethod(
-        TenantServiceClient.common_organization_path
-    )
-    parse_common_organization_path = staticmethod(
-        TenantServiceClient.parse_common_organization_path
-    )
-
-    common_project_path = staticmethod(TenantServiceClient.common_project_path)
-    parse_common_project_path = staticmethod(
-        TenantServiceClient.parse_common_project_path
-    )
-
-    common_location_path = staticmethod(TenantServiceClient.common_location_path)
-    parse_common_location_path = staticmethod(
-        TenantServiceClient.parse_common_location_path
-    )
-
     from_service_account_file = TenantServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
-
-    @property
-    def transport(self) -> TenantServiceTransport:
-        """Return the transport used by the client instance.
-
-        Returns:
-            TenantServiceTransport: The transport used by the client instance.
-        """
-        return self._client.transport
 
     get_transport_class = functools.partial(
         type(TenantServiceClient).get_transport_class, type(TenantServiceClient)
@@ -196,8 +158,7 @@ class TenantServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([parent, tenant])
-        if request is not None and has_flattened_params:
+        if request is not None and any([parent, tenant]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -279,8 +240,7 @@ class TenantServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([name])
-        if request is not None and has_flattened_params:
+        if request is not None and any([name]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -303,7 +263,7 @@ class TenantServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                    exceptions.ServiceUnavailable, exceptions.DeadlineExceeded,
                 ),
             ),
             default_timeout=30.0,
@@ -381,8 +341,7 @@ class TenantServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([tenant, update_mask])
-        if request is not None and has_flattened_params:
+        if request is not None and any([tenant, update_mask]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -453,8 +412,7 @@ class TenantServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([name])
-        if request is not None and has_flattened_params:
+        if request is not None and any([name]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -477,7 +435,7 @@ class TenantServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                    exceptions.ServiceUnavailable, exceptions.DeadlineExceeded,
                 ),
             ),
             default_timeout=30.0,
@@ -537,8 +495,7 @@ class TenantServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([parent])
-        if request is not None and has_flattened_params:
+        if request is not None and any([parent]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -561,7 +518,7 @@ class TenantServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                    exceptions.ServiceUnavailable, exceptions.DeadlineExceeded,
                 ),
             ),
             default_timeout=30.0,

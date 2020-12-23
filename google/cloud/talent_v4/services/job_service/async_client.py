@@ -54,47 +54,11 @@ class JobServiceAsyncClient:
     DEFAULT_ENDPOINT = JobServiceClient.DEFAULT_ENDPOINT
     DEFAULT_MTLS_ENDPOINT = JobServiceClient.DEFAULT_MTLS_ENDPOINT
 
-    company_path = staticmethod(JobServiceClient.company_path)
-    parse_company_path = staticmethod(JobServiceClient.parse_company_path)
     job_path = staticmethod(JobServiceClient.job_path)
     parse_job_path = staticmethod(JobServiceClient.parse_job_path)
-    tenant_path = staticmethod(JobServiceClient.tenant_path)
-    parse_tenant_path = staticmethod(JobServiceClient.parse_tenant_path)
-
-    common_billing_account_path = staticmethod(
-        JobServiceClient.common_billing_account_path
-    )
-    parse_common_billing_account_path = staticmethod(
-        JobServiceClient.parse_common_billing_account_path
-    )
-
-    common_folder_path = staticmethod(JobServiceClient.common_folder_path)
-    parse_common_folder_path = staticmethod(JobServiceClient.parse_common_folder_path)
-
-    common_organization_path = staticmethod(JobServiceClient.common_organization_path)
-    parse_common_organization_path = staticmethod(
-        JobServiceClient.parse_common_organization_path
-    )
-
-    common_project_path = staticmethod(JobServiceClient.common_project_path)
-    parse_common_project_path = staticmethod(JobServiceClient.parse_common_project_path)
-
-    common_location_path = staticmethod(JobServiceClient.common_location_path)
-    parse_common_location_path = staticmethod(
-        JobServiceClient.parse_common_location_path
-    )
 
     from_service_account_file = JobServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
-
-    @property
-    def transport(self) -> JobServiceTransport:
-        """Return the transport used by the client instance.
-
-        Returns:
-            JobServiceTransport: The transport used by the client instance.
-        """
-        return self._client.transport
 
     get_transport_class = functools.partial(
         type(JobServiceClient).get_transport_class, type(JobServiceClient)
@@ -198,8 +162,7 @@ class JobServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([parent, job])
-        if request is not None and has_flattened_params:
+        if request is not None and any([parent, job]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -290,8 +253,7 @@ class JobServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([parent, jobs])
-        if request is not None and has_flattened_params:
+        if request is not None and any([parent, jobs]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -304,9 +266,8 @@ class JobServiceAsyncClient:
 
         if parent is not None:
             request.parent = parent
-
-        if jobs:
-            request.jobs.extend(jobs)
+        if jobs is not None:
+            request.jobs = jobs
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -378,8 +339,7 @@ class JobServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([name])
-        if request is not None and has_flattened_params:
+        if request is not None and any([name]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -402,7 +362,7 @@ class JobServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                    exceptions.ServiceUnavailable, exceptions.DeadlineExceeded,
                 ),
             ),
             default_timeout=30.0,
@@ -477,8 +437,7 @@ class JobServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([job, update_mask])
-        if request is not None and has_flattened_params:
+        if request is not None and any([job, update_mask]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -569,8 +528,7 @@ class JobServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([parent, jobs])
-        if request is not None and has_flattened_params:
+        if request is not None and any([parent, jobs]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -583,9 +541,8 @@ class JobServiceAsyncClient:
 
         if parent is not None:
             request.parent = parent
-
-        if jobs:
-            request.jobs.extend(jobs)
+        if jobs is not None:
+            request.jobs = jobs
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -650,8 +607,7 @@ class JobServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([name])
-        if request is not None and has_flattened_params:
+        if request is not None and any([name]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -674,7 +630,7 @@ class JobServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                    exceptions.ServiceUnavailable, exceptions.DeadlineExceeded,
                 ),
             ),
             default_timeout=30.0,
@@ -754,8 +710,7 @@ class JobServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([parent, names])
-        if request is not None and has_flattened_params:
+        if request is not None and any([parent, names]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -768,9 +723,8 @@ class JobServiceAsyncClient:
 
         if parent is not None:
             request.parent = parent
-
-        if names:
-            request.names.extend(names)
+        if names is not None:
+            request.names = names
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -869,8 +823,7 @@ class JobServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([parent, filter])
-        if request is not None and has_flattened_params:
+        if request is not None and any([parent, filter]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -895,7 +848,7 @@ class JobServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                    exceptions.ServiceUnavailable, exceptions.DeadlineExceeded,
                 ),
             ),
             default_timeout=30.0,
