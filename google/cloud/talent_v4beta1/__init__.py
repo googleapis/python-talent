@@ -157,6 +157,7 @@ __all__ = (
     "CommuteFilter",
     "CommuteMethod",
     "Company",
+    "CompanyServiceClient",
     "CompanySize",
     "CompensationFilter",
     "CompensationInfo",
@@ -227,7 +228,6 @@ __all__ = (
     "Profile",
     "ProfileEvent",
     "ProfileQuery",
-    "ProfileServiceClient",
     "Publication",
     "Rating",
     "RequestMetadata",
@@ -253,5 +253,5 @@ __all__ = (
     "UpdateTenantRequest",
     "Visibility",
     "WorkExperienceFilter",
-    "CompanyServiceClient",
+    "ProfileServiceClient",
 )
