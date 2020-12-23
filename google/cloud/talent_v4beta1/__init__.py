@@ -203,7 +203,6 @@ __all__ = (
     "JobLevel",
     "JobOperationResult",
     "JobQuery",
-    "JobServiceClient",
     "JobTitleFilter",
     "JobView",
     "ListApplicationsRequest",
@@ -228,6 +227,7 @@ __all__ = (
     "Profile",
     "ProfileEvent",
     "ProfileQuery",
+    "ProfileServiceClient",
     "Publication",
     "Rating",
     "RequestMetadata",
@@ -253,5 +253,5 @@ __all__ = (
     "UpdateTenantRequest",
     "Visibility",
     "WorkExperienceFilter",
-    "ProfileServiceClient",
+    "JobServiceClient",
 )
