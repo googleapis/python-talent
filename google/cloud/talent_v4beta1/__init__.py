@@ -163,7 +163,6 @@ __all__ = (
     "CompensationInfo",
     "CompleteQueryRequest",
     "CompleteQueryResponse",
-    "CompletionClient",
     "ContactInfoUsage",
     "CreateApplicationRequest",
     "CreateClientEventRequest",
@@ -228,6 +227,7 @@ __all__ = (
     "Profile",
     "ProfileEvent",
     "ProfileQuery",
+    "ProfileServiceClient",
     "Publication",
     "Rating",
     "RequestMetadata",
@@ -253,5 +253,5 @@ __all__ = (
     "UpdateTenantRequest",
     "Visibility",
     "WorkExperienceFilter",
-    "ProfileServiceClient",
+    "CompletionClient",
 )
