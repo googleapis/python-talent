@@ -143,7 +143,6 @@ __all__ = (
     "ApplicationDateFilter",
     "ApplicationJobFilter",
     "ApplicationOutcomeNotesFilter",
-    "ApplicationServiceClient",
     "AvailabilityFilter",
     "AvailabilitySignal",
     "AvailabilitySignalType",
@@ -228,6 +227,7 @@ __all__ = (
     "Profile",
     "ProfileEvent",
     "ProfileQuery",
+    "ProfileServiceClient",
     "Publication",
     "Rating",
     "RequestMetadata",
@@ -253,5 +253,5 @@ __all__ = (
     "UpdateTenantRequest",
     "Visibility",
     "WorkExperienceFilter",
-    "ProfileServiceClient",
+    "ApplicationServiceClient",
 )
