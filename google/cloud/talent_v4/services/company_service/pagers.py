@@ -25,7 +25,7 @@ class ListCompaniesPager:
     """A pager for iterating through ``list_companies`` requests.
 
     This class thinly wraps an initial
-    :class:`~.company_service.ListCompaniesResponse` object, and
+    :class:`google.cloud.talent_v4.types.ListCompaniesResponse` object, and
     provides an ``__iter__`` method to iterate through its
     ``companies`` field.
 
@@ -34,7 +34,7 @@ class ListCompaniesPager:
     through the ``companies`` field on the
     corresponding responses.
 
-    All the usual :class:`~.company_service.ListCompaniesResponse`
+    All the usual :class:`google.cloud.talent_v4.types.ListCompaniesResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -52,9 +52,9 @@ class ListCompaniesPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (:class:`~.company_service.ListCompaniesRequest`):
+            request (google.cloud.talent_v4.types.ListCompaniesRequest):
                 The initial request object.
-            response (:class:`~.company_service.ListCompaniesResponse`):
+            response (google.cloud.talent_v4.types.ListCompaniesResponse):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
@@ -87,7 +87,7 @@ class ListCompaniesAsyncPager:
     """A pager for iterating through ``list_companies`` requests.
 
     This class thinly wraps an initial
-    :class:`~.company_service.ListCompaniesResponse` object, and
+    :class:`google.cloud.talent_v4.types.ListCompaniesResponse` object, and
     provides an ``__aiter__`` method to iterate through its
     ``companies`` field.
 
@@ -96,7 +96,7 @@ class ListCompaniesAsyncPager:
     through the ``companies`` field on the
     corresponding responses.
 
-    All the usual :class:`~.company_service.ListCompaniesResponse`
+    All the usual :class:`google.cloud.talent_v4.types.ListCompaniesResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -114,9 +114,9 @@ class ListCompaniesAsyncPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (:class:`~.company_service.ListCompaniesRequest`):
+            request (google.cloud.talent_v4.types.ListCompaniesRequest):
                 The initial request object.
-            response (:class:`~.company_service.ListCompaniesResponse`):
+            response (google.cloud.talent_v4.types.ListCompaniesResponse):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.

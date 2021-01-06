@@ -116,6 +116,22 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
     )
 
     @classmethod
+    def from_service_account_info(cls, info: dict, *args, **kwargs):
+        """Creates an instance of this client using the provided credentials info.
+
+        Args:
+            info (dict): The service account private key info.
+            args: Additional arguments to pass to the constructor.
+            kwargs: Additional arguments to pass to the constructor.
+
+        Returns:
+            CompanyServiceClient: The constructed client.
+        """
+        credentials = service_account.Credentials.from_service_account_info(info)
+        kwargs["credentials"] = credentials
+        return cls(*args, **kwargs)
+
+    @classmethod
     def from_service_account_file(cls, filename: str, *args, **kwargs):
         """Creates an instance of this client using the provided credentials
         file.
@@ -127,7 +143,7 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
             kwargs: Additional arguments to pass to the constructor.
 
         Returns:
-            {@api.name}: The constructed client.
+            CompanyServiceClient: The constructed client.
         """
         credentials = service_account.Credentials.from_service_account_file(filename)
         kwargs["credentials"] = credentials
@@ -235,10 +251,10 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
                 credentials identify the application to the service; if none
                 are specified, the client will attempt to ascertain the
                 credentials from the environment.
-            transport (Union[str, ~.CompanyServiceTransport]): The
+            transport (Union[str, CompanyServiceTransport]): The
                 transport to use. If set to None, a transport is chosen
                 automatically.
-            client_options (client_options_lib.ClientOptions): Custom options for the
+            client_options (google.api_core.client_options.ClientOptions): Custom options for the
                 client. It won't take effect if a ``transport`` instance is provided.
                 (1) The ``api_endpoint`` property can be used to override the
                 default endpoint provided by the client. GOOGLE_API_USE_MTLS_ENDPOINT
@@ -349,10 +365,10 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
         r"""Creates a new company entity.
 
         Args:
-            request (:class:`~.company_service.CreateCompanyRequest`):
+            request (google.cloud.talent_v4beta1.types.CreateCompanyRequest):
                 The request object. The Request of the CreateCompany
                 method.
-            parent (:class:`str`):
+            parent (str):
                 Required. Resource name of the tenant under which the
                 company is created.
 
@@ -361,10 +377,11 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
                 example, "projects/foo/tenant/bar". If tenant id is
                 unspecified, a default tenant is created, for example,
                 "projects/foo".
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            company (:class:`~.gct_company.Company`):
+            company (google.cloud.talent_v4beta1.types.Company):
                 Required. The company to be created.
                 This corresponds to the ``company`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -377,7 +394,7 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.gct_company.Company:
+            google.cloud.talent_v4beta1.types.Company:
                 A Company resource represents a
                 company in the service. A company is the
                 entity that owns job postings, that is,
@@ -439,10 +456,10 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
         r"""Retrieves specified company.
 
         Args:
-            request (:class:`~.company_service.GetCompanyRequest`):
+            request (google.cloud.talent_v4beta1.types.GetCompanyRequest):
                 The request object. Request for getting a company by
                 name.
-            name (:class:`str`):
+            name (str):
                 Required. The resource name of the company to be
                 retrieved.
 
@@ -453,6 +470,7 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
 
                 If tenant id is unspecified, the default tenant is used,
                 for example, "projects/api-test-project/companies/bar".
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -464,7 +482,7 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.company.Company:
+            google.cloud.talent_v4beta1.types.Company:
                 A Company resource represents a
                 company in the service. A company is the
                 entity that owns job postings, that is,
@@ -524,13 +542,14 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
         r"""Updates specified company.
 
         Args:
-            request (:class:`~.company_service.UpdateCompanyRequest`):
+            request (google.cloud.talent_v4beta1.types.UpdateCompanyRequest):
                 The request object. Request for updating a specified
                 company.
-            company (:class:`~.gct_company.Company`):
+            company (google.cloud.talent_v4beta1.types.Company):
                 Required. The company resource to
                 replace the current resource in the
                 system.
+
                 This corresponds to the ``company`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -542,7 +561,7 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.gct_company.Company:
+            google.cloud.talent_v4beta1.types.Company:
                 A Company resource represents a
                 company in the service. A company is the
                 entity that owns job postings, that is,
@@ -606,9 +625,9 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
         it.
 
         Args:
-            request (:class:`~.company_service.DeleteCompanyRequest`):
+            request (google.cloud.talent_v4beta1.types.DeleteCompanyRequest):
                 The request object. Request to delete a company.
-            name (:class:`str`):
+            name (str):
                 Required. The resource name of the company to be
                 deleted.
 
@@ -618,6 +637,7 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
 
                 If tenant id is unspecified, the default tenant is used,
                 for example, "projects/foo/companies/bar".
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -678,10 +698,10 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
         r"""Lists all companies associated with the project.
 
         Args:
-            request (:class:`~.company_service.ListCompaniesRequest`):
+            request (google.cloud.talent_v4beta1.types.ListCompaniesRequest):
                 The request object. List companies for which the client
                 has ACL visibility.
-            parent (:class:`str`):
+            parent (str):
                 Required. Resource name of the tenant under which the
                 company is created.
 
@@ -691,6 +711,7 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
 
                 If tenant id is unspecified, the default tenant will be
                 used, for example, "projects/foo".
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -702,7 +723,7 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListCompaniesPager:
+            google.cloud.talent_v4beta1.services.company_service.pagers.ListCompaniesPager:
                 The List companies response object.
                 Iterating over this object will yield
                 results and resolve additional pages

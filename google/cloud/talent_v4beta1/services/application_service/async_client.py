@@ -92,6 +92,7 @@ class ApplicationServiceAsyncClient:
         ApplicationServiceClient.parse_common_location_path
     )
 
+    from_service_account_info = ApplicationServiceClient.from_service_account_info
     from_service_account_file = ApplicationServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -170,7 +171,7 @@ class ApplicationServiceAsyncClient:
         r"""Creates a new application entity.
 
         Args:
-            request (:class:`~.application_service.CreateApplicationRequest`):
+            request (:class:`google.cloud.talent_v4beta1.types.CreateApplicationRequest`):
                 The request object. The Request of the CreateApplication
                 method.
             parent (:class:`str`):
@@ -180,12 +181,14 @@ class ApplicationServiceAsyncClient:
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}".
                 For example, "projects/foo/tenants/bar/profiles/baz".
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            application (:class:`~.gct_application.Application`):
+            application (:class:`google.cloud.talent_v4beta1.types.Application`):
                 Required. The application to be
                 created.
+
                 This corresponds to the ``application`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -197,7 +200,7 @@ class ApplicationServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.gct_application.Application:
+            google.cloud.talent_v4beta1.types.Application:
                 Resource that represents a job
                 application record of a candidate.
 
@@ -254,7 +257,7 @@ class ApplicationServiceAsyncClient:
         r"""Retrieves specified application.
 
         Args:
-            request (:class:`~.application_service.GetApplicationRequest`):
+            request (:class:`google.cloud.talent_v4beta1.types.GetApplicationRequest`):
                 The request object. Request for getting a application by
                 name.
             name (:class:`str`):
@@ -265,6 +268,7 @@ class ApplicationServiceAsyncClient:
                 "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}/applications/{application_id}".
                 For example,
                 "projects/foo/tenants/bar/profiles/baz/applications/qux".
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -276,7 +280,7 @@ class ApplicationServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.application.Application:
+            google.cloud.talent_v4beta1.types.Application:
                 Resource that represents a job
                 application record of a candidate.
 
@@ -339,13 +343,14 @@ class ApplicationServiceAsyncClient:
         r"""Updates specified application.
 
         Args:
-            request (:class:`~.application_service.UpdateApplicationRequest`):
+            request (:class:`google.cloud.talent_v4beta1.types.UpdateApplicationRequest`):
                 The request object. Request for updating a specified
                 application.
-            application (:class:`~.gct_application.Application`):
+            application (:class:`google.cloud.talent_v4beta1.types.Application`):
                 Required. The application resource to
                 replace the current resource in the
                 system.
+
                 This corresponds to the ``application`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -357,7 +362,7 @@ class ApplicationServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.gct_application.Application:
+            google.cloud.talent_v4beta1.types.Application:
                 Resource that represents a job
                 application record of a candidate.
 
@@ -414,7 +419,7 @@ class ApplicationServiceAsyncClient:
         r"""Deletes specified application.
 
         Args:
-            request (:class:`~.application_service.DeleteApplicationRequest`):
+            request (:class:`google.cloud.talent_v4beta1.types.DeleteApplicationRequest`):
                 The request object. Request to delete a application.
             name (:class:`str`):
                 Required. The resource name of the application to be
@@ -424,6 +429,7 @@ class ApplicationServiceAsyncClient:
                 "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}/applications/{application_id}".
                 For example,
                 "projects/foo/tenants/bar/profiles/baz/applications/qux".
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -491,7 +497,7 @@ class ApplicationServiceAsyncClient:
         r"""Lists all applications associated with the profile.
 
         Args:
-            request (:class:`~.application_service.ListApplicationsRequest`):
+            request (:class:`google.cloud.talent_v4beta1.types.ListApplicationsRequest`):
                 The request object. List applications for which the
                 client has ACL visibility.
             parent (:class:`str`):
@@ -501,6 +507,7 @@ class ApplicationServiceAsyncClient:
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}",
                 for example, "projects/foo/tenants/bar/profiles/baz".
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -512,7 +519,7 @@ class ApplicationServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListApplicationsAsyncPager:
+            google.cloud.talent_v4beta1.services.application_service.pagers.ListApplicationsAsyncPager:
                 The List applications response
                 object.
                 Iterating over this object will yield

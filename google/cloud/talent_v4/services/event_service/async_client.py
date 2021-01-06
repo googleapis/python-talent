@@ -73,6 +73,7 @@ class EventServiceAsyncClient:
         EventServiceClient.parse_common_location_path
     )
 
+    from_service_account_info = EventServiceClient.from_service_account_info
     from_service_account_file = EventServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -156,7 +157,7 @@ class EventServiceAsyncClient:
         about self service tools.
 
         Args:
-            request (:class:`~.event_service.CreateClientEventRequest`):
+            request (:class:`google.cloud.talent_v4.types.CreateClientEventRequest`):
                 The request object. The report event request.
             parent (:class:`str`):
                 Required. Resource name of the tenant under which the
@@ -165,13 +166,15 @@ class EventServiceAsyncClient:
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}", for
                 example, "projects/foo/tenants/bar".
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            client_event (:class:`~.event.ClientEvent`):
+            client_event (:class:`google.cloud.talent_v4.types.ClientEvent`):
                 Required. Events issued when end user
                 interacts with customer's application
                 that uses Cloud Talent Solution.
+
                 This corresponds to the ``client_event`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -183,7 +186,7 @@ class EventServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.event.ClientEvent:
+            google.cloud.talent_v4.types.ClientEvent:
                 An event issued when an end user
                 interacts with the application that
                 implements Cloud Talent Solution.
