@@ -529,9 +529,8 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
 
             if parent is not None:
                 request.parent = parent
-
-            if jobs:
-                request.jobs.extend(jobs)
+            if jobs is not None:
+                request.jobs = jobs
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
@@ -788,9 +787,8 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
 
             if parent is not None:
                 request.parent = parent
-
-            if jobs:
-                request.jobs.extend(jobs)
+            if jobs is not None:
+                request.jobs = jobs
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
