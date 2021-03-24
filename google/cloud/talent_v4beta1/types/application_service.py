@@ -47,7 +47,7 @@ class CreateApplicationRequest(proto.Message):
             The format is
             "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}".
             For example, "projects/foo/tenants/bar/profiles/baz".
-        application (google.cloud.talent_v4beta1.types.Application):
+        application (~.gct_application.Application):
             Required. The application to be created.
     """
 
@@ -79,10 +79,10 @@ class UpdateApplicationRequest(proto.Message):
     r"""Request for updating a specified application.
 
     Attributes:
-        application (google.cloud.talent_v4beta1.types.Application):
+        application (~.gct_application.Application):
             Required. The application resource to replace
             the current resource in the system.
-        update_mask (google.protobuf.field_mask_pb2.FieldMask):
+        update_mask (~.field_mask.FieldMask):
             Strongly recommended for the best service experience.
 
             If
@@ -152,11 +152,11 @@ class ListApplicationsResponse(proto.Message):
     r"""The List applications response object.
 
     Attributes:
-        applications (Sequence[google.cloud.talent_v4beta1.types.Application]):
+        applications (Sequence[~.gct_application.Application]):
             Applications for the current client.
         next_page_token (str):
             A token to retrieve the next page of results.
-        metadata (google.cloud.talent_v4beta1.types.ResponseMetadata):
+        metadata (~.common.ResponseMetadata):
             Additional information for the API
             invocation, such as the request tracking id.
     """

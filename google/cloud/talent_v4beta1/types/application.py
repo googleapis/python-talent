@@ -69,9 +69,9 @@ class Application(proto.Message):
             The format is
             "projects/{project_id}/tenants/{tenant_id}/companies/{company_id}".
             For example, "projects/foo/tenants/bar/companies/baz".
-        application_date (google.type.date_pb2.Date):
+        application_date (~.date.Date):
             The application date.
-        stage (google.cloud.talent_v4beta1.types.Application.ApplicationStage):
+        stage (~.application.Application.ApplicationStage):
             Required. What is the most recent stage of
             the application (that is, new, screen, send cv,
             hired, finished work)?  This field is
@@ -79,19 +79,19 @@ class Application(proto.Message):
             possible status, but instead, represents
             statuses that would be used to indicate to the
             ML models good / bad matches.
-        state (google.cloud.talent_v4beta1.types.Application.ApplicationState):
+        state (~.application.Application.ApplicationState):
             The application state.
-        interviews (Sequence[google.cloud.talent_v4beta1.types.Interview]):
+        interviews (Sequence[~.common.Interview]):
             All interviews (screen, onsite, and so on)
             conducted as part of this application (includes
             details such as user conducting the interview,
             timestamp, feedback, and so on).
-        referral (google.protobuf.wrappers_pb2.BoolValue):
+        referral (~.wrappers.BoolValue):
             If the candidate is referred by a employee.
-        create_time (google.protobuf.timestamp_pb2.Timestamp):
+        create_time (~.timestamp.Timestamp):
             Required. Reflects the time that the
             application was created.
-        update_time (google.protobuf.timestamp_pb2.Timestamp):
+        update_time (~.timestamp.Timestamp):
             The last update timestamp.
         outcome_notes (str):
             Free text reason behind the recruitement
@@ -99,10 +99,10 @@ class Application(proto.Message):
             reject, reason for an unsuccessful finish, and
             so on).
             Number of characters allowed is 100.
-        outcome (google.cloud.talent_v4beta1.types.Outcome):
+        outcome (~.common.Outcome):
             Outcome positiveness shows how positive the
             outcome is.
-        is_match (google.protobuf.wrappers_pb2.BoolValue):
+        is_match (~.wrappers.BoolValue):
             Output only. Indicates whether this job
             application is a match to application related
             filters. This value is only applicable in

@@ -110,22 +110,6 @@ class EventServiceClient(metaclass=EventServiceClientMeta):
     )
 
     @classmethod
-    def from_service_account_info(cls, info: dict, *args, **kwargs):
-        """Creates an instance of this client using the provided credentials info.
-
-        Args:
-            info (dict): The service account private key info.
-            args: Additional arguments to pass to the constructor.
-            kwargs: Additional arguments to pass to the constructor.
-
-        Returns:
-            EventServiceClient: The constructed client.
-        """
-        credentials = service_account.Credentials.from_service_account_info(info)
-        kwargs["credentials"] = credentials
-        return cls(*args, **kwargs)
-
-    @classmethod
     def from_service_account_file(cls, filename: str, *args, **kwargs):
         """Creates an instance of this client using the provided credentials
         file.
@@ -137,7 +121,7 @@ class EventServiceClient(metaclass=EventServiceClientMeta):
             kwargs: Additional arguments to pass to the constructor.
 
         Returns:
-            EventServiceClient: The constructed client.
+            {@api.name}: The constructed client.
         """
         credentials = service_account.Credentials.from_service_account_file(filename)
         kwargs["credentials"] = credentials
@@ -242,10 +226,10 @@ class EventServiceClient(metaclass=EventServiceClientMeta):
                 credentials identify the application to the service; if none
                 are specified, the client will attempt to ascertain the
                 credentials from the environment.
-            transport (Union[str, EventServiceTransport]): The
+            transport (Union[str, ~.EventServiceTransport]): The
                 transport to use. If set to None, a transport is chosen
                 automatically.
-            client_options (google.api_core.client_options.ClientOptions): Custom options for the
+            client_options (client_options_lib.ClientOptions): Custom options for the
                 client. It won't take effect if a ``transport`` instance is provided.
                 (1) The ``api_endpoint`` property can be used to override the
                 default endpoint provided by the client. GOOGLE_API_USE_MTLS_ENDPOINT
@@ -362,24 +346,22 @@ class EventServiceClient(metaclass=EventServiceClientMeta):
         about self service tools.
 
         Args:
-            request (google.cloud.talent_v4.types.CreateClientEventRequest):
+            request (:class:`~.event_service.CreateClientEventRequest`):
                 The request object. The report event request.
-            parent (str):
+            parent (:class:`str`):
                 Required. Resource name of the tenant under which the
                 event is created.
 
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}", for
                 example, "projects/foo/tenants/bar".
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            client_event (google.cloud.talent_v4.types.ClientEvent):
+            client_event (:class:`~.event.ClientEvent`):
                 Required. Events issued when end user
                 interacts with customer's application
                 that uses Cloud Talent Solution.
-
                 This corresponds to the ``client_event`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -391,7 +373,7 @@ class EventServiceClient(metaclass=EventServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4.types.ClientEvent:
+            ~.event.ClientEvent:
                 An event issued when an end user
                 interacts with the application that
                 implements Cloud Talent Solution.

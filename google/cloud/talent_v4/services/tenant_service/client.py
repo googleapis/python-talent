@@ -114,22 +114,6 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
     )
 
     @classmethod
-    def from_service_account_info(cls, info: dict, *args, **kwargs):
-        """Creates an instance of this client using the provided credentials info.
-
-        Args:
-            info (dict): The service account private key info.
-            args: Additional arguments to pass to the constructor.
-            kwargs: Additional arguments to pass to the constructor.
-
-        Returns:
-            TenantServiceClient: The constructed client.
-        """
-        credentials = service_account.Credentials.from_service_account_info(info)
-        kwargs["credentials"] = credentials
-        return cls(*args, **kwargs)
-
-    @classmethod
     def from_service_account_file(cls, filename: str, *args, **kwargs):
         """Creates an instance of this client using the provided credentials
         file.
@@ -141,7 +125,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
             kwargs: Additional arguments to pass to the constructor.
 
         Returns:
-            TenantServiceClient: The constructed client.
+            {@api.name}: The constructed client.
         """
         credentials = service_account.Credentials.from_service_account_file(filename)
         kwargs["credentials"] = credentials
@@ -246,10 +230,10 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
                 credentials identify the application to the service; if none
                 are specified, the client will attempt to ascertain the
                 credentials from the environment.
-            transport (Union[str, TenantServiceTransport]): The
+            transport (Union[str, ~.TenantServiceTransport]): The
                 transport to use. If set to None, a transport is chosen
                 automatically.
-            client_options (google.api_core.client_options.ClientOptions): Custom options for the
+            client_options (client_options_lib.ClientOptions): Custom options for the
                 client. It won't take effect if a ``transport`` instance is provided.
                 (1) The ``api_endpoint`` property can be used to override the
                 default endpoint provided by the client. GOOGLE_API_USE_MTLS_ENDPOINT
@@ -360,20 +344,19 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         r"""Creates a new tenant entity.
 
         Args:
-            request (google.cloud.talent_v4.types.CreateTenantRequest):
+            request (:class:`~.tenant_service.CreateTenantRequest`):
                 The request object. The Request of the CreateTenant
                 method.
-            parent (str):
+            parent (:class:`str`):
                 Required. Resource name of the project under which the
                 tenant is created.
 
                 The format is "projects/{project_id}", for example,
                 "projects/foo".
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            tenant (google.cloud.talent_v4.types.Tenant):
+            tenant (:class:`~.gct_tenant.Tenant`):
                 Required. The tenant to be created.
                 This corresponds to the ``tenant`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -386,7 +369,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4.types.Tenant:
+            ~.gct_tenant.Tenant:
                 A Tenant resource represents a tenant
                 in the service. A tenant is a group or
                 entity that shares common access with
@@ -449,17 +432,16 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         r"""Retrieves specified tenant.
 
         Args:
-            request (google.cloud.talent_v4.types.GetTenantRequest):
+            request (:class:`~.tenant_service.GetTenantRequest`):
                 The request object. Request for getting a tenant by
                 name.
-            name (str):
+            name (:class:`str`):
                 Required. The resource name of the tenant to be
                 retrieved.
 
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}", for
                 example, "projects/foo/tenants/bar".
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -471,7 +453,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4.types.Tenant:
+            ~.tenant.Tenant:
                 A Tenant resource represents a tenant
                 in the service. A tenant is a group or
                 entity that shares common access with
@@ -533,18 +515,17 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         r"""Updates specified tenant.
 
         Args:
-            request (google.cloud.talent_v4.types.UpdateTenantRequest):
+            request (:class:`~.tenant_service.UpdateTenantRequest`):
                 The request object. Request for updating a specified
                 tenant.
-            tenant (google.cloud.talent_v4.types.Tenant):
+            tenant (:class:`~.gct_tenant.Tenant`):
                 Required. The tenant resource to
                 replace the current resource in the
                 system.
-
                 This corresponds to the ``tenant`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            update_mask (google.protobuf.field_mask_pb2.FieldMask):
+            update_mask (:class:`~.field_mask.FieldMask`):
                 Strongly recommended for the best service experience.
 
                 If
@@ -556,7 +537,6 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
                 A field mask to specify the tenant fields to be updated.
                 Only top level fields of
                 [Tenant][google.cloud.talent.v4.Tenant] are supported.
-
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -568,7 +548,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4.types.Tenant:
+            ~.gct_tenant.Tenant:
                 A Tenant resource represents a tenant
                 in the service. A tenant is a group or
                 entity that shares common access with
@@ -633,15 +613,14 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         r"""Deletes specified tenant.
 
         Args:
-            request (google.cloud.talent_v4.types.DeleteTenantRequest):
+            request (:class:`~.tenant_service.DeleteTenantRequest`):
                 The request object. Request to delete a tenant.
-            name (str):
+            name (:class:`str`):
                 Required. The resource name of the tenant to be deleted.
 
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}", for
                 example, "projects/foo/tenants/bar".
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -702,16 +681,15 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         r"""Lists all tenants associated with the project.
 
         Args:
-            request (google.cloud.talent_v4.types.ListTenantsRequest):
+            request (:class:`~.tenant_service.ListTenantsRequest`):
                 The request object. List tenants for which the client
                 has ACL visibility.
-            parent (str):
+            parent (:class:`str`):
                 Required. Resource name of the project under which the
                 tenant is created.
 
                 The format is "projects/{project_id}", for example,
                 "projects/foo".
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -723,7 +701,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4.services.tenant_service.pagers.ListTenantsPager:
+            ~.pagers.ListTenantsPager:
                 The List tenants response object.
                 Iterating over this object will yield
                 results and resolve additional pages

@@ -46,7 +46,7 @@ class CreateTenantRequest(proto.Message):
 
             The format is "projects/{project_id}", for example,
             "projects/foo".
-        tenant (google.cloud.talent_v4.types.Tenant):
+        tenant (~.gct_tenant.Tenant):
             Required. The tenant to be created.
     """
 
@@ -73,10 +73,10 @@ class UpdateTenantRequest(proto.Message):
     r"""Request for updating a specified tenant.
 
     Attributes:
-        tenant (google.cloud.talent_v4.types.Tenant):
+        tenant (~.gct_tenant.Tenant):
             Required. The tenant resource to replace the
             current resource in the system.
-        update_mask (google.protobuf.field_mask_pb2.FieldMask):
+        update_mask (~.field_mask.FieldMask):
             Strongly recommended for the best service experience.
 
             If
@@ -139,11 +139,11 @@ class ListTenantsResponse(proto.Message):
     r"""The List tenants response object.
 
     Attributes:
-        tenants (Sequence[google.cloud.talent_v4.types.Tenant]):
+        tenants (Sequence[~.gct_tenant.Tenant]):
             Tenants for the current client.
         next_page_token (str):
             A token to retrieve the next page of results.
-        metadata (google.cloud.talent_v4.types.ResponseMetadata):
+        metadata (~.common.ResponseMetadata):
             Additional information for the API
             invocation, such as the request tracking id.
     """

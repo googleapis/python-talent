@@ -4,15 +4,15 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-talent.git",
-        "sha": "bb632f21c24cdca6094f989657ec6e72d4ffb371"
+        "sha": "8a53830a77532e25ff0794e9fb5400e4ec01d4f5"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "98911d3e77f3d541eaa841252a44905ea4a430ab",
-        "internalRef": "351618705"
+        "sha": "8a6f4d9acb1620af2156b42b37b54eae257b7cad",
+        "internalRef": "348696929"
       }
     },
     {
@@ -51,7 +51,6 @@
     }
   ],
   "generatedFiles": [
-    ".coveragerc",
     ".flake8",
     ".github/CONTRIBUTING.md",
     ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -105,21 +104,9 @@
     "docs/_templates/layout.html",
     "docs/conf.py",
     "docs/multiprocessing.rst",
-    "docs/talent_v4/company_service.rst",
-    "docs/talent_v4/completion.rst",
-    "docs/talent_v4/event_service.rst",
-    "docs/talent_v4/job_service.rst",
     "docs/talent_v4/services.rst",
-    "docs/talent_v4/tenant_service.rst",
     "docs/talent_v4/types.rst",
-    "docs/talent_v4beta1/application_service.rst",
-    "docs/talent_v4beta1/company_service.rst",
-    "docs/talent_v4beta1/completion.rst",
-    "docs/talent_v4beta1/event_service.rst",
-    "docs/talent_v4beta1/job_service.rst",
-    "docs/talent_v4beta1/profile_service.rst",
     "docs/talent_v4beta1/services.rst",
-    "docs/talent_v4beta1/tenant_service.rst",
     "docs/talent_v4beta1/types.rst",
     "google/cloud/talent/__init__.py",
     "google/cloud/talent/py.typed",

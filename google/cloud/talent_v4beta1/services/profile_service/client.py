@@ -119,22 +119,6 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
     )
 
     @classmethod
-    def from_service_account_info(cls, info: dict, *args, **kwargs):
-        """Creates an instance of this client using the provided credentials info.
-
-        Args:
-            info (dict): The service account private key info.
-            args: Additional arguments to pass to the constructor.
-            kwargs: Additional arguments to pass to the constructor.
-
-        Returns:
-            ProfileServiceClient: The constructed client.
-        """
-        credentials = service_account.Credentials.from_service_account_info(info)
-        kwargs["credentials"] = credentials
-        return cls(*args, **kwargs)
-
-    @classmethod
     def from_service_account_file(cls, filename: str, *args, **kwargs):
         """Creates an instance of this client using the provided credentials
         file.
@@ -146,7 +130,7 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
             kwargs: Additional arguments to pass to the constructor.
 
         Returns:
-            ProfileServiceClient: The constructed client.
+            {@api.name}: The constructed client.
         """
         credentials = service_account.Credentials.from_service_account_file(filename)
         kwargs["credentials"] = credentials
@@ -267,10 +251,10 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
                 credentials identify the application to the service; if none
                 are specified, the client will attempt to ascertain the
                 credentials from the environment.
-            transport (Union[str, ProfileServiceTransport]): The
+            transport (Union[str, ~.ProfileServiceTransport]): The
                 transport to use. If set to None, a transport is chosen
                 automatically.
-            client_options (google.api_core.client_options.ClientOptions): Custom options for the
+            client_options (client_options_lib.ClientOptions): Custom options for the
                 client. It won't take effect if a ``transport`` instance is provided.
                 (1) The ``api_endpoint`` property can be used to override the
                 default endpoint provided by the client. GOOGLE_API_USE_MTLS_ENDPOINT
@@ -380,16 +364,15 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
         r"""Lists profiles by filter. The order is unspecified.
 
         Args:
-            request (google.cloud.talent_v4beta1.types.ListProfilesRequest):
+            request (:class:`~.profile_service.ListProfilesRequest`):
                 The request object. List profiles request.
-            parent (str):
+            parent (:class:`str`):
                 Required. The resource name of the tenant under which
                 the profile is created.
 
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}". For
                 example, "projects/foo/tenants/bar".
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -401,7 +384,7 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4beta1.services.profile_service.pagers.ListProfilesPager:
+            ~.pagers.ListProfilesPager:
                 The List profiles response object.
                 Iterating over this object will yield
                 results and resolve additional pages
@@ -466,20 +449,19 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
         r"""Creates and returns a new profile.
 
         Args:
-            request (google.cloud.talent_v4beta1.types.CreateProfileRequest):
+            request (:class:`~.profile_service.CreateProfileRequest`):
                 The request object. Create profile request.
-            parent (str):
+            parent (:class:`str`):
                 Required. The name of the tenant this profile belongs
                 to.
 
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}". For
                 example, "projects/foo/tenants/bar".
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            profile (google.cloud.talent_v4beta1.types.Profile):
+            profile (:class:`~.gct_profile.Profile`):
                 Required. The profile to be created.
                 This corresponds to the ``profile`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -492,7 +474,7 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4beta1.types.Profile:
+            ~.gct_profile.Profile:
                 A resource that represents the
                 profile for a job candidate (also
                 referred to as a "single-source
@@ -552,15 +534,14 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
         r"""Gets the specified profile.
 
         Args:
-            request (google.cloud.talent_v4beta1.types.GetProfileRequest):
+            request (:class:`~.profile_service.GetProfileRequest`):
                 The request object. Get profile request.
-            name (str):
+            name (:class:`str`):
                 Required. Resource name of the profile to get.
 
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}".
                 For example, "projects/foo/tenants/bar/profiles/baz".
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -572,7 +553,7 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4beta1.types.Profile:
+            ~.profile.Profile:
                 A resource that represents the
                 profile for a job candidate (also
                 referred to as a "single-source
@@ -631,9 +612,9 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
         result.
 
         Args:
-            request (google.cloud.talent_v4beta1.types.UpdateProfileRequest):
+            request (:class:`~.profile_service.UpdateProfileRequest`):
                 The request object. Update profile request
-            profile (google.cloud.talent_v4beta1.types.Profile):
+            profile (:class:`~.gct_profile.Profile`):
                 Required. Profile to be updated.
                 This corresponds to the ``profile`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -646,7 +627,7 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4beta1.types.Profile:
+            ~.gct_profile.Profile:
                 A resource that represents the
                 profile for a job candidate (also
                 referred to as a "single-source
@@ -708,15 +689,14 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
         or assignments associated.
 
         Args:
-            request (google.cloud.talent_v4beta1.types.DeleteProfileRequest):
+            request (:class:`~.profile_service.DeleteProfileRequest`):
                 The request object. Delete profile request.
-            name (str):
+            name (:class:`str`):
                 Required. Resource name of the profile to be deleted.
 
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}".
                 For example, "projects/foo/tenants/bar/profiles/baz".
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -784,7 +764,7 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
         for more information.
 
         Args:
-            request (google.cloud.talent_v4beta1.types.SearchProfilesRequest):
+            request (:class:`~.profile_service.SearchProfilesRequest`):
                 The request object. The request body of the
                 `SearchProfiles` call.
 
@@ -795,7 +775,7 @@ class ProfileServiceClient(metaclass=ProfileServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4beta1.services.profile_service.pagers.SearchProfilesPager:
+            ~.pagers.SearchProfilesPager:
                 Response of SearchProfiles method.
                 Iterating over this object will yield
                 results and resolve additional pages

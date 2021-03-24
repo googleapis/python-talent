@@ -25,7 +25,7 @@ class ListApplicationsPager:
     """A pager for iterating through ``list_applications`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.talent_v4beta1.types.ListApplicationsResponse` object, and
+    :class:`~.application_service.ListApplicationsResponse` object, and
     provides an ``__iter__`` method to iterate through its
     ``applications`` field.
 
@@ -34,7 +34,7 @@ class ListApplicationsPager:
     through the ``applications`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.talent_v4beta1.types.ListApplicationsResponse`
+    All the usual :class:`~.application_service.ListApplicationsResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -52,9 +52,9 @@ class ListApplicationsPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.talent_v4beta1.types.ListApplicationsRequest):
+            request (:class:`~.application_service.ListApplicationsRequest`):
                 The initial request object.
-            response (google.cloud.talent_v4beta1.types.ListApplicationsResponse):
+            response (:class:`~.application_service.ListApplicationsResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
@@ -87,7 +87,7 @@ class ListApplicationsAsyncPager:
     """A pager for iterating through ``list_applications`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.talent_v4beta1.types.ListApplicationsResponse` object, and
+    :class:`~.application_service.ListApplicationsResponse` object, and
     provides an ``__aiter__`` method to iterate through its
     ``applications`` field.
 
@@ -96,7 +96,7 @@ class ListApplicationsAsyncPager:
     through the ``applications`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.talent_v4beta1.types.ListApplicationsResponse`
+    All the usual :class:`~.application_service.ListApplicationsResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -114,9 +114,9 @@ class ListApplicationsAsyncPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.talent_v4beta1.types.ListApplicationsRequest):
+            request (:class:`~.application_service.ListApplicationsRequest`):
                 The initial request object.
-            response (google.cloud.talent_v4beta1.types.ListApplicationsResponse):
+            response (:class:`~.application_service.ListApplicationsResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.

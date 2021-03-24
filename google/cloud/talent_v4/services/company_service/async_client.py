@@ -84,7 +84,6 @@ class CompanyServiceAsyncClient:
         CompanyServiceClient.parse_common_location_path
     )
 
-    from_service_account_info = CompanyServiceClient.from_service_account_info
     from_service_account_file = CompanyServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -162,7 +161,7 @@ class CompanyServiceAsyncClient:
         r"""Creates a new company entity.
 
         Args:
-            request (:class:`google.cloud.talent_v4.types.CreateCompanyRequest`):
+            request (:class:`~.company_service.CreateCompanyRequest`):
                 The request object. The Request of the CreateCompany
                 method.
             parent (:class:`str`):
@@ -172,11 +171,10 @@ class CompanyServiceAsyncClient:
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}", for
                 example, "projects/foo/tenants/bar".
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            company (:class:`google.cloud.talent_v4.types.Company`):
+            company (:class:`~.gct_company.Company`):
                 Required. The company to be created.
                 This corresponds to the ``company`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -189,7 +187,7 @@ class CompanyServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4.types.Company:
+            ~.gct_company.Company:
                 A Company resource represents a
                 company in the service. A company is the
                 entity that owns job postings, that is,
@@ -250,7 +248,7 @@ class CompanyServiceAsyncClient:
         r"""Retrieves specified company.
 
         Args:
-            request (:class:`google.cloud.talent_v4.types.GetCompanyRequest`):
+            request (:class:`~.company_service.GetCompanyRequest`):
                 The request object. Request for getting a company by
                 name.
             name (:class:`str`):
@@ -261,7 +259,6 @@ class CompanyServiceAsyncClient:
                 "projects/{project_id}/tenants/{tenant_id}/companies/{company_id}",
                 for example,
                 "projects/api-test-project/tenants/foo/companies/bar".
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -273,7 +270,7 @@ class CompanyServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4.types.Company:
+            ~.company.Company:
                 A Company resource represents a
                 company in the service. A company is the
                 entity that owns job postings, that is,
@@ -341,18 +338,17 @@ class CompanyServiceAsyncClient:
         r"""Updates specified company.
 
         Args:
-            request (:class:`google.cloud.talent_v4.types.UpdateCompanyRequest`):
+            request (:class:`~.company_service.UpdateCompanyRequest`):
                 The request object. Request for updating a specified
                 company.
-            company (:class:`google.cloud.talent_v4.types.Company`):
+            company (:class:`~.gct_company.Company`):
                 Required. The company resource to
                 replace the current resource in the
                 system.
-
                 This corresponds to the ``company`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            update_mask (:class:`google.protobuf.field_mask_pb2.FieldMask`):
+            update_mask (:class:`~.field_mask.FieldMask`):
                 Strongly recommended for the best service experience.
 
                 If
@@ -364,7 +360,6 @@ class CompanyServiceAsyncClient:
                 A field mask to specify the company fields to be
                 updated. Only top level fields of
                 [Company][google.cloud.talent.v4.Company] are supported.
-
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -376,7 +371,7 @@ class CompanyServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4.types.Company:
+            ~.gct_company.Company:
                 A Company resource represents a
                 company in the service. A company is the
                 entity that owns job postings, that is,
@@ -441,7 +436,7 @@ class CompanyServiceAsyncClient:
         it.
 
         Args:
-            request (:class:`google.cloud.talent_v4.types.DeleteCompanyRequest`):
+            request (:class:`~.company_service.DeleteCompanyRequest`):
                 The request object. Request to delete a company.
             name (:class:`str`):
                 Required. The resource name of the company to be
@@ -450,7 +445,6 @@ class CompanyServiceAsyncClient:
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}/companies/{company_id}",
                 for example, "projects/foo/tenants/bar/companies/baz".
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -518,7 +512,7 @@ class CompanyServiceAsyncClient:
         r"""Lists all companies associated with the project.
 
         Args:
-            request (:class:`google.cloud.talent_v4.types.ListCompaniesRequest`):
+            request (:class:`~.company_service.ListCompaniesRequest`):
                 The request object. List companies for which the client
                 has ACL visibility.
             parent (:class:`str`):
@@ -528,7 +522,6 @@ class CompanyServiceAsyncClient:
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}", for
                 example, "projects/foo/tenants/bar".
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -540,7 +533,7 @@ class CompanyServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4.services.company_service.pagers.ListCompaniesAsyncPager:
+            ~.pagers.ListCompaniesAsyncPager:
                 The List companies response object.
                 Iterating over this object will yield
                 results and resolve additional pages

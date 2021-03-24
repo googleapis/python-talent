@@ -48,7 +48,7 @@ class CreateCompanyRequest(proto.Message):
             for example, "projects/foo/tenant/bar". If tenant id is
             unspecified, a default tenant is created, for example,
             "projects/foo".
-        company (google.cloud.talent_v4beta1.types.Company):
+        company (~.gct_company.Company):
             Required. The company to be created.
     """
 
@@ -80,10 +80,10 @@ class UpdateCompanyRequest(proto.Message):
     r"""Request for updating a specified company.
 
     Attributes:
-        company (google.cloud.talent_v4beta1.types.Company):
+        company (~.gct_company.Company):
             Required. The company resource to replace the
             current resource in the system.
-        update_mask (google.protobuf.field_mask_pb2.FieldMask):
+        update_mask (~.field_mask.FieldMask):
             Strongly recommended for the best service experience.
 
             If
@@ -165,11 +165,11 @@ class ListCompaniesResponse(proto.Message):
     r"""The List companies response object.
 
     Attributes:
-        companies (Sequence[google.cloud.talent_v4beta1.types.Company]):
+        companies (Sequence[~.gct_company.Company]):
             Companies for the current client.
         next_page_token (str):
             A token to retrieve the next page of results.
-        metadata (google.cloud.talent_v4beta1.types.ResponseMetadata):
+        metadata (~.common.ResponseMetadata):
             Additional information for the API
             invocation, such as the request tracking id.
     """

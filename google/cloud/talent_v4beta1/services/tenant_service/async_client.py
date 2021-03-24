@@ -80,7 +80,6 @@ class TenantServiceAsyncClient:
         TenantServiceClient.parse_common_location_path
     )
 
-    from_service_account_info = TenantServiceClient.from_service_account_info
     from_service_account_file = TenantServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -158,7 +157,7 @@ class TenantServiceAsyncClient:
         r"""Creates a new tenant entity.
 
         Args:
-            request (:class:`google.cloud.talent_v4beta1.types.CreateTenantRequest`):
+            request (:class:`~.tenant_service.CreateTenantRequest`):
                 The request object. The Request of the CreateTenant
                 method.
             parent (:class:`str`):
@@ -167,11 +166,10 @@ class TenantServiceAsyncClient:
 
                 The format is "projects/{project_id}", for example,
                 "projects/foo".
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            tenant (:class:`google.cloud.talent_v4beta1.types.Tenant`):
+            tenant (:class:`~.gct_tenant.Tenant`):
                 Required. The tenant to be created.
                 This corresponds to the ``tenant`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -184,7 +182,7 @@ class TenantServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4beta1.types.Tenant:
+            ~.gct_tenant.Tenant:
                 A Tenant resource represents a tenant
                 in the service. A tenant is a group or
                 entity that shares common access with
@@ -246,7 +244,7 @@ class TenantServiceAsyncClient:
         r"""Retrieves specified tenant.
 
         Args:
-            request (:class:`google.cloud.talent_v4beta1.types.GetTenantRequest`):
+            request (:class:`~.tenant_service.GetTenantRequest`):
                 The request object. Request for getting a tenant by
                 name.
             name (:class:`str`):
@@ -256,7 +254,6 @@ class TenantServiceAsyncClient:
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}", for
                 example, "projects/foo/tenants/bar".
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -268,7 +265,7 @@ class TenantServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4beta1.types.Tenant:
+            ~.tenant.Tenant:
                 A Tenant resource represents a tenant
                 in the service. A tenant is a group or
                 entity that shares common access with
@@ -336,14 +333,13 @@ class TenantServiceAsyncClient:
         r"""Updates specified tenant.
 
         Args:
-            request (:class:`google.cloud.talent_v4beta1.types.UpdateTenantRequest`):
+            request (:class:`~.tenant_service.UpdateTenantRequest`):
                 The request object. Request for updating a specified
                 tenant.
-            tenant (:class:`google.cloud.talent_v4beta1.types.Tenant`):
+            tenant (:class:`~.gct_tenant.Tenant`):
                 Required. The tenant resource to
                 replace the current resource in the
                 system.
-
                 This corresponds to the ``tenant`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -355,7 +351,7 @@ class TenantServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4beta1.types.Tenant:
+            ~.gct_tenant.Tenant:
                 A Tenant resource represents a tenant
                 in the service. A tenant is a group or
                 entity that shares common access with
@@ -417,7 +413,7 @@ class TenantServiceAsyncClient:
         r"""Deletes specified tenant.
 
         Args:
-            request (:class:`google.cloud.talent_v4beta1.types.DeleteTenantRequest`):
+            request (:class:`~.tenant_service.DeleteTenantRequest`):
                 The request object. Request to delete a tenant.
             name (:class:`str`):
                 Required. The resource name of the tenant to be deleted.
@@ -425,7 +421,6 @@ class TenantServiceAsyncClient:
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}", for
                 example, "projects/foo/tenants/bar".
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -493,7 +488,7 @@ class TenantServiceAsyncClient:
         r"""Lists all tenants associated with the project.
 
         Args:
-            request (:class:`google.cloud.talent_v4beta1.types.ListTenantsRequest`):
+            request (:class:`~.tenant_service.ListTenantsRequest`):
                 The request object. List tenants for which the client
                 has ACL visibility.
             parent (:class:`str`):
@@ -502,7 +497,6 @@ class TenantServiceAsyncClient:
 
                 The format is "projects/{project_id}", for example,
                 "projects/foo".
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -514,7 +508,7 @@ class TenantServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4beta1.services.tenant_service.pagers.ListTenantsAsyncPager:
+            ~.pagers.ListTenantsAsyncPager:
                 The List tenants response object.
                 Iterating over this object will yield
                 results and resolve additional pages

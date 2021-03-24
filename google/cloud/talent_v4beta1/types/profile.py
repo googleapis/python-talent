@@ -95,16 +95,16 @@ class Profile(proto.Message):
             [group_id][google.cloud.talent.v4beta1.Profile.group_id],
             and assign it when the second profile is created, indicating
             these two profiles are referring to the same candidate.
-        is_hirable (google.protobuf.wrappers_pb2.BoolValue):
+        is_hirable (~.wrappers.BoolValue):
             Indicates the hirable status of the
             candidate.
-        create_time (google.protobuf.timestamp_pb2.Timestamp):
+        create_time (~.timestamp.Timestamp):
             The timestamp when the profile was first
             created at this source.
-        update_time (google.protobuf.timestamp_pb2.Timestamp):
+        update_time (~.timestamp.Timestamp):
             The timestamp when the profile was last
             updated at this source.
-        candidate_update_time (google.protobuf.timestamp_pb2.Timestamp):
+        candidate_update_time (~.timestamp.Timestamp):
             The timestamp when the profile was last updated as a result
             of a direct or indirect action by a candidate.
 
@@ -130,7 +130,7 @@ class Profile(proto.Message):
             must be greater than or equal to
             [resume_update_time][google.cloud.talent.v4beta1.Profile.resume_update_time]
             or an error is thrown.
-        resume_update_time (google.protobuf.timestamp_pb2.Timestamp):
+        resume_update_time (~.timestamp.Timestamp):
             The timestamp when the candidate's resume was added or
             updated on the candidate's profile. Whether that resume was
             directly uploaded by a candidate, pulled from a 3rd party
@@ -139,13 +139,13 @@ class Profile(proto.Message):
             If this field is updated, it's expected that
             [resume][google.cloud.talent.v4beta1.Profile.resume] is
             provided in the create or update calls.
-        resume (google.cloud.talent_v4beta1.types.Resume):
+        resume (~.profile.Resume):
             The resume representing this profile.
-        person_names (Sequence[google.cloud.talent_v4beta1.types.PersonName]):
+        person_names (Sequence[~.profile.PersonName]):
             The names of the candidate this profile
             references.
             Currently only one person name is supported.
-        addresses (Sequence[google.cloud.talent_v4beta1.types.Address]):
+        addresses (Sequence[~.profile.Address]):
             The candidate's postal addresses. It's highly recommended to
             input this information as accurately as possible to help
             improve search quality. Here are some recommendations:
@@ -183,13 +183,13 @@ class Profile(proto.Message):
                is CONTACT_INFO_USAGE_UNSPECIFIED and
                [Address.current][google.cloud.talent.v4beta1.Address.current]
                is false or not set.
-        email_addresses (Sequence[google.cloud.talent_v4beta1.types.Email]):
+        email_addresses (Sequence[~.profile.Email]):
             The candidate's email addresses.
-        phone_numbers (Sequence[google.cloud.talent_v4beta1.types.Phone]):
+        phone_numbers (Sequence[~.profile.Phone]):
             The candidate's phone number(s).
-        personal_uris (Sequence[google.cloud.talent_v4beta1.types.PersonalUri]):
+        personal_uris (Sequence[~.profile.PersonalUri]):
             The candidate's personal URIs.
-        additional_contact_info (Sequence[google.cloud.talent_v4beta1.types.AdditionalContactInfo]):
+        additional_contact_info (Sequence[~.profile.AdditionalContactInfo]):
             Available contact information besides
             [addresses][google.cloud.talent.v4beta1.Profile.addresses],
             [email_addresses][google.cloud.talent.v4beta1.Profile.email_addresses],
@@ -197,7 +197,7 @@ class Profile(proto.Message):
             and
             [personal_uris][google.cloud.talent.v4beta1.Profile.personal_uris].
             For example, Hang-out, Skype.
-        employment_records (Sequence[google.cloud.talent_v4beta1.types.EmploymentRecord]):
+        employment_records (Sequence[~.profile.EmploymentRecord]):
             The employment history records of the candidate. It's highly
             recommended to input this information as accurately as
             possible to help improve search quality. Here are some
@@ -215,7 +215,7 @@ class Profile(proto.Message):
                inferred from user inputs.
 
             The limitation for max number of employment records is 100.
-        education_records (Sequence[google.cloud.talent_v4beta1.types.EducationRecord]):
+        education_records (Sequence[~.profile.EducationRecord]):
             The education history record of the candidate. It's highly
             recommended to input this information as accurately as
             possible to help improve search quality. Here are some
@@ -232,25 +232,25 @@ class Profile(proto.Message):
                inferred from user inputs.
 
             The limitation for max number of education records is 100.
-        skills (Sequence[google.cloud.talent_v4beta1.types.Skill]):
+        skills (Sequence[~.common.Skill]):
             The skill set of the candidate. It's highly
             recommended to provide as much information as
             possible to help improve the search quality.
             The limitation for max number of skills is 500.
-        activities (Sequence[google.cloud.talent_v4beta1.types.Activity]):
+        activities (Sequence[~.profile.Activity]):
             The individual or collaborative activities which the
             candidate has participated in, for example, open-source
             projects, class assignments that aren't listed in
             [employment_records][google.cloud.talent.v4beta1.Profile.employment_records].
 
             The limitation for max number of activities is 50.
-        publications (Sequence[google.cloud.talent_v4beta1.types.Publication]):
+        publications (Sequence[~.profile.Publication]):
             The publications published by the candidate.
             The limitation for max number of publications is
             50.
-        patents (Sequence[google.cloud.talent_v4beta1.types.Patent]):
+        patents (Sequence[~.profile.Patent]):
             The patents acquired by the candidate.
-        certifications (Sequence[google.cloud.talent_v4beta1.types.Certification]):
+        certifications (Sequence[~.common.Certification]):
             The certifications acquired by the candidate.
         applications (Sequence[str]):
             Output only. The resource names of the
@@ -258,7 +258,7 @@ class Profile(proto.Message):
         assignments (Sequence[str]):
             Output only. The resource names of the
             candidate's assignments.
-        custom_attributes (Sequence[google.cloud.talent_v4beta1.types.Profile.CustomAttributesEntry]):
+        custom_attributes (Sequence[~.profile.Profile.CustomAttributesEntry]):
             A map of fields to hold both filterable and non-filterable
             custom profile attributes that aren't covered by the
             provided structured fields. See
@@ -290,10 +290,10 @@ class Profile(proto.Message):
             Output only. Keyword snippet shows how the search result is
             related to a search query. This is only returned in
             [SearchProfilesResponse][google.cloud.talent.v4beta1.SearchProfilesResponse].
-        availability_signals (Sequence[google.cloud.talent_v4beta1.types.AvailabilitySignal]):
+        availability_signals (Sequence[~.profile.AvailabilitySignal]):
             Output only. Candidate's availability
             signals.
-        derived_addresses (Sequence[google.cloud.talent_v4beta1.types.Location]):
+        derived_addresses (Sequence[~.common.Location]):
             Output only. Derived locations of the profile, resolved from
             [Profile.addresses][google.cloud.talent.v4beta1.Profile.addresses].
 
@@ -390,12 +390,12 @@ class AvailabilitySignal(proto.Message):
     r"""Candidate availability signal.
 
     Attributes:
-        type_ (google.cloud.talent_v4beta1.types.AvailabilitySignalType):
+        type_ (~.common.AvailabilitySignalType):
             Type of signal.
-        last_update_time (google.protobuf.timestamp_pb2.Timestamp):
+        last_update_time (~.timestamp.Timestamp):
             Timestamp of when the given availability
             activity last happened.
-        filter_satisfied (google.protobuf.wrappers_pb2.BoolValue):
+        filter_satisfied (~.wrappers.BoolValue):
             Indicates if the
             [last_update_time][google.cloud.talent.v4beta1.AvailabilitySignal.last_update_time]
             is within
@@ -439,7 +439,7 @@ class Resume(proto.Message):
             Note that the use of the functionality offered by this field
             to extract data from resumes is an Alpha feature and as such
             is not covered by any SLA.
-        resume_type (google.cloud.talent_v4beta1.types.Resume.ResumeType):
+        resume_type (~.profile.Resume.ResumeType):
             The format of
             [structured_resume][google.cloud.talent.v4beta1.Resume.structured_resume].
     """
@@ -463,7 +463,7 @@ class PersonName(proto.Message):
             A string represents a person's full name. For
             example, "Dr. John Smith".
             Number of characters allowed is 100.
-        structured_name (google.cloud.talent_v4beta1.types.PersonName.PersonStructuredName):
+        structured_name (~.profile.PersonName.PersonStructuredName):
             A person's name in a structured way (last
             name, first name, suffix, and so on.)
         preferred_name (str):
@@ -538,7 +538,7 @@ class Address(proto.Message):
     r"""Resource that represents a address.
 
     Attributes:
-        usage (google.cloud.talent_v4beta1.types.ContactInfoUsage):
+        usage (~.common.ContactInfoUsage):
             The usage of the address. For example,
             SCHOOL, WORK, PERSONAL.
         unstructured_address (str):
@@ -547,10 +547,10 @@ class Address(proto.Message):
             View, CA 94043", "Sunnyvale, California".
 
             Number of characters allowed is 100.
-        structured_address (google.type.postal_address_pb2.PostalAddress):
+        structured_address (~.postal_address.PostalAddress):
             Structured address that contains street
             address, city, state, country, and so on.
-        current (google.protobuf.wrappers_pb2.BoolValue):
+        current (~.wrappers.BoolValue):
             Indicates if it's the person's current
             address.
     """
@@ -570,7 +570,7 @@ class Email(proto.Message):
     r"""Resource that represents a person's email address.
 
     Attributes:
-        usage (google.cloud.talent_v4beta1.types.ContactInfoUsage):
+        usage (~.common.ContactInfoUsage):
             The usage of the email address. For example,
             SCHOOL, WORK, PERSONAL.
         email_address (str):
@@ -587,10 +587,10 @@ class Phone(proto.Message):
     r"""Resource that represents a person's telephone number.
 
     Attributes:
-        usage (google.cloud.talent_v4beta1.types.ContactInfoUsage):
+        usage (~.common.ContactInfoUsage):
             The usage of the phone. For example, SCHOOL,
             WORK, PERSONAL.
-        type_ (google.cloud.talent_v4beta1.types.Phone.PhoneType):
+        type_ (~.profile.Phone.PhoneType):
             The phone type. For example, LANDLINE,
             MOBILE, FAX.
         number (str):
@@ -647,7 +647,7 @@ class AdditionalContactInfo(proto.Message):
     phone, email, URI and addresses.
 
     Attributes:
-        usage (google.cloud.talent_v4beta1.types.ContactInfoUsage):
+        usage (~.common.ContactInfoUsage):
             The usage of this contact method. For
             example, SCHOOL, WORK, PERSONAL.
         name (str):
@@ -671,9 +671,9 @@ class EmploymentRecord(proto.Message):
     r"""Resource that represents an employment record of a candidate.
 
     Attributes:
-        start_date (google.type.date_pb2.Date):
+        start_date (~.date.Date):
             Start date of the employment.
-        end_date (google.type.date_pb2.Date):
+        end_date (~.date.Date):
             End date of the employment.
         employer_name (str):
             The name of the employer
@@ -685,7 +685,7 @@ class EmploymentRecord(proto.Message):
             For example, division, department, client, and
             so on.
             Number of characters allowed is 100.
-        address (google.cloud.talent_v4beta1.types.Address):
+        address (~.profile.Address):
             The physical address of the employer.
         job_title (str):
             The job title of the employment.
@@ -695,11 +695,11 @@ class EmploymentRecord(proto.Message):
         job_description (str):
             The description of job content.
             Number of characters allowed is 100,000.
-        is_supervisor (google.protobuf.wrappers_pb2.BoolValue):
+        is_supervisor (~.wrappers.BoolValue):
             If the jobs is a supervisor position.
-        is_self_employed (google.protobuf.wrappers_pb2.BoolValue):
+        is_self_employed (~.wrappers.BoolValue):
             If this employment is self-employed.
-        is_current (google.protobuf.wrappers_pb2.BoolValue):
+        is_current (~.wrappers.BoolValue):
             If this employment is current.
         job_title_snippet (str):
             Output only. The job title snippet shows how the
@@ -752,11 +752,11 @@ class EducationRecord(proto.Message):
     r"""Resource that represents an education record of a candidate.
 
     Attributes:
-        start_date (google.type.date_pb2.Date):
+        start_date (~.date.Date):
             The start date of the education.
-        end_date (google.type.date_pb2.Date):
+        end_date (~.date.Date):
             The end date of the education.
-        expected_graduation_date (google.type.date_pb2.Date):
+        expected_graduation_date (~.date.Date):
             The expected graduation date if currently
             pursuing a degree.
         school_name (str):
@@ -764,7 +764,7 @@ class EducationRecord(proto.Message):
             For example, "Stanford University", "UC
             Berkeley", and so on.
             Number of characters allowed is 250.
-        address (google.cloud.talent_v4beta1.types.Address):
+        address (~.profile.Address):
             The physical address of the education
             institution.
         degree_description (str):
@@ -772,12 +772,12 @@ class EducationRecord(proto.Message):
             For example, "Master of Science in Computer
             Science", "B.S in Math".
             Number of characters allowed is 100.
-        structured_degree (google.cloud.talent_v4beta1.types.Degree):
+        structured_degree (~.profile.Degree):
             The structured notation of the degree.
         description (str):
             The description of the education.
             Number of characters allowed is 100,000.
-        is_current (google.protobuf.wrappers_pb2.BoolValue):
+        is_current (~.wrappers.BoolValue):
             If this education is current.
         school_name_snippet (str):
             Output only. The school name snippet shows how the
@@ -824,7 +824,7 @@ class Degree(proto.Message):
     candidate.
 
     Attributes:
-        degree_type (google.cloud.talent_v4beta1.types.DegreeType):
+        degree_type (~.common.DegreeType):
             ISCED degree type.
         degree_name (str):
             Full Degree name.
@@ -859,9 +859,9 @@ class Activity(proto.Message):
         uri (str):
             Activity URI.
             Number of characters allowed is 4,000.
-        create_date (google.type.date_pb2.Date):
+        create_date (~.date.Date):
             The first creation date of the activity.
-        update_date (google.type.date_pb2.Date):
+        update_date (~.date.Date):
             The last update date of the activity.
         team_members (Sequence[str]):
             A list of team members involved in this
@@ -870,7 +870,7 @@ class Activity(proto.Message):
 
             The limitation for max number of team members is
             50.
-        skills_used (Sequence[google.cloud.talent_v4beta1.types.Skill]):
+        skills_used (Sequence[~.common.Skill]):
             A list of skills used in this activity.
             The limitation for max number of skills used is
             50.
@@ -939,7 +939,7 @@ class Publication(proto.Message):
         publisher (str):
             The publisher of the journal.
             Number of characters allowed is 100.
-        publication_date (google.type.date_pb2.Date):
+        publication_date (~.date.Date):
             The publication date.
         publication_type (str):
             The publication type.
@@ -981,10 +981,10 @@ class Patent(proto.Message):
         patent_status (str):
             The status of the patent.
             Number of characters allowed is 100.
-        patent_status_date (google.type.date_pb2.Date):
+        patent_status_date (~.date.Date):
             The date the last time the status of the
             patent was checked.
-        patent_filing_date (google.type.date_pb2.Date):
+        patent_filing_date (~.date.Date):
             The date that the patent was filed.
         patent_office (str):
             The name of the patent office.
@@ -995,7 +995,7 @@ class Patent(proto.Message):
         patent_description (str):
             The description of the patent.
             Number of characters allowed is 100,000.
-        skills_used (Sequence[google.cloud.talent_v4beta1.types.Skill]):
+        skills_used (Sequence[~.common.Skill]):
             The skills used in this patent.
     """
 

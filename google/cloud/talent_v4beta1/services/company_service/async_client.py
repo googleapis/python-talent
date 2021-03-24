@@ -81,7 +81,6 @@ class CompanyServiceAsyncClient:
         CompanyServiceClient.parse_common_location_path
     )
 
-    from_service_account_info = CompanyServiceClient.from_service_account_info
     from_service_account_file = CompanyServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -159,7 +158,7 @@ class CompanyServiceAsyncClient:
         r"""Creates a new company entity.
 
         Args:
-            request (:class:`google.cloud.talent_v4beta1.types.CreateCompanyRequest`):
+            request (:class:`~.company_service.CreateCompanyRequest`):
                 The request object. The Request of the CreateCompany
                 method.
             parent (:class:`str`):
@@ -171,11 +170,10 @@ class CompanyServiceAsyncClient:
                 example, "projects/foo/tenant/bar". If tenant id is
                 unspecified, a default tenant is created, for example,
                 "projects/foo".
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            company (:class:`google.cloud.talent_v4beta1.types.Company`):
+            company (:class:`~.gct_company.Company`):
                 Required. The company to be created.
                 This corresponds to the ``company`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -188,7 +186,7 @@ class CompanyServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4beta1.types.Company:
+            ~.gct_company.Company:
                 A Company resource represents a
                 company in the service. A company is the
                 entity that owns job postings, that is,
@@ -249,7 +247,7 @@ class CompanyServiceAsyncClient:
         r"""Retrieves specified company.
 
         Args:
-            request (:class:`google.cloud.talent_v4beta1.types.GetCompanyRequest`):
+            request (:class:`~.company_service.GetCompanyRequest`):
                 The request object. Request for getting a company by
                 name.
             name (:class:`str`):
@@ -263,7 +261,6 @@ class CompanyServiceAsyncClient:
 
                 If tenant id is unspecified, the default tenant is used,
                 for example, "projects/api-test-project/companies/bar".
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -275,7 +272,7 @@ class CompanyServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4beta1.types.Company:
+            ~.company.Company:
                 A Company resource represents a
                 company in the service. A company is the
                 entity that owns job postings, that is,
@@ -342,14 +339,13 @@ class CompanyServiceAsyncClient:
         r"""Updates specified company.
 
         Args:
-            request (:class:`google.cloud.talent_v4beta1.types.UpdateCompanyRequest`):
+            request (:class:`~.company_service.UpdateCompanyRequest`):
                 The request object. Request for updating a specified
                 company.
-            company (:class:`google.cloud.talent_v4beta1.types.Company`):
+            company (:class:`~.gct_company.Company`):
                 Required. The company resource to
                 replace the current resource in the
                 system.
-
                 This corresponds to the ``company`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -361,7 +357,7 @@ class CompanyServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4beta1.types.Company:
+            ~.gct_company.Company:
                 A Company resource represents a
                 company in the service. A company is the
                 entity that owns job postings, that is,
@@ -424,7 +420,7 @@ class CompanyServiceAsyncClient:
         it.
 
         Args:
-            request (:class:`google.cloud.talent_v4beta1.types.DeleteCompanyRequest`):
+            request (:class:`~.company_service.DeleteCompanyRequest`):
                 The request object. Request to delete a company.
             name (:class:`str`):
                 Required. The resource name of the company to be
@@ -436,7 +432,6 @@ class CompanyServiceAsyncClient:
 
                 If tenant id is unspecified, the default tenant is used,
                 for example, "projects/foo/companies/bar".
-
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -504,7 +499,7 @@ class CompanyServiceAsyncClient:
         r"""Lists all companies associated with the project.
 
         Args:
-            request (:class:`google.cloud.talent_v4beta1.types.ListCompaniesRequest`):
+            request (:class:`~.company_service.ListCompaniesRequest`):
                 The request object. List companies for which the client
                 has ACL visibility.
             parent (:class:`str`):
@@ -517,7 +512,6 @@ class CompanyServiceAsyncClient:
 
                 If tenant id is unspecified, the default tenant will be
                 used, for example, "projects/foo".
-
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -529,7 +523,7 @@ class CompanyServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.talent_v4beta1.services.company_service.pagers.ListCompaniesAsyncPager:
+            ~.pagers.ListCompaniesAsyncPager:
                 The List companies response object.
                 Iterating over this object will yield
                 results and resolve additional pages
