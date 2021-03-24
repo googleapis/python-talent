@@ -178,6 +178,7 @@ class Visibility(proto.Enum):
     r"""Deprecated. All resources are only visible to the owner.
     An enum that represents who has view access to the resource.
     """
+    _pb_options = {"deprecated": True}
     VISIBILITY_UNSPECIFIED = 0
     ACCOUNT_ONLY = 1
     SHARED_WITH_GOOGLE = 2

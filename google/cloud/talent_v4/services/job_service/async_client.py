@@ -434,6 +434,7 @@ class JobServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=30.0,
             ),
             default_timeout=30.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -707,6 +708,7 @@ class JobServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=30.0,
             ),
             default_timeout=30.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -929,6 +931,7 @@ class JobServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=30.0,
             ),
             default_timeout=30.0,
             client_info=DEFAULT_CLIENT_INFO,
