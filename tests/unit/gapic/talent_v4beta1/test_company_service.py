@@ -92,15 +92,19 @@ def test__get_default_mtls_endpoint():
     )
 
 
-def test_company_service_client_from_service_account_info():
+@pytest.mark.parametrize(
+    "client_class", [CompanyServiceClient, CompanyServiceAsyncClient,]
+)
+def test_company_service_client_from_service_account_info(client_class):
     creds = credentials.AnonymousCredentials()
     with mock.patch.object(
         service_account.Credentials, "from_service_account_info"
     ) as factory:
         factory.return_value = creds
         info = {"valid": True}
-        client = CompanyServiceClient.from_service_account_info(info)
+        client = client_class.from_service_account_info(info)
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "jobs.googleapis.com:443"
 
@@ -116,9 +120,11 @@ def test_company_service_client_from_service_account_file(client_class):
         factory.return_value = creds
         client = client_class.from_service_account_file("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         client = client_class.from_service_account_json("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "jobs.googleapis.com:443"
 
@@ -518,6 +524,22 @@ def test_create_company_from_dict():
     test_create_company(request_type=dict)
 
 
+def test_create_company_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = CompanyServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.create_company), "__call__") as call:
+        client.create_company()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == company_service.CreateCompanyRequest()
+
+
 @pytest.mark.asyncio
 async def test_create_company_async(
     transport: str = "grpc_asyncio", request_type=company_service.CreateCompanyRequest
@@ -795,6 +817,22 @@ def test_get_company_from_dict():
     test_get_company(request_type=dict)
 
 
+def test_get_company_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = CompanyServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.get_company), "__call__") as call:
+        client.get_company()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == company_service.GetCompanyRequest()
+
+
 @pytest.mark.asyncio
 async def test_get_company_async(
     transport: str = "grpc_asyncio", request_type=company_service.GetCompanyRequest
@@ -1060,6 +1098,22 @@ def test_update_company_from_dict():
     test_update_company(request_type=dict)
 
 
+def test_update_company_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = CompanyServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.update_company), "__call__") as call:
+        client.update_company()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == company_service.UpdateCompanyRequest()
+
+
 @pytest.mark.asyncio
 async def test_update_company_async(
     transport: str = "grpc_asyncio", request_type=company_service.UpdateCompanyRequest
@@ -1291,6 +1345,22 @@ def test_delete_company_from_dict():
     test_delete_company(request_type=dict)
 
 
+def test_delete_company_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = CompanyServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.delete_company), "__call__") as call:
+        client.delete_company()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == company_service.DeleteCompanyRequest()
+
+
 @pytest.mark.asyncio
 async def test_delete_company_async(
     transport: str = "grpc_asyncio", request_type=company_service.DeleteCompanyRequest
@@ -1474,6 +1544,22 @@ def test_list_companies(
 
 def test_list_companies_from_dict():
     test_list_companies(request_type=dict)
+
+
+def test_list_companies_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = CompanyServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.list_companies), "__call__") as call:
+        client.list_companies()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == company_service.ListCompaniesRequest()
 
 
 @pytest.mark.asyncio

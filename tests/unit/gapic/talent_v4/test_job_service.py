@@ -98,15 +98,17 @@ def test__get_default_mtls_endpoint():
     assert JobServiceClient._get_default_mtls_endpoint(non_googleapi) == non_googleapi
 
 
-def test_job_service_client_from_service_account_info():
+@pytest.mark.parametrize("client_class", [JobServiceClient, JobServiceAsyncClient,])
+def test_job_service_client_from_service_account_info(client_class):
     creds = credentials.AnonymousCredentials()
     with mock.patch.object(
         service_account.Credentials, "from_service_account_info"
     ) as factory:
         factory.return_value = creds
         info = {"valid": True}
-        client = JobServiceClient.from_service_account_info(info)
+        client = client_class.from_service_account_info(info)
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "jobs.googleapis.com:443"
 
@@ -120,9 +122,11 @@ def test_job_service_client_from_service_account_file(client_class):
         factory.return_value = creds
         client = client_class.from_service_account_file("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         client = client_class.from_service_account_json("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "jobs.googleapis.com:443"
 
@@ -531,6 +535,22 @@ def test_create_job_from_dict():
     test_create_job(request_type=dict)
 
 
+def test_create_job_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = JobServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.create_job), "__call__") as call:
+        client.create_job()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == job_service.CreateJobRequest()
+
+
 @pytest.mark.asyncio
 async def test_create_job_async(
     transport: str = "grpc_asyncio", request_type=job_service.CreateJobRequest
@@ -783,6 +803,24 @@ def test_batch_create_jobs(
 
 def test_batch_create_jobs_from_dict():
     test_batch_create_jobs(request_type=dict)
+
+
+def test_batch_create_jobs_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = JobServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.batch_create_jobs), "__call__"
+    ) as call:
+        client.batch_create_jobs()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == job_service.BatchCreateJobsRequest()
 
 
 @pytest.mark.asyncio
@@ -1048,6 +1086,22 @@ def test_get_job(transport: str = "grpc", request_type=job_service.GetJobRequest
 
 def test_get_job_from_dict():
     test_get_job(request_type=dict)
+
+
+def test_get_job_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = JobServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.get_job), "__call__") as call:
+        client.get_job()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == job_service.GetJobRequest()
 
 
 @pytest.mark.asyncio
@@ -1347,6 +1401,22 @@ def test_update_job_from_dict():
     test_update_job(request_type=dict)
 
 
+def test_update_job_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = JobServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.update_job), "__call__") as call:
+        client.update_job()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == job_service.UpdateJobRequest()
+
+
 @pytest.mark.asyncio
 async def test_update_job_async(
     transport: str = "grpc_asyncio", request_type=job_service.UpdateJobRequest
@@ -1603,6 +1673,24 @@ def test_batch_update_jobs_from_dict():
     test_batch_update_jobs(request_type=dict)
 
 
+def test_batch_update_jobs_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = JobServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.batch_update_jobs), "__call__"
+    ) as call:
+        client.batch_update_jobs()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == job_service.BatchUpdateJobsRequest()
+
+
 @pytest.mark.asyncio
 async def test_batch_update_jobs_async(
     transport: str = "grpc_asyncio", request_type=job_service.BatchUpdateJobsRequest
@@ -1809,6 +1897,22 @@ def test_delete_job_from_dict():
     test_delete_job(request_type=dict)
 
 
+def test_delete_job_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = JobServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.delete_job), "__call__") as call:
+        client.delete_job()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == job_service.DeleteJobRequest()
+
+
 @pytest.mark.asyncio
 async def test_delete_job_async(
     transport: str = "grpc_asyncio", request_type=job_service.DeleteJobRequest
@@ -1989,6 +2093,24 @@ def test_batch_delete_jobs(
 
 def test_batch_delete_jobs_from_dict():
     test_batch_delete_jobs(request_type=dict)
+
+
+def test_batch_delete_jobs_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = JobServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.batch_delete_jobs), "__call__"
+    ) as call:
+        client.batch_delete_jobs()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == job_service.BatchDeleteJobsRequest()
 
 
 @pytest.mark.asyncio
@@ -2200,6 +2322,22 @@ def test_list_jobs(transport: str = "grpc", request_type=job_service.ListJobsReq
 
 def test_list_jobs_from_dict():
     test_list_jobs(request_type=dict)
+
+
+def test_list_jobs_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = JobServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.list_jobs), "__call__") as call:
+        client.list_jobs()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == job_service.ListJobsRequest()
 
 
 @pytest.mark.asyncio
@@ -2511,6 +2649,22 @@ def test_search_jobs_from_dict():
     test_search_jobs(request_type=dict)
 
 
+def test_search_jobs_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = JobServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.search_jobs), "__call__") as call:
+        client.search_jobs()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == job_service.SearchJobsRequest()
+
+
 @pytest.mark.asyncio
 async def test_search_jobs_async(
     transport: str = "grpc_asyncio", request_type=job_service.SearchJobsRequest
@@ -2653,6 +2807,24 @@ def test_search_jobs_for_alert(
 
 def test_search_jobs_for_alert_from_dict():
     test_search_jobs_for_alert(request_type=dict)
+
+
+def test_search_jobs_for_alert_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = JobServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.search_jobs_for_alert), "__call__"
+    ) as call:
+        client.search_jobs_for_alert()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == job_service.SearchJobsRequest()
 
 
 @pytest.mark.asyncio

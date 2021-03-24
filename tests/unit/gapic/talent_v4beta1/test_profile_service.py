@@ -98,15 +98,19 @@ def test__get_default_mtls_endpoint():
     )
 
 
-def test_profile_service_client_from_service_account_info():
+@pytest.mark.parametrize(
+    "client_class", [ProfileServiceClient, ProfileServiceAsyncClient,]
+)
+def test_profile_service_client_from_service_account_info(client_class):
     creds = credentials.AnonymousCredentials()
     with mock.patch.object(
         service_account.Credentials, "from_service_account_info"
     ) as factory:
         factory.return_value = creds
         info = {"valid": True}
-        client = ProfileServiceClient.from_service_account_info(info)
+        client = client_class.from_service_account_info(info)
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "jobs.googleapis.com:443"
 
@@ -122,9 +126,11 @@ def test_profile_service_client_from_service_account_file(client_class):
         factory.return_value = creds
         client = client_class.from_service_account_file("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         client = client_class.from_service_account_json("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "jobs.googleapis.com:443"
 
@@ -487,6 +493,22 @@ def test_list_profiles_from_dict():
     test_list_profiles(request_type=dict)
 
 
+def test_list_profiles_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ProfileServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.list_profiles), "__call__") as call:
+        client.list_profiles()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == profile_service.ListProfilesRequest()
+
+
 @pytest.mark.asyncio
 async def test_list_profiles_async(
     transport: str = "grpc_asyncio", request_type=profile_service.ListProfilesRequest
@@ -828,6 +850,22 @@ def test_create_profile_from_dict():
     test_create_profile(request_type=dict)
 
 
+def test_create_profile_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ProfileServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.create_profile), "__call__") as call:
+        client.create_profile()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == profile_service.CreateProfileRequest()
+
+
 @pytest.mark.asyncio
 async def test_create_profile_async(
     transport: str = "grpc_asyncio", request_type=profile_service.CreateProfileRequest
@@ -1079,6 +1117,22 @@ def test_get_profile_from_dict():
     test_get_profile(request_type=dict)
 
 
+def test_get_profile_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ProfileServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.get_profile), "__call__") as call:
+        client.get_profile()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == profile_service.GetProfileRequest()
+
+
 @pytest.mark.asyncio
 async def test_get_profile_async(
     transport: str = "grpc_asyncio", request_type=profile_service.GetProfileRequest
@@ -1318,6 +1372,22 @@ def test_update_profile_from_dict():
     test_update_profile(request_type=dict)
 
 
+def test_update_profile_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ProfileServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.update_profile), "__call__") as call:
+        client.update_profile()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == profile_service.UpdateProfileRequest()
+
+
 @pytest.mark.asyncio
 async def test_update_profile_async(
     transport: str = "grpc_asyncio", request_type=profile_service.UpdateProfileRequest
@@ -1536,6 +1606,22 @@ def test_delete_profile_from_dict():
     test_delete_profile(request_type=dict)
 
 
+def test_delete_profile_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ProfileServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.delete_profile), "__call__") as call:
+        client.delete_profile()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == profile_service.DeleteProfileRequest()
+
+
 @pytest.mark.asyncio
 async def test_delete_profile_async(
     transport: str = "grpc_asyncio", request_type=profile_service.DeleteProfileRequest
@@ -1725,6 +1811,22 @@ def test_search_profiles(
 
 def test_search_profiles_from_dict():
     test_search_profiles(request_type=dict)
+
+
+def test_search_profiles_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = ProfileServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.search_profiles), "__call__") as call:
+        client.search_profiles()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == profile_service.SearchProfilesRequest()
 
 
 @pytest.mark.asyncio
