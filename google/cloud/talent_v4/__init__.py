@@ -101,7 +101,6 @@ __all__ = (
     "CompensationInfo",
     "CompleteQueryRequest",
     "CompleteQueryResponse",
-    "CompletionClient",
     "CreateClientEventRequest",
     "CreateCompanyRequest",
     "CreateJobRequest",
@@ -113,6 +112,7 @@ __all__ = (
     "DeleteTenantRequest",
     "DeviceInfo",
     "EmploymentType",
+    "EventServiceClient",
     "GetCompanyRequest",
     "GetJobRequest",
     "GetTenantRequest",
@@ -149,5 +149,5 @@ __all__ = (
     "UpdateJobRequest",
     "UpdateTenantRequest",
     "Visibility",
-    "EventServiceClient",
+    "CompletionClient",
 )
