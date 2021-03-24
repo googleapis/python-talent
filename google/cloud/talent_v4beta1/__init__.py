@@ -186,6 +186,7 @@ __all__ = (
     "EmployerFilter",
     "EmploymentRecord",
     "EmploymentType",
+    "EventServiceClient",
     "GetApplicationRequest",
     "GetCompanyRequest",
     "GetJobRequest",
@@ -227,7 +228,6 @@ __all__ = (
     "Profile",
     "ProfileEvent",
     "ProfileQuery",
-    "ProfileServiceClient",
     "Publication",
     "Rating",
     "RequestMetadata",
@@ -253,5 +253,5 @@ __all__ = (
     "UpdateTenantRequest",
     "Visibility",
     "WorkExperienceFilter",
-    "EventServiceClient",
+    "ProfileServiceClient",
 )
