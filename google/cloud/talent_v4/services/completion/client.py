@@ -109,6 +109,22 @@ class CompletionClient(metaclass=CompletionClientMeta):
     )
 
     @classmethod
+    def from_service_account_info(cls, info: dict, *args, **kwargs):
+        """Creates an instance of this client using the provided credentials info.
+
+        Args:
+            info (dict): The service account private key info.
+            args: Additional arguments to pass to the constructor.
+            kwargs: Additional arguments to pass to the constructor.
+
+        Returns:
+            CompletionClient: The constructed client.
+        """
+        credentials = service_account.Credentials.from_service_account_info(info)
+        kwargs["credentials"] = credentials
+        return cls(*args, **kwargs)
+
+    @classmethod
     def from_service_account_file(cls, filename: str, *args, **kwargs):
         """Creates an instance of this client using the provided credentials
         file.
@@ -120,7 +136,7 @@ class CompletionClient(metaclass=CompletionClientMeta):
             kwargs: Additional arguments to pass to the constructor.
 
         Returns:
-            {@api.name}: The constructed client.
+            CompletionClient: The constructed client.
         """
         credentials = service_account.Credentials.from_service_account_file(filename)
         kwargs["credentials"] = credentials
@@ -241,10 +257,10 @@ class CompletionClient(metaclass=CompletionClientMeta):
                 credentials identify the application to the service; if none
                 are specified, the client will attempt to ascertain the
                 credentials from the environment.
-            transport (Union[str, ~.CompletionTransport]): The
+            transport (Union[str, CompletionTransport]): The
                 transport to use. If set to None, a transport is chosen
                 automatically.
-            client_options (client_options_lib.ClientOptions): Custom options for the
+            client_options (google.api_core.client_options.ClientOptions): Custom options for the
                 client. It won't take effect if a ``transport`` instance is provided.
                 (1) The ``api_endpoint`` property can be used to override the
                 default endpoint provided by the client. GOOGLE_API_USE_MTLS_ENDPOINT
@@ -355,7 +371,7 @@ class CompletionClient(metaclass=CompletionClientMeta):
         complete search box.
 
         Args:
-            request (:class:`~.completion_service.CompleteQueryRequest`):
+            request (google.cloud.talent_v4.types.CompleteQueryRequest):
                 The request object. Auto-complete parameters.
 
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
@@ -365,7 +381,7 @@ class CompletionClient(metaclass=CompletionClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.completion_service.CompleteQueryResponse:
+            google.cloud.talent_v4.types.CompleteQueryResponse:
                 Response of auto-complete query.
         """
         # Create or coerce a protobuf request object.

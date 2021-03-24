@@ -72,6 +72,7 @@ class CompletionAsyncClient:
         CompletionClient.parse_common_location_path
     )
 
+    from_service_account_info = CompletionClient.from_service_account_info
     from_service_account_file = CompletionClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -149,7 +150,7 @@ class CompletionAsyncClient:
         complete search box.
 
         Args:
-            request (:class:`~.completion_service.CompleteQueryRequest`):
+            request (:class:`google.cloud.talent_v4.types.CompleteQueryRequest`):
                 The request object. Auto-complete parameters.
 
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
@@ -159,7 +160,7 @@ class CompletionAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.completion_service.CompleteQueryResponse:
+            google.cloud.talent_v4.types.CompleteQueryResponse:
                 Response of auto-complete query.
         """
         # Create or coerce a protobuf request object.

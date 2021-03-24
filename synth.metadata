@@ -11,8 +11,8 @@
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "8a6f4d9acb1620af2156b42b37b54eae257b7cad",
-        "internalRef": "348696929"
+        "sha": "520682435235d9c503983a360a2090025aa47cd1",
+        "internalRef": "350246057"
       }
     },
     {
@@ -51,6 +51,7 @@
     }
   ],
   "generatedFiles": [
+    ".coveragerc",
     ".flake8",
     ".github/CONTRIBUTING.md",
     ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -104,9 +105,21 @@
     "docs/_templates/layout.html",
     "docs/conf.py",
     "docs/multiprocessing.rst",
+    "docs/talent_v4/company_service.rst",
+    "docs/talent_v4/completion.rst",
+    "docs/talent_v4/event_service.rst",
+    "docs/talent_v4/job_service.rst",
     "docs/talent_v4/services.rst",
+    "docs/talent_v4/tenant_service.rst",
     "docs/talent_v4/types.rst",
+    "docs/talent_v4beta1/application_service.rst",
+    "docs/talent_v4beta1/company_service.rst",
+    "docs/talent_v4beta1/completion.rst",
+    "docs/talent_v4beta1/event_service.rst",
+    "docs/talent_v4beta1/job_service.rst",
+    "docs/talent_v4beta1/profile_service.rst",
     "docs/talent_v4beta1/services.rst",
+    "docs/talent_v4beta1/tenant_service.rst",
     "docs/talent_v4beta1/types.rst",
     "google/cloud/talent/__init__.py",
     "google/cloud/talent/py.typed",

@@ -86,6 +86,7 @@ class ProfileServiceAsyncClient:
         ProfileServiceClient.parse_common_location_path
     )
 
+    from_service_account_info = ProfileServiceClient.from_service_account_info
     from_service_account_file = ProfileServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -162,7 +163,7 @@ class ProfileServiceAsyncClient:
         r"""Lists profiles by filter. The order is unspecified.
 
         Args:
-            request (:class:`~.profile_service.ListProfilesRequest`):
+            request (:class:`google.cloud.talent_v4beta1.types.ListProfilesRequest`):
                 The request object. List profiles request.
             parent (:class:`str`):
                 Required. The resource name of the tenant under which
@@ -171,6 +172,7 @@ class ProfileServiceAsyncClient:
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}". For
                 example, "projects/foo/tenants/bar".
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -182,7 +184,7 @@ class ProfileServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListProfilesAsyncPager:
+            google.cloud.talent_v4beta1.services.profile_service.pagers.ListProfilesAsyncPager:
                 The List profiles response object.
                 Iterating over this object will yield
                 results and resolve additional pages
@@ -254,7 +256,7 @@ class ProfileServiceAsyncClient:
         r"""Creates and returns a new profile.
 
         Args:
-            request (:class:`~.profile_service.CreateProfileRequest`):
+            request (:class:`google.cloud.talent_v4beta1.types.CreateProfileRequest`):
                 The request object. Create profile request.
             parent (:class:`str`):
                 Required. The name of the tenant this profile belongs
@@ -263,10 +265,11 @@ class ProfileServiceAsyncClient:
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}". For
                 example, "projects/foo/tenants/bar".
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            profile (:class:`~.gct_profile.Profile`):
+            profile (:class:`google.cloud.talent_v4beta1.types.Profile`):
                 Required. The profile to be created.
                 This corresponds to the ``profile`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -279,7 +282,7 @@ class ProfileServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.gct_profile.Profile:
+            google.cloud.talent_v4beta1.types.Profile:
                 A resource that represents the
                 profile for a job candidate (also
                 referred to as a "single-source
@@ -338,7 +341,7 @@ class ProfileServiceAsyncClient:
         r"""Gets the specified profile.
 
         Args:
-            request (:class:`~.profile_service.GetProfileRequest`):
+            request (:class:`google.cloud.talent_v4beta1.types.GetProfileRequest`):
                 The request object. Get profile request.
             name (:class:`str`):
                 Required. Resource name of the profile to get.
@@ -346,6 +349,7 @@ class ProfileServiceAsyncClient:
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}".
                 For example, "projects/foo/tenants/bar/profiles/baz".
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -357,7 +361,7 @@ class ProfileServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.profile.Profile:
+            google.cloud.talent_v4beta1.types.Profile:
                 A resource that represents the
                 profile for a job candidate (also
                 referred to as a "single-source
@@ -423,9 +427,9 @@ class ProfileServiceAsyncClient:
         result.
 
         Args:
-            request (:class:`~.profile_service.UpdateProfileRequest`):
+            request (:class:`google.cloud.talent_v4beta1.types.UpdateProfileRequest`):
                 The request object. Update profile request
-            profile (:class:`~.gct_profile.Profile`):
+            profile (:class:`google.cloud.talent_v4beta1.types.Profile`):
                 Required. Profile to be updated.
                 This corresponds to the ``profile`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -438,7 +442,7 @@ class ProfileServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.gct_profile.Profile:
+            google.cloud.talent_v4beta1.types.Profile:
                 A resource that represents the
                 profile for a job candidate (also
                 referred to as a "single-source
@@ -499,7 +503,7 @@ class ProfileServiceAsyncClient:
         or assignments associated.
 
         Args:
-            request (:class:`~.profile_service.DeleteProfileRequest`):
+            request (:class:`google.cloud.talent_v4beta1.types.DeleteProfileRequest`):
                 The request object. Delete profile request.
             name (:class:`str`):
                 Required. Resource name of the profile to be deleted.
@@ -507,6 +511,7 @@ class ProfileServiceAsyncClient:
                 The format is
                 "projects/{project_id}/tenants/{tenant_id}/profiles/{profile_id}".
                 For example, "projects/foo/tenants/bar/profiles/baz".
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -581,7 +586,7 @@ class ProfileServiceAsyncClient:
         for more information.
 
         Args:
-            request (:class:`~.profile_service.SearchProfilesRequest`):
+            request (:class:`google.cloud.talent_v4beta1.types.SearchProfilesRequest`):
                 The request object. The request body of the
                 `SearchProfiles` call.
 
@@ -592,7 +597,7 @@ class ProfileServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.SearchProfilesAsyncPager:
+            google.cloud.talent_v4beta1.services.profile_service.pagers.SearchProfilesAsyncPager:
                 Response of SearchProfiles method.
                 Iterating over this object will yield
                 results and resolve additional pages
