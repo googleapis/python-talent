@@ -143,6 +143,7 @@ __all__ = (
     "ApplicationDateFilter",
     "ApplicationJobFilter",
     "ApplicationOutcomeNotesFilter",
+    "ApplicationServiceClient",
     "AvailabilityFilter",
     "AvailabilitySignal",
     "AvailabilitySignalType",
@@ -156,7 +157,6 @@ __all__ = (
     "CommuteFilter",
     "CommuteMethod",
     "Company",
-    "CompanyServiceClient",
     "CompanySize",
     "CompensationFilter",
     "CompensationInfo",
@@ -253,5 +253,5 @@ __all__ = (
     "UpdateTenantRequest",
     "Visibility",
     "WorkExperienceFilter",
-    "ApplicationServiceClient",
+    "CompanyServiceClient",
 )
