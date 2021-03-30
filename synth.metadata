@@ -4,15 +4,15 @@
       "git": {
         "name": ".",
         "remote": "git@github.com:googleapis/python-talent",
-        "sha": "7e3cc914ac1163abca7002146189c49ed7a816b0"
+        "sha": "8a12124259ca87c5064fabe9f058ed966eea2d56"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "c539b9b08b3366ee00c0ec1950f4df711552a269",
-        "internalRef": "365759522"
+        "sha": "ef705a6d9fd6dcd8f0b13e012cb284332734785b",
+        "internalRef": "365856330"
       }
     },
     {
