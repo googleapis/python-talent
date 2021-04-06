@@ -143,6 +143,7 @@ __all__ = (
     "ApplicationDateFilter",
     "ApplicationJobFilter",
     "ApplicationOutcomeNotesFilter",
+    "ApplicationServiceClient",
     "AvailabilityFilter",
     "AvailabilitySignal",
     "AvailabilitySignalType",
@@ -185,7 +186,6 @@ __all__ = (
     "EmployerFilter",
     "EmploymentRecord",
     "EmploymentType",
-    "EventServiceClient",
     "GetApplicationRequest",
     "GetCompanyRequest",
     "GetJobRequest",
@@ -253,5 +253,5 @@ __all__ = (
     "UpdateTenantRequest",
     "Visibility",
     "WorkExperienceFilter",
-    "ApplicationServiceClient",
+    "EventServiceClient",
 )
