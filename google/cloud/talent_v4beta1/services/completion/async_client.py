@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 from collections import OrderedDict
 import functools
 import re
@@ -22,15 +20,14 @@ from typing import Dict, Sequence, Tuple, Type, Union
 import pkg_resources
 
 import google.api_core.client_options as ClientOptions  # type: ignore
-from google.api_core import exceptions  # type: ignore
+from google.api_core import exceptions as core_exceptions  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
 from google.api_core import retry as retries  # type: ignore
-from google.auth import credentials  # type: ignore
+from google.auth import credentials as ga_credentials  # type: ignore
 from google.oauth2 import service_account  # type: ignore
 
 from google.cloud.talent_v4beta1.types import common
 from google.cloud.talent_v4beta1.types import completion_service
-
 from .transports.base import CompletionTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc_asyncio import CompletionGrpcAsyncIOTransport
 from .client import CompletionClient
@@ -46,25 +43,20 @@ class CompletionAsyncClient:
 
     company_path = staticmethod(CompletionClient.company_path)
     parse_company_path = staticmethod(CompletionClient.parse_company_path)
-
     common_billing_account_path = staticmethod(
         CompletionClient.common_billing_account_path
     )
     parse_common_billing_account_path = staticmethod(
         CompletionClient.parse_common_billing_account_path
     )
-
     common_folder_path = staticmethod(CompletionClient.common_folder_path)
     parse_common_folder_path = staticmethod(CompletionClient.parse_common_folder_path)
-
     common_organization_path = staticmethod(CompletionClient.common_organization_path)
     parse_common_organization_path = staticmethod(
         CompletionClient.parse_common_organization_path
     )
-
     common_project_path = staticmethod(CompletionClient.common_project_path)
     parse_common_project_path = staticmethod(CompletionClient.parse_common_project_path)
-
     common_location_path = staticmethod(CompletionClient.common_location_path)
     parse_common_location_path = staticmethod(
         CompletionClient.parse_common_location_path
@@ -118,7 +110,7 @@ class CompletionAsyncClient:
     def __init__(
         self,
         *,
-        credentials: credentials.Credentials = None,
+        credentials: ga_credentials.Credentials = None,
         transport: Union[str, CompletionTransport] = "grpc_asyncio",
         client_options: ClientOptions = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
@@ -155,7 +147,6 @@ class CompletionAsyncClient:
             google.auth.exceptions.MutualTlsChannelError: If mutual TLS transport
                 creation failed for any reason.
         """
-
         self._client = CompletionClient(
             credentials=credentials,
             transport=transport,
@@ -178,7 +169,6 @@ class CompletionAsyncClient:
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.CompleteQueryRequest`):
                 The request object. Auto-complete parameters.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -190,7 +180,6 @@ class CompletionAsyncClient:
                 Response of auto-complete query.
         """
         # Create or coerce a protobuf request object.
-
         request = completion_service.CompleteQueryRequest(request)
 
         # Wrap the RPC method; this adds retry and timeout information,

@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,48 +13,46 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import proto  # type: ignore
 
-
-from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
-from google.protobuf import wrappers_pb2 as wrappers  # type: ignore
-from google.type import date_pb2 as date  # type: ignore
-from google.type import latlng_pb2 as latlng  # type: ignore
-from google.type import money_pb2 as money  # type: ignore
-from google.type import postal_address_pb2 as gt_postal_address  # type: ignore
+from google.protobuf import timestamp_pb2  # type: ignore
+from google.protobuf import wrappers_pb2  # type: ignore
+from google.type import date_pb2  # type: ignore
+from google.type import latlng_pb2  # type: ignore
+from google.type import money_pb2  # type: ignore
+from google.type import postal_address_pb2  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.cloud.talent.v4beta1",
+    package='google.cloud.talent.v4beta1',
     manifest={
-        "CompanySize",
-        "JobBenefit",
-        "DegreeType",
-        "EmploymentType",
-        "JobLevel",
-        "JobCategory",
-        "PostingRegion",
-        "Visibility",
-        "ContactInfoUsage",
-        "HtmlSanitization",
-        "CommuteMethod",
-        "SkillProficiencyLevel",
-        "Outcome",
-        "AvailabilitySignalType",
-        "TimestampRange",
-        "Location",
-        "RequestMetadata",
-        "ResponseMetadata",
-        "DeviceInfo",
-        "CustomAttribute",
-        "SpellingCorrection",
-        "CompensationInfo",
-        "Certification",
-        "Skill",
-        "Interview",
-        "Rating",
-        "BatchOperationMetadata",
+        'CompanySize',
+        'JobBenefit',
+        'DegreeType',
+        'EmploymentType',
+        'JobLevel',
+        'JobCategory',
+        'PostingRegion',
+        'Visibility',
+        'ContactInfoUsage',
+        'HtmlSanitization',
+        'CommuteMethod',
+        'SkillProficiencyLevel',
+        'Outcome',
+        'AvailabilitySignalType',
+        'TimestampRange',
+        'Location',
+        'RequestMetadata',
+        'ResponseMetadata',
+        'DeviceInfo',
+        'CustomAttribute',
+        'SpellingCorrection',
+        'CompensationInfo',
+        'Certification',
+        'Skill',
+        'Interview',
+        'Rating',
+        'BatchOperationMetadata',
     },
 )
 
@@ -187,7 +184,7 @@ class Visibility(proto.Enum):
     r"""Deprecated. All resources are only visible to the owner.
     An enum that represents who has view access to the resource.
     """
-    _pb_options = {"deprecated": True}
+     _pb_options = {'deprecated': True}
     VISIBILITY_UNSPECIFIED = 0
     ACCOUNT_ONLY = 1
     SHARED_WITH_GOOGLE = 2
@@ -253,7 +250,6 @@ class AvailabilitySignalType(proto.Enum):
 
 class TimestampRange(proto.Message):
     r"""Message representing a period of time between two timestamps.
-
     Attributes:
         start_time (google.protobuf.timestamp_pb2.Timestamp):
             Begin of the period (inclusive).
@@ -261,9 +257,16 @@ class TimestampRange(proto.Message):
             End of the period (exclusive).
     """
 
-    start_time = proto.Field(proto.MESSAGE, number=1, message=timestamp.Timestamp,)
-
-    end_time = proto.Field(proto.MESSAGE, number=2, message=timestamp.Timestamp,)
+    start_time = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=timestamp_pb2.Timestamp,
+    )
+    end_time = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=timestamp_pb2.Timestamp,
+    )
 
 
 class Location(proto.Message):
@@ -296,7 +299,6 @@ class Location(proto.Message):
             associated with the job location. For example, currently,
             "Mountain View, CA, USA" has a radius of 6.17 miles.
     """
-
     class LocationType(proto.Enum):
         r"""An enum which represents the type of a location."""
         LOCATION_TYPE_UNSPECIFIED = 0
@@ -311,15 +313,25 @@ class Location(proto.Message):
         NEIGHBORHOOD = 9
         STREET_ADDRESS = 10
 
-    location_type = proto.Field(proto.ENUM, number=1, enum=LocationType,)
-
-    postal_address = proto.Field(
-        proto.MESSAGE, number=2, message=gt_postal_address.PostalAddress,
+    location_type = proto.Field(
+        proto.ENUM,
+        number=1,
+        enum=LocationType,
     )
-
-    lat_lng = proto.Field(proto.MESSAGE, number=3, message=latlng.LatLng,)
-
-    radius_miles = proto.Field(proto.DOUBLE, number=4)
+    postal_address = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=gt_postal_address.PostalAddress,
+    )
+    lat_lng = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=latlng_pb2.LatLng,
+    )
+    radius_miles = proto.Field(
+        proto.DOUBLE,
+        number=4,
+    )
 
 
 class RequestMetadata(proto.Message):
@@ -396,15 +408,27 @@ class RequestMetadata(proto.Message):
             the time of the call to the service.
     """
 
-    domain = proto.Field(proto.STRING, number=1)
-
-    session_id = proto.Field(proto.STRING, number=2)
-
-    user_id = proto.Field(proto.STRING, number=3)
-
-    allow_missing_ids = proto.Field(proto.BOOL, number=4)
-
-    device_info = proto.Field(proto.MESSAGE, number=5, message="DeviceInfo",)
+    domain = proto.Field(
+        proto.STRING,
+        number=1,
+    )
+    session_id = proto.Field(
+        proto.STRING,
+        number=2,
+    )
+    user_id = proto.Field(
+        proto.STRING,
+        number=3,
+    )
+    allow_missing_ids = proto.Field(
+        proto.BOOL,
+        number=4,
+    )
+    device_info = proto.Field(
+        proto.MESSAGE,
+        number=5,
+        message='DeviceInfo',
+    )
 
 
 class ResponseMetadata(proto.Message):
@@ -417,7 +441,10 @@ class ResponseMetadata(proto.Message):
             This id is logged for tracking purposes.
     """
 
-    request_id = proto.Field(proto.STRING, number=1)
+    request_id = proto.Field(
+        proto.STRING,
+        number=1,
+    )
 
 
 class DeviceInfo(proto.Message):
@@ -434,7 +461,6 @@ class DeviceInfo(proto.Message):
             identifier that distinguishes the device from
             other devices.
     """
-
     class DeviceType(proto.Enum):
         r"""An enumeration describing an API access portal and exposure
         mechanism.
@@ -447,9 +473,15 @@ class DeviceInfo(proto.Message):
         BOT = 5
         OTHER = 6
 
-    device_type = proto.Field(proto.ENUM, number=1, enum=DeviceType,)
-
-    id = proto.Field(proto.STRING, number=2)
+    device_type = proto.Field(
+        proto.ENUM,
+        number=1,
+        enum=DeviceType,
+    )
+    id = proto.Field(
+        proto.STRING,
+        number=2,
+    )
 
 
 class CustomAttribute(proto.Message):
@@ -494,16 +526,22 @@ class CustomAttribute(proto.Message):
             Default is false.
     """
 
-    string_values = proto.RepeatedField(proto.STRING, number=1)
-
-    long_values = proto.RepeatedField(proto.INT64, number=2)
-
-    filterable = proto.Field(proto.BOOL, number=3)
+    string_values = proto.RepeatedField(
+        proto.STRING,
+        number=1,
+    )
+    long_values = proto.RepeatedField(
+        proto.INT64,
+        number=2,
+    )
+    filterable = proto.Field(
+        proto.BOOL,
+        number=3,
+    )
 
 
 class SpellingCorrection(proto.Message):
     r"""Spell check result.
-
     Attributes:
         corrected (bool):
             Indicates if the query was corrected by the
@@ -522,16 +560,22 @@ class SpellingCorrection(proto.Message):
             "software <b><i>engineer</i></b>".
     """
 
-    corrected = proto.Field(proto.BOOL, number=1)
-
-    corrected_text = proto.Field(proto.STRING, number=2)
-
-    corrected_html = proto.Field(proto.STRING, number=3)
+    corrected = proto.Field(
+        proto.BOOL,
+        number=1,
+    )
+    corrected_text = proto.Field(
+        proto.STRING,
+        number=2,
+    )
+    corrected_html = proto.Field(
+        proto.STRING,
+        number=3,
+    )
 
 
 class CompensationInfo(proto.Message):
     r"""Job compensation details.
-
     Attributes:
         entries (Sequence[google.cloud.talent_v4beta1.types.CompensationInfo.CompensationEntry]):
             Job compensation information.
@@ -561,7 +605,6 @@ class CompensationInfo(proto.Message):
             [CompensationEntry][google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry]
             for explanation on compensation annualization.
     """
-
     class CompensationType(proto.Enum):
         r"""The type of compensation.
 
@@ -666,33 +709,39 @@ class CompensationInfo(proto.Message):
         """
 
         type_ = proto.Field(
-            proto.ENUM, number=1, enum="CompensationInfo.CompensationType",
+            proto.ENUM,
+            number=1,
+            enum='CompensationInfo.CompensationType',
         )
-
         unit = proto.Field(
-            proto.ENUM, number=2, enum="CompensationInfo.CompensationUnit",
+            proto.ENUM,
+            number=2,
+            enum='CompensationInfo.CompensationUnit',
         )
-
         amount = proto.Field(
-            proto.MESSAGE, number=3, oneof="compensation_amount", message=money.Money,
+            proto.MESSAGE,
+            number=3,
+            oneof='compensation_amount',
+            message=money_pb2.Money,
         )
-
         range_ = proto.Field(
             proto.MESSAGE,
             number=4,
-            oneof="compensation_amount",
-            message="CompensationInfo.CompensationRange",
+            oneof='compensation_amount',
+            message='CompensationInfo.CompensationRange',
         )
-
-        description = proto.Field(proto.STRING, number=5)
-
+        description = proto.Field(
+            proto.STRING,
+            number=5,
+        )
         expected_units_per_year = proto.Field(
-            proto.MESSAGE, number=6, message=wrappers.DoubleValue,
+            proto.MESSAGE,
+            number=6,
+            message=wrappers_pb2.DoubleValue,
         )
 
     class CompensationRange(proto.Message):
         r"""Compensation range.
-
         Attributes:
             max_compensation (google.type.money_pb2.Money):
                 The maximum amount of compensation. If left empty, the value
@@ -706,24 +755,36 @@ class CompensationInfo(proto.Message):
                 max_compensation.
         """
 
-        max_compensation = proto.Field(proto.MESSAGE, number=2, message=money.Money,)
+        max_compensation = proto.Field(
+            proto.MESSAGE,
+            number=2,
+            message=money_pb2.Money,
+        )
+        min_compensation = proto.Field(
+            proto.MESSAGE,
+            number=1,
+            message=money_pb2.Money,
+        )
 
-        min_compensation = proto.Field(proto.MESSAGE, number=1, message=money.Money,)
-
-    entries = proto.RepeatedField(proto.MESSAGE, number=1, message=CompensationEntry,)
-
-    annualized_base_compensation_range = proto.Field(
-        proto.MESSAGE, number=2, message=CompensationRange,
+    entries = proto.RepeatedField(
+        proto.MESSAGE,
+        number=1,
+        message=CompensationEntry,
     )
-
+    annualized_base_compensation_range = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=CompensationRange,
+    )
     annualized_total_compensation_range = proto.Field(
-        proto.MESSAGE, number=3, message=CompensationRange,
+        proto.MESSAGE,
+        number=3,
+        message=CompensationRange,
     )
 
 
 class Certification(proto.Message):
     r"""Resource that represents a license or certification.
-
     Attributes:
         display_name (str):
             Name of license or certification.
@@ -741,20 +802,32 @@ class Certification(proto.Message):
             Number of characters allowed is 100,000.
     """
 
-    display_name = proto.Field(proto.STRING, number=1)
-
-    acquire_date = proto.Field(proto.MESSAGE, number=2, message=date.Date,)
-
-    expire_date = proto.Field(proto.MESSAGE, number=3, message=date.Date,)
-
-    authority = proto.Field(proto.STRING, number=4)
-
-    description = proto.Field(proto.STRING, number=5)
+    display_name = proto.Field(
+        proto.STRING,
+        number=1,
+    )
+    acquire_date = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=date_pb2.Date,
+    )
+    expire_date = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=date_pb2.Date,
+    )
+    authority = proto.Field(
+        proto.STRING,
+        number=4,
+    )
+    description = proto.Field(
+        proto.STRING,
+        number=5,
+    )
 
 
 class Skill(proto.Message):
     r"""Resource that represents a skill of a candidate.
-
     Attributes:
         display_name (str):
             Skill display name.
@@ -777,20 +850,32 @@ class Skill(proto.Message):
             isn't related to the search query.
     """
 
-    display_name = proto.Field(proto.STRING, number=1)
-
-    last_used_date = proto.Field(proto.MESSAGE, number=2, message=date.Date,)
-
-    level = proto.Field(proto.ENUM, number=3, enum="SkillProficiencyLevel",)
-
-    context = proto.Field(proto.STRING, number=4)
-
-    skill_name_snippet = proto.Field(proto.STRING, number=5)
+    display_name = proto.Field(
+        proto.STRING,
+        number=1,
+    )
+    last_used_date = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=date_pb2.Date,
+    )
+    level = proto.Field(
+        proto.ENUM,
+        number=3,
+        enum='SkillProficiencyLevel',
+    )
+    context = proto.Field(
+        proto.STRING,
+        number=4,
+    )
+    skill_name_snippet = proto.Field(
+        proto.STRING,
+        number=5,
+    )
 
 
 class Interview(proto.Message):
     r"""Details of an interview.
-
     Attributes:
         rating (google.cloud.talent_v4beta1.types.Rating):
             The rating on this interview.
@@ -799,9 +884,16 @@ class Interview(proto.Message):
             this interview (positive, negative, nuetral).
     """
 
-    rating = proto.Field(proto.MESSAGE, number=6, message="Rating",)
-
-    outcome = proto.Field(proto.ENUM, number=7, enum="Outcome",)
+    rating = proto.Field(
+        proto.MESSAGE,
+        number=6,
+        message='Rating',
+    )
+    outcome = proto.Field(
+        proto.ENUM,
+        number=7,
+        enum='Outcome',
+    )
 
 
 class Rating(proto.Message):
@@ -821,13 +913,22 @@ class Rating(proto.Message):
             score can be 1, 2, 3, 4, or 5)
     """
 
-    overall = proto.Field(proto.DOUBLE, number=1)
-
-    min_ = proto.Field(proto.DOUBLE, number=2)
-
-    max_ = proto.Field(proto.DOUBLE, number=3)
-
-    interval = proto.Field(proto.DOUBLE, number=4)
+    overall = proto.Field(
+        proto.DOUBLE,
+        number=1,
+    )
+    min_ = proto.Field(
+        proto.DOUBLE,
+        number=2,
+    )
+    max_ = proto.Field(
+        proto.DOUBLE,
+        number=3,
+    )
+    interval = proto.Field(
+        proto.DOUBLE,
+        number=4,
+    )
 
 
 class BatchOperationMetadata(proto.Message):
@@ -860,7 +961,6 @@ class BatchOperationMetadata(proto.Message):
             [google.longrunning.Operation.done][google.longrunning.Operation.done]
             is set to ``true``.
     """
-
     class State(proto.Enum):
         r""""""
         STATE_UNSPECIFIED = 0
@@ -871,21 +971,42 @@ class BatchOperationMetadata(proto.Message):
         CANCELLING = 5
         CANCELLED = 6
 
-    state = proto.Field(proto.ENUM, number=1, enum=State,)
-
-    state_description = proto.Field(proto.STRING, number=2)
-
-    success_count = proto.Field(proto.INT32, number=3)
-
-    failure_count = proto.Field(proto.INT32, number=4)
-
-    total_count = proto.Field(proto.INT32, number=5)
-
-    create_time = proto.Field(proto.MESSAGE, number=6, message=timestamp.Timestamp,)
-
-    update_time = proto.Field(proto.MESSAGE, number=7, message=timestamp.Timestamp,)
-
-    end_time = proto.Field(proto.MESSAGE, number=8, message=timestamp.Timestamp,)
+    state = proto.Field(
+        proto.ENUM,
+        number=1,
+        enum=State,
+    )
+    state_description = proto.Field(
+        proto.STRING,
+        number=2,
+    )
+    success_count = proto.Field(
+        proto.INT32,
+        number=3,
+    )
+    failure_count = proto.Field(
+        proto.INT32,
+        number=4,
+    )
+    total_count = proto.Field(
+        proto.INT32,
+        number=5,
+    )
+    create_time = proto.Field(
+        proto.MESSAGE,
+        number=6,
+        message=timestamp_pb2.Timestamp,
+    )
+    update_time = proto.Field(
+        proto.MESSAGE,
+        number=7,
+        message=timestamp_pb2.Timestamp,
+    )
+    end_time = proto.Field(
+        proto.MESSAGE,
+        number=8,
+        message=timestamp_pb2.Timestamp,
+    )
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))
