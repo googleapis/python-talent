@@ -353,7 +353,8 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
         Args:
             request (google.cloud.talent_v4beta1.types.CreateTenantRequest):
-                The request object. The Request of the CreateTenant
+                The request object.
+                The Request of the CreateTenant
                 method.
             parent (str):
                 Required. Resource name of the project under which the
@@ -439,7 +440,8 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
         Args:
             request (google.cloud.talent_v4beta1.types.GetTenantRequest):
-                The request object. Request for getting a tenant by
+                The request object.
+                Request for getting a tenant by
                 name.
             name (str):
                 Required. The resource name of the tenant to be
@@ -519,7 +521,8 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
         Args:
             request (google.cloud.talent_v4beta1.types.UpdateTenantRequest):
-                The request object. Request for updating a specified
+                The request object.
+                Request for updating a specified
                 tenant.
             tenant (google.cloud.talent_v4beta1.types.Tenant):
                 Required. The tenant resource to
@@ -598,7 +601,8 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
         Args:
             request (google.cloud.talent_v4beta1.types.DeleteTenantRequest):
-                The request object. Request to delete a tenant.
+                The request object.
+                Request to delete a tenant.
             name (str):
                 Required. The resource name of the tenant to be deleted.
 
@@ -664,7 +668,8 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
         Args:
             request (google.cloud.talent_v4beta1.types.ListTenantsRequest):
-                The request object. List tenants for which the client
+                The request object.
+                List tenants for which the client
                 has ACL visibility.
             parent (str):
                 Required. Resource name of the project under which the

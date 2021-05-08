@@ -180,7 +180,8 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.CreateJobRequest`):
-                The request object. Create job request.
+                The request object.
+                Create job request.
             parent (:class:`str`):
                 Required. The resource name of the tenant under which
                 the job is created.
@@ -266,7 +267,8 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.BatchCreateJobsRequest`):
-                The request object. Request to create a batch of jobs.
+                The request object.
+                Request to create a batch of jobs.
             parent (:class:`str`):
                 Required. The resource name of the tenant under which
                 the job is created.
@@ -363,7 +365,8 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.GetJobRequest`):
-                The request object. Get job request.
+                The request object.
+                Get job request.
             name (:class:`str`):
                 Required. The resource name of the job to retrieve.
 
@@ -453,7 +456,8 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.UpdateJobRequest`):
-                The request object. Update job request.
+                The request object.
+                Update job request.
             job (:class:`google.cloud.talent_v4beta1.types.Job`):
                 Required. The Job to be updated.
                 This corresponds to the ``job`` field
@@ -524,7 +528,8 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.BatchUpdateJobsRequest`):
-                The request object. Request to update a batch of jobs.
+                The request object.
+                Request to update a batch of jobs.
             parent (:class:`str`):
                 Required. The resource name of the tenant under which
                 the job is created.
@@ -622,7 +627,8 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.DeleteJobRequest`):
-                The request object. Delete job request.
+                The request object.
+                Delete job request.
             name (:class:`str`):
                 Required. The resource name of the job to be deleted.
 
@@ -702,7 +708,8 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.BatchDeleteJobsRequest`):
-                The request object. Batch delete jobs request.
+                The request object.
+                Batch delete jobs request.
             parent (:class:`str`):
                 Required. The resource name of the tenant under which
                 the job is created.
@@ -791,7 +798,8 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.ListJobsRequest`):
-                The request object. List jobs request.
+                The request object.
+                List jobs request.
             parent (:class:`str`):
                 Required. The resource name of the tenant under which
                 the job is created.
@@ -918,7 +926,8 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.SearchJobsRequest`):
-                The request object. The Request body of the `SearchJobs`
+                The request object.
+                The Request body of the `SearchJobs`
                 call.
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
@@ -987,7 +996,8 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.SearchJobsRequest`):
-                The request object. The Request body of the `SearchJobs`
+                The request object.
+                The Request body of the `SearchJobs`
                 call.
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.

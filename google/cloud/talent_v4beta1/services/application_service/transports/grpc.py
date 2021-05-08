@@ -231,7 +231,9 @@ class ApplicationServiceGrpcTransport(ApplicationServiceTransport):
     ) -> Callable[
         [application_service.CreateApplicationRequest], gct_application.Application
     ]:
-        r"""Return a callable for the create application method over gRPC.
+        r"""Return a callable for the
+        create application
+          method over gRPC.
 
         Creates a new application entity.
 
@@ -257,7 +259,9 @@ class ApplicationServiceGrpcTransport(ApplicationServiceTransport):
     def get_application(
         self,
     ) -> Callable[[application_service.GetApplicationRequest], application.Application]:
-        r"""Return a callable for the get application method over gRPC.
+        r"""Return a callable for the
+        get application
+          method over gRPC.
 
         Retrieves specified application.
 
@@ -285,7 +289,9 @@ class ApplicationServiceGrpcTransport(ApplicationServiceTransport):
     ) -> Callable[
         [application_service.UpdateApplicationRequest], gct_application.Application
     ]:
-        r"""Return a callable for the update application method over gRPC.
+        r"""Return a callable for the
+        update application
+          method over gRPC.
 
         Updates specified application.
 
@@ -311,7 +317,9 @@ class ApplicationServiceGrpcTransport(ApplicationServiceTransport):
     def delete_application(
         self,
     ) -> Callable[[application_service.DeleteApplicationRequest], empty.Empty]:
-        r"""Return a callable for the delete application method over gRPC.
+        r"""Return a callable for the
+        delete application
+          method over gRPC.
 
         Deletes specified application.
 
@@ -340,7 +348,9 @@ class ApplicationServiceGrpcTransport(ApplicationServiceTransport):
         [application_service.ListApplicationsRequest],
         application_service.ListApplicationsResponse,
     ]:
-        r"""Return a callable for the list applications method over gRPC.
+        r"""Return a callable for the
+        list applications
+          method over gRPC.
 
         Lists all applications associated with the profile.
 

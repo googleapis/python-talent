@@ -233,7 +233,9 @@ class TenantServiceGrpcAsyncIOTransport(TenantServiceTransport):
     def create_tenant(
         self,
     ) -> Callable[[tenant_service.CreateTenantRequest], Awaitable[gct_tenant.Tenant]]:
-        r"""Return a callable for the create tenant method over gRPC.
+        r"""Return a callable for the
+        create tenant
+          method over gRPC.
 
         Creates a new tenant entity.
 
@@ -259,7 +261,9 @@ class TenantServiceGrpcAsyncIOTransport(TenantServiceTransport):
     def get_tenant(
         self,
     ) -> Callable[[tenant_service.GetTenantRequest], Awaitable[tenant.Tenant]]:
-        r"""Return a callable for the get tenant method over gRPC.
+        r"""Return a callable for the
+        get tenant
+          method over gRPC.
 
         Retrieves specified tenant.
 
@@ -285,7 +289,9 @@ class TenantServiceGrpcAsyncIOTransport(TenantServiceTransport):
     def update_tenant(
         self,
     ) -> Callable[[tenant_service.UpdateTenantRequest], Awaitable[gct_tenant.Tenant]]:
-        r"""Return a callable for the update tenant method over gRPC.
+        r"""Return a callable for the
+        update tenant
+          method over gRPC.
 
         Updates specified tenant.
 
@@ -311,7 +317,9 @@ class TenantServiceGrpcAsyncIOTransport(TenantServiceTransport):
     def delete_tenant(
         self,
     ) -> Callable[[tenant_service.DeleteTenantRequest], Awaitable[empty.Empty]]:
-        r"""Return a callable for the delete tenant method over gRPC.
+        r"""Return a callable for the
+        delete tenant
+          method over gRPC.
 
         Deletes specified tenant.
 
@@ -340,7 +348,9 @@ class TenantServiceGrpcAsyncIOTransport(TenantServiceTransport):
         [tenant_service.ListTenantsRequest],
         Awaitable[tenant_service.ListTenantsResponse],
     ]:
-        r"""Return a callable for the list tenants method over gRPC.
+        r"""Return a callable for the
+        list tenants
+          method over gRPC.
 
         Lists all tenants associated with the project.
 

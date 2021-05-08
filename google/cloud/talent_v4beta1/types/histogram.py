@@ -64,7 +64,7 @@ class HistogramQueryResult(proto.Message):
     """
 
     histogram_query = proto.Field(proto.STRING, number=1,)
-    histogram = proto.MapField(proto.STRING, proto.INT64, number=2,)
+    histogram = proto.MapField(proto.STRING, proto.INT64, number=2)
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))

@@ -168,7 +168,8 @@ class CompletionAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.CompleteQueryRequest`):
-                The request object. Auto-complete parameters.
+                The request object.
+                Auto-complete parameters.
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
