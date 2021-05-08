@@ -177,8 +177,7 @@ class EventServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.CreateClientEventRequest`):
-                The request object.
-                The report event request.
+                The request object. The report event request.
             parent (:class:`str`):
                 Required. Resource name of the tenant under which the
                 event is created.

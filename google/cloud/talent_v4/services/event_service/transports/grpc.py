@@ -226,9 +226,7 @@ class EventServiceGrpcTransport(EventServiceTransport):
     def create_client_event(
         self,
     ) -> Callable[[event_service.CreateClientEventRequest], event.ClientEvent]:
-        r"""Return a callable for the
-        create client event
-          method over gRPC.
+        r"""Return a callable for the create client event method over gRPC.
 
         Report events issued when end user interacts with customer's
         application that uses Cloud Talent Solution. You may inspect the

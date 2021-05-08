@@ -183,8 +183,7 @@ class ProfileServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.ListProfilesRequest`):
-                The request object.
-                List profiles request.
+                The request object. List profiles request.
             parent (:class:`str`):
                 Required. The resource name of the tenant under which
                 the profile is created.
@@ -276,8 +275,7 @@ class ProfileServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.CreateProfileRequest`):
-                The request object.
-                Create profile request.
+                The request object. Create profile request.
             parent (:class:`str`):
                 Required. The name of the tenant this profile belongs
                 to.
@@ -360,8 +358,7 @@ class ProfileServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.GetProfileRequest`):
-                The request object.
-                Get profile request.
+                The request object. Get profile request.
             name (:class:`str`):
                 Required. Resource name of the profile to get.
 
@@ -446,8 +443,7 @@ class ProfileServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.UpdateProfileRequest`):
-                The request object.
-                Update profile request
+                The request object. Update profile request
             profile (:class:`google.cloud.talent_v4beta1.types.Profile`):
                 Required. Profile to be updated.
                 This corresponds to the ``profile`` field
@@ -521,8 +517,7 @@ class ProfileServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.DeleteProfileRequest`):
-                The request object.
-                Delete profile request.
+                The request object. Delete profile request.
             name (:class:`str`):
                 Required. Resource name of the profile to be deleted.
 
@@ -604,8 +599,7 @@ class ProfileServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.SearchProfilesRequest`):
-                The request object.
-                The request body of the
+                The request object. The request body of the
                 `SearchProfiles` call.
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.

@@ -179,8 +179,7 @@ class CompanyServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.CreateCompanyRequest`):
-                The request object.
-                The Request of the CreateCompany
+                The request object. The Request of the CreateCompany
                 method.
             parent (:class:`str`):
                 Required. Resource name of the tenant under which the
@@ -268,8 +267,7 @@ class CompanyServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.GetCompanyRequest`):
-                The request object.
-                Request for getting a company by
+                The request object. Request for getting a company by
                 name.
             name (:class:`str`):
                 Required. The resource name of the company to be
@@ -361,8 +359,7 @@ class CompanyServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.UpdateCompanyRequest`):
-                The request object.
-                Request for updating a specified
+                The request object. Request for updating a specified
                 company.
             company (:class:`google.cloud.talent_v4beta1.types.Company`):
                 Required. The company resource to
@@ -442,8 +439,7 @@ class CompanyServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.DeleteCompanyRequest`):
-                The request object.
-                Request to delete a company.
+                The request object. Request to delete a company.
             name (:class:`str`):
                 Required. The resource name of the company to be
                 deleted.
@@ -522,8 +518,7 @@ class CompanyServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.ListCompaniesRequest`):
-                The request object.
-                List companies for which the client
+                The request object. List companies for which the client
                 has ACL visibility.
             parent (:class:`str`):
                 Required. Resource name of the tenant under which the

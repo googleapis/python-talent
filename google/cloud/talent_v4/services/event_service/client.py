@@ -356,8 +356,7 @@ class EventServiceClient(metaclass=EventServiceClientMeta):
 
         Args:
             request (google.cloud.talent_v4.types.CreateClientEventRequest):
-                The request object.
-                The report event request.
+                The request object. The report event request.
             parent (str):
                 Required. Resource name of the tenant under which the
                 event is created.

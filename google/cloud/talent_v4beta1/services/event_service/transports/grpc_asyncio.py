@@ -232,9 +232,7 @@ class EventServiceGrpcAsyncIOTransport(EventServiceTransport):
     ) -> Callable[
         [event_service.CreateClientEventRequest], Awaitable[event.ClientEvent]
     ]:
-        r"""Return a callable for the
-        create client event
-          method over gRPC.
+        r"""Return a callable for the create client event method over gRPC.
 
         Report events issued when end user interacts with customer's
         application that uses Cloud Talent Solution. You may inspect the
