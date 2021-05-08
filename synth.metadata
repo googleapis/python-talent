@@ -4,29 +4,15 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-talent.git",
-        "sha": "12d77fa03a5b4757e74c40f5aa7d4e60bcebf4c2"
+        "sha": "9dd06e070310567c62749954cd7c2a52f4d7963b"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "ef705a6d9fd6dcd8f0b13e012cb284332734785b",
-        "internalRef": "365856330"
-      }
-    },
-    {
-      "git": {
-        "name": "synthtool",
-        "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "4501974ad08b5d693311457e2ea4ce845676e329"
-      }
-    },
-    {
-      "git": {
-        "name": "synthtool",
-        "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "4501974ad08b5d693311457e2ea4ce845676e329"
+        "sha": "fc62a8d41f691de3524805cdb52a5c352796f322",
+        "internalRef": "372626134"
       }
     }
   ],
@@ -127,9 +113,11 @@
     "docs/talent_v4beta1/services.rst",
     "docs/talent_v4beta1/tenant_service.rst",
     "docs/talent_v4beta1/types.rst",
+    "examples/feature_fragments",
     "google/cloud/talent/__init__.py",
     "google/cloud/talent/py.typed",
     "google/cloud/talent_v4/__init__.py",
+    "google/cloud/talent_v4/gapic_metadata.json",
     "google/cloud/talent_v4/proto/common.proto",
     "google/cloud/talent_v4/proto/company.proto",
     "google/cloud/talent_v4/proto/company_service.proto",
@@ -196,6 +184,7 @@
     "google/cloud/talent_v4/types/tenant.py",
     "google/cloud/talent_v4/types/tenant_service.py",
     "google/cloud/talent_v4beta1/__init__.py",
+    "google/cloud/talent_v4beta1/gapic_metadata.json",
     "google/cloud/talent_v4beta1/proto/application.proto",
     "google/cloud/talent_v4beta1/proto/application_service.proto",
     "google/cloud/talent_v4beta1/proto/batch.proto",
@@ -304,6 +293,9 @@
     "scripts/readme-gen/templates/install_portaudio.tmpl.rst",
     "setup.cfg",
     "testing/.gitignore",
+    "tests/__init__.py",
+    "tests/unit/__init__.py",
+    "tests/unit/gapic/__init__.py",
     "tests/unit/gapic/talent_v4/__init__.py",
     "tests/unit/gapic/talent_v4/test_company_service.py",
     "tests/unit/gapic/talent_v4/test_completion.py",
