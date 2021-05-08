@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,15 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import os
 import mock
+import packaging.version
 
 import grpc
 from grpc.experimental import aio
 import math
 import pytest
 from proto.marshal.rules.dates import DurationRule, TimestampRule
+
 
 from google import auth
 from google.api_core import client_options
@@ -36,6 +36,12 @@ from google.cloud.talent_v4.services.company_service import CompanyServiceAsyncC
 from google.cloud.talent_v4.services.company_service import CompanyServiceClient
 from google.cloud.talent_v4.services.company_service import pagers
 from google.cloud.talent_v4.services.company_service import transports
+from google.cloud.talent_v4.services.company_service.transports.base import (
+    _API_CORE_VERSION,
+)
+from google.cloud.talent_v4.services.company_service.transports.base import (
+    _GOOGLE_AUTH_VERSION,
+)
 from google.cloud.talent_v4.types import common
 from google.cloud.talent_v4.types import company
 from google.cloud.talent_v4.types import company as gct_company
@@ -44,6 +50,29 @@ from google.oauth2 import service_account
 from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
 from google.type import latlng_pb2 as latlng  # type: ignore
 from google.type import postal_address_pb2 as postal_address  # type: ignore
+
+
+# TODO(busunkim): Once google-api-core >= 1.26.0 is required:
+# - Delete all the api-core and auth "less than" test cases
+# - Delete these pytest markers (Make the "greater than or equal to" tests the default).
+requires_google_auth_lt_1_25_0 = pytest.mark.skipif(
+    packaging.version.parse(_GOOGLE_AUTH_VERSION) >= packaging.version.parse("1.25.0"),
+    reason="This test requires google-auth < 1.25.0",
+)
+requires_google_auth_gte_1_25_0 = pytest.mark.skipif(
+    packaging.version.parse(_GOOGLE_AUTH_VERSION) < packaging.version.parse("1.25.0"),
+    reason="This test requires google-auth >= 1.25.0",
+)
+
+requires_api_core_lt_1_26_0 = pytest.mark.skipif(
+    packaging.version.parse(_API_CORE_VERSION) >= packaging.version.parse("1.26.0"),
+    reason="This test requires google-api-core < 1.26.0",
+)
+
+requires_api_core_gte_1_26_0 = pytest.mark.skipif(
+    packaging.version.parse(_API_CORE_VERSION) < packaging.version.parse("1.26.0"),
+    reason="This test requires google-api-core >= 1.26.0",
+)
 
 
 def client_cert_source_callback():
@@ -478,43 +507,28 @@ def test_create_company(
             ],
             suspended=True,
         )
-
         response = client.create_company(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.CreateCompanyRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, gct_company.Company)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.external_id == "external_id_value"
-
     assert response.size == common.CompanySize.MINI
-
     assert response.headquarters_address == "headquarters_address_value"
-
     assert response.hiring_agency is True
-
     assert response.eeo_text == "eeo_text_value"
-
     assert response.website_uri == "website_uri_value"
-
     assert response.career_site_uri == "career_site_uri_value"
-
     assert response.image_uri == "image_uri_value"
-
     assert response.keyword_searchable_job_custom_attributes == [
         "keyword_searchable_job_custom_attributes_value"
     ]
-
     assert response.suspended is True
 
 
@@ -534,7 +548,6 @@ def test_create_company_empty_call():
         client.create_company()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.CreateCompanyRequest()
 
 
@@ -571,42 +584,28 @@ async def test_create_company_async(
                 suspended=True,
             )
         )
-
         response = await client.create_company(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.CreateCompanyRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, gct_company.Company)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.external_id == "external_id_value"
-
     assert response.size == common.CompanySize.MINI
-
     assert response.headquarters_address == "headquarters_address_value"
-
     assert response.hiring_agency is True
-
     assert response.eeo_text == "eeo_text_value"
-
     assert response.website_uri == "website_uri_value"
-
     assert response.career_site_uri == "career_site_uri_value"
-
     assert response.image_uri == "image_uri_value"
-
     assert response.keyword_searchable_job_custom_attributes == [
         "keyword_searchable_job_custom_attributes_value"
     ]
-
     assert response.suspended is True
 
 
@@ -621,12 +620,12 @@ def test_create_company_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = company_service.CreateCompanyRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.create_company), "__call__") as call:
         call.return_value = gct_company.Company()
-
         client.create_company(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -646,12 +645,12 @@ async def test_create_company_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = company_service.CreateCompanyRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.create_company), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(gct_company.Company())
-
         await client.create_company(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -671,7 +670,6 @@ def test_create_company_flattened():
     with mock.patch.object(type(client.transport.create_company), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = gct_company.Company()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.create_company(
@@ -682,9 +680,7 @@ def test_create_company_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
-
         assert args[0].company == gct_company.Company(name="name_value")
 
 
@@ -721,9 +717,7 @@ async def test_create_company_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
-
         assert args[0].company == gct_company.Company(name="name_value")
 
 
@@ -771,43 +765,28 @@ def test_get_company(
             ],
             suspended=True,
         )
-
         response = client.get_company(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.GetCompanyRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, company.Company)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.external_id == "external_id_value"
-
     assert response.size == common.CompanySize.MINI
-
     assert response.headquarters_address == "headquarters_address_value"
-
     assert response.hiring_agency is True
-
     assert response.eeo_text == "eeo_text_value"
-
     assert response.website_uri == "website_uri_value"
-
     assert response.career_site_uri == "career_site_uri_value"
-
     assert response.image_uri == "image_uri_value"
-
     assert response.keyword_searchable_job_custom_attributes == [
         "keyword_searchable_job_custom_attributes_value"
     ]
-
     assert response.suspended is True
 
 
@@ -827,7 +806,6 @@ def test_get_company_empty_call():
         client.get_company()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.GetCompanyRequest()
 
 
@@ -864,42 +842,28 @@ async def test_get_company_async(
                 suspended=True,
             )
         )
-
         response = await client.get_company(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.GetCompanyRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, company.Company)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.external_id == "external_id_value"
-
     assert response.size == common.CompanySize.MINI
-
     assert response.headquarters_address == "headquarters_address_value"
-
     assert response.hiring_agency is True
-
     assert response.eeo_text == "eeo_text_value"
-
     assert response.website_uri == "website_uri_value"
-
     assert response.career_site_uri == "career_site_uri_value"
-
     assert response.image_uri == "image_uri_value"
-
     assert response.keyword_searchable_job_custom_attributes == [
         "keyword_searchable_job_custom_attributes_value"
     ]
-
     assert response.suspended is True
 
 
@@ -914,12 +878,12 @@ def test_get_company_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = company_service.GetCompanyRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.get_company), "__call__") as call:
         call.return_value = company.Company()
-
         client.get_company(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -939,12 +903,12 @@ async def test_get_company_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = company_service.GetCompanyRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.get_company), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(company.Company())
-
         await client.get_company(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -964,7 +928,6 @@ def test_get_company_flattened():
     with mock.patch.object(type(client.transport.get_company), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = company.Company()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.get_company(name="name_value",)
@@ -973,7 +936,6 @@ def test_get_company_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -1006,7 +968,6 @@ async def test_get_company_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -1052,43 +1013,28 @@ def test_update_company(
             ],
             suspended=True,
         )
-
         response = client.update_company(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.UpdateCompanyRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, gct_company.Company)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.external_id == "external_id_value"
-
     assert response.size == common.CompanySize.MINI
-
     assert response.headquarters_address == "headquarters_address_value"
-
     assert response.hiring_agency is True
-
     assert response.eeo_text == "eeo_text_value"
-
     assert response.website_uri == "website_uri_value"
-
     assert response.career_site_uri == "career_site_uri_value"
-
     assert response.image_uri == "image_uri_value"
-
     assert response.keyword_searchable_job_custom_attributes == [
         "keyword_searchable_job_custom_attributes_value"
     ]
-
     assert response.suspended is True
 
 
@@ -1108,7 +1054,6 @@ def test_update_company_empty_call():
         client.update_company()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.UpdateCompanyRequest()
 
 
@@ -1145,42 +1090,28 @@ async def test_update_company_async(
                 suspended=True,
             )
         )
-
         response = await client.update_company(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.UpdateCompanyRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, gct_company.Company)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.external_id == "external_id_value"
-
     assert response.size == common.CompanySize.MINI
-
     assert response.headquarters_address == "headquarters_address_value"
-
     assert response.hiring_agency is True
-
     assert response.eeo_text == "eeo_text_value"
-
     assert response.website_uri == "website_uri_value"
-
     assert response.career_site_uri == "career_site_uri_value"
-
     assert response.image_uri == "image_uri_value"
-
     assert response.keyword_searchable_job_custom_attributes == [
         "keyword_searchable_job_custom_attributes_value"
     ]
-
     assert response.suspended is True
 
 
@@ -1195,12 +1126,12 @@ def test_update_company_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = company_service.UpdateCompanyRequest()
+
     request.company.name = "company.name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.update_company), "__call__") as call:
         call.return_value = gct_company.Company()
-
         client.update_company(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1222,12 +1153,12 @@ async def test_update_company_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = company_service.UpdateCompanyRequest()
+
     request.company.name = "company.name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.update_company), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(gct_company.Company())
-
         await client.update_company(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1249,7 +1180,6 @@ def test_update_company_flattened():
     with mock.patch.object(type(client.transport.update_company), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = gct_company.Company()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.update_company(
@@ -1261,9 +1191,7 @@ def test_update_company_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].company == gct_company.Company(name="name_value")
-
         assert args[0].update_mask == field_mask.FieldMask(paths=["paths_value"])
 
 
@@ -1301,9 +1229,7 @@ async def test_update_company_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].company == gct_company.Company(name="name_value")
-
         assert args[0].update_mask == field_mask.FieldMask(paths=["paths_value"])
 
 
@@ -1336,13 +1262,11 @@ def test_delete_company(
     with mock.patch.object(type(client.transport.delete_company), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         response = client.delete_company(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.DeleteCompanyRequest()
 
     # Establish that the response is the type that we expect.
@@ -1365,7 +1289,6 @@ def test_delete_company_empty_call():
         client.delete_company()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.DeleteCompanyRequest()
 
 
@@ -1385,13 +1308,11 @@ async def test_delete_company_async(
     with mock.patch.object(type(client.transport.delete_company), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         response = await client.delete_company(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.DeleteCompanyRequest()
 
     # Establish that the response is the type that we expect.
@@ -1409,12 +1330,12 @@ def test_delete_company_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = company_service.DeleteCompanyRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.delete_company), "__call__") as call:
         call.return_value = None
-
         client.delete_company(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1434,12 +1355,12 @@ async def test_delete_company_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = company_service.DeleteCompanyRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.delete_company), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         await client.delete_company(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1459,7 +1380,6 @@ def test_delete_company_flattened():
     with mock.patch.object(type(client.transport.delete_company), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.delete_company(name="name_value",)
@@ -1468,7 +1388,6 @@ def test_delete_company_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -1501,7 +1420,6 @@ async def test_delete_company_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -1534,19 +1452,15 @@ def test_list_companies(
         call.return_value = company_service.ListCompaniesResponse(
             next_page_token="next_page_token_value",
         )
-
         response = client.list_companies(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.ListCompaniesRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, pagers.ListCompaniesPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -1566,7 +1480,6 @@ def test_list_companies_empty_call():
         client.list_companies()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.ListCompaniesRequest()
 
 
@@ -1590,18 +1503,15 @@ async def test_list_companies_async(
                 next_page_token="next_page_token_value",
             )
         )
-
         response = await client.list_companies(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == company_service.ListCompaniesRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListCompaniesAsyncPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -1616,12 +1526,12 @@ def test_list_companies_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = company_service.ListCompaniesRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.list_companies), "__call__") as call:
         call.return_value = company_service.ListCompaniesResponse()
-
         client.list_companies(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1641,6 +1551,7 @@ async def test_list_companies_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = company_service.ListCompaniesRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1648,7 +1559,6 @@ async def test_list_companies_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             company_service.ListCompaniesResponse()
         )
-
         await client.list_companies(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1668,7 +1578,6 @@ def test_list_companies_flattened():
     with mock.patch.object(type(client.transport.list_companies), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = company_service.ListCompaniesResponse()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.list_companies(parent="parent_value",)
@@ -1677,7 +1586,6 @@ def test_list_companies_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -1712,7 +1620,6 @@ async def test_list_companies_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -1958,10 +1865,35 @@ def test_company_service_base_transport():
             getattr(transport, method)(request=object())
 
 
+@requires_google_auth_gte_1_25_0
 def test_company_service_base_transport_with_credentials_file():
     # Instantiate the base transport with a credentials file
     with mock.patch.object(
-        auth, "load_credentials_from_file"
+        auth, "load_credentials_from_file", autospec=True
+    ) as load_creds, mock.patch(
+        "google.cloud.talent_v4.services.company_service.transports.CompanyServiceTransport._prep_wrapped_messages"
+    ) as Transport:
+        Transport.return_value = None
+        load_creds.return_value = (credentials.AnonymousCredentials(), None)
+        transport = transports.CompanyServiceTransport(
+            credentials_file="credentials.json", quota_project_id="octopus",
+        )
+        load_creds.assert_called_once_with(
+            "credentials.json",
+            scopes=None,
+            default_scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/jobs",
+            ),
+            quota_project_id="octopus",
+        )
+
+
+@requires_google_auth_lt_1_25_0
+def test_company_service_base_transport_with_credentials_file_old_google_auth():
+    # Instantiate the base transport with a credentials file
+    with mock.patch.object(
+        auth, "load_credentials_from_file", autospec=True
     ) as load_creds, mock.patch(
         "google.cloud.talent_v4.services.company_service.transports.CompanyServiceTransport._prep_wrapped_messages"
     ) as Transport:
@@ -1982,7 +1914,7 @@ def test_company_service_base_transport_with_credentials_file():
 
 def test_company_service_base_transport_with_adc():
     # Test the default credentials are used if credentials and credentials_file are None.
-    with mock.patch.object(auth, "default") as adc, mock.patch(
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch(
         "google.cloud.talent_v4.services.company_service.transports.CompanyServiceTransport._prep_wrapped_messages"
     ) as Transport:
         Transport.return_value = None
@@ -1991,9 +1923,26 @@ def test_company_service_base_transport_with_adc():
         adc.assert_called_once()
 
 
+@requires_google_auth_gte_1_25_0
 def test_company_service_auth_adc():
     # If no credentials are provided, we should use ADC credentials.
-    with mock.patch.object(auth, "default") as adc:
+    with mock.patch.object(auth, "default", autospec=True) as adc:
+        adc.return_value = (credentials.AnonymousCredentials(), None)
+        CompanyServiceClient()
+        adc.assert_called_once_with(
+            scopes=None,
+            default_scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/jobs",
+            ),
+            quota_project_id=None,
+        )
+
+
+@requires_google_auth_lt_1_25_0
+def test_company_service_auth_adc_old_google_auth():
+    # If no credentials are provided, we should use ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc:
         adc.return_value = (credentials.AnonymousCredentials(), None)
         CompanyServiceClient()
         adc.assert_called_once_with(
@@ -2005,20 +1954,159 @@ def test_company_service_auth_adc():
         )
 
 
-def test_company_service_transport_auth_adc():
+@pytest.mark.parametrize(
+    "transport_class",
+    [
+        transports.CompanyServiceGrpcTransport,
+        transports.CompanyServiceGrpcAsyncIOTransport,
+    ],
+)
+@requires_google_auth_gte_1_25_0
+def test_company_service_transport_auth_adc(transport_class):
     # If credentials and host are not provided, the transport class should use
     # ADC credentials.
-    with mock.patch.object(auth, "default") as adc:
+    with mock.patch.object(auth, "default", autospec=True) as adc:
         adc.return_value = (credentials.AnonymousCredentials(), None)
-        transports.CompanyServiceGrpcTransport(
-            host="squid.clam.whelk", quota_project_id="octopus"
+        transport_class(quota_project_id="octopus", scopes=["1", "2"])
+        adc.assert_called_once_with(
+            scopes=["1", "2"],
+            default_scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/jobs",
+            ),
+            quota_project_id="octopus",
         )
+
+
+@pytest.mark.parametrize(
+    "transport_class",
+    [
+        transports.CompanyServiceGrpcTransport,
+        transports.CompanyServiceGrpcAsyncIOTransport,
+    ],
+)
+@requires_google_auth_lt_1_25_0
+def test_company_service_transport_auth_adc_old_google_auth(transport_class):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc:
+        adc.return_value = (credentials.AnonymousCredentials(), None)
+        transport_class(quota_project_id="octopus")
         adc.assert_called_once_with(
             scopes=(
                 "https://www.googleapis.com/auth/cloud-platform",
                 "https://www.googleapis.com/auth/jobs",
             ),
             quota_project_id="octopus",
+        )
+
+
+@pytest.mark.parametrize(
+    "transport_class,grpc_helpers",
+    [
+        (transports.CompanyServiceGrpcTransport, grpc_helpers),
+        (transports.CompanyServiceGrpcAsyncIOTransport, grpc_helpers_async),
+    ],
+)
+@requires_api_core_gte_1_26_0
+def test_company_service_transport_create_channel(transport_class, grpc_helpers):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
+        grpc_helpers, "create_channel", autospec=True
+    ) as create_channel:
+        creds = credentials.AnonymousCredentials()
+        adc.return_value = (creds, None)
+        transport_class(quota_project_id="octopus", scopes=["1", "2"])
+
+        create_channel.assert_called_with(
+            "jobs.googleapis.com",
+            credentials=creds,
+            credentials_file=None,
+            quota_project_id="octopus",
+            default_scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/jobs",
+            ),
+            scopes=["1", "2"],
+            default_host="jobs.googleapis.com",
+            ssl_credentials=None,
+            options=[
+                ("grpc.max_send_message_length", -1),
+                ("grpc.max_receive_message_length", -1),
+            ],
+        )
+
+
+@pytest.mark.parametrize(
+    "transport_class,grpc_helpers",
+    [
+        (transports.CompanyServiceGrpcTransport, grpc_helpers),
+        (transports.CompanyServiceGrpcAsyncIOTransport, grpc_helpers_async),
+    ],
+)
+@requires_api_core_lt_1_26_0
+def test_company_service_transport_create_channel_old_api_core(
+    transport_class, grpc_helpers
+):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
+        grpc_helpers, "create_channel", autospec=True
+    ) as create_channel:
+        creds = credentials.AnonymousCredentials()
+        adc.return_value = (creds, None)
+        transport_class(quota_project_id="octopus")
+
+        create_channel.assert_called_with(
+            "jobs.googleapis.com",
+            credentials=creds,
+            credentials_file=None,
+            quota_project_id="octopus",
+            scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/jobs",
+            ),
+            ssl_credentials=None,
+            options=[
+                ("grpc.max_send_message_length", -1),
+                ("grpc.max_receive_message_length", -1),
+            ],
+        )
+
+
+@pytest.mark.parametrize(
+    "transport_class,grpc_helpers",
+    [
+        (transports.CompanyServiceGrpcTransport, grpc_helpers),
+        (transports.CompanyServiceGrpcAsyncIOTransport, grpc_helpers_async),
+    ],
+)
+@requires_api_core_lt_1_26_0
+def test_company_service_transport_create_channel_user_scopes(
+    transport_class, grpc_helpers
+):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
+        grpc_helpers, "create_channel", autospec=True
+    ) as create_channel:
+        creds = credentials.AnonymousCredentials()
+        adc.return_value = (creds, None)
+
+        transport_class(quota_project_id="octopus", scopes=["1", "2"])
+
+        create_channel.assert_called_with(
+            "jobs.googleapis.com",
+            credentials=creds,
+            credentials_file=None,
+            quota_project_id="octopus",
+            scopes=["1", "2"],
+            ssl_credentials=None,
+            options=[
+                ("grpc.max_send_message_length", -1),
+                ("grpc.max_receive_message_length", -1),
+            ],
         )
 
 
@@ -2222,7 +2310,6 @@ def test_company_path():
     project = "squid"
     tenant = "clam"
     company = "whelk"
-
     expected = "projects/{project}/tenants/{tenant}/companies/{company}".format(
         project=project, tenant=tenant, company=company,
     )
@@ -2246,7 +2333,6 @@ def test_parse_company_path():
 def test_tenant_path():
     project = "cuttlefish"
     tenant = "mussel"
-
     expected = "projects/{project}/tenants/{tenant}".format(
         project=project, tenant=tenant,
     )
@@ -2268,7 +2354,6 @@ def test_parse_tenant_path():
 
 def test_common_billing_account_path():
     billing_account = "scallop"
-
     expected = "billingAccounts/{billing_account}".format(
         billing_account=billing_account,
     )
@@ -2289,7 +2374,6 @@ def test_parse_common_billing_account_path():
 
 def test_common_folder_path():
     folder = "squid"
-
     expected = "folders/{folder}".format(folder=folder,)
     actual = CompanyServiceClient.common_folder_path(folder)
     assert expected == actual
@@ -2308,7 +2392,6 @@ def test_parse_common_folder_path():
 
 def test_common_organization_path():
     organization = "whelk"
-
     expected = "organizations/{organization}".format(organization=organization,)
     actual = CompanyServiceClient.common_organization_path(organization)
     assert expected == actual
@@ -2327,7 +2410,6 @@ def test_parse_common_organization_path():
 
 def test_common_project_path():
     project = "oyster"
-
     expected = "projects/{project}".format(project=project,)
     actual = CompanyServiceClient.common_project_path(project)
     assert expected == actual
@@ -2347,7 +2429,6 @@ def test_parse_common_project_path():
 def test_common_location_path():
     project = "cuttlefish"
     location = "mussel"
-
     expected = "projects/{project}/locations/{location}".format(
         project=project, location=location,
     )

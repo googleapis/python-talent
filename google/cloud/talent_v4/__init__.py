@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,6 +19,7 @@ from .services.completion import CompletionClient
 from .services.event_service import EventServiceClient
 from .services.job_service import JobServiceClient
 from .services.tenant_service import TenantServiceClient
+
 from .types.common import BatchOperationMetadata
 from .types.common import CommuteMethod
 from .types.common import CompanySize
@@ -81,7 +81,6 @@ from .types.tenant_service import GetTenantRequest
 from .types.tenant_service import ListTenantsRequest
 from .types.tenant_service import ListTenantsResponse
 from .types.tenant_service import UpdateTenantRequest
-
 
 __all__ = (
     "BatchCreateJobsRequest",

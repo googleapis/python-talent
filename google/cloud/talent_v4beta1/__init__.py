@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,6 +21,7 @@ from .services.event_service import EventServiceClient
 from .services.job_service import JobServiceClient
 from .services.profile_service import ProfileServiceClient
 from .services.tenant_service import TenantServiceClient
+
 from .types.application import Application
 from .types.application_service import CreateApplicationRequest
 from .types.application_service import DeleteApplicationRequest
@@ -133,7 +133,6 @@ from .types.tenant_service import GetTenantRequest
 from .types.tenant_service import ListTenantsRequest
 from .types.tenant_service import ListTenantsResponse
 from .types.tenant_service import UpdateTenantRequest
-
 
 __all__ = (
     "Activity",

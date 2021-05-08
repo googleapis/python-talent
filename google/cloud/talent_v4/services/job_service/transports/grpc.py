@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,9 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import warnings
-from typing import Callable, Dict, Optional, Sequence, Tuple
+from typing import Callable, Dict, Optional, Sequence, Tuple, Union
 
 from google.api_core import grpc_helpers  # type: ignore
 from google.api_core import operations_v1  # type: ignore
@@ -32,7 +30,6 @@ from google.cloud.talent_v4.types import job as gct_job
 from google.cloud.talent_v4.types import job_service
 from google.longrunning import operations_pb2 as operations  # type: ignore
 from google.protobuf import empty_pb2 as empty  # type: ignore
-
 from .base import JobServiceTransport, DEFAULT_CLIENT_INFO
 
 
@@ -70,7 +67,8 @@ class JobServiceGrpcTransport(JobServiceTransport):
         """Instantiate the transport.
 
         Args:
-            host (Optional[str]): The hostname to connect to.
+            host (Optional[str]):
+                 The hostname to connect to.
             credentials (Optional[google.auth.credentials.Credentials]): The
                 authorization credentials to attach to requests. These
                 credentials identify the application to the service; if none
@@ -212,13 +210,15 @@ class JobServiceGrpcTransport(JobServiceTransport):
             google.api_core.exceptions.DuplicateCredentialArgs: If both ``credentials``
               and ``credentials_file`` are passed.
         """
-        scopes = scopes or cls.AUTH_SCOPES
+
+        self_signed_jwt_kwargs = cls._get_self_signed_jwt_kwargs(host, scopes)
+
         return grpc_helpers.create_channel(
             host,
             credentials=credentials,
             credentials_file=credentials_file,
-            scopes=scopes,
             quota_project_id=quota_project_id,
+            **self_signed_jwt_kwargs,
             **kwargs,
         )
 
@@ -244,7 +244,9 @@ class JobServiceGrpcTransport(JobServiceTransport):
 
     @property
     def create_job(self) -> Callable[[job_service.CreateJobRequest], gct_job.Job]:
-        r"""Return a callable for the create job method over gRPC.
+        r"""Return a callable for the
+        create job
+          method over gRPC.
 
         Creates a new job.
         Typically, the job becomes searchable within 10 seconds,
@@ -272,7 +274,9 @@ class JobServiceGrpcTransport(JobServiceTransport):
     def batch_create_jobs(
         self,
     ) -> Callable[[job_service.BatchCreateJobsRequest], operations.Operation]:
-        r"""Return a callable for the batch create jobs method over gRPC.
+        r"""Return a callable for the
+        batch create jobs
+          method over gRPC.
 
         Begins executing a batch create jobs operation.
 
@@ -296,7 +300,9 @@ class JobServiceGrpcTransport(JobServiceTransport):
 
     @property
     def get_job(self) -> Callable[[job_service.GetJobRequest], job.Job]:
-        r"""Return a callable for the get job method over gRPC.
+        r"""Return a callable for the
+        get job
+          method over gRPC.
 
         Retrieves the specified job, whose status is OPEN or
         recently EXPIRED within the last 90 days.
@@ -321,7 +327,9 @@ class JobServiceGrpcTransport(JobServiceTransport):
 
     @property
     def update_job(self) -> Callable[[job_service.UpdateJobRequest], gct_job.Job]:
-        r"""Return a callable for the update job method over gRPC.
+        r"""Return a callable for the
+        update job
+          method over gRPC.
 
         Updates specified job.
         Typically, updated contents become visible in search
@@ -350,7 +358,9 @@ class JobServiceGrpcTransport(JobServiceTransport):
     def batch_update_jobs(
         self,
     ) -> Callable[[job_service.BatchUpdateJobsRequest], operations.Operation]:
-        r"""Return a callable for the batch update jobs method over gRPC.
+        r"""Return a callable for the
+        batch update jobs
+          method over gRPC.
 
         Begins executing a batch update jobs operation.
 
@@ -374,7 +384,9 @@ class JobServiceGrpcTransport(JobServiceTransport):
 
     @property
     def delete_job(self) -> Callable[[job_service.DeleteJobRequest], empty.Empty]:
-        r"""Return a callable for the delete job method over gRPC.
+        r"""Return a callable for the
+        delete job
+          method over gRPC.
 
         Deletes the specified job.
         Typically, the job becomes unsearchable within 10
@@ -402,7 +414,9 @@ class JobServiceGrpcTransport(JobServiceTransport):
     def batch_delete_jobs(
         self,
     ) -> Callable[[job_service.BatchDeleteJobsRequest], operations.Operation]:
-        r"""Return a callable for the batch delete jobs method over gRPC.
+        r"""Return a callable for the
+        batch delete jobs
+          method over gRPC.
 
         Begins executing a batch delete jobs operation.
 
@@ -428,7 +442,9 @@ class JobServiceGrpcTransport(JobServiceTransport):
     def list_jobs(
         self,
     ) -> Callable[[job_service.ListJobsRequest], job_service.ListJobsResponse]:
-        r"""Return a callable for the list jobs method over gRPC.
+        r"""Return a callable for the
+        list jobs
+          method over gRPC.
 
         Lists jobs by filter.
 
@@ -454,7 +470,9 @@ class JobServiceGrpcTransport(JobServiceTransport):
     def search_jobs(
         self,
     ) -> Callable[[job_service.SearchJobsRequest], job_service.SearchJobsResponse]:
-        r"""Return a callable for the search jobs method over gRPC.
+        r"""Return a callable for the
+        search jobs
+          method over gRPC.
 
         Searches for jobs using the provided
         [SearchJobsRequest][google.cloud.talent.v4.SearchJobsRequest].
@@ -486,7 +504,9 @@ class JobServiceGrpcTransport(JobServiceTransport):
     def search_jobs_for_alert(
         self,
     ) -> Callable[[job_service.SearchJobsRequest], job_service.SearchJobsResponse]:
-        r"""Return a callable for the search jobs for alert method over gRPC.
+        r"""Return a callable for the
+        search jobs for alert
+          method over gRPC.
 
         Searches for jobs using the provided
         [SearchJobsRequest][google.cloud.talent.v4.SearchJobsRequest].

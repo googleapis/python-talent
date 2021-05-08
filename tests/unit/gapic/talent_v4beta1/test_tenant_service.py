@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,15 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import os
 import mock
+import packaging.version
 
 import grpc
 from grpc.experimental import aio
 import math
 import pytest
 from proto.marshal.rules.dates import DurationRule, TimestampRule
+
 
 from google import auth
 from google.api_core import client_options
@@ -36,11 +36,40 @@ from google.cloud.talent_v4beta1.services.tenant_service import TenantServiceAsy
 from google.cloud.talent_v4beta1.services.tenant_service import TenantServiceClient
 from google.cloud.talent_v4beta1.services.tenant_service import pagers
 from google.cloud.talent_v4beta1.services.tenant_service import transports
+from google.cloud.talent_v4beta1.services.tenant_service.transports.base import (
+    _API_CORE_VERSION,
+)
+from google.cloud.talent_v4beta1.services.tenant_service.transports.base import (
+    _GOOGLE_AUTH_VERSION,
+)
 from google.cloud.talent_v4beta1.types import tenant
 from google.cloud.talent_v4beta1.types import tenant as gct_tenant
 from google.cloud.talent_v4beta1.types import tenant_service
 from google.oauth2 import service_account
 from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
+
+
+# TODO(busunkim): Once google-api-core >= 1.26.0 is required:
+# - Delete all the api-core and auth "less than" test cases
+# - Delete these pytest markers (Make the "greater than or equal to" tests the default).
+requires_google_auth_lt_1_25_0 = pytest.mark.skipif(
+    packaging.version.parse(_GOOGLE_AUTH_VERSION) >= packaging.version.parse("1.25.0"),
+    reason="This test requires google-auth < 1.25.0",
+)
+requires_google_auth_gte_1_25_0 = pytest.mark.skipif(
+    packaging.version.parse(_GOOGLE_AUTH_VERSION) < packaging.version.parse("1.25.0"),
+    reason="This test requires google-auth >= 1.25.0",
+)
+
+requires_api_core_lt_1_26_0 = pytest.mark.skipif(
+    packaging.version.parse(_API_CORE_VERSION) >= packaging.version.parse("1.26.0"),
+    reason="This test requires google-api-core < 1.26.0",
+)
+
+requires_api_core_gte_1_26_0 = pytest.mark.skipif(
+    packaging.version.parse(_API_CORE_VERSION) < packaging.version.parse("1.26.0"),
+    reason="This test requires google-api-core >= 1.26.0",
+)
 
 
 def client_cert_source_callback():
@@ -467,25 +496,18 @@ def test_create_tenant(
                 "keyword_searchable_profile_custom_attributes_value"
             ],
         )
-
         response = client.create_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.CreateTenantRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, gct_tenant.Tenant)
-
     assert response.name == "name_value"
-
     assert response.external_id == "external_id_value"
-
     assert response.usage_type == gct_tenant.Tenant.DataUsageType.AGGREGATED
-
     assert response.keyword_searchable_profile_custom_attributes == [
         "keyword_searchable_profile_custom_attributes_value"
     ]
@@ -507,7 +529,6 @@ def test_create_tenant_empty_call():
         client.create_tenant()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.CreateTenantRequest()
 
 
@@ -536,24 +557,18 @@ async def test_create_tenant_async(
                 ],
             )
         )
-
         response = await client.create_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.CreateTenantRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, gct_tenant.Tenant)
-
     assert response.name == "name_value"
-
     assert response.external_id == "external_id_value"
-
     assert response.usage_type == gct_tenant.Tenant.DataUsageType.AGGREGATED
-
     assert response.keyword_searchable_profile_custom_attributes == [
         "keyword_searchable_profile_custom_attributes_value"
     ]
@@ -570,12 +585,12 @@ def test_create_tenant_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = tenant_service.CreateTenantRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.create_tenant), "__call__") as call:
         call.return_value = gct_tenant.Tenant()
-
         client.create_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -595,12 +610,12 @@ async def test_create_tenant_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = tenant_service.CreateTenantRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.create_tenant), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(gct_tenant.Tenant())
-
         await client.create_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -620,7 +635,6 @@ def test_create_tenant_flattened():
     with mock.patch.object(type(client.transport.create_tenant), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = gct_tenant.Tenant()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.create_tenant(
@@ -631,9 +645,7 @@ def test_create_tenant_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
-
         assert args[0].tenant == gct_tenant.Tenant(name="name_value")
 
 
@@ -670,9 +682,7 @@ async def test_create_tenant_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
-
         assert args[0].tenant == gct_tenant.Tenant(name="name_value")
 
 
@@ -712,25 +722,18 @@ def test_get_tenant(
                 "keyword_searchable_profile_custom_attributes_value"
             ],
         )
-
         response = client.get_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.GetTenantRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, tenant.Tenant)
-
     assert response.name == "name_value"
-
     assert response.external_id == "external_id_value"
-
     assert response.usage_type == tenant.Tenant.DataUsageType.AGGREGATED
-
     assert response.keyword_searchable_profile_custom_attributes == [
         "keyword_searchable_profile_custom_attributes_value"
     ]
@@ -752,7 +755,6 @@ def test_get_tenant_empty_call():
         client.get_tenant()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.GetTenantRequest()
 
 
@@ -781,24 +783,18 @@ async def test_get_tenant_async(
                 ],
             )
         )
-
         response = await client.get_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.GetTenantRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, tenant.Tenant)
-
     assert response.name == "name_value"
-
     assert response.external_id == "external_id_value"
-
     assert response.usage_type == tenant.Tenant.DataUsageType.AGGREGATED
-
     assert response.keyword_searchable_profile_custom_attributes == [
         "keyword_searchable_profile_custom_attributes_value"
     ]
@@ -815,12 +811,12 @@ def test_get_tenant_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = tenant_service.GetTenantRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.get_tenant), "__call__") as call:
         call.return_value = tenant.Tenant()
-
         client.get_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -840,12 +836,12 @@ async def test_get_tenant_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = tenant_service.GetTenantRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.get_tenant), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(tenant.Tenant())
-
         await client.get_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -865,7 +861,6 @@ def test_get_tenant_flattened():
     with mock.patch.object(type(client.transport.get_tenant), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = tenant.Tenant()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.get_tenant(name="name_value",)
@@ -874,7 +869,6 @@ def test_get_tenant_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -907,7 +901,6 @@ async def test_get_tenant_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -945,25 +938,18 @@ def test_update_tenant(
                 "keyword_searchable_profile_custom_attributes_value"
             ],
         )
-
         response = client.update_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.UpdateTenantRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, gct_tenant.Tenant)
-
     assert response.name == "name_value"
-
     assert response.external_id == "external_id_value"
-
     assert response.usage_type == gct_tenant.Tenant.DataUsageType.AGGREGATED
-
     assert response.keyword_searchable_profile_custom_attributes == [
         "keyword_searchable_profile_custom_attributes_value"
     ]
@@ -985,7 +971,6 @@ def test_update_tenant_empty_call():
         client.update_tenant()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.UpdateTenantRequest()
 
 
@@ -1014,24 +999,18 @@ async def test_update_tenant_async(
                 ],
             )
         )
-
         response = await client.update_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.UpdateTenantRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, gct_tenant.Tenant)
-
     assert response.name == "name_value"
-
     assert response.external_id == "external_id_value"
-
     assert response.usage_type == gct_tenant.Tenant.DataUsageType.AGGREGATED
-
     assert response.keyword_searchable_profile_custom_attributes == [
         "keyword_searchable_profile_custom_attributes_value"
     ]
@@ -1048,12 +1027,12 @@ def test_update_tenant_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = tenant_service.UpdateTenantRequest()
+
     request.tenant.name = "tenant.name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.update_tenant), "__call__") as call:
         call.return_value = gct_tenant.Tenant()
-
         client.update_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1073,12 +1052,12 @@ async def test_update_tenant_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = tenant_service.UpdateTenantRequest()
+
     request.tenant.name = "tenant.name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.update_tenant), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(gct_tenant.Tenant())
-
         await client.update_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1098,7 +1077,6 @@ def test_update_tenant_flattened():
     with mock.patch.object(type(client.transport.update_tenant), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = gct_tenant.Tenant()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.update_tenant(tenant=gct_tenant.Tenant(name="name_value"),)
@@ -1107,7 +1085,6 @@ def test_update_tenant_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].tenant == gct_tenant.Tenant(name="name_value")
 
 
@@ -1143,7 +1120,6 @@ async def test_update_tenant_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].tenant == gct_tenant.Tenant(name="name_value")
 
 
@@ -1175,13 +1151,11 @@ def test_delete_tenant(
     with mock.patch.object(type(client.transport.delete_tenant), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         response = client.delete_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.DeleteTenantRequest()
 
     # Establish that the response is the type that we expect.
@@ -1204,7 +1178,6 @@ def test_delete_tenant_empty_call():
         client.delete_tenant()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.DeleteTenantRequest()
 
 
@@ -1224,13 +1197,11 @@ async def test_delete_tenant_async(
     with mock.patch.object(type(client.transport.delete_tenant), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         response = await client.delete_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.DeleteTenantRequest()
 
     # Establish that the response is the type that we expect.
@@ -1248,12 +1219,12 @@ def test_delete_tenant_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = tenant_service.DeleteTenantRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.delete_tenant), "__call__") as call:
         call.return_value = None
-
         client.delete_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1273,12 +1244,12 @@ async def test_delete_tenant_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = tenant_service.DeleteTenantRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.delete_tenant), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         await client.delete_tenant(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1298,7 +1269,6 @@ def test_delete_tenant_flattened():
     with mock.patch.object(type(client.transport.delete_tenant), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.delete_tenant(name="name_value",)
@@ -1307,7 +1277,6 @@ def test_delete_tenant_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -1340,7 +1309,6 @@ async def test_delete_tenant_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -1373,19 +1341,15 @@ def test_list_tenants(
         call.return_value = tenant_service.ListTenantsResponse(
             next_page_token="next_page_token_value",
         )
-
         response = client.list_tenants(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.ListTenantsRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, pagers.ListTenantsPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -1405,7 +1369,6 @@ def test_list_tenants_empty_call():
         client.list_tenants()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.ListTenantsRequest()
 
 
@@ -1427,18 +1390,15 @@ async def test_list_tenants_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             tenant_service.ListTenantsResponse(next_page_token="next_page_token_value",)
         )
-
         response = await client.list_tenants(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == tenant_service.ListTenantsRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListTenantsAsyncPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -1453,12 +1413,12 @@ def test_list_tenants_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = tenant_service.ListTenantsRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.list_tenants), "__call__") as call:
         call.return_value = tenant_service.ListTenantsResponse()
-
         client.list_tenants(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1478,6 +1438,7 @@ async def test_list_tenants_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = tenant_service.ListTenantsRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1485,7 +1446,6 @@ async def test_list_tenants_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             tenant_service.ListTenantsResponse()
         )
-
         await client.list_tenants(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1505,7 +1465,6 @@ def test_list_tenants_flattened():
     with mock.patch.object(type(client.transport.list_tenants), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = tenant_service.ListTenantsResponse()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.list_tenants(parent="parent_value",)
@@ -1514,7 +1473,6 @@ def test_list_tenants_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -1549,7 +1507,6 @@ async def test_list_tenants_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -1795,10 +1752,35 @@ def test_tenant_service_base_transport():
             getattr(transport, method)(request=object())
 
 
+@requires_google_auth_gte_1_25_0
 def test_tenant_service_base_transport_with_credentials_file():
     # Instantiate the base transport with a credentials file
     with mock.patch.object(
-        auth, "load_credentials_from_file"
+        auth, "load_credentials_from_file", autospec=True
+    ) as load_creds, mock.patch(
+        "google.cloud.talent_v4beta1.services.tenant_service.transports.TenantServiceTransport._prep_wrapped_messages"
+    ) as Transport:
+        Transport.return_value = None
+        load_creds.return_value = (credentials.AnonymousCredentials(), None)
+        transport = transports.TenantServiceTransport(
+            credentials_file="credentials.json", quota_project_id="octopus",
+        )
+        load_creds.assert_called_once_with(
+            "credentials.json",
+            scopes=None,
+            default_scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/jobs",
+            ),
+            quota_project_id="octopus",
+        )
+
+
+@requires_google_auth_lt_1_25_0
+def test_tenant_service_base_transport_with_credentials_file_old_google_auth():
+    # Instantiate the base transport with a credentials file
+    with mock.patch.object(
+        auth, "load_credentials_from_file", autospec=True
     ) as load_creds, mock.patch(
         "google.cloud.talent_v4beta1.services.tenant_service.transports.TenantServiceTransport._prep_wrapped_messages"
     ) as Transport:
@@ -1819,7 +1801,7 @@ def test_tenant_service_base_transport_with_credentials_file():
 
 def test_tenant_service_base_transport_with_adc():
     # Test the default credentials are used if credentials and credentials_file are None.
-    with mock.patch.object(auth, "default") as adc, mock.patch(
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch(
         "google.cloud.talent_v4beta1.services.tenant_service.transports.TenantServiceTransport._prep_wrapped_messages"
     ) as Transport:
         Transport.return_value = None
@@ -1828,9 +1810,26 @@ def test_tenant_service_base_transport_with_adc():
         adc.assert_called_once()
 
 
+@requires_google_auth_gte_1_25_0
 def test_tenant_service_auth_adc():
     # If no credentials are provided, we should use ADC credentials.
-    with mock.patch.object(auth, "default") as adc:
+    with mock.patch.object(auth, "default", autospec=True) as adc:
+        adc.return_value = (credentials.AnonymousCredentials(), None)
+        TenantServiceClient()
+        adc.assert_called_once_with(
+            scopes=None,
+            default_scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/jobs",
+            ),
+            quota_project_id=None,
+        )
+
+
+@requires_google_auth_lt_1_25_0
+def test_tenant_service_auth_adc_old_google_auth():
+    # If no credentials are provided, we should use ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc:
         adc.return_value = (credentials.AnonymousCredentials(), None)
         TenantServiceClient()
         adc.assert_called_once_with(
@@ -1842,20 +1841,159 @@ def test_tenant_service_auth_adc():
         )
 
 
-def test_tenant_service_transport_auth_adc():
+@pytest.mark.parametrize(
+    "transport_class",
+    [
+        transports.TenantServiceGrpcTransport,
+        transports.TenantServiceGrpcAsyncIOTransport,
+    ],
+)
+@requires_google_auth_gte_1_25_0
+def test_tenant_service_transport_auth_adc(transport_class):
     # If credentials and host are not provided, the transport class should use
     # ADC credentials.
-    with mock.patch.object(auth, "default") as adc:
+    with mock.patch.object(auth, "default", autospec=True) as adc:
         adc.return_value = (credentials.AnonymousCredentials(), None)
-        transports.TenantServiceGrpcTransport(
-            host="squid.clam.whelk", quota_project_id="octopus"
+        transport_class(quota_project_id="octopus", scopes=["1", "2"])
+        adc.assert_called_once_with(
+            scopes=["1", "2"],
+            default_scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/jobs",
+            ),
+            quota_project_id="octopus",
         )
+
+
+@pytest.mark.parametrize(
+    "transport_class",
+    [
+        transports.TenantServiceGrpcTransport,
+        transports.TenantServiceGrpcAsyncIOTransport,
+    ],
+)
+@requires_google_auth_lt_1_25_0
+def test_tenant_service_transport_auth_adc_old_google_auth(transport_class):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc:
+        adc.return_value = (credentials.AnonymousCredentials(), None)
+        transport_class(quota_project_id="octopus")
         adc.assert_called_once_with(
             scopes=(
                 "https://www.googleapis.com/auth/cloud-platform",
                 "https://www.googleapis.com/auth/jobs",
             ),
             quota_project_id="octopus",
+        )
+
+
+@pytest.mark.parametrize(
+    "transport_class,grpc_helpers",
+    [
+        (transports.TenantServiceGrpcTransport, grpc_helpers),
+        (transports.TenantServiceGrpcAsyncIOTransport, grpc_helpers_async),
+    ],
+)
+@requires_api_core_gte_1_26_0
+def test_tenant_service_transport_create_channel(transport_class, grpc_helpers):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
+        grpc_helpers, "create_channel", autospec=True
+    ) as create_channel:
+        creds = credentials.AnonymousCredentials()
+        adc.return_value = (creds, None)
+        transport_class(quota_project_id="octopus", scopes=["1", "2"])
+
+        create_channel.assert_called_with(
+            "jobs.googleapis.com",
+            credentials=creds,
+            credentials_file=None,
+            quota_project_id="octopus",
+            default_scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/jobs",
+            ),
+            scopes=["1", "2"],
+            default_host="jobs.googleapis.com",
+            ssl_credentials=None,
+            options=[
+                ("grpc.max_send_message_length", -1),
+                ("grpc.max_receive_message_length", -1),
+            ],
+        )
+
+
+@pytest.mark.parametrize(
+    "transport_class,grpc_helpers",
+    [
+        (transports.TenantServiceGrpcTransport, grpc_helpers),
+        (transports.TenantServiceGrpcAsyncIOTransport, grpc_helpers_async),
+    ],
+)
+@requires_api_core_lt_1_26_0
+def test_tenant_service_transport_create_channel_old_api_core(
+    transport_class, grpc_helpers
+):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
+        grpc_helpers, "create_channel", autospec=True
+    ) as create_channel:
+        creds = credentials.AnonymousCredentials()
+        adc.return_value = (creds, None)
+        transport_class(quota_project_id="octopus")
+
+        create_channel.assert_called_with(
+            "jobs.googleapis.com",
+            credentials=creds,
+            credentials_file=None,
+            quota_project_id="octopus",
+            scopes=(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/jobs",
+            ),
+            ssl_credentials=None,
+            options=[
+                ("grpc.max_send_message_length", -1),
+                ("grpc.max_receive_message_length", -1),
+            ],
+        )
+
+
+@pytest.mark.parametrize(
+    "transport_class,grpc_helpers",
+    [
+        (transports.TenantServiceGrpcTransport, grpc_helpers),
+        (transports.TenantServiceGrpcAsyncIOTransport, grpc_helpers_async),
+    ],
+)
+@requires_api_core_lt_1_26_0
+def test_tenant_service_transport_create_channel_user_scopes(
+    transport_class, grpc_helpers
+):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
+        grpc_helpers, "create_channel", autospec=True
+    ) as create_channel:
+        creds = credentials.AnonymousCredentials()
+        adc.return_value = (creds, None)
+
+        transport_class(quota_project_id="octopus", scopes=["1", "2"])
+
+        create_channel.assert_called_with(
+            "jobs.googleapis.com",
+            credentials=creds,
+            credentials_file=None,
+            quota_project_id="octopus",
+            scopes=["1", "2"],
+            ssl_credentials=None,
+            options=[
+                ("grpc.max_send_message_length", -1),
+                ("grpc.max_receive_message_length", -1),
+            ],
         )
 
 
@@ -2056,7 +2194,6 @@ def test_tenant_service_transport_channel_mtls_with_adc(transport_class):
 def test_tenant_path():
     project = "squid"
     tenant = "clam"
-
     expected = "projects/{project}/tenants/{tenant}".format(
         project=project, tenant=tenant,
     )
@@ -2078,7 +2215,6 @@ def test_parse_tenant_path():
 
 def test_common_billing_account_path():
     billing_account = "oyster"
-
     expected = "billingAccounts/{billing_account}".format(
         billing_account=billing_account,
     )
@@ -2099,7 +2235,6 @@ def test_parse_common_billing_account_path():
 
 def test_common_folder_path():
     folder = "cuttlefish"
-
     expected = "folders/{folder}".format(folder=folder,)
     actual = TenantServiceClient.common_folder_path(folder)
     assert expected == actual
@@ -2118,7 +2253,6 @@ def test_parse_common_folder_path():
 
 def test_common_organization_path():
     organization = "winkle"
-
     expected = "organizations/{organization}".format(organization=organization,)
     actual = TenantServiceClient.common_organization_path(organization)
     assert expected == actual
@@ -2137,7 +2271,6 @@ def test_parse_common_organization_path():
 
 def test_common_project_path():
     project = "scallop"
-
     expected = "projects/{project}".format(project=project,)
     actual = TenantServiceClient.common_project_path(project)
     assert expected == actual
@@ -2157,7 +2290,6 @@ def test_parse_common_project_path():
 def test_common_location_path():
     project = "squid"
     location = "clam"
-
     expected = "projects/{project}/locations/{location}".format(
         project=project, location=location,
     )

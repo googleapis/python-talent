@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 from collections import OrderedDict
 import functools
 import re
@@ -30,7 +28,6 @@ from google.oauth2 import service_account  # type: ignore
 
 from google.cloud.talent_v4.types import common
 from google.cloud.talent_v4.types import completion_service
-
 from .transports.base import CompletionTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc_asyncio import CompletionGrpcAsyncIOTransport
 from .client import CompletionClient
@@ -48,25 +45,20 @@ class CompletionAsyncClient:
     parse_company_path = staticmethod(CompletionClient.parse_company_path)
     tenant_path = staticmethod(CompletionClient.tenant_path)
     parse_tenant_path = staticmethod(CompletionClient.parse_tenant_path)
-
     common_billing_account_path = staticmethod(
         CompletionClient.common_billing_account_path
     )
     parse_common_billing_account_path = staticmethod(
         CompletionClient.parse_common_billing_account_path
     )
-
     common_folder_path = staticmethod(CompletionClient.common_folder_path)
     parse_common_folder_path = staticmethod(CompletionClient.parse_common_folder_path)
-
     common_organization_path = staticmethod(CompletionClient.common_organization_path)
     parse_common_organization_path = staticmethod(
         CompletionClient.parse_common_organization_path
     )
-
     common_project_path = staticmethod(CompletionClient.common_project_path)
     parse_common_project_path = staticmethod(CompletionClient.parse_common_project_path)
-
     common_location_path = staticmethod(CompletionClient.common_location_path)
     parse_common_location_path = staticmethod(
         CompletionClient.parse_common_location_path
@@ -157,7 +149,6 @@ class CompletionAsyncClient:
             google.auth.exceptions.MutualTlsChannelError: If mutual TLS transport
                 creation failed for any reason.
         """
-
         self._client = CompletionClient(
             credentials=credentials,
             transport=transport,
@@ -179,8 +170,8 @@ class CompletionAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4.types.CompleteQueryRequest`):
-                The request object. Auto-complete parameters.
-
+                The request object.
+                Auto-complete parameters.
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -192,7 +183,6 @@ class CompletionAsyncClient:
                 Response of auto-complete query.
         """
         # Create or coerce a protobuf request object.
-
         request = completion_service.CompleteQueryRequest(request)
 
         # Wrap the RPC method; this adds retry and timeout information,

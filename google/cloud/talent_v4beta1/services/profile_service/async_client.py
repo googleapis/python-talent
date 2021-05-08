@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 from collections import OrderedDict
 import functools
 import re
@@ -36,7 +34,6 @@ from google.cloud.talent_v4beta1.types import profile as gct_profile
 from google.cloud.talent_v4beta1.types import profile_service
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 from google.protobuf import wrappers_pb2 as wrappers  # type: ignore
-
 from .transports.base import ProfileServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc_asyncio import ProfileServiceGrpcAsyncIOTransport
 from .client import ProfileServiceClient
@@ -56,31 +53,26 @@ class ProfileServiceAsyncClient:
     parse_profile_path = staticmethod(ProfileServiceClient.parse_profile_path)
     tenant_path = staticmethod(ProfileServiceClient.tenant_path)
     parse_tenant_path = staticmethod(ProfileServiceClient.parse_tenant_path)
-
     common_billing_account_path = staticmethod(
         ProfileServiceClient.common_billing_account_path
     )
     parse_common_billing_account_path = staticmethod(
         ProfileServiceClient.parse_common_billing_account_path
     )
-
     common_folder_path = staticmethod(ProfileServiceClient.common_folder_path)
     parse_common_folder_path = staticmethod(
         ProfileServiceClient.parse_common_folder_path
     )
-
     common_organization_path = staticmethod(
         ProfileServiceClient.common_organization_path
     )
     parse_common_organization_path = staticmethod(
         ProfileServiceClient.parse_common_organization_path
     )
-
     common_project_path = staticmethod(ProfileServiceClient.common_project_path)
     parse_common_project_path = staticmethod(
         ProfileServiceClient.parse_common_project_path
     )
-
     common_location_path = staticmethod(ProfileServiceClient.common_location_path)
     parse_common_location_path = staticmethod(
         ProfileServiceClient.parse_common_location_path
@@ -171,7 +163,6 @@ class ProfileServiceAsyncClient:
             google.auth.exceptions.MutualTlsChannelError: If mutual TLS transport
                 creation failed for any reason.
         """
-
         self._client = ProfileServiceClient(
             credentials=credentials,
             transport=transport,
@@ -192,7 +183,8 @@ class ProfileServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.ListProfilesRequest`):
-                The request object. List profiles request.
+                The request object.
+                List profiles request.
             parent (:class:`str`):
                 Required. The resource name of the tenant under which
                 the profile is created.
@@ -204,7 +196,6 @@ class ProfileServiceAsyncClient:
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -233,7 +224,6 @@ class ProfileServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if parent is not None:
             request.parent = parent
 
@@ -286,7 +276,8 @@ class ProfileServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.CreateProfileRequest`):
-                The request object. Create profile request.
+                The request object.
+                Create profile request.
             parent (:class:`str`):
                 Required. The name of the tenant this profile belongs
                 to.
@@ -303,7 +294,6 @@ class ProfileServiceAsyncClient:
                 This corresponds to the ``profile`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -332,7 +322,6 @@ class ProfileServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if parent is not None:
             request.parent = parent
         if profile is not None:
@@ -371,7 +360,8 @@ class ProfileServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.GetProfileRequest`):
-                The request object. Get profile request.
+                The request object.
+                Get profile request.
             name (:class:`str`):
                 Required. Resource name of the profile to get.
 
@@ -382,7 +372,6 @@ class ProfileServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -411,7 +400,6 @@ class ProfileServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 
@@ -458,13 +446,13 @@ class ProfileServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.UpdateProfileRequest`):
-                The request object. Update profile request
+                The request object.
+                Update profile request
             profile (:class:`google.cloud.talent_v4beta1.types.Profile`):
                 Required. Profile to be updated.
                 This corresponds to the ``profile`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -493,7 +481,6 @@ class ProfileServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if profile is not None:
             request.profile = profile
 
@@ -534,7 +521,8 @@ class ProfileServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.DeleteProfileRequest`):
-                The request object. Delete profile request.
+                The request object.
+                Delete profile request.
             name (:class:`str`):
                 Required. Resource name of the profile to be deleted.
 
@@ -545,7 +533,6 @@ class ProfileServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -566,7 +553,6 @@ class ProfileServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
-
         if name is not None:
             request.name = name
 
@@ -618,9 +604,9 @@ class ProfileServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.SearchProfilesRequest`):
-                The request object. The request body of the
+                The request object.
+                The request body of the
                 `SearchProfiles` call.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -636,7 +622,6 @@ class ProfileServiceAsyncClient:
 
         """
         # Create or coerce a protobuf request object.
-
         request = profile_service.SearchProfilesRequest(request)
 
         # Wrap the RPC method; this adds retry and timeout information,
