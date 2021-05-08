@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 from collections import OrderedDict
 from distutils import util
 import os
@@ -33,6 +35,7 @@ from google.oauth2 import service_account  # type: ignore
 from google.cloud.talent_v4.types import event
 from google.cloud.talent_v4.types import event_service
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
+
 from .transports.base import EventServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc import EventServiceGrpcTransport
 from .transports.grpc_asyncio import EventServiceGrpcAsyncIOTransport
@@ -356,8 +359,7 @@ class EventServiceClient(metaclass=EventServiceClientMeta):
 
         Args:
             request (google.cloud.talent_v4.types.CreateClientEventRequest):
-                The request object.
-                The report event request.
+                The request object. The report event request.
             parent (str):
                 Required. Resource name of the tenant under which the
                 event is created.
@@ -377,6 +379,7 @@ class EventServiceClient(metaclass=EventServiceClientMeta):
                 This corresponds to the ``client_event`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -413,8 +416,10 @@ class EventServiceClient(metaclass=EventServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, event_service.CreateClientEventRequest):
             request = event_service.CreateClientEventRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if parent is not None:
                 request.parent = parent
             if client_event is not None:

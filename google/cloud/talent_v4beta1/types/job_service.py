@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 import proto  # type: ignore
+
 
 from google.cloud.talent_v4beta1.types import common
 from google.cloud.talent_v4beta1.types import filters
@@ -60,6 +63,7 @@ class JobView(proto.Enum):
 
 class CreateJobRequest(proto.Message):
     r"""Create job request.
+
     Attributes:
         parent (str):
             Required. The resource name of the tenant under which the
@@ -73,12 +77,14 @@ class CreateJobRequest(proto.Message):
             Required. The Job to be created.
     """
 
-    parent = proto.Field(proto.STRING, number=1,)
+    parent = proto.Field(proto.STRING, number=1)
+
     job = proto.Field(proto.MESSAGE, number=2, message=gct_job.Job,)
 
 
 class GetJobRequest(proto.Message):
     r"""Get job request.
+
     Attributes:
         name (str):
             Required. The resource name of the job to retrieve.
@@ -91,11 +97,12 @@ class GetJobRequest(proto.Message):
             example, "projects/foo/jobs/bar".
     """
 
-    name = proto.Field(proto.STRING, number=1,)
+    name = proto.Field(proto.STRING, number=1)
 
 
 class UpdateJobRequest(proto.Message):
     r"""Update job request.
+
     Attributes:
         job (google.cloud.talent_v4beta1.types.Job):
             Required. The Job to be updated.
@@ -114,11 +121,13 @@ class UpdateJobRequest(proto.Message):
     """
 
     job = proto.Field(proto.MESSAGE, number=1, message=gct_job.Job,)
+
     update_mask = proto.Field(proto.MESSAGE, number=2, message=field_mask.FieldMask,)
 
 
 class DeleteJobRequest(proto.Message):
     r"""Delete job request.
+
     Attributes:
         name (str):
             Required. The resource name of the job to be deleted.
@@ -131,11 +140,12 @@ class DeleteJobRequest(proto.Message):
             example, "projects/foo/jobs/bar".
     """
 
-    name = proto.Field(proto.STRING, number=1,)
+    name = proto.Field(proto.STRING, number=1)
 
 
 class BatchDeleteJobsRequest(proto.Message):
     r"""Batch delete jobs request.
+
     Attributes:
         parent (str):
             Required. The resource name of the tenant under which the
@@ -160,12 +170,14 @@ class BatchDeleteJobsRequest(proto.Message):
             requisitionId = "req-1".
     """
 
-    parent = proto.Field(proto.STRING, number=1,)
-    filter = proto.Field(proto.STRING, number=2,)
+    parent = proto.Field(proto.STRING, number=1)
+
+    filter = proto.Field(proto.STRING, number=2)
 
 
 class ListJobsRequest(proto.Message):
     r"""List jobs request.
+
     Attributes:
         parent (str):
             Required. The resource name of the tenant under which the
@@ -216,15 +228,20 @@ class ListJobsRequest(proto.Message):
             if no value is specified.
     """
 
-    parent = proto.Field(proto.STRING, number=1,)
-    filter = proto.Field(proto.STRING, number=2,)
-    page_token = proto.Field(proto.STRING, number=3,)
-    page_size = proto.Field(proto.INT32, number=4,)
+    parent = proto.Field(proto.STRING, number=1)
+
+    filter = proto.Field(proto.STRING, number=2)
+
+    page_token = proto.Field(proto.STRING, number=3)
+
+    page_size = proto.Field(proto.INT32, number=4)
+
     job_view = proto.Field(proto.ENUM, number=5, enum="JobView",)
 
 
 class ListJobsResponse(proto.Message):
     r"""List jobs response.
+
     Attributes:
         jobs (Sequence[google.cloud.talent_v4beta1.types.Job]):
             The Jobs for a given company.
@@ -242,12 +259,15 @@ class ListJobsResponse(proto.Message):
         return self
 
     jobs = proto.RepeatedField(proto.MESSAGE, number=1, message=gct_job.Job,)
-    next_page_token = proto.Field(proto.STRING, number=2,)
+
+    next_page_token = proto.Field(proto.STRING, number=2)
+
     metadata = proto.Field(proto.MESSAGE, number=3, message=common.ResponseMetadata,)
 
 
 class SearchJobsRequest(proto.Message):
     r"""The Request body of the ``SearchJobs`` call.
+
     Attributes:
         parent (str):
             Required. The resource name of the tenant to search within.
@@ -613,35 +633,51 @@ class SearchJobsRequest(proto.Message):
             number=1,
             enum="SearchJobsRequest.CustomRankingInfo.ImportanceLevel",
         )
-        ranking_expression = proto.Field(proto.STRING, number=2,)
 
-    parent = proto.Field(proto.STRING, number=1,)
+        ranking_expression = proto.Field(proto.STRING, number=2)
+
+    parent = proto.Field(proto.STRING, number=1)
+
     search_mode = proto.Field(proto.ENUM, number=2, enum=SearchMode,)
+
     request_metadata = proto.Field(
         proto.MESSAGE, number=3, message=common.RequestMetadata,
     )
+
     job_query = proto.Field(proto.MESSAGE, number=4, message=filters.JobQuery,)
-    enable_broadening = proto.Field(proto.BOOL, number=5,)
-    require_precise_result_size = proto.Field(proto.BOOL, number=6,)
+
+    enable_broadening = proto.Field(proto.BOOL, number=5)
+
+    require_precise_result_size = proto.Field(proto.BOOL, number=6)
+
     histogram_queries = proto.RepeatedField(
         proto.MESSAGE, number=7, message=histogram.HistogramQuery,
     )
+
     job_view = proto.Field(proto.ENUM, number=8, enum="JobView",)
-    offset = proto.Field(proto.INT32, number=9,)
-    page_size = proto.Field(proto.INT32, number=10,)
-    page_token = proto.Field(proto.STRING, number=11,)
-    order_by = proto.Field(proto.STRING, number=12,)
+
+    offset = proto.Field(proto.INT32, number=9)
+
+    page_size = proto.Field(proto.INT32, number=10)
+
+    page_token = proto.Field(proto.STRING, number=11)
+
+    order_by = proto.Field(proto.STRING, number=12)
+
     diversification_level = proto.Field(
         proto.ENUM, number=13, enum=DiversificationLevel,
     )
+
     custom_ranking_info = proto.Field(
         proto.MESSAGE, number=14, message=CustomRankingInfo,
     )
-    disable_keyword_match = proto.Field(proto.BOOL, number=16,)
+
+    disable_keyword_match = proto.Field(proto.BOOL, number=16)
 
 
 class SearchJobsResponse(proto.Message):
     r"""Response for SearchJob method.
+
     Attributes:
         matching_jobs (Sequence[google.cloud.talent_v4beta1.types.SearchJobsResponse.MatchingJob]):
             The Job entities that match the specified
@@ -722,15 +758,20 @@ class SearchJobsResponse(proto.Message):
         """
 
         job = proto.Field(proto.MESSAGE, number=1, message=gct_job.Job,)
-        job_summary = proto.Field(proto.STRING, number=2,)
-        job_title_snippet = proto.Field(proto.STRING, number=3,)
-        search_text_snippet = proto.Field(proto.STRING, number=4,)
+
+        job_summary = proto.Field(proto.STRING, number=2)
+
+        job_title_snippet = proto.Field(proto.STRING, number=3)
+
+        search_text_snippet = proto.Field(proto.STRING, number=4)
+
         commute_info = proto.Field(
             proto.MESSAGE, number=5, message="SearchJobsResponse.CommuteInfo",
         )
 
     class CommuteInfo(proto.Message):
         r"""Commute details related to this job.
+
         Attributes:
             job_location (google.cloud.talent_v4beta1.types.Location):
                 Location used as the destination in the
@@ -744,6 +785,7 @@ class SearchJobsResponse(proto.Message):
         """
 
         job_location = proto.Field(proto.MESSAGE, number=1, message=common.Location,)
+
         travel_duration = proto.Field(
             proto.MESSAGE, number=2, message=duration.Duration,
         )
@@ -753,17 +795,25 @@ class SearchJobsResponse(proto.Message):
         return self
 
     matching_jobs = proto.RepeatedField(proto.MESSAGE, number=1, message=MatchingJob,)
+
     histogram_query_results = proto.RepeatedField(
         proto.MESSAGE, number=2, message=histogram.HistogramQueryResult,
     )
-    next_page_token = proto.Field(proto.STRING, number=3,)
+
+    next_page_token = proto.Field(proto.STRING, number=3)
+
     location_filters = proto.RepeatedField(
         proto.MESSAGE, number=4, message=common.Location,
     )
-    estimated_total_size = proto.Field(proto.INT32, number=5,)
-    total_size = proto.Field(proto.INT32, number=6,)
+
+    estimated_total_size = proto.Field(proto.INT32, number=5)
+
+    total_size = proto.Field(proto.INT32, number=6)
+
     metadata = proto.Field(proto.MESSAGE, number=7, message=common.ResponseMetadata,)
-    broadened_query_jobs_count = proto.Field(proto.INT32, number=8,)
+
+    broadened_query_jobs_count = proto.Field(proto.INT32, number=8)
+
     spell_correction = proto.Field(
         proto.MESSAGE, number=9, message=common.SpellingCorrection,
     )
@@ -771,6 +821,7 @@ class SearchJobsResponse(proto.Message):
 
 class BatchCreateJobsRequest(proto.Message):
     r"""Request to create a batch of jobs.
+
     Attributes:
         parent (str):
             Required. The resource name of the tenant under which the
@@ -784,12 +835,14 @@ class BatchCreateJobsRequest(proto.Message):
             Required. The jobs to be created.
     """
 
-    parent = proto.Field(proto.STRING, number=1,)
+    parent = proto.Field(proto.STRING, number=1)
+
     jobs = proto.RepeatedField(proto.MESSAGE, number=2, message=gct_job.Job,)
 
 
 class BatchUpdateJobsRequest(proto.Message):
     r"""Request to update a batch of jobs.
+
     Attributes:
         parent (str):
             Required. The resource name of the tenant under which the
@@ -827,8 +880,10 @@ class BatchUpdateJobsRequest(proto.Message):
             response.
     """
 
-    parent = proto.Field(proto.STRING, number=1,)
+    parent = proto.Field(proto.STRING, number=1)
+
     jobs = proto.RepeatedField(proto.MESSAGE, number=2, message=gct_job.Job,)
+
     update_mask = proto.Field(proto.MESSAGE, number=3, message=field_mask.FieldMask,)
 
 
@@ -850,6 +905,7 @@ class JobOperationResult(proto.Message):
 
     class JobResult(proto.Message):
         r"""Mutation result of a job.
+
         Attributes:
             job (google.cloud.talent_v4beta1.types.Job):
                 Here [Job][google.cloud.talent.v4beta1.Job] only contains
@@ -869,6 +925,7 @@ class JobOperationResult(proto.Message):
         """
 
         job = proto.Field(proto.MESSAGE, number=1, message=gct_job.Job,)
+
         status = proto.Field(proto.MESSAGE, number=2, message=gr_status.Status,)
 
     job_results = proto.RepeatedField(proto.MESSAGE, number=1, message=JobResult,)

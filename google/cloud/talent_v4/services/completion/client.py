@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 from collections import OrderedDict
 from distutils import util
 import os
@@ -32,6 +34,7 @@ from google.oauth2 import service_account  # type: ignore
 
 from google.cloud.talent_v4.types import common
 from google.cloud.talent_v4.types import completion_service
+
 from .transports.base import CompletionTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc import CompletionGrpcTransport
 from .transports.grpc_asyncio import CompletionGrpcAsyncIOTransport
@@ -365,8 +368,8 @@ class CompletionClient(metaclass=CompletionClientMeta):
 
         Args:
             request (google.cloud.talent_v4.types.CompleteQueryRequest):
-                The request object.
-                Auto-complete parameters.
+                The request object. Auto-complete parameters.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -378,6 +381,7 @@ class CompletionClient(metaclass=CompletionClientMeta):
                 Response of auto-complete query.
         """
         # Create or coerce a protobuf request object.
+
         # Minor optimization to avoid making a copy if the user passes
         # in a completion_service.CompleteQueryRequest.
         # There's no risk of modifying the input as we've already verified

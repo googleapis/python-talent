@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 from collections import OrderedDict
 import functools
 import re
@@ -34,6 +36,7 @@ from google.cloud.talent_v4beta1.types import job
 from google.cloud.talent_v4beta1.types import job as gct_job
 from google.cloud.talent_v4beta1.types import job_service
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
+
 from .transports.base import JobServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc_asyncio import JobServiceGrpcAsyncIOTransport
 from .client import JobServiceClient
@@ -53,20 +56,25 @@ class JobServiceAsyncClient:
     parse_company_path = staticmethod(JobServiceClient.parse_company_path)
     job_path = staticmethod(JobServiceClient.job_path)
     parse_job_path = staticmethod(JobServiceClient.parse_job_path)
+
     common_billing_account_path = staticmethod(
         JobServiceClient.common_billing_account_path
     )
     parse_common_billing_account_path = staticmethod(
         JobServiceClient.parse_common_billing_account_path
     )
+
     common_folder_path = staticmethod(JobServiceClient.common_folder_path)
     parse_common_folder_path = staticmethod(JobServiceClient.parse_common_folder_path)
+
     common_organization_path = staticmethod(JobServiceClient.common_organization_path)
     parse_common_organization_path = staticmethod(
         JobServiceClient.parse_common_organization_path
     )
+
     common_project_path = staticmethod(JobServiceClient.common_project_path)
     parse_common_project_path = staticmethod(JobServiceClient.parse_common_project_path)
+
     common_location_path = staticmethod(JobServiceClient.common_location_path)
     parse_common_location_path = staticmethod(
         JobServiceClient.parse_common_location_path
@@ -157,6 +165,7 @@ class JobServiceAsyncClient:
             google.auth.exceptions.MutualTlsChannelError: If mutual TLS transport
                 creation failed for any reason.
         """
+
         self._client = JobServiceClient(
             credentials=credentials,
             transport=transport,
@@ -180,8 +189,7 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.CreateJobRequest`):
-                The request object.
-                Create job request.
+                The request object. Create job request.
             parent (:class:`str`):
                 Required. The resource name of the tenant under which
                 the job is created.
@@ -200,6 +208,7 @@ class JobServiceAsyncClient:
                 This corresponds to the ``job`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -228,6 +237,7 @@ class JobServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if parent is not None:
             request.parent = parent
         if job is not None:
@@ -267,8 +277,7 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.BatchCreateJobsRequest`):
-                The request object.
-                Request to create a batch of jobs.
+                The request object. Request to create a batch of jobs.
             parent (:class:`str`):
                 Required. The resource name of the tenant under which
                 the job is created.
@@ -287,6 +296,7 @@ class JobServiceAsyncClient:
                 This corresponds to the ``jobs`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -318,8 +328,10 @@ class JobServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if parent is not None:
             request.parent = parent
+
         if jobs:
             request.jobs.extend(jobs)
 
@@ -365,8 +377,7 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.GetJobRequest`):
-                The request object.
-                Get job request.
+                The request object. Get job request.
             name (:class:`str`):
                 Required. The resource name of the job to retrieve.
 
@@ -380,6 +391,7 @@ class JobServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -408,6 +420,7 @@ class JobServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -456,13 +469,13 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.UpdateJobRequest`):
-                The request object.
-                Update job request.
+                The request object. Update job request.
             job (:class:`google.cloud.talent_v4beta1.types.Job`):
                 Required. The Job to be updated.
                 This corresponds to the ``job`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -491,6 +504,7 @@ class JobServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if job is not None:
             request.job = job
 
@@ -528,8 +542,7 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.BatchUpdateJobsRequest`):
-                The request object.
-                Request to update a batch of jobs.
+                The request object. Request to update a batch of jobs.
             parent (:class:`str`):
                 Required. The resource name of the tenant under which
                 the job is created.
@@ -548,6 +561,7 @@ class JobServiceAsyncClient:
                 This corresponds to the ``jobs`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -579,8 +593,10 @@ class JobServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if parent is not None:
             request.parent = parent
+
         if jobs:
             request.jobs.extend(jobs)
 
@@ -627,8 +643,7 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.DeleteJobRequest`):
-                The request object.
-                Delete job request.
+                The request object. Delete job request.
             name (:class:`str`):
                 Required. The resource name of the job to be deleted.
 
@@ -642,6 +657,7 @@ class JobServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -662,6 +678,7 @@ class JobServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if name is not None:
             request.name = name
 
@@ -708,8 +725,7 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.BatchDeleteJobsRequest`):
-                The request object.
-                Batch delete jobs request.
+                The request object. Batch delete jobs request.
             parent (:class:`str`):
                 Required. The resource name of the tenant under which
                 the job is created.
@@ -740,6 +756,7 @@ class JobServiceAsyncClient:
                 This corresponds to the ``filter`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -760,6 +777,7 @@ class JobServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if parent is not None:
             request.parent = parent
         if filter is not None:
@@ -798,8 +816,7 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.ListJobsRequest`):
-                The request object.
-                List jobs request.
+                The request object. List jobs request.
             parent (:class:`str`):
                 Required. The resource name of the tenant under which
                 the job is created.
@@ -840,6 +857,7 @@ class JobServiceAsyncClient:
                 This corresponds to the ``filter`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -868,6 +886,7 @@ class JobServiceAsyncClient:
 
         # If we have keyword arguments corresponding to fields on the
         # request, apply these.
+
         if parent is not None:
             request.parent = parent
         if filter is not None:
@@ -926,9 +945,9 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.SearchJobsRequest`):
-                The request object.
-                The Request body of the `SearchJobs`
+                The request object. The Request body of the `SearchJobs`
                 call.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -944,6 +963,7 @@ class JobServiceAsyncClient:
 
         """
         # Create or coerce a protobuf request object.
+
         request = job_service.SearchJobsRequest(request)
 
         # Wrap the RPC method; this adds retry and timeout information,
@@ -996,9 +1016,9 @@ class JobServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.talent_v4beta1.types.SearchJobsRequest`):
-                The request object.
-                The Request body of the `SearchJobs`
+                The request object. The Request body of the `SearchJobs`
                 call.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1014,6 +1034,7 @@ class JobServiceAsyncClient:
 
         """
         # Create or coerce a protobuf request object.
+
         request = job_service.SearchJobsRequest(request)
 
         # Wrap the RPC method; this adds retry and timeout information,

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 import proto  # type: ignore
+
 
 from google.cloud.talent_v4.types import common
 
@@ -26,6 +29,7 @@ __protobuf__ = proto.module(
 
 class CompleteQueryRequest(proto.Message):
     r"""Auto-complete parameters.
+
     Attributes:
         tenant (str):
             Required. Resource name of tenant the completion is
@@ -74,17 +78,24 @@ class CompleteQueryRequest(proto.Message):
         COMPANY_NAME = 2
         COMBINED = 3
 
-    tenant = proto.Field(proto.STRING, number=1,)
-    query = proto.Field(proto.STRING, number=2,)
-    language_codes = proto.RepeatedField(proto.STRING, number=3,)
-    page_size = proto.Field(proto.INT32, number=4,)
-    company = proto.Field(proto.STRING, number=5,)
+    tenant = proto.Field(proto.STRING, number=1)
+
+    query = proto.Field(proto.STRING, number=2)
+
+    language_codes = proto.RepeatedField(proto.STRING, number=3)
+
+    page_size = proto.Field(proto.INT32, number=4)
+
+    company = proto.Field(proto.STRING, number=5)
+
     scope = proto.Field(proto.ENUM, number=6, enum=CompletionScope,)
+
     type_ = proto.Field(proto.ENUM, number=7, enum=CompletionType,)
 
 
 class CompleteQueryResponse(proto.Message):
     r"""Response of auto-complete query.
+
     Attributes:
         completion_results (Sequence[google.cloud.talent_v4.types.CompleteQueryResponse.CompletionResult]):
             Results of the matching job/company
@@ -96,6 +107,7 @@ class CompleteQueryResponse(proto.Message):
 
     class CompletionResult(proto.Message):
         r"""Resource that represents completion results.
+
         Attributes:
             suggestion (str):
                 The suggestion for the query.
@@ -106,15 +118,18 @@ class CompleteQueryResponse(proto.Message):
                 [COMPANY_NAME][google.cloud.talent.v4.CompleteQueryRequest.CompletionType.COMPANY_NAME].
         """
 
-        suggestion = proto.Field(proto.STRING, number=1,)
+        suggestion = proto.Field(proto.STRING, number=1)
+
         type_ = proto.Field(
             proto.ENUM, number=2, enum="CompleteQueryRequest.CompletionType",
         )
-        image_uri = proto.Field(proto.STRING, number=3,)
+
+        image_uri = proto.Field(proto.STRING, number=3)
 
     completion_results = proto.RepeatedField(
         proto.MESSAGE, number=1, message=CompletionResult,
     )
+
     metadata = proto.Field(proto.MESSAGE, number=2, message=common.ResponseMetadata,)
 
 

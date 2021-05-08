@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,21 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 import warnings
-from typing import Awaitable, Callable, Dict, Optional, Sequence, Tuple, Union
+from typing import Awaitable, Callable, Dict, Optional, Sequence, Tuple
 
 from google.api_core import gapic_v1  # type: ignore
 from google.api_core import grpc_helpers_async  # type: ignore
 from google import auth  # type: ignore
 from google.auth import credentials  # type: ignore
 from google.auth.transport.grpc import SslCredentials  # type: ignore
-import packaging.version
 
 import grpc  # type: ignore
 from grpc.experimental import aio  # type: ignore
 
 from google.cloud.talent_v4.types import event
 from google.cloud.talent_v4.types import event_service
+
 from .base import EventServiceTransport, DEFAULT_CLIENT_INFO
 from .grpc import EventServiceGrpcTransport
 
@@ -79,15 +81,13 @@ class EventServiceGrpcAsyncIOTransport(EventServiceTransport):
         Returns:
             aio.Channel: A gRPC AsyncIO channel object.
         """
-
-        self_signed_jwt_kwargs = cls._get_self_signed_jwt_kwargs(host, scopes)
-
+        scopes = scopes or cls.AUTH_SCOPES
         return grpc_helpers_async.create_channel(
             host,
             credentials=credentials,
             credentials_file=credentials_file,
+            scopes=scopes,
             quota_project_id=quota_project_id,
-            **self_signed_jwt_kwargs,
             **kwargs,
         )
 
@@ -109,8 +109,7 @@ class EventServiceGrpcAsyncIOTransport(EventServiceTransport):
         """Instantiate the transport.
 
         Args:
-            host (Optional[str]):
-                 The hostname to connect to.
+            host (Optional[str]): The hostname to connect to.
             credentials (Optional[google.auth.credentials.Credentials]): The
                 authorization credentials to attach to requests. These
                 credentials identify the application to the service; if none
@@ -168,6 +167,7 @@ class EventServiceGrpcAsyncIOTransport(EventServiceTransport):
             # If a channel was explicitly provided, set it.
             self._grpc_channel = channel
             self._ssl_channel_credentials = None
+
         else:
             if api_mtls_endpoint:
                 host = api_mtls_endpoint
@@ -232,9 +232,7 @@ class EventServiceGrpcAsyncIOTransport(EventServiceTransport):
     ) -> Callable[
         [event_service.CreateClientEventRequest], Awaitable[event.ClientEvent]
     ]:
-        r"""Return a callable for the
-        create client event
-          method over gRPC.
+        r"""Return a callable for the create client event method over gRPC.
 
         Report events issued when end user interacts with customer's
         application that uses Cloud Talent Solution. You may inspect the

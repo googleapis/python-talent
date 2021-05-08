@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 from collections import OrderedDict
 from distutils import util
 import os
@@ -35,6 +37,7 @@ from google.cloud.talent_v4.types import tenant
 from google.cloud.talent_v4.types import tenant as gct_tenant
 from google.cloud.talent_v4.types import tenant_service
 from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
+
 from .transports.base import TenantServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc import TenantServiceGrpcTransport
 from .transports.grpc_asyncio import TenantServiceGrpcAsyncIOTransport
@@ -354,8 +357,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
         Args:
             request (google.cloud.talent_v4.types.CreateTenantRequest):
-                The request object.
-                The Request of the CreateTenant
+                The request object. The Request of the CreateTenant
                 method.
             parent (str):
                 Required. Resource name of the project under which the
@@ -372,6 +374,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
                 This corresponds to the ``tenant`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -405,8 +408,10 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, tenant_service.CreateTenantRequest):
             request = tenant_service.CreateTenantRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if parent is not None:
                 request.parent = parent
             if tenant is not None:
@@ -441,8 +446,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
         Args:
             request (google.cloud.talent_v4.types.GetTenantRequest):
-                The request object.
-                Request for getting a tenant by
+                The request object. Request for getting a tenant by
                 name.
             name (str):
                 Required. The resource name of the tenant to be
@@ -455,6 +459,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -488,8 +493,10 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, tenant_service.GetTenantRequest):
             request = tenant_service.GetTenantRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if name is not None:
                 request.name = name
 
@@ -523,8 +530,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
         Args:
             request (google.cloud.talent_v4.types.UpdateTenantRequest):
-                The request object.
-                Request for updating a specified
+                The request object. Request for updating a specified
                 tenant.
             tenant (google.cloud.talent_v4.types.Tenant):
                 Required. The tenant resource to
@@ -550,6 +556,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -583,8 +590,10 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, tenant_service.UpdateTenantRequest):
             request = tenant_service.UpdateTenantRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if tenant is not None:
                 request.tenant = tenant
             if update_mask is not None:
@@ -621,8 +630,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
         Args:
             request (google.cloud.talent_v4.types.DeleteTenantRequest):
-                The request object.
-                Request to delete a tenant.
+                The request object. Request to delete a tenant.
             name (str):
                 Required. The resource name of the tenant to be deleted.
 
@@ -633,6 +641,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -655,8 +664,10 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, tenant_service.DeleteTenantRequest):
             request = tenant_service.DeleteTenantRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if name is not None:
                 request.name = name
 
@@ -688,8 +699,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
         Args:
             request (google.cloud.talent_v4.types.ListTenantsRequest):
-                The request object.
-                List tenants for which the client
+                The request object. List tenants for which the client
                 has ACL visibility.
             parent (str):
                 Required. Resource name of the project under which the
@@ -701,6 +711,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -731,8 +742,10 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, tenant_service.ListTenantsRequest):
             request = tenant_service.ListTenantsRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if parent is not None:
                 request.parent = parent
 
