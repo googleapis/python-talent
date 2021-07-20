@@ -4,6 +4,13 @@
 
 [1]: https://pypi.org/project/google-cloud-talent/#history
 
+### [2.2.1](https://www.github.com/googleapis/python-talent/compare/v2.2.0...v2.2.1) (2021-07-20)
+
+
+### Bug Fixes
+
+* **deps:** pin 'google-{api,cloud}-core', 'google-auth' to allow 2.x versions ([#133](https://www.github.com/googleapis/python-talent/issues/133)) ([9032d52](https://www.github.com/googleapis/python-talent/commit/9032d52e1f69f1e58e867aa8968d63af1398d36f))
+
 ## [2.2.0](https://www.github.com/googleapis/python-talent/compare/v2.1.0...v2.2.0) (2021-06-30)
 
 
