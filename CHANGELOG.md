@@ -4,6 +4,45 @@
 
 [1]: https://pypi.org/project/google-cloud-talent/#history
 
+### [2.2.1](https://www.github.com/googleapis/python-talent/compare/v2.2.0...v2.2.1) (2021-07-28)
+
+
+### Bug Fixes
+
+* **deps:** pin 'google-{api,cloud}-core', 'google-auth' to allow 2.x versions ([#133](https://www.github.com/googleapis/python-talent/issues/133)) ([9032d52](https://www.github.com/googleapis/python-talent/commit/9032d52e1f69f1e58e867aa8968d63af1398d36f))
+* enable self signed jwt for grpc ([#138](https://www.github.com/googleapis/python-talent/issues/138)) ([95fbb59](https://www.github.com/googleapis/python-talent/commit/95fbb597e2a4b9aac0b0bb0fc920e69b5e04f22b))
+
+
+### Documentation
+
+* add Samples section to CONTRIBUTING.rst ([#134](https://www.github.com/googleapis/python-talent/issues/134)) ([4a4c133](https://www.github.com/googleapis/python-talent/commit/4a4c1337be504d7b45c1a1ec000302472787d409))
+
+
+### Miscellaneous Chores
+
+* release 2.2.1 ([#139](https://www.github.com/googleapis/python-talent/issues/139)) ([9c15373](https://www.github.com/googleapis/python-talent/commit/9c15373aa362220b20836b6a8fade858f8d41e31))
+
+## [2.2.0](https://www.github.com/googleapis/python-talent/compare/v2.1.0...v2.2.0) (2021-06-30)
+
+
+### Features
+
+* add `from_service_account_info` ([095747e](https://www.github.com/googleapis/python-talent/commit/095747e8b517769a9caa2df6babf96fd526d0a22))
+* add always_use_jwt_access ([#112](https://www.github.com/googleapis/python-talent/issues/112)) ([01c8095](https://www.github.com/googleapis/python-talent/commit/01c8095182503fa8d7ca593f4701f87fe00621ff))
+
+
+### Bug Fixes
+
+* **deps:** add packaging requirement ([#99](https://www.github.com/googleapis/python-talent/issues/99)) ([c00ab57](https://www.github.com/googleapis/python-talent/commit/c00ab5750a4062b7de24fcba5798171be174f131))
+* disable always_use_jwt_access ([a422ac0](https://www.github.com/googleapis/python-talent/commit/a422ac00d270bef6f66d6d29b674505c3a152e33))
+* disable always_use_jwt_access ([#115](https://www.github.com/googleapis/python-talent/issues/115)) ([a422ac0](https://www.github.com/googleapis/python-talent/commit/a422ac00d270bef6f66d6d29b674505c3a152e33))
+* fix retry deadlines ([#73](https://www.github.com/googleapis/python-talent/issues/73)) ([095747e](https://www.github.com/googleapis/python-talent/commit/095747e8b517769a9caa2df6babf96fd526d0a22))
+
+
+### Documentation
+
+* omit mention of Python 2.7 in 'CONTRIBUTING.rst' ([#1127](https://www.github.com/googleapis/python-talent/issues/1127)) ([#109](https://www.github.com/googleapis/python-talent/issues/109)) ([fe89307](https://www.github.com/googleapis/python-talent/commit/fe89307a7288e02aaeadb4d582a4b0bd7aa1d221)), closes [#1126](https://www.github.com/googleapis/python-talent/issues/1126)
+
 ## [2.1.0](https://www.github.com/googleapis/python-talent/compare/v2.0.0...v2.1.0) (2021-02-11)
 
 
