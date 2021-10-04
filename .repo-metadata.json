@@ -11,6 +11,6 @@
     "distribution_name": "google-cloud-talent",
     "api_id": "jobs.googleapis.com",
     "requires_billing": true,
-    "default_version": "",
+    "default_version": "v4",
     "codeowner_team": ""
 }
