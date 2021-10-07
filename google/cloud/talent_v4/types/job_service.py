@@ -63,6 +63,7 @@ class JobView(proto.Enum):
 
 class CreateJobRequest(proto.Message):
     r"""Create job request.
+
     Attributes:
         parent (str):
             Required. The resource name of the tenant under which the
@@ -80,6 +81,7 @@ class CreateJobRequest(proto.Message):
 
 class GetJobRequest(proto.Message):
     r"""Get job request.
+
     Attributes:
         name (str):
             Required. The resource name of the job to retrieve.
@@ -94,6 +96,7 @@ class GetJobRequest(proto.Message):
 
 class UpdateJobRequest(proto.Message):
     r"""Update job request.
+
     Attributes:
         job (google.cloud.talent_v4.types.Job):
             Required. The Job to be updated.
@@ -119,6 +122,7 @@ class UpdateJobRequest(proto.Message):
 
 class DeleteJobRequest(proto.Message):
     r"""Delete job request.
+
     Attributes:
         name (str):
             Required. The resource name of the job to be deleted.
@@ -133,6 +137,7 @@ class DeleteJobRequest(proto.Message):
 
 class ListJobsRequest(proto.Message):
     r"""List jobs request.
+
     Attributes:
         parent (str):
             Required. The resource name of the tenant under which the
@@ -195,6 +200,7 @@ class ListJobsRequest(proto.Message):
 
 class ListJobsResponse(proto.Message):
     r"""List jobs response.
+
     Attributes:
         jobs (Sequence[google.cloud.talent_v4.types.Job]):
             The Jobs for a given company.
@@ -218,6 +224,7 @@ class ListJobsResponse(proto.Message):
 
 class SearchJobsRequest(proto.Message):
     r"""The Request body of the ``SearchJobs`` call.
+
     Attributes:
         parent (str):
             Required. The resource name of the tenant to search within.
@@ -467,6 +474,18 @@ class SearchJobsRequest(proto.Message):
             top of existing relevance score (determined by
             API algorithm).
         disable_keyword_match (bool):
+            This field is deprecated. Please use
+            [SearchJobsRequest.keyword_match_mode][google.cloud.talent.v4.SearchJobsRequest.keyword_match_mode]
+            going forward.
+
+            To migrate, disable_keyword_match set to false maps to
+            [KeywordMatchMode.KEYWORD_MATCH_ALL][google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode.KEYWORD_MATCH_ALL],
+            and disable_keyword_match set to true maps to
+            [KeywordMatchMode.KEYWORD_MATCH_DISABLED][google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode.KEYWORD_MATCH_DISABLED].
+            If
+            [SearchJobsRequest.keyword_match_mode][google.cloud.talent.v4.SearchJobsRequest.keyword_match_mode]
+            is set, this field is ignored.
+
             Controls whether to disable exact keyword match on
             [Job.title][google.cloud.talent.v4.Job.title],
             [Job.description][google.cloud.talent.v4.Job.description],
@@ -492,6 +511,14 @@ class SearchJobsRequest(proto.Message):
             recall of subsequent search requests.
 
             Defaults to false.
+        keyword_match_mode (google.cloud.talent_v4.types.SearchJobsRequest.KeywordMatchMode):
+            Controls what keyword match options to use. If both
+            keyword_match_mode and disable_keyword_match are set,
+            keyword_match_mode will take precedence.
+
+            Defaults to
+            [KeywordMatchMode.KEYWORD_MATCH_ALL][google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode.KEYWORD_MATCH_ALL]
+            if no value is specified.
     """
 
     class SearchMode(proto.Enum):
@@ -510,10 +537,42 @@ class SearchJobsRequest(proto.Message):
         representative job of the cluster is displayed to the job seeker
         higher up in the results, with the other jobs being displayed
         lower down in the results.
+
+        If you are using pageToken to page through the result set,
+        latency might be lower but we can't guarantee that all results
+        are returned. If you are using page offset, latency might be
+        higher but all results are returned.
         """
         DIVERSIFICATION_LEVEL_UNSPECIFIED = 0
         DISABLED = 1
         SIMPLE = 2
+        ONE_PER_COMPANY = 3
+        TWO_PER_COMPANY = 4
+        DIVERSIFY_BY_LOOSER_SIMILARITY = 5
+
+    class KeywordMatchMode(proto.Enum):
+        r"""Controls what keyword matching behavior the search has. When keyword
+        matching is enabled, a keyword match returns jobs that may not match
+        given category filters when there are matching keywords. For
+        example, for the query "program manager" with KeywordMatchMode set
+        to KEYWORD_MATCH_ALL, a job posting with the title "software
+        developer," which doesn't fall into "program manager" ontology, and
+        "program manager" appearing in its description will be surfaced.
+
+        For queries like "cloud" that don't contain title or location
+        specific ontology, jobs with "cloud" keyword matches are returned
+        regardless of this enum's value.
+
+        Use
+        [Company.keyword_searchable_job_custom_attributes][google.cloud.talent.v4.Company.keyword_searchable_job_custom_attributes]
+        if company-specific globally matched custom field/attribute string
+        values are needed. Enabling keyword match improves recall of
+        subsequent search requests.
+        """
+        KEYWORD_MATCH_MODE_UNSPECIFIED = 0
+        KEYWORD_MATCH_DISABLED = 1
+        KEYWORD_MATCH_ALL = 2
+        KEYWORD_MATCH_TITLE_ONLY = 3
 
     class CustomRankingInfo(proto.Message):
         r"""Custom ranking information for
@@ -542,7 +601,7 @@ class SearchJobsRequest(proto.Message):
                 evaluated to a number.
 
                 Parenthesis are supported to adjust calculation precedence.
-                The expression must be < 100 characters in length.
+                The expression must be < 200 characters in length.
 
                 The expression is considered invalid for a job if the
                 expression references custom attributes that are not
@@ -595,10 +654,12 @@ class SearchJobsRequest(proto.Message):
         proto.MESSAGE, number=14, message=CustomRankingInfo,
     )
     disable_keyword_match = proto.Field(proto.BOOL, number=16,)
+    keyword_match_mode = proto.Field(proto.ENUM, number=18, enum=KeywordMatchMode,)
 
 
 class SearchJobsResponse(proto.Message):
     r"""Response for SearchJob method.
+
     Attributes:
         matching_jobs (Sequence[google.cloud.talent_v4.types.SearchJobsResponse.MatchingJob]):
             The Job entities that match the specified
@@ -679,6 +740,7 @@ class SearchJobsResponse(proto.Message):
 
     class CommuteInfo(proto.Message):
         r"""Commute details related to this job.
+
         Attributes:
             job_location (google.cloud.talent_v4.types.Location):
                 Location used as the destination in the
@@ -718,6 +780,7 @@ class SearchJobsResponse(proto.Message):
 
 class BatchCreateJobsRequest(proto.Message):
     r"""Request to create a batch of jobs.
+
     Attributes:
         parent (str):
             Required. The resource name of the tenant under which the
@@ -736,6 +799,7 @@ class BatchCreateJobsRequest(proto.Message):
 
 class BatchUpdateJobsRequest(proto.Message):
     r"""Request to update a batch of jobs.
+
     Attributes:
         parent (str):
             Required. The resource name of the tenant under which the
@@ -779,6 +843,7 @@ class BatchUpdateJobsRequest(proto.Message):
 
 class BatchDeleteJobsRequest(proto.Message):
     r"""Request to delete a batch of jobs.
+
     Attributes:
         parent (str):
             Required. The resource name of the tenant under which the
@@ -805,6 +870,7 @@ class BatchDeleteJobsRequest(proto.Message):
 
 class JobResult(proto.Message):
     r"""Mutation result of a job from a batch operation.
+
     Attributes:
         job (google.cloud.talent_v4.types.Job):
             Here [Job][google.cloud.talent.v4.Job] only contains basic
