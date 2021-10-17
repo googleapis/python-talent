@@ -2,6 +2,10 @@
 
 .. include:: multiprocessing.rst
 
+This package includes clients for multiple versions of Google Cloud Talent Solution.
+By default, you will get version ``talent_v4``.
+
+
 API Reference
 -------------
 .. toctree::
@@ -9,25 +13,21 @@ API Reference
 
     talent_v4/services
     talent_v4/types
-    talent_v4beta1/services
-    talent_v4beta1/types
 
-Migration Guide
----------------
-
-See the guide below for instructions on migrating to the 1.x release of this library.
-
+API Reference
+-------------
 .. toctree::
     :maxdepth: 2
 
-    UPGRADING
+    talent_v4beta1/services
+    talent_v4beta1/types
 
 Changelog
 ---------
 
-For a list of all previous `google-cloud-talent` releases.
+For a list of all ``google-cloud-talent`` releases:
 
 .. toctree::
-    :maxdepth: 2
+   :maxdepth: 2
 
-    changelog
+   changelog
