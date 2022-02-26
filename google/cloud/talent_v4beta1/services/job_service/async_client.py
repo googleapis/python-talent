@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2020 Google LLC
+# Copyright 2022 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -221,7 +221,7 @@ class JobServiceAsyncClient:
         but it may take up to 5 minutes.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -333,7 +333,7 @@ class JobServiceAsyncClient:
     ) -> operation_async.AsyncOperation:
         r"""Begins executing a batch create jobs operation.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -461,7 +461,7 @@ class JobServiceAsyncClient:
         recently EXPIRED within the last 90 days.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -572,7 +572,7 @@ class JobServiceAsyncClient:
         minutes.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -668,7 +668,7 @@ class JobServiceAsyncClient:
     ) -> operation_async.AsyncOperation:
         r"""Begins executing a batch update jobs operation.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -797,7 +797,7 @@ class JobServiceAsyncClient:
         seconds, but it may take up to 5 minutes.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -895,7 +895,7 @@ class JobServiceAsyncClient:
         filter.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -1001,7 +1001,7 @@ class JobServiceAsyncClient:
     ) -> pagers.ListJobsAsyncPager:
         r"""Lists jobs by filter.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -1151,7 +1151,7 @@ class JobServiceAsyncClient:
         has permission to search against.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -1241,7 +1241,7 @@ class JobServiceAsyncClient:
         permission to search against.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 

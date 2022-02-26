@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2020 Google LLC
+# Copyright 2022 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -410,8 +410,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
     ) -> gct_tenant.Tenant:
         r"""Creates a new tenant entity.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -520,8 +519,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
     ) -> tenant.Tenant:
         r"""Retrieves specified tenant.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -620,8 +618,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
     ) -> gct_tenant.Tenant:
         r"""Updates specified tenant.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -722,8 +719,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
     ) -> None:
         r"""Deletes specified tenant.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -805,8 +801,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
     ) -> pagers.ListTenantsPager:
         r"""Lists all tenants associated with the project.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 

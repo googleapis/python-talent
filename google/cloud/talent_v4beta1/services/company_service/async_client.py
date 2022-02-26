@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2020 Google LLC
+# Copyright 2022 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -219,7 +219,7 @@ class CompanyServiceAsyncClient:
     ) -> gct_company.Company:
         r"""Creates a new company entity.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -331,7 +331,7 @@ class CompanyServiceAsyncClient:
     ) -> company.Company:
         r"""Retrieves specified company.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -443,7 +443,7 @@ class CompanyServiceAsyncClient:
     ) -> gct_company.Company:
         r"""Updates specified company.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -547,7 +547,7 @@ class CompanyServiceAsyncClient:
         it.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
@@ -643,7 +643,7 @@ class CompanyServiceAsyncClient:
     ) -> pagers.ListCompaniesAsyncPager:
         r"""Lists all companies associated with the project.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import talent_v4beta1
 
