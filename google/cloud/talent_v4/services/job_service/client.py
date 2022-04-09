@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -490,7 +490,7 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import talent_v4
+                    from google.cloud import talent_v4
 
             def sample_create_job():
                 # Create a client
@@ -605,7 +605,7 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import talent_v4
+                    from google.cloud import talent_v4
 
             def sample_batch_create_jobs():
                 # Create a client
@@ -738,7 +738,7 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import talent_v4
+                    from google.cloud import talent_v4
 
             def sample_get_job():
                 # Create a client
@@ -842,7 +842,7 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import talent_v4
+                    from google.cloud import talent_v4
 
             def sample_update_job():
                 # Create a client
@@ -961,7 +961,7 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import talent_v4
+                    from google.cloud import talent_v4
 
             def sample_batch_update_jobs():
                 # Create a client
@@ -1095,7 +1095,7 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import talent_v4
+                    from google.cloud import talent_v4
 
             def sample_delete_job():
                 # Create a client
@@ -1181,7 +1181,7 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import talent_v4
+                    from google.cloud import talent_v4
 
             def sample_batch_delete_jobs():
                 # Create a client
@@ -1313,7 +1313,7 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import talent_v4
+                    from google.cloud import talent_v4
 
             def sample_list_jobs():
                 # Create a client
@@ -1464,7 +1464,7 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import talent_v4
+                    from google.cloud import talent_v4
 
             def sample_search_jobs():
                 # Create a client
@@ -1549,7 +1549,7 @@ class JobServiceClient(metaclass=JobServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import talent_v4
+                    from google.cloud import talent_v4
 
             def sample_search_jobs_for_alert():
                 # Create a client
