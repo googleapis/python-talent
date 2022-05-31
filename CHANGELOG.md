@@ -4,14 +4,14 @@
 
 [1]: https://pypi.org/project/google-cloud-talent/#history
 
-### [2.5.2](https://github.com/googleapis/python-talent/compare/v2.5.1...v2.5.2) (2022-03-29)
+## [2.5.2](https://github.com/googleapis/python-talent/compare/v2.5.1...v2.5.2) (2022-03-29)
 
 
 ### Documentation
 
 * Added functionality in the companyDisplayNames filter to support fuzzy matching ([#221](https://github.com/googleapis/python-talent/issues/221)) ([985508c](https://github.com/googleapis/python-talent/commit/985508ce1cdd1050f5d6a7c7b6919408946e4c1d))
 
-### [2.5.1](https://github.com/googleapis/python-talent/compare/v2.5.0...v2.5.1) (2022-03-05)
+## [2.5.1](https://github.com/googleapis/python-talent/compare/v2.5.0...v2.5.1) (2022-03-05)
 
 
 ### Bug Fixes
@@ -59,7 +59,7 @@
 
 * bump release level to production/stable ([#102](https://www.github.com/googleapis/python-talent/issues/102)) ([2e63f9b](https://www.github.com/googleapis/python-talent/commit/2e63f9bf6aa2275fdf4d44c4ec8e7135add8df66))
 
-### [2.2.1](https://www.github.com/googleapis/python-talent/compare/v2.2.0...v2.2.1) (2021-07-28)
+## [2.2.1](https://www.github.com/googleapis/python-talent/compare/v2.2.0...v2.2.1) (2021-07-28)
 
 
 ### Bug Fixes
@@ -133,7 +133,7 @@
 
 * update default retry configs ([#17](https://www.github.com/googleapis/python-talent/issues/17)) ([a0e8ddc](https://www.github.com/googleapis/python-talent/commit/a0e8ddcb5706da9b470f4f5962a7a9cf3bd09f0a))
 
-### [0.6.1](https://www.github.com/googleapis/python-talent/compare/v0.6.0...v0.6.1) (2020-04-28)
+## [0.6.1](https://www.github.com/googleapis/python-talent/compare/v0.6.0...v0.6.1) (2020-04-28)
 
 
 ### Bug Fixes
