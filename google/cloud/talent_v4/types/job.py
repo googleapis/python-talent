@@ -321,8 +321,6 @@ class Job(proto.Message):
             posting.
         processing_options (google.cloud.talent_v4.types.Job.ProcessingOptions):
             Options for job processing.
-        job_debug_info (google.cloud.talent_v4.types.Job.JobDebugInfo):
-            Debugging information for internal users.
     """
 
     class ApplicationInfo(proto.Message):
@@ -376,25 +374,6 @@ class Job(proto.Message):
                 are exactly matched to
                 [Job.addresses][google.cloud.talent.v4.Job.addresses] in the
                 same order.
-            street_locations (Sequence[google.cloud.talent_v4.types.Location]):
-                Structured street locations of the job.
-
-                Unlike
-                [locations][google.cloud.talent.v4.Job.DerivedInfo.locations],
-                [street_locations][google.cloud.talent.v4.Job.DerivedInfo.street_locations]
-                contains street locations inferred from job posting details,
-                e.g. [Job.addresses][google.cloud.talent.v4.Job.addresses],
-                [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name],
-                and so on.
-
-                Note that the inference of
-                [street_locations][google.cloud.talent.v4.Job.DerivedInfo.street_locations]
-                isn't guaranteed to be 100% correct.
-
-                [street_locations][google.cloud.talent.v4.Job.DerivedInfo.street_locations]
-                are exactly matched to
-                [Job.addresses][google.cloud.talent.v4.Job.addresses] in the
-                same order.
             job_categories (Sequence[google.cloud.talent_v4.types.JobCategory]):
                 Job categories derived from
                 [Job.title][google.cloud.talent.v4.Job.title] and
@@ -404,11 +383,6 @@ class Job(proto.Message):
         locations = proto.RepeatedField(
             proto.MESSAGE,
             number=1,
-            message=common.Location,
-        )
-        street_locations = proto.RepeatedField(
-            proto.MESSAGE,
-            number=2,
             message=common.Location,
         )
         job_categories = proto.RepeatedField(
@@ -449,108 +423,6 @@ class Job(proto.Message):
             proto.ENUM,
             number=2,
             enum=common.HtmlSanitization,
-        )
-
-    class JobDebugInfo(proto.Message):
-        r"""Debugging information for internal users.
-
-        Attributes:
-            status (google.cloud.talent_v4.types.Job.JobDebugInfo.JobStatus):
-                Job Status.
-            soc_beliefs (Sequence[google.cloud.talent_v4.types.Job.JobDebugInfo.SocBelief]):
-                Soc Beliefs.
-            project_id (str):
-                project id.
-            distributor_id (str):
-                distributor id
-            tenant_id (str):
-                tenant id.
-            project_number (int):
-                project number
-            job_classifications (Sequence[str]):
-                Job Classifications
-            seniority (str):
-                Seniority
-            confidence_scores (Sequence[float]):
-                Confidence Scores
-            last_update_time (google.protobuf.timestamp_pb2.Timestamp):
-                Last Update TIme
-        """
-
-        class JobStatus(proto.Enum):
-            r""""""
-            JOB_DEBUG_INFO_UNSPECIFIED = 0
-            EXPIRED = 1
-            OPEN = 2
-            DELETED = 3
-
-        class SocBelief(proto.Message):
-            r"""A belief that a job has particular soc with some probability.
-
-            Attributes:
-                soc_code (str):
-
-                probability (float):
-
-                svp (int):
-
-            """
-
-            soc_code = proto.Field(
-                proto.STRING,
-                number=1,
-            )
-            probability = proto.Field(
-                proto.DOUBLE,
-                number=2,
-            )
-            svp = proto.Field(
-                proto.INT32,
-                number=3,
-            )
-
-        status = proto.Field(
-            proto.ENUM,
-            number=1,
-            enum="Job.JobDebugInfo.JobStatus",
-        )
-        soc_beliefs = proto.RepeatedField(
-            proto.MESSAGE,
-            number=2,
-            message="Job.JobDebugInfo.SocBelief",
-        )
-        project_id = proto.Field(
-            proto.STRING,
-            number=3,
-        )
-        distributor_id = proto.Field(
-            proto.STRING,
-            number=4,
-        )
-        tenant_id = proto.Field(
-            proto.STRING,
-            number=5,
-        )
-        project_number = proto.Field(
-            proto.INT64,
-            number=6,
-        )
-        job_classifications = proto.RepeatedField(
-            proto.STRING,
-            number=7,
-        )
-        seniority = proto.Field(
-            proto.STRING,
-            number=8,
-        )
-        confidence_scores = proto.RepeatedField(
-            proto.DOUBLE,
-            number=9,
-        )
-        last_update_time = proto.Field(
-            proto.MESSAGE,
-            number=10,
-            message=timestamp_pb2.Timestamp,
         )
 
     name = proto.Field(
@@ -690,11 +562,6 @@ class Job(proto.Message):
         proto.MESSAGE,
         number=30,
         message=ProcessingOptions,
-    )
-    job_debug_info = proto.Field(
-        proto.MESSAGE,
-        number=58,
-        message=JobDebugInfo,
     )
 
 

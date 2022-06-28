@@ -431,37 +431,6 @@ class JobServiceGrpcTransport(JobServiceTransport):
         return self._stubs["batch_delete_jobs"]
 
     @property
-    def purge_jobs(
-        self,
-    ) -> Callable[[job_service.PurgeJobsRequest], operations_pb2.Operation]:
-        r"""Return a callable for the purge jobs method over gRPC.
-
-        Purges all jobs associated with requested target.
-        Note: Jobs in OPEN status remain searchable until the
-        operation completes.
-        Note: The operation returned may take hours or longer to
-        complete, depending on the number of jobs that need to
-        be deleted.
-
-        Returns:
-            Callable[[~.PurgeJobsRequest],
-                    ~.Operation]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "purge_jobs" not in self._stubs:
-            self._stubs["purge_jobs"] = self.grpc_channel.unary_unary(
-                "/google.cloud.talent.v4.JobService/PurgeJobs",
-                request_serializer=job_service.PurgeJobsRequest.serialize,
-                response_deserializer=operations_pb2.Operation.FromString,
-            )
-        return self._stubs["purge_jobs"]
-
-    @property
     def list_jobs(
         self,
     ) -> Callable[[job_service.ListJobsRequest], job_service.ListJobsResponse]:

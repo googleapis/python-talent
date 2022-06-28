@@ -13,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from google.protobuf import any_pb2  # type: ignore
 from google.protobuf import duration_pb2  # type: ignore
 from google.protobuf import field_mask_pb2  # type: ignore
 from google.rpc import status_pb2  # type: ignore
@@ -37,12 +36,10 @@ __protobuf__ = proto.module(
         "BatchCreateJobsRequest",
         "BatchUpdateJobsRequest",
         "BatchDeleteJobsRequest",
-        "PurgeJobsRequest",
         "JobResult",
         "BatchCreateJobsResponse",
         "BatchUpdateJobsResponse",
         "BatchDeleteJobsResponse",
-        "PurgeJobsResponse",
     },
 )
 
@@ -521,11 +518,6 @@ class SearchJobsRequest(proto.Message):
             Controls over how job documents get ranked on
             top of existing relevance score (determined by
             API algorithm).
-        enable_debug_info (bool):
-            Controls whether to add search debug
-            information (sortExpr, partial expressions) into
-            SearchResponse.
-            Defaults to false.
         disable_keyword_match (bool):
             This field is deprecated. Please use
             [SearchJobsRequest.keyword_match_mode][google.cloud.talent.v4.SearchJobsRequest.keyword_match_mode]
@@ -572,10 +564,6 @@ class SearchJobsRequest(proto.Message):
             Defaults to
             [KeywordMatchMode.KEYWORD_MATCH_ALL][google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode.KEYWORD_MATCH_ALL]
             if no value is specified.
-        mendel_debug_input (google.protobuf.any_pb2.Any):
-            This field allows us to pass in a
-            MendelDebugInput proto to force mendel
-            experiment traffic in FORCEABLE experiments.
     """
 
     class SearchMode(proto.Enum):
@@ -751,10 +739,6 @@ class SearchJobsRequest(proto.Message):
         number=14,
         message=CustomRankingInfo,
     )
-    enable_debug_info = proto.Field(
-        proto.BOOL,
-        number=15,
-    )
     disable_keyword_match = proto.Field(
         proto.BOOL,
         number=16,
@@ -763,11 +747,6 @@ class SearchJobsRequest(proto.Message):
         proto.ENUM,
         number=18,
         enum=KeywordMatchMode,
-    )
-    mendel_debug_input = proto.Field(
-        proto.MESSAGE,
-        number=17,
-        message=any_pb2.Any,
     )
 
 
@@ -842,8 +821,6 @@ class SearchJobsResponse(proto.Message):
             commute_info (google.cloud.talent_v4.types.SearchJobsResponse.CommuteInfo):
                 Commute information which is generated based on specified
                 [CommuteFilter][google.cloud.talent.v4.CommuteFilter].
-            debug_info (str):
-
         """
 
         job = proto.Field(
@@ -867,10 +844,6 @@ class SearchJobsResponse(proto.Message):
             proto.MESSAGE,
             number=5,
             message="SearchJobsResponse.CommuteInfo",
-        )
-        debug_info = proto.Field(
-            proto.STRING,
-            number=6,
         )
 
     class CommuteInfo(proto.Message):
@@ -1054,53 +1027,6 @@ class BatchDeleteJobsRequest(proto.Message):
     )
 
 
-class PurgeJobsRequest(proto.Message):
-    r"""Request to purge a set of jobs.
-
-    Attributes:
-        parent (str):
-            Required. The resource name of the project under which the
-            jobs should be deleted.
-
-            The format is "projects/{project_id}". For example,
-            "projects/foo".
-        filter (str):
-            Required. A filter matching the jobs to be purged.
-
-            The filter can be one of the following three parent
-            resources.
-
-            1. Company. Resource name of the company under which all the
-               jobs should be deleted. The format is
-               "projects/{project_id}/tenants/{tenant_id}/companies/{company_id}".
-               For example, "projects/foo/tenants/bar/companies/baz"
-            2. Tenant. Resource name of the tenant under which all the
-               jobs should be deleted. The format is
-               "projects/{project_id}/tenants/{tenant_id}". For example,
-               "projects/foo/tenants/bar".
-            3. Project. Resource name of the project under which all the
-               jobs should be deleted. The format is
-               "projects/{project_id}". For example, "projects/foo/".
-        force (bool):
-            Actually perform the purge. If ``force`` is set to false,
-            the method will return a sample of resource names that will
-            be deleted.
-    """
-
-    parent = proto.Field(
-        proto.STRING,
-        number=1,
-    )
-    filter = proto.Field(
-        proto.STRING,
-        number=2,
-    )
-    force = proto.Field(
-        proto.BOOL,
-        number=3,
-    )
-
-
 class JobResult(proto.Message):
     r"""Mutation result of a job from a batch operation.
 
@@ -1192,49 +1118,6 @@ class BatchDeleteJobsResponse(proto.Message):
     job_results = proto.RepeatedField(
         proto.MESSAGE,
         number=1,
-        message="JobResult",
-    )
-
-
-class PurgeJobsResponse(proto.Message):
-    r"""The result of
-    [JobService.PurgeJobs][google.cloud.talent.v4.JobService.PurgeJobs].
-    It's used to replace
-    [google.longrunning.Operation.response][google.longrunning.Operation.response]
-    in case of success.
-
-    Attributes:
-        purge_count (int):
-            The number of jobs that this request deleted (or, if
-            ``force`` is false, the number of jobs that will be
-            deleted).
-
-            Note: This number isn't guaranteed to be accurate. Note:
-            This number might change until operation status is FINISHED,
-            FAILED or CANCELLED.
-        purge_sample (Sequence[str]):
-            A sample of the resource names of jobs that will be deleted.
-            Only populated if ``force`` is set to false. At most 100 job
-            names are returned as a sample.
-        job_results (Sequence[google.cloud.talent_v4.types.JobResult]):
-            List of job purge results from a purge jobs operation. Only
-            populated if ``force`` is set to true.
-
-            Note: This may change until operation status is FINISHED,
-            FAILED or CANCELLED.
-    """
-
-    purge_count = proto.Field(
-        proto.INT32,
-        number=1,
-    )
-    purge_sample = proto.RepeatedField(
-        proto.STRING,
-        number=2,
-    )
-    job_results = proto.RepeatedField(
-        proto.MESSAGE,
-        number=3,
         message="JobResult",
     )
 

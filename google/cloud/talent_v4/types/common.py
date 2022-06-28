@@ -41,9 +41,6 @@ __protobuf__ = proto.module(
         "CustomAttribute",
         "SpellingCorrection",
         "CompensationInfo",
-        "DelegatedUserInfo",
-        "DebugOptions",
-        "DebugInfo",
         "BatchOperationMetadata",
     },
 )
@@ -366,13 +363,6 @@ class RequestMetadata(proto.Message):
         device_info (google.cloud.talent_v4.types.DeviceInfo):
             The type of device used by the job seeker at
             the time of the call to the service.
-        delegated_user_info (google.cloud.talent_v4.types.DelegatedUserInfo):
-            Delegated user information only used for
-            internal purpose.
-        debug_options (google.cloud.talent_v4.types.DebugOptions):
-            Enables debugging mode and controls various
-            debug parameters in the search process. Internal
-            only.
     """
 
     domain = proto.Field(
@@ -396,16 +386,6 @@ class RequestMetadata(proto.Message):
         number=5,
         message="DeviceInfo",
     )
-    delegated_user_info = proto.Field(
-        proto.MESSAGE,
-        number=6,
-        message="DelegatedUserInfo",
-    )
-    debug_options = proto.Field(
-        proto.MESSAGE,
-        number=7,
-        message="DebugOptions",
-    )
 
 
 class ResponseMetadata(proto.Message):
@@ -416,18 +396,11 @@ class ResponseMetadata(proto.Message):
         request_id (str):
             A unique id associated with this call.
             This id is logged for tracking purposes.
-        debug_info (google.cloud.talent_v4.types.DebugInfo):
-
     """
 
     request_id = proto.Field(
         proto.STRING,
         number=1,
-    )
-    debug_info = proto.Field(
-        proto.MESSAGE,
-        number=2,
-        message="DebugInfo",
     )
 
 
@@ -793,135 +766,6 @@ class CompensationInfo(proto.Message):
         proto.MESSAGE,
         number=3,
         message=CompensationRange,
-    )
-
-
-class DelegatedUserInfo(proto.Message):
-    r"""Delegated partner information where for admin or debug purpose, our
-    internal source needs to act as a partner to do READ_ONLY operations
-    (for example, SearchJobs).
-
-    Attributes:
-        project_number (int):
-            The GCP project number of the customer that
-            the caller is acting on behalf of.
-
-            If both project number and distributor id are
-            provided, distributor id has the higher
-            priority.
-        distributor_id (str):
-            The pretended distributor id.
-            If both project number and distributor id are
-            provided, distributor id has the higher
-            priority.
-        tenant_id (str):
-            The pretended tenant id.
-    """
-
-    project_number = proto.Field(
-        proto.INT64,
-        number=1,
-    )
-    distributor_id = proto.Field(
-        proto.STRING,
-        number=2,
-    )
-    tenant_id = proto.Field(
-        proto.STRING,
-        number=3,
-    )
-
-
-class DebugOptions(proto.Message):
-    r"""Various debug options available for debugging mode. Internal
-    only.
-
-    Attributes:
-        level (int):
-            Specifies the level of debug output. The
-            higher the number, the more debug information is
-            returned and printed in backend server logs.
-            Current levels are 1-4.
-        searcher (str):
-            Specifies which search backend to use.
-            Current available options are: st-bti, model-t,
-            and st-muppet.
-        scoring_parameter_override (str):
-            Specifies the scoring parameters to override
-            during search. This is equivalent to the 'dsp'
-            url parameter in the legacy system. For details,
-            consult go/gjobs-scoring-params.
-        st_expression_override (str):
-            Overrides the ST sorting/scoring expression.
-        search_all_tenant (google.protobuf.wrappers_pb2.BoolValue):
-            Search documents of all tenants (only
-            implemented for job search as of 6/14/2019).
-        enable_wildcard_search (google.protobuf.wrappers_pb2.BoolValue):
-            Temporarily added this flag for profile
-            wildcard search Flag to indicate whether
-            wildcard search is enabled
-    """
-
-    level = proto.Field(
-        proto.INT32,
-        number=1,
-    )
-    searcher = proto.Field(
-        proto.STRING,
-        number=2,
-    )
-    scoring_parameter_override = proto.Field(
-        proto.STRING,
-        number=3,
-    )
-    st_expression_override = proto.Field(
-        proto.STRING,
-        number=4,
-    )
-    search_all_tenant = proto.Field(
-        proto.MESSAGE,
-        number=5,
-        message=wrappers_pb2.BoolValue,
-    )
-    enable_wildcard_search = proto.Field(
-        proto.MESSAGE,
-        number=6,
-        message=wrappers_pb2.BoolValue,
-    )
-
-
-class DebugInfo(proto.Message):
-    r"""Debug information.
-
-    Attributes:
-        query_debug_info (str):
-
-        moonshine_debug_info (str):
-
-        experiment_ids (Sequence[int]):
-            Identifiers for the versions of the search
-            algorithm used during this API invocation if
-            multiple algorithms are used. The default value
-            is empty.
-        recommend_model_id (str):
-            The model id for profiles recommendation.
-    """
-
-    query_debug_info = proto.Field(
-        proto.STRING,
-        number=1,
-    )
-    moonshine_debug_info = proto.Field(
-        proto.STRING,
-        number=2,
-    )
-    experiment_ids = proto.RepeatedField(
-        proto.INT32,
-        number=3,
-    )
-    recommend_model_id = proto.Field(
-        proto.STRING,
-        number=4,
     )
 
 
