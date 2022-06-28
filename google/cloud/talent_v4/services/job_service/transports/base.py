@@ -189,6 +189,11 @@ class JobServiceTransport(abc.ABC):
                 default_timeout=30.0,
                 client_info=client_info,
             ),
+            self.purge_jobs: gapic_v1.method.wrap_method(
+                self.purge_jobs,
+                default_timeout=None,
+                client_info=client_info,
+            ),
             self.list_jobs: gapic_v1.method.wrap_method(
                 self.list_jobs,
                 default_retry=retries.Retry(
@@ -284,6 +289,15 @@ class JobServiceTransport(abc.ABC):
         self,
     ) -> Callable[
         [job_service.BatchDeleteJobsRequest],
+        Union[operations_pb2.Operation, Awaitable[operations_pb2.Operation]],
+    ]:
+        raise NotImplementedError()
+
+    @property
+    def purge_jobs(
+        self,
+    ) -> Callable[
+        [job_service.PurgeJobsRequest],
         Union[operations_pb2.Operation, Awaitable[operations_pb2.Operation]],
     ]:
         raise NotImplementedError()

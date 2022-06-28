@@ -157,6 +157,11 @@
                 "list_jobs"
               ]
             },
+            "PurgeJobs": {
+              "methods": [
+                "purge_jobs"
+              ]
+            },
             "SearchJobs": {
               "methods": [
                 "search_jobs"
@@ -210,6 +215,11 @@
             "ListJobs": {
               "methods": [
                 "list_jobs"
+              ]
+            },
+            "PurgeJobs": {
+              "methods": [
+                "purge_jobs"
               ]
             },
             "SearchJobs": {
