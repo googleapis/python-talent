@@ -2318,7 +2318,6 @@ def test_tenant_service_transport_auth_adc(transport_class):
     [
         transports.TenantServiceGrpcTransport,
         transports.TenantServiceGrpcAsyncIOTransport,
-        transports.TenantServiceRestTransport,
     ],
 )
 def test_tenant_service_transport_auth_gdch_credentials(transport_class):

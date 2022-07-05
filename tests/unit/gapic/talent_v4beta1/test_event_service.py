@@ -1165,7 +1165,6 @@ def test_event_service_transport_auth_adc(transport_class):
     [
         transports.EventServiceGrpcTransport,
         transports.EventServiceGrpcAsyncIOTransport,
-        transports.EventServiceRestTransport,
     ],
 )
 def test_event_service_transport_auth_gdch_credentials(transport_class):

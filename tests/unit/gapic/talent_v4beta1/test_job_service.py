@@ -3958,7 +3958,6 @@ def test_job_service_transport_auth_adc(transport_class):
     [
         transports.JobServiceGrpcTransport,
         transports.JobServiceGrpcAsyncIOTransport,
-        transports.JobServiceRestTransport,
     ],
 )
 def test_job_service_transport_auth_gdch_credentials(transport_class):
