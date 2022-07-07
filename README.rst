@@ -3,7 +3,7 @@ Python Client for Google Cloud Talent Solution API
 
 |stable| |pypi| |versions|
 
-`Google Cloud Talent Solution API`_: 
+`Google Cloud Talent Solution API`_: allows you to transform your job search and candidate matching capabilities with Cloud Talent Solution, designed to support enterprise talent acquisition technology and evolve with your growing needs. This AI solution includes features such as Job Search and Profile Search (Beta) to provide candidates and employers with an enhanced talent acquisition experience. Learn more about Cloud Talent Solution from the product overview page.
 
 - `Client Library Documentation`_
 - `Product Documentation`_
