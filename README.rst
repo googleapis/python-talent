@@ -3,7 +3,7 @@ Python Client for Talent Solution API
 
 |stable| |pypi| |versions|
 
-`Talent Solution API`_: allows you to transform your job search and candidate matching capabilities with Cloud Talent Solution, designed to support enterprise talent acquisition technology and evolve with your growing needs. This AI solution includes features such as Job Search and Profile Search (Beta) to provide candidates and employers with an enhanced talent acquisition experience. Learn more about Cloud Talent Solution from the product overview page.
+`Talent Solution API`_: Cloud Talent Solution provides the capability to create, read, update, and delete job postings, as well as search jobs based on keywords and filters.
 
 - `Client Library Documentation`_
 - `Product Documentation`_
