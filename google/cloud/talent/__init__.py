@@ -14,31 +14,27 @@
 # limitations under the License.
 #
 
-from google.cloud.talent_v4beta1.services.company_service.async_client import (
+from google.cloud.talent_v4.services.company_service.async_client import (
     CompanyServiceAsyncClient,
 )
-from google.cloud.talent_v4beta1.services.company_service.client import (
-    CompanyServiceClient,
-)
-from google.cloud.talent_v4beta1.services.completion.async_client import (
+from google.cloud.talent_v4.services.company_service.client import CompanyServiceClient
+from google.cloud.talent_v4.services.completion.async_client import (
     CompletionAsyncClient,
 )
-from google.cloud.talent_v4beta1.services.completion.client import CompletionClient
-from google.cloud.talent_v4beta1.services.event_service.async_client import (
+from google.cloud.talent_v4.services.completion.client import CompletionClient
+from google.cloud.talent_v4.services.event_service.async_client import (
     EventServiceAsyncClient,
 )
-from google.cloud.talent_v4beta1.services.event_service.client import EventServiceClient
-from google.cloud.talent_v4beta1.services.job_service.async_client import (
+from google.cloud.talent_v4.services.event_service.client import EventServiceClient
+from google.cloud.talent_v4.services.job_service.async_client import (
     JobServiceAsyncClient,
 )
-from google.cloud.talent_v4beta1.services.job_service.client import JobServiceClient
-from google.cloud.talent_v4beta1.services.tenant_service.async_client import (
+from google.cloud.talent_v4.services.job_service.client import JobServiceClient
+from google.cloud.talent_v4.services.tenant_service.async_client import (
     TenantServiceAsyncClient,
 )
-from google.cloud.talent_v4beta1.services.tenant_service.client import (
-    TenantServiceClient,
-)
-from google.cloud.talent_v4beta1.types.common import (
+from google.cloud.talent_v4.services.tenant_service.client import TenantServiceClient
+from google.cloud.talent_v4.types.common import (
     BatchOperationMetadata,
     CommuteMethod,
     CompanySize,
@@ -59,8 +55,8 @@ from google.cloud.talent_v4beta1.types.common import (
     TimestampRange,
     Visibility,
 )
-from google.cloud.talent_v4beta1.types.company import Company
-from google.cloud.talent_v4beta1.types.company_service import (
+from google.cloud.talent_v4.types.company import Company
+from google.cloud.talent_v4.types.company_service import (
     CreateCompanyRequest,
     DeleteCompanyRequest,
     GetCompanyRequest,
@@ -68,31 +64,31 @@ from google.cloud.talent_v4beta1.types.company_service import (
     ListCompaniesResponse,
     UpdateCompanyRequest,
 )
-from google.cloud.talent_v4beta1.types.completion_service import (
+from google.cloud.talent_v4.types.completion_service import (
     CompleteQueryRequest,
     CompleteQueryResponse,
 )
-from google.cloud.talent_v4beta1.types.event import ClientEvent, JobEvent
-from google.cloud.talent_v4beta1.types.event_service import CreateClientEventRequest
-from google.cloud.talent_v4beta1.types.filters import (
+from google.cloud.talent_v4.types.event import ClientEvent, JobEvent
+from google.cloud.talent_v4.types.event_service import CreateClientEventRequest
+from google.cloud.talent_v4.types.filters import (
     CommuteFilter,
     CompensationFilter,
     JobQuery,
     LocationFilter,
 )
-from google.cloud.talent_v4beta1.types.histogram import (
-    HistogramQuery,
-    HistogramQueryResult,
-)
-from google.cloud.talent_v4beta1.types.job import Job
-from google.cloud.talent_v4beta1.types.job_service import (
+from google.cloud.talent_v4.types.histogram import HistogramQuery, HistogramQueryResult
+from google.cloud.talent_v4.types.job import Job
+from google.cloud.talent_v4.types.job_service import (
     BatchCreateJobsRequest,
+    BatchCreateJobsResponse,
     BatchDeleteJobsRequest,
+    BatchDeleteJobsResponse,
     BatchUpdateJobsRequest,
+    BatchUpdateJobsResponse,
     CreateJobRequest,
     DeleteJobRequest,
     GetJobRequest,
-    JobOperationResult,
+    JobResult,
     JobView,
     ListJobsRequest,
     ListJobsResponse,
@@ -100,8 +96,8 @@ from google.cloud.talent_v4beta1.types.job_service import (
     SearchJobsResponse,
     UpdateJobRequest,
 )
-from google.cloud.talent_v4beta1.types.tenant import Tenant
-from google.cloud.talent_v4beta1.types.tenant_service import (
+from google.cloud.talent_v4.types.tenant import Tenant
+from google.cloud.talent_v4.types.tenant_service import (
     CreateTenantRequest,
     DeleteTenantRequest,
     GetTenantRequest,
@@ -160,12 +156,15 @@ __all__ = (
     "HistogramQueryResult",
     "Job",
     "BatchCreateJobsRequest",
+    "BatchCreateJobsResponse",
     "BatchDeleteJobsRequest",
+    "BatchDeleteJobsResponse",
     "BatchUpdateJobsRequest",
+    "BatchUpdateJobsResponse",
     "CreateJobRequest",
     "DeleteJobRequest",
     "GetJobRequest",
-    "JobOperationResult",
+    "JobResult",
     "ListJobsRequest",
     "ListJobsResponse",
     "SearchJobsRequest",
