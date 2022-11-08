@@ -389,7 +389,7 @@ class SearchJobsRequest(proto.Message):
             -  employment_type: histogram by
                [Job.employment_types][google.cloud.talent.v4beta1.Job.employment_types],
                for example, "FULL_TIME", "PART_TIME".
-            -  company_size: histogram by
+            -  company_size (DEPRECATED): histogram by
                [CompanySize][google.cloud.talent.v4beta1.CompanySize],
                for example, "SMALL", "MEDIUM", "BIG".
             -  publish_time_in_day: histogram by the

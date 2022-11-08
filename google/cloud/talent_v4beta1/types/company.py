@@ -83,6 +83,11 @@ class Company(proto.Message):
         image_uri (str):
             A URI that hosts the employer's company logo.
         keyword_searchable_job_custom_attributes (Sequence[str]):
+            This field is deprecated. Please set the searchability of
+            the custom attribute in the
+            [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes]
+            going forward.
+
             A list of keys of filterable
             [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes],
             whose corresponding ``string_values`` are used in keyword
