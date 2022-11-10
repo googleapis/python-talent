@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 
 from google.api_core import client_options as client_options_lib
 from google.api_core import exceptions as core_exceptions
@@ -63,7 +74,7 @@ class CompanyServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[CompanyServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -340,7 +351,7 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, CompanyServiceTransport, None] = None,
+        transport: Optional[Union[str, CompanyServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -438,12 +449,12 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
 
     def create_company(
         self,
-        request: Union[company_service.CreateCompanyRequest, dict] = None,
+        request: Optional[Union[company_service.CreateCompanyRequest, dict]] = None,
         *,
-        parent: str = None,
-        company: gct_company.Company = None,
+        parent: Optional[str] = None,
+        company: Optional[gct_company.Company] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> gct_company.Company:
         r"""Creates a new company entity.
@@ -563,11 +574,11 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
 
     def get_company(
         self,
-        request: Union[company_service.GetCompanyRequest, dict] = None,
+        request: Optional[Union[company_service.GetCompanyRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> company.Company:
         r"""Retrieves specified company.
@@ -677,11 +688,11 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
 
     def update_company(
         self,
-        request: Union[company_service.UpdateCompanyRequest, dict] = None,
+        request: Optional[Union[company_service.UpdateCompanyRequest, dict]] = None,
         *,
-        company: gct_company.Company = None,
+        company: Optional[gct_company.Company] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> gct_company.Company:
         r"""Updates specified company.
@@ -790,11 +801,11 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
 
     def delete_company(
         self,
-        request: Union[company_service.DeleteCompanyRequest, dict] = None,
+        request: Optional[Union[company_service.DeleteCompanyRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes specified company.
@@ -888,11 +899,11 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
 
     def list_companies(
         self,
-        request: Union[company_service.ListCompaniesRequest, dict] = None,
+        request: Optional[Union[company_service.ListCompaniesRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListCompaniesPager:
         r"""Lists all companies associated with the project.
@@ -1022,10 +1033,10 @@ class CompanyServiceClient(metaclass=CompanyServiceClientMeta):
 
     def get_operation(
         self,
-        request: operations_pb2.GetOperationRequest = None,
+        request: Optional[operations_pb2.GetOperationRequest] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operations_pb2.Operation:
         r"""Gets the latest state of a long-running operation.

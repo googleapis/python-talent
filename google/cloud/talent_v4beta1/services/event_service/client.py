@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 
 from google.api_core import client_options as client_options_lib
 from google.api_core import exceptions as core_exceptions
@@ -58,7 +69,7 @@ class EventServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[EventServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -333,7 +344,7 @@ class EventServiceClient(metaclass=EventServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, EventServiceTransport, None] = None,
+        transport: Optional[Union[str, EventServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -431,12 +442,12 @@ class EventServiceClient(metaclass=EventServiceClientMeta):
 
     def create_client_event(
         self,
-        request: Union[event_service.CreateClientEventRequest, dict] = None,
+        request: Optional[Union[event_service.CreateClientEventRequest, dict]] = None,
         *,
-        parent: str = None,
-        client_event: event.ClientEvent = None,
+        parent: Optional[str] = None,
+        client_event: Optional[event.ClientEvent] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> event.ClientEvent:
         r"""Report events issued when end user interacts with customer's
@@ -582,10 +593,10 @@ class EventServiceClient(metaclass=EventServiceClientMeta):
 
     def get_operation(
         self,
-        request: operations_pb2.GetOperationRequest = None,
+        request: Optional[operations_pb2.GetOperationRequest] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operations_pb2.Operation:
         r"""Gets the latest state of a long-running operation.

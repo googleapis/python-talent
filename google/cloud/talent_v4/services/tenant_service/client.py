@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 
 from google.api_core import client_options as client_options_lib
 from google.api_core import exceptions as core_exceptions
@@ -60,7 +71,7 @@ class TenantServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[TenantServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -332,7 +343,7 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, TenantServiceTransport, None] = None,
+        transport: Optional[Union[str, TenantServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -430,12 +441,12 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
     def create_tenant(
         self,
-        request: Union[tenant_service.CreateTenantRequest, dict] = None,
+        request: Optional[Union[tenant_service.CreateTenantRequest, dict]] = None,
         *,
-        parent: str = None,
-        tenant: gct_tenant.Tenant = None,
+        parent: Optional[str] = None,
+        tenant: Optional[gct_tenant.Tenant] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> gct_tenant.Tenant:
         r"""Creates a new tenant entity.
@@ -552,11 +563,11 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
     def get_tenant(
         self,
-        request: Union[tenant_service.GetTenantRequest, dict] = None,
+        request: Optional[Union[tenant_service.GetTenantRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> tenant.Tenant:
         r"""Retrieves specified tenant.
@@ -663,12 +674,12 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
     def update_tenant(
         self,
-        request: Union[tenant_service.UpdateTenantRequest, dict] = None,
+        request: Optional[Union[tenant_service.UpdateTenantRequest, dict]] = None,
         *,
-        tenant: gct_tenant.Tenant = None,
-        update_mask: field_mask_pb2.FieldMask = None,
+        tenant: Optional[gct_tenant.Tenant] = None,
+        update_mask: Optional[field_mask_pb2.FieldMask] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> gct_tenant.Tenant:
         r"""Updates specified tenant.
@@ -795,11 +806,11 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
     def delete_tenant(
         self,
-        request: Union[tenant_service.DeleteTenantRequest, dict] = None,
+        request: Optional[Union[tenant_service.DeleteTenantRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Deletes specified tenant.
@@ -887,11 +898,11 @@ class TenantServiceClient(metaclass=TenantServiceClientMeta):
 
     def list_tenants(
         self,
-        request: Union[tenant_service.ListTenantsRequest, dict] = None,
+        request: Optional[Union[tenant_service.ListTenantsRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListTenantsPager:
         r"""Lists all tenants associated with the project.
