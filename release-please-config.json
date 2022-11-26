@@ -7,16 +7,6 @@
         "google/cloud/talent/gapic_version.py",
         {
           "type": "json",
-          "path": "samples/generated_samples/snippet_metadata_talent_v4beta1.json",
-          "jsonpath": "$.clientLibrary.version"
-        },
-        {
-          "type": "json",
-          "path": "samples/generated_samples/snippet_metadata_talent_v4.json",
-          "jsonpath": "$.clientLibrary.version"
-        },
-        {
-          "type": "json",
           "path": "samples/generated_samples/snippet_metadata_google.cloud.talent.v4.json",
           "jsonpath": "$.clientLibrary.version"
         },
