@@ -66,6 +66,17 @@ class Tenant(proto.Message):
     class DataUsageType(proto.Enum):
         r"""Enum that represents how user data owned by the tenant is
         used.
+
+        Values:
+            DATA_USAGE_TYPE_UNSPECIFIED (0):
+                Default value.
+            AGGREGATED (1):
+                Data owned by this tenant is used to improve
+                search/recommendation quality across tenants.
+            ISOLATED (2):
+                Data owned by this tenant is used to improve
+                search/recommendation quality for this tenant
+                only.
         """
         DATA_USAGE_TYPE_UNSPECIFIED = 0
         AGGREGATED = 1
